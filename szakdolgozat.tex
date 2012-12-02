@@ -1,0 +1,79 @@
+\documentclass[a4paper,10pt,titlepage,oneside]{report}
+
+\usepackage[magyar]{babel}
+\usepackage[utf8]{inputenc}
+
+\title{\textbf{Webalapú jegyzőkönyvkészítő és ülésszervezést segítő alkalmazás}}
+\author{Fási Gábor}
+\date{}
+
+\frenchspacing
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\begin{document}
+\setcounter{chapter}{1}
+
+\maketitle
+
+\section{A feladat felvázolása}
+
+Témám egy olyan rendszer elkészítése, mely böngészőn keresztül használható, a megfelelő jogosultságú felhasználók képesek ülést hirdetni helyszínnel, időponttal, majd erre résztvevőket meghívni, akik erről automatikus értesítést kapnak. Szintén a rendszer feladata a lefolyt ülések jegyzőkönyvei elkészítésének segítése, ezek megőrzése és megfelelő feltételek esetén nyilvánossá tétele.
+
+A rendszer fő hasznélvezője a Pannon Egyetem Hallgatói Önkormányzata lesz, de célom a lehetőség általánosítás, hogy a későbbiekben bárki könnyen és gyorsan az egyedi igényeihez tudja szabni és használatba venni.
+
+\section{Hasonló rendszerek}
+
+Számos jegyzőkönyvvezető rendszer érhető el már magyar nyelven is, de ezek többsége másfélére specializálódott, mint az én rendszerem; például mérési-, verseny vagy vizsgajegyzőkönyv-készítésre.
+
+Három darab ülésjegyzőkönyv-készítő funkcionalitással bíró rendszert találtam, melyek magyar készítésűek:
+
+\begin{itemize}
+
+    \item \emph{AC-TMTR, avagy az Albacomp Testületi Munkát Támogató Rendszer}\\
+    Önkormányzatok számára készült, honlapjuk szerint ,,Az AC-TMTR a teljes demokratikus döntéshozatali folyamat támogatására alkalmas az előterjesztések kezelésétől a döntések végrehajtásáig''.\\
+    A rendszer tudása messze több, mint jegyzőkönyvkészítés, Lotus Notes alapon működik.
+    
+    \item \emph{InterMap e-FORTE}\\
+    Fő célcsoportja a polgármesteri hivatalok, felső államigazgatás és nagyvállalatok vezetése, ennek tudása is jelentősen meghaladja a jegyzőkönyvkészítést és ülésszervezést.\\
+    Webalapú, ASP.NET nyelven készült.
+    
+    \item \emph{eKÖZIG döntéstámogató rendszer}\\
+    Szintén a közigazgatás a fő célcsoport, nagyméretű és bonyolult rendszert eredményezve.\\
+    Webalapú, ASP nyelven íródott.
+    
+\end{itemize}
+
+\section{Rendszerterv}
+
+A rendszer három fő modulra bontható:
+
+\begin{enumerate}
+    \item{Felhasználókezelés, authentikáció és authorizáció}
+    \item{Ülések hirdetése, kezelése}
+    \item{Jegyzőkönyvírás}
+\end{enumerate}
+
+\subsection{Felhasználókezelés, authentikáció és authorizáció}
+
+Az alkalmazás zárt, azaz nincs szabad regisztráció, csak az adminisztrátorok által hozható létre új felhasználó, illetve ők tudják a létezőket módosítani. A rendszer a kényelmes, gyors és biztonságos bejelentkezésre a Google OpenID rendszerét használja, így nem kell például jelszavakat biztonságos tárolásáról gondoskodnunk. Minden HÖK tag rendelkezik egy Google Apps fiókkal.
+
+Ennek a modulnak a feladata az OpenID bejelentkezési folyamat megvalósítása, a kapott adatok alapján a felhasználóhoz párosított jogosultsági szint ellenőrzése a rendszer használata során. Szintén ide tartozik a felhasználók adminisztrátorok általi kezelése.
+
+\subsection{Ülések hirdetése, kezelése}
+
+Az ülések rendelkeznek fix számú adattal, mint a rövid leírásuk, időpontjuk és a helyszínük. Megfelelő jogosultsággal rendelkező felhasználók képesek a fenti adatok megadása után ülést hirdetni, meghívottakat megadni. Opcionális adat még az ülés hosszú leírása, itt lehet például megadni a tervezett napirendi pontokat; valamint lehetőség van dokumentumok feltöltésére, ha valami anyagot előzetesen tanulmányozni kell a résztvevőknek.
+
+A rendszer a hirdetett üléseknek létrehoz egy bejegyzést a Google Naptár alkalmazásában, melyre meghívja a résztvevőket, így az bekerül az ő naptárukba is, valamint erről értesítő levelet kapnak.
+
+\subsection{Jegyzőkönyvírás}
+
+A lezajlott ülésekhez készíthető jegyzőkönyv, de természetesen ülés nélkül is lehet jegyzőkönyvet létrehozni (korábbi ülések, vagy ha a szervezés valamely oknál fogva a rendszeren kívül történt).
+
+A jegyzőkönyvek rendelkeznek ugyanazokkal az alapoadatokkal, mint az ülések, valamint tetszőleges számú bejegyzéssel, melyekből három típust különböztetünk meg: napirendi pont, felszólalás valamint szavazás. Mind más adatokkal rendelkezik, a rendszernek kezelnie kell ezt, valamint a bejegyzések egymás közti sorrendjét.
+
+A papír alapú iktatást elősegítendő lehetőség van az elkészült jegyzőkönyvek pdf formátumú exportálására.
+
+Szintén e modul feladata a nyilvános ülések kész jegyzőkönyveinek publikálása, bárki számára elérhetővé tétele.
+
+\end{document}
