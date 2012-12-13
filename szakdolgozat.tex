@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt,titlepage,oneside]{report}
+\documentclass[a4paper,12pt,titlepage,oneside]{report}
 
 \usepackage[magyar]{babel}
 \usepackage{t1enc}
@@ -68,7 +68,7 @@ A rendszer három fő modulra bontható:
 
 \subsection{Felhasználókezelés, authentikáció és authorizáció}
 
-Az alkalmazás zárt, azaz nincs szabad regisztráció, csak az adminisztrátorok által hozható létre új felhasználó, illetve ők tudják a létezőket módosítani. A rendszer a kényelmes, gyors és biztonságos bejelentkezésre a Google OpenID rendszerét használja, így nem kell például jelszavakat biztonságos tárolásáról gondoskodnunk. Minden HÖK tag rendelkezik egy Google Apps fiókkal.
+Az alkalmazás zárt, azaz nincs szabad regisztráció, csak az adminisztrátorok hozhatnak létre új felhasználót, illetve ők tudják a létezőket módosítani. A rendszer a kényelmes, gyors és biztonságos bejelentkezésre a Google OpenID rendszerét használja, így nem kell például jelszavak biztonságos tárolásáról gondoskodnunk. Minden HÖK tag rendelkezik egy Google Apps fiókkal.
 
 Ennek a modulnak a feladata az OpenID bejelentkezési folyamat megvalósítása, a kapott adatok alapján a felhasználóhoz párosított jogosultsági szint ellenőrzése a rendszer használata során. Szintén ide tartozik a felhasználók adminisztrátorok általi kezelése.
 
@@ -96,13 +96,13 @@ A választott követelményeimnek megfelelő webszerverekből az egyetem már mo
 
 \subsection{PHP}
 
-A php\footnote{http://php.net/} ma az egyik legelterjedtebb programozási nyelv, melyet weboldalak készítésére használnak. Rengeteg kezdőknek szóló leírás van róla, minden webfejlesztő ismeri legalább az alapjait. Bőségesen áll rendelkezésre akár ingyenes tárhely is, ahová felrakhatjuk az elkészült programunkat.
+A php ma az egyik legelterjedtebb programozási nyelv, melyet weboldalak készítésére használnak. Rengeteg kezdőknek szóló leírás van róla, minden webfejlesztő ismeri legalább az alapjait. Bőségesen áll rendelkezésre akár ingyenes tárhely is, ahová felrakhatjuk az elkészült programunkat.
 
 A 2008-ban megjelent 5.3-as verzióval a nyelvbe bekerült a névterek támogatása, valamint a garbage collector algoritmusa is sokat javult, jelentős teljesítmény\-növe\-kedést eredményezve. A feladatom minimum követelménye az 5.3.7-es verzió, ebben javítottak egy, a bcrypt modulban levő hibát, mely hibás (viszonylag könnyen törhető) jelszókódolást eredményezett.
 
 \subsection{Symfony2}
 
-A Symfony az egyik nagy keretrendszer a php világában. Első verziója 2005-ben jelent meg, csak ragasztó volt egy maréknyi könyvtár közt, azok együttes használatát segítendő. Folyamatosan fejlődött 2011-ig, olyan nagy oldalak hasz\-nálták, mint a Yahoo!\footnote{http://symfony.com/blog/yahoo-answers-powered-by-symfony} és a Dailymotion\footnote{http://symfony.com/blog/dailymotion-powered-by-symfony}. Az 1.4-es ága 2009-ben jelent meg, és egészen 2012 novemberéig rendelkezett támogatással.
+A Symfony az egyik nagy keretrendszer a php világában. Első verziója 2005-ben jelent meg, csak ragasztó volt egy maréknyi könyvtár közt, azok együttes használatát segítendő. Folyamatosan fejlődött, olyan nagy oldalak hasz\-nálták, mint a Yahoo!\footnote{http://symfony.com/blog/yahoo-answers-powered-by-symfony} és a Dailymotion\footnote{http://symfony.com/blog/dailymotion-powered-by-symfony}. Az 1.4-es ága 2009-ben jelent meg, és egészen 2012 novemberéig rendelkezett támogatással.
 
 A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyik első nagy keretrendszer volt, mely a php5.3 új lehetőségeit kihasználva lett az alapoktól újraírva. Fejlődése a közösség bevonásával történt, több, mint 250 önkéntes segített be. Az aktuális legfrissebb verzió a 2.1.4-es, mostanra 600 feletti a fejlesztésben részt vevők száma.
 
@@ -110,7 +110,7 @@ A Symfony remekül együtt tud működni a Doctrine\footnote{http://www.doctrine
 
 \subsection{Bootstrap}
 
-A Twitter által megalkotott Bootstrap\footnote{http://twitter.github.com/bootstrap/} css keretrendszer segítségével könnyen és gyorsan hozhatunk létre egységes jól kinéző webalkalmazásokat. Beépítve tartalmaz egyszerű, de jól használható stílusokat a webfejlesztés szinte minden területére az alapkinézet megalkotásától az űrlapmezők formázásáig. Élénk közösség alakult ki körülötte, így a korábban nem lefedett területekre is számos megoldás létezik mostanra. A kezdetek óta kiegészült egy maréknyi javascript könyvtárral is, melyekkel egyszerűen tudunk például dialógusablakokat vagy hasonló, gyakori feladatokat megoldani.
+A Twitter által megalkotott Bootstrap\footnote{http://twitter.github.com/bootstrap/} css keretrendszer segítségével könnyen és gyorsan hozhatunk létre egységes, jól kinéző webalkalmazásokat. Beépítve tartalmaz egyszerű, de jól használható stílusokat a webfejlesztés szinte minden területére, az alapkinézet megalkotásától az űrlapmezők formázásáig. Élénk közösség alakult ki körülötte, így a korábban nem lefedett területekre is számos megoldás létezik mostanra. A kezdetek óta kiegészült egy maréknyi javascript könyvtárral is, melyekkel egyszerűen tudunk például dialógusablakokat vagy hasonló, gyakori feladatokat megoldani.
 
 \section{Kritikus részek}
 
@@ -118,7 +118,7 @@ A következőkben megemlítem a rendszer kritikus pontjait, illetve hogy milyen 
 
 \subsection{OpenID authentikáció}
 
-Az OpenID\footnote{https://openid.net/specs/openid-authentication-2\_0.html} egy viszonylag összetett protokoll sok hibázási lehetőséggel. Szerencsére több készen elérhető megoldás is létezik, ezek közül nem egy pedig minimális konfiguráció után kész együttműködni a Symfony2 biztonsági komponensével köszönhetően annak, hogy készítettek hozzá kiterjesztést (a Symfony nevén Bundle-t). Ezek közül az FpOpenIdBundle\footnote{http://knpbundles.com/formapro/FpOpenIdBundle}-t választottam.
+Az OpenID\footnote{https://openid.net/specs/openid-authentication-2\_0.html} egy viszonylag összetett protokoll sok hibázási lehetőséggel. Szerencsére több készen elérhető megoldás is létezik, ezek közül nem egy pedig minimális konfiguráció után kész együttműködni a Symfony2 biztonsági komponensével köszönhetően annak, hogy készítettek hozzá kiterjesztést (a Symfony terminológiában Bundle-t). Ezek közül az FpOpenIdBundle\footnote{http://knpbundles.com/formapro/FpOpenIdBundle}-t választottam.
 
 \subsection{Jogosultságkezelés}
 
@@ -138,7 +138,7 @@ A választásomtól függően vagy egy könyvtár megfelelő függvényeit hívv
 
 \section{Felületterv}
 
-Az alábbiakban bemutatom a rendszer három várhatóan leggyakrabban látogatott képernyőjét. Az elrendezése mindegyiknek ugyanaz: felül egy menüsáv, ahol a bejelentkezett felhasználó jogosultsági szintjétől függően látszanak a menüpontok.
+Az következőkben bemutatom a rendszer három várhatóan leggyakrabban látogatott képernyőjét. Az elrendezése mindegyiknek ugyanaz: felül egy menüsáv, ahol a bejelentkezett felhasználó jogosultsági szintjétől függően látszanak a menüpontok.
 
 \subsection{Kezdőlap}
 
@@ -167,7 +167,7 @@ Néhány mondatban szót ejtek a rendszer által kezelt jogosultságokról, ille
 
 Az alapszintű jogosultság, hozzáfér a rendszerhez, tud jegyzőkönyveket létrehozni és megírni, illetve azon ülések részleteihez és feltöltött anyagaihoz hozzáférni, ahol meghívottként szerepel.
 
-Nem kell külön kiosztani, megkapja mindenki, aki a felhasználók táblában szerepel.
+Nem kell külön kiosztani, megkapja mindenki, aki a rendszerhez hozzáféréssel rendelkezik.
 
 \subsection*{Üléshirdető}
 
