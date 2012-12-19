@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,titlepage,oneside]{report}
+\documentclass[a4paper,12pt,oneside]{report}
 
 \usepackage[magyar]{babel}
 \usepackage{t1enc}
@@ -13,11 +13,13 @@
 \frenchspacing
 \onehalfspace
 
-\renewcommand{\thesection}{\arabic{section}}
-
 %fattyú- és árvasorok büntetése, ha nagyobb, akkor jobban próbálja elkerülni
 \widowpenalty=300
 \clubpenalty=300
+
+\graphicspath{{./kepek/}}
+
+\renewcommand{\thesection}{\arabic{section}}
 
 \begin{document}
 \setcounter{chapter}{1}
@@ -147,19 +149,19 @@ Az következőkben bemutatom a rendszer három várhatóan leggyakrabban látoga
 
 Bejelentkezés után minden felhasználó erre az oldalra érkezik. Áttekintő táblázatot kap az elkövetkező üléseiről, illetve azon jegyzőkönyveiről, melyek már létre lettek hozva, de még nincsenek lezárva.
 
-\includegraphics[width=\textwidth]{kepek/wireframe-kezdolap.png}
+\includegraphics[width=\textwidth]{wireframe-kezdolap}
 
 \subsection{Üléshirdetés}
 
 Ezen a képernyőn lehet megadni az ülés alapadatait és résztvevőket meghívni.
 
-\includegraphics[width=\textwidth]{kepek/wireframe-uleshirdetes.png}
+\includegraphics[width=\textwidth]{wireframe-uleshirdetes}
 
 \subsection{Jegyzőkönyvírás}
 
 Itt tudja az írással megbízott felhasználó felvinni a jegyzőkönyv elemeit, melyek sorrendfüggően egymás alatt látszanak.
 
-\includegraphics[width=\textwidth]{kepek/wireframe-jegyzokonyvszerkesztes.png}
+\includegraphics[width=\textwidth]{wireframe-jegyzokonyvszerkesztes}
 
 \section{Jogosultságok leírása}
 
