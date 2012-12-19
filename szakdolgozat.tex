@@ -4,7 +4,6 @@
 \usepackage{t1enc}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
-\usepackage{parskip}
 \usepackage{graphicx}
 
 \title{\textbf{Webalapú jegyzőkönyvkészítő és ülésszervezést segítő alkalmazás}}
@@ -15,6 +14,10 @@
 \onehalfspace
 
 \renewcommand{\thesection}{\arabic{section}}
+
+%fattyú- és árvasorok büntetése, ha nagyobb, akkor jobban próbálja elkerülni
+\widowpenalty=300
+\clubpenalty=300
 
 \begin{document}
 \setcounter{chapter}{1}
