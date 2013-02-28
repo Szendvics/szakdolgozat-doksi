@@ -5,6 +5,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
 \usepackage{graphicx}
+\usepackage{sectsty}
+\usepackage{arial}
+\usepackage{times} %times new roman font
 
 \title{\textbf{Webalapú jegyzőkönyvkészítő és ülésszervezést segítő alkalmazás}}
 \author{Fási Gábor\\\\Konzulens: Dulai Tibor}
@@ -18,6 +21,10 @@
 \clubpenalty=300
 
 \graphicspath{{./kepek/}}
+
+\renewcommand{\sfdefault}{arial}
+\renewcommand{\rmdefault}{times}
+\allsectionsfont{\sffamily}
 
 \renewcommand{\thesection}{\arabic{section}}
 
