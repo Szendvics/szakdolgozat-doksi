@@ -6,11 +6,13 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{sectsty}
-\usepackage{arial}
+\usepackage{arial} %arial font
 \usepackage{times} %times new roman font
+\usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
+\usepackage{fancyhdr}
 
 \title{\textbf{Webalapú jegyzőkönyvkészítő és ülésszervezést segítő alkalmazás}}
-\author{Fási Gábor\\\\Konzulens: Dulai Tibor}
+\author{Fási Gábor\\\\Témavezető: Dulai Tibor}
 \date{}
 
 \frenchspacing
@@ -24,7 +26,14 @@
 
 \renewcommand{\sfdefault}{arial}
 \renewcommand{\rmdefault}{times}
-\allsectionsfont{\sffamily}
+\allsectionsfont{\sffamily\large} %14pt
+\subsectionfont{\sffamily\normalsize} %12pt
+
+\fancyhf{} %minden fej- es lablec ures
+\chead{\rightmark} %fejlecbe fejezetcim
+\rfoot{\thepage} %oldalszam a jobb also sarokba
+\renewcommand{\headrulewidth}{0pt} %fejlec alatt ne legyen vonal
+\pagestyle{fancy}
 
 \renewcommand{\thesection}{\arabic{section}}
 
