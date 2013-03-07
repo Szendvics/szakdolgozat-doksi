@@ -3,20 +3,14 @@
 \usepackage[magyar]{babel}
 \usepackage{t1enc}
 \usepackage[utf8]{inputenc}
-\usepackage{setspace}
 \usepackage{graphicx}
-\usepackage{sectsty}
-\usepackage{arial} %arial font
-\usepackage{times} %times new roman font
-\usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
-\usepackage{fancyhdr}
+\usepackage{todonotes}
+\usepackage{formai_kovetelmenyek}
 
 \title{\textbf{Webalapú jegyzőkönyvkészítő és ülésszervezést segítő alkalmazás}}
 \author{Fási Gábor\\\\Témavezető: Dulai Tibor}
 \date{}
 
-\frenchspacing
-\onehalfspace
 
 %fattyú- és árvasorok büntetése, ha nagyobb, akkor jobban próbálja elkerülni
 \widowpenalty=300
@@ -24,23 +18,12 @@
 
 \graphicspath{{./kepek/}}
 
-\renewcommand{\sfdefault}{arial}
-\renewcommand{\rmdefault}{times}
-\allsectionsfont{\sffamily\large} %14pt
-\subsectionfont{\sffamily\normalsize} %12pt
-
-\fancyhf{} %minden fej- es lablec ures
-\chead{\rightmark} %fejlecbe fejezetcim
-\rfoot{\thepage} %oldalszam a jobb also sarokba
-\renewcommand{\headrulewidth}{0pt} %fejlec alatt ne legyen vonal
-\pagestyle{fancy}
-
-\renewcommand{\thesection}{\arabic{section}}
-
 \begin{document}
 \setcounter{chapter}{1}
 
 \maketitle
+
+\listoftodos
 
 \tableofcontents
 \thispagestyle{empty}
