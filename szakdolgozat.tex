@@ -8,7 +8,7 @@
 \usepackage{todonotes}
 \usepackage{formai_kovetelmenyek}
 
-\title{\textbf{Webalapú jegyzőkönyvkészítő és ülésszervezést segítő alkalmazás}}
+\title{\textbf{Ülésszervezést és jegyzőkönyv-írást támogató keretrendszer készítése}}
 \author{Fási Gábor\\\\Témavezető: Dulai Tibor}
 \date{}
 
@@ -29,7 +29,7 @@
 \thispagestyle{empty}
 \pagebreak
 
-\setcounter{page}{1}
+\setcounter{page}{1} %innentől indul az oldalszámozás
 \section{A feladat felvázolása}
 
 Témám egy olyan rendszer elkészítése, mely böngészőn keresztül használható, a megfelelő jogosultságú felhasználók képesek ülést hirdetni helyszínnel, időponttal, majd erre résztvevőket meghívni, akik erről automatikus értesítést kapnak. Szintén a rendszer feladata a lefolyt ülések jegyzőkönyvei elkészítésének segítése, ezek megőrzése és megfelelő feltételek esetén nyilvánossá tétele.
@@ -210,5 +210,36 @@ Egy jegyzőkönyv létrehozása az ülés hirdetésétől kezdve a következő l
 \end{enumerate}
 
 A folyamat úgy van kitalálva, hogy két felhasználóra oszlanak a feladatok: az ülés hirdetőjére és a jegyzőkönyv írójára. Természetesen a két személy lehet ugyanaz, ha az ülés hirdetője a jegyzőkönyvíró szerepét önmagának osztja ki.
+
+\section{Tesztelési terv}
+
+A Symfony2 remekül támogatatja az egység- és funkcionális tesztek írását. Ezt lehetőségeimhez mérten igyekszem kihasználni megelőzve azt, hogy a fejlesztés későbbi részeiben valami már működő funkcionalitást elrontsak.
+
+\todo[inline]{Tesztelésről részletesebben}
+Szintén hasznát fogom venni a Travis-CI szolgáltatásnak, melynek lényege az, hogy minden verziókövetőbe történő commit után automatikusan lefuttatja a teszteket akár több PHP verzión, illetve adatbázis-szerveren.
+
+Emellett amint a rendszer eléri a megfelelő fejlettségi szintet, telepítésre kerül egy alkalmas szerverre, hogy valós felhasználók is elkezdhessék annak próbálgatását és visszajelzések küldését.
+
+\section{Fejlesztési terv}
+
+A rendszer moduljainak tervezett fejlesztési sorrendje az egymásraépülések miatt a következő:
+
+\begin{enumerate}
+  \item \emph{Felhasználók}\\
+    Ebben a szakaszban készül el a bejelentkezési folyamat, a felhasználóhoz jogainak hozzárendelése, valamint a felhasználók kezelésére szolgáló rész: azok listázása, új felvétele, létezők szerkesztése.
+    
+  \item \emph{Ülések}\\
+    Elkészül az üléshirdetési folyamat meghívással, egyelőre a Google Calendar integráció nélkül. Működik a dokumentumfeltöltés, valamint az ülések listázása több szempontból, mint például a saját üléseim, vagy azok, amelyekre meghívtak.
+    
+  \item \emph{Jegyzőkönyvek}\\
+    Megvalósításra kerül a jegyzőkönyvek készítésére szolgáló modul. Lehet újat létrehozni csak úgy, illetve üléshez kapcsolva is. A pdf exportálás későbbre marad.\\
+    Előzetes becsléseim szerint ez a szakasz lesz a legidőigényesebb.
+    
+  \item \emph{Tesztelés}\\
+    A rendszer alapvető funkciói elkészültek, így az telepíthető egy arra alkalmas HÖK-ös szerverre, hogy elkezdődhessen az éles üzemre való felkészítés, illetve hogy valós felhasználói vélemények alapján tudjam a működést finomhangolni.
+    
+  \item \emph{Naptáresemény és exportálás}\\
+    Megvalósul a Google Naptárral kommunikáló szolgáltatás, hogy a hirdetett ülésekről ott is létrejöjjön esemény, valamint a kész jegyzőkönyvek PDF formátumban történő exportálási lehetősége.
+\end{enumerate}
 
 \end{document}
