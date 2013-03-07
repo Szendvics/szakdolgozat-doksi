@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt,oneside]{report}
 
+\usepackage{fancyhdr}
 \usepackage[magyar]{babel}
 \usepackage{t1enc}
 \usepackage[utf8]{inputenc}
@@ -10,7 +11,6 @@
 \title{\textbf{Webalapú jegyzőkönyvkészítő és ülésszervezést segítő alkalmazás}}
 \author{Fási Gábor\\\\Témavezető: Dulai Tibor}
 \date{}
-
 
 %fattyú- és árvasorok büntetése, ha nagyobb, akkor jobban próbálja elkerülni
 \widowpenalty=300
@@ -58,7 +58,7 @@ Három darab ülésjegyzőkönyv-készítő funkcionalitással bíró rendszert 
     
 \end{itemize}
 
-A fenti rendszerek mindegyike fizetős, valamint a mögöttes technológia is -- az operációs rendszer (Windows) és a futtatókörnyezet (ASP, ASP.NET) egyaránt komoly beruházást igényel a bevezetéskor.
+A fenti rendszerek mindegyike fizetős, valamint a mögöttes technológia is \textendash{} az operációs rendszer (Windows) és a futtatókörnyezet (ASP, ASP.NET) egyaránt komoly beruházást igényel a bevezetéskor.
 
 \section{Rendszerterv}
 
@@ -108,7 +108,9 @@ A 2008-ban megjelent 5.3-as verzióval a nyelvbe bekerült a névterek támogat�
 
 A Symfony az egyik nagy keretrendszer a php világában. Első verziója 2005-ben jelent meg, csak ragasztó volt egy maréknyi könyvtár közt, azok együttes használatát segítendő. Folyamatosan fejlődött, olyan nagy oldalak hasz\-nálták, mint a Yahoo!\footnote{http://symfony.com/blog/yahoo-answers-powered-by-symfony} és a Dailymotion\footnote{http://symfony.com/blog/dailymotion-powered-by-symfony}. Az 1.4-es ága 2009-ben jelent meg, és egészen 2012 novemberéig rendelkezett támogatással.
 
-A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyik első nagy keretrendszer volt, mely a php5.3 új lehetőségeit kihasználva lett az alapoktól újraírva. Fejlődése a közösség bevonásával történt, több, mint 250 önkéntes segített be. Az aktuális legfrissebb verzió a 2.1.4-es, mostanra 600 feletti a fejlesztésben részt vevők száma.
+A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyik első nagy keretrendszer volt, mely a php5.3 új lehetőségeit kihasználva lett az alapoktól újraírva. Fejlődése a közösség bevonásával történt, több, mint 250 önkéntes segített be. Mostanra 600 feletti a fejlesztésben részt vevők száma.
+
+A rendszerem fejlesztése a 2.1-es verzióban történt. A készítés utolsó hónapjaiban adták ki a 2.2-es verziót számos visszafelé nem kompatibilis változtatással, ezért nem frissítettem rá \textendash{} a 2.1-es változat 2013 közepéig élvez hivatalos támogatást, így a rendszer további fejlesztése során mindenképpen megfontolandó a 2.2-re átállás.
 
 A Symfony remekül együtt tud működni a Doctrine\footnote{http://www.doctrine-project.org/} ORM-el, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egy egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk.
 
