@@ -44,15 +44,15 @@ Három darab ülésjegyzőkönyv-készítő funkcionalitással bíró rendszert 
 
 \begin{itemize}
 
-    \item \emph{AC-TMTR, avagy az Albacomp Testületi Munkát Támogató Rendszer}\footnote{http://www.albacomp.hu/index.php?pg=menu\_8715}\\
+    \item \emph{AC-TMTR, avagy az Albacomp Testületi Munkát Támogató Rendszer}\cite{website:actmtr}\\
     Önkormányzatok számára készült, honlapjuk szerint ,,Az AC-TMTR a teljes demokratikus döntéshozatali folyamat támogatására alkalmas az előterjesztések kezelésétől a döntések végrehajtásáig''.\\
     A rendszer tudása messze több, mint jegyzőkönyvkészítés, Lotus Notes alapon működik.
     
-    \item \emph{InterMap e-FORTE}\footnote{http://intermap.hu/termekek/termekekonkormanyzat.html}\\
+    \item \emph{InterMap e-FORTE}\cite{website:eforte}\\
     Fő célcsoportja a polgármesteri hivatalok, felső államigazgatás és nagyvállalatok vezetése, ennek tudása is jelentősen meghaladja a jegyzőkönyvkészítést és ülésszervezést.\\
     Webalapú, ASP.NET nyelven készült.
     
-    \item \emph{eKÖZIG döntéstámogató rendszer}\footnote{http://www.ekozig.hu/dt.html}\\
+    \item \emph{eKÖZIG döntéstámogató rendszer}\cite{website:ekozig}\\
     Szintén a közigazgatás a fő célcsoport, nagyméretű és bonyolult rendszert eredményezve.\\
     Webalapú, ASP nyelven íródott.
     
@@ -106,17 +106,17 @@ A 2008-ban megjelent 5.3-as verzióval a nyelvbe bekerült a névterek támogat�
 
 \subsection{Symfony2}
 
-A Symfony az egyik nagy keretrendszer a php világában. Első verziója 2005-ben jelent meg, csak ragasztó volt egy maréknyi könyvtár közt, azok együttes használatát segítendő. Folyamatosan fejlődött, olyan nagy oldalak hasz\-nálták, mint a Yahoo!\footnote{http://symfony.com/blog/yahoo-answers-powered-by-symfony} és a Dailymotion\footnote{http://symfony.com/blog/dailymotion-powered-by-symfony}. Az 1.4-es ága 2009-ben jelent meg, és egészen 2012 novemberéig rendelkezett támogatással.
+A Symfony az egyik nagy keretrendszer a php világában. Első verziója 2005-ben jelent meg, csak ragasztó volt egy maréknyi könyvtár közt, azok együttes használatát segítendő. Folyamatosan fejlődött, olyan nagy oldalak hasz\-nálták, mint a Yahoo!\cite{website:symfony_yahoo} és a Dailymotion\cite{website:symfony_dailymotion}. Az 1.4-es ága 2009-ben jelent meg, és egészen 2012 novemberéig rendelkezett támogatással.
 
 A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyik első nagy keretrendszer volt, mely a php5.3 új lehetőségeit kihasználva lett az alapoktól újraírva. Fejlődése a közösség bevonásával történt, több, mint 250 önkéntes segített be. Mostanra 600 feletti a fejlesztésben részt vevők száma.
 
 A rendszerem fejlesztése a 2.1-es verzióban történt. A készítés utolsó hónapjaiban adták ki a 2.2-es verziót számos visszafelé nem kompatibilis változtatással, ezért nem frissítettem rá \textendash{} a 2.1-es változat 2013 közepéig élvez hivatalos támogatást, így a rendszer további fejlesztése során mindenképpen megfontolandó a 2.2-re átállás.
 
-A Symfony remekül együtt tud működni a Doctrine\footnote{http://www.doctrine-project.org/} ORM-el, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egy egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk.
+A Symfony remekül együtt tud működni a Doctrine\cite{website:doctrine} ORM-el, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egy egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk.
 
 \subsection{Bootstrap}
 
-A Twitter által megalkotott Bootstrap\footnote{http://twitter.github.com/bootstrap/} css keretrendszer segítségével könnyen és gyorsan hozhatunk létre egységes, jól kinéző webalkalmazásokat. Beépítve tartalmaz egyszerű, de jól használható stílusokat a webfejlesztés szinte minden területére, az alapkinézet megalkotásától az űrlapmezők formázásáig. Élénk közösség alakult ki körülötte, így a korábban nem lefedett területekre is számos megoldás létezik mostanra. A kezdetek óta kiegészült egy maréknyi javascript könyvtárral is, melyekkel egyszerűen tudunk például dialógusablakokat vagy hasonló, gyakori feladatokat megoldani.
+A Twitter által megalkotott Bootstrap\cite{website:bootstrap} css keretrendszer segítségével könnyen és gyorsan hozhatunk létre egységes, jól kinéző webalkalmazásokat. Beépítve tartalmaz egyszerű, de jól használható stílusokat a webfejlesztés szinte minden területére, az alapkinézet megalkotásától az űrlapmezők formázásáig. Élénk közösség alakult ki körülötte, így a korábban nem lefedett területekre is számos megoldás létezik mostanra. A kezdetek óta kiegészült egy maréknyi javascript könyvtárral is, melyekkel egyszerűen tudunk például dialógusablakokat vagy hasonló, gyakori feladatokat megoldani.
 
 \section{Kritikus részek}
 
@@ -124,7 +124,7 @@ A következőkben megemlítem a rendszer kritikus pontjait, illetve hogy milyen 
 
 \subsection{OpenID authentikáció}
 
-Az OpenID\footnote{https://openid.net/specs/openid-authentication-2\_0.html} egy viszonylag összetett protokoll sok hibázási lehetőséggel. Szerencsére több készen elérhető megoldás is létezik, ezek közül nem egy pedig minimális konfiguráció után kész együttműködni a Symfony2 biztonsági komponensével köszönhetően annak, hogy készítettek hozzá kiterjesztést (a Symfony terminológiában Bundle-t). Ezek közül az FpOpenIdBundle\footnote{http://knpbundles.com/formapro/FpOpenIdBundle}-t választottam.
+Az OpenID\cite{website:openid_specifikacio} egy viszonylag összetett protokoll sok hibázási lehetőséggel. Szerencsére több készen elérhető megoldás is létezik, ezek közül nem egy pedig minimális konfiguráció után kész együttműködni a Symfony2 biztonsági komponensével köszönhetően annak, hogy készítettek hozzá kiterjesztést (a Symfony terminológiában Bundle-t). Ezek közül az FpOpenIdBundle\cite{website:fpopenidbundle}-t választottam.
 
 \subsection{Jogosultságkezelés}
 
@@ -134,7 +134,7 @@ A Symfony2 Security komponense nagyon finom jogosultság-szabályoztást tesz le
 
 \subsection{Google Naptár együttműködés}
 
-Az API, amivel eseményeket lehet létrehozni és arra meghívottakat hozzáadni\footnote{https://developers.google.com/google-apps/calendar/v3/reference/events} nincs túlbonyolítva, és a Google ad php-hoz hivatalos klienskönyvtárat\footnote{https://code.google.com/p/google-api-php-client/}. Ennek segítségével fogok létrehozni egy Symfony2 szolgáltatást, mellyel a rendszer bármely részéről könnyen tudok majd a Naptárral kapcsolatba lépni.
+Az API, amivel eseményeket lehet létrehozni és arra meghívottakat hozzáadni\cite{website:gcal_event_api} nincs túlbonyolítva, és a Google ad php-hoz hivatalos klienskönyvtárat\cite{website:google_api_client}. Ennek segítségével fogok létrehozni egy Symfony2 szolgáltatást, mellyel a rendszer bármely részéről könnyen tudok majd a Naptárral kapcsolatba lépni.
 
 \subsection{PDF exportálás}
 
@@ -241,5 +241,8 @@ A rendszer moduljainak tervezett fejlesztési sorrendje az egymásraépülések 
   \item \emph{Naptáresemény és exportálás}\\
     Megvalósul a Google Naptárral kommunikáló szolgáltatás, hogy a hirdetett ülésekről ott is létrejöjjön esemény, valamint a kész jegyzőkönyvek PDF formátumban történő exportálási lehetősége.
 \end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{irodalomjegyzek}
 
 \end{document}
