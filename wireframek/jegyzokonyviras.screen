@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="2" x="6" y="8" width="545" height="529" text="Browser&#xA;http://..." measuredWidth="545" measuredHeight="529"/>
+  <widgets xsi:type="model:Label" id="3" x="26" y="70" text="Jegyzőkönyvíró" measuredWidth="85" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="4" x="310" y="70" text="Menü1, Menü2, Menü3, Kijelentkezés" measuredWidth="241" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="39" height="23" text="Menü1"/>
+    <items x="57" y="0" width="39" height="23" text="Menü2"/>
+    <items x="114" y="0" width="39" height="23" text="Menü3"/>
+    <items x="171" y="0" width="69" height="23" text="Kijelentkezés"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="5" x="26" y="104" text="Jegyzőkönyv szerkesztése" measuredWidth="151" measuredHeight="23">
+    <font bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="10" x="120" y="138" width="147" text="Szövegmező" measuredWidth="147" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="11" x="26" y="137" width="95" text="Cím:" measuredWidth="95" measuredHeight="25" textAlignment="Right">
+    <font size="13px"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="12" x="26" y="168" width="95" text="Helyszín:" measuredWidth="95" measuredHeight="25" textAlignment="Right">
+    <font size="13px"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="13" x="26" y="200" width="95" text="Időpont:" measuredWidth="95" measuredHeight="25" textAlignment="Right">
+    <font size="13px"/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="15" x="120" y="169" width="147" text="Szövegmező" measuredWidth="147" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="16" x="120" y="201" width="147" text="Szövegmező" measuredWidth="147" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="25" x="26" y="232" width="241" height="49" text="Napirendi pont" measuredWidth="241" measuredHeight="49">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="27" x="26" y="252" width="95" text="Cím:" measuredWidth="95" measuredHeight="25" textAlignment="Right">
+    <font size="13px"/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="28" x="120" y="253" width="137" text="Szövegmező" measuredWidth="137" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="29" x="26" y="288" width="241" text="Felszólalás" measuredWidth="241" measuredHeight="100">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="30" x="26" y="305" width="95" text="Szöveg:" measuredWidth="95" measuredHeight="25" textAlignment="Right">
+    <font size="13px"/>
+  </widgets>
+  <widgets xsi:type="model:TextArea" id="31" x="120" y="308" width="137" height="70" text="Felszólalás szövege" measuredWidth="137" measuredHeight="70">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="32" x="26" y="392" width="241" height="81" text="Szavazás" measuredWidth="241" measuredHeight="81">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="33" x="36" y="440" width="61" text="Igen" measuredWidth="61" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="36" x="26" y="409" width="95" text="Miről:" measuredWidth="95" measuredHeight="25" textAlignment="Right">
+    <font size="13px"/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="37" x="120" y="410" width="137" text="Szövegmező" measuredWidth="137" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="38" x="110" y="440" width="55" text="Nem" measuredWidth="55" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="39" x="184" y="440" width="73" text="Tartózkodott" measuredWidth="73" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="40" x="26" y="502" width="241" text="Mentés" measuredWidth="241" measuredHeight="25">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="41" x="36" y="480" text="Napirendi pont,Felszólalás,Szavazás" measuredWidth="224" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="83" height="23" text="Napirendi pont"/>
+    <items x="101" y="0" width="57" height="23" text="Felszólalás"/>
+    <items x="176" y="0" width="47" height="23" text="Szavazás"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
