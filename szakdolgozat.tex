@@ -30,6 +30,8 @@
 
 \setcounter{secnumdepth}{3} %szamozza a subsubsection-oket is
 
+\renewcommand{\thefigure}{\arabic{figure}}
+
 \setcounter{tocdepth}{3} %subsubsection-ok is latszodjanak
 \tableofcontents
 \thispagestyle{empty}
@@ -337,9 +339,21 @@ Kutatásom alapján az adatbázis-entitások leírására leginkább használt f
 
 \subsection{Felhasználó modul}
 
+Az összes többi modul épít a felhasználókra, így ezt volt logikus elsőnek elkészíteni. Ez tartalmazza a felhasználók táblát, a jogaikat, illetve az authentikációért és authorizációért felelős. Ennek szerkezetét lásd az \ref{fig:db-felhasznalo}. ábrán.
+
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{db-felhasznalo}
+  \caption{A felhasználó modul adatbázis-szerkezete}
+  \label{fig:db-felhasznalo}
+\end{figure}
+
 \subsection{Ülésszervező modul}
 
 \subsection{Jegyzőkönyvíró-modul}
+
+\subsection{Általános modul}
+
+\todo[inline]{Olyan dolgok, amelyek több modulhoz nyúlnak, mint pl. a kezdőoldal}
 
 \section{Az elkészült munka értékelése}
 
