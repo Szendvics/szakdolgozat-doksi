@@ -266,11 +266,80 @@ A rendszer moduljainak fejlesztési sorrendje azok egymásra épülései miatt a
     Megvalósult a Google Naptárral kommunikáló szolgáltatás, hogy a hirdetett ülésekről ott is létrejöjjön esemény, valamint a kész jegyzőkönyvek PDF formátumban történő exportálási lehetősége.
 \end{enumerate}
 
-\section{Felhasználó modul}
+\section{A fejlesztés részletei}
 
-\section{Ülésszervező modul}
+A következőkben modulokra bontva részletezem a fejlesztés menetét, a főbb lépéseket, a tapasztalt kihívásokat. Előbb azonban ismertetnék néhány fontos koncepciót a Symfony2 felépítéséről és működéséről.
 
-\section{Jegyzőkönyvíró-modul}
+\subsection*{A Bundle rendszer}
+
+A symfony 1-es verziója egy monolitikus rendszer volt, nem lehetett egyes komponenseket könnyen cserélni alternatív megoldásokra. Támogatta pluginek használatát, de központi rendszereket ezek sem tudtak helyettesíteni, illetve a nem általános használati esetekben nagyon körülményesek voltak.
+
+A korábbi tapasztalatokra építve a Symfony2-ben új megoldást használtak, ez lett a bundle rendszer\cite{website:symfony2_bundle}. Ez hasonló a pluginekhez, a fontos különbség az, hogy a keretrendszerben \emph{minden} bundle, annak központi funkciói is \textendash{} ezzel elérték azt, hogy moduláris, könnyen bővíthető rendszert adjanak ki.
+
+Az alkalmazásunk valójában egy minimális, főleg konfigurációból álló ragasztó az azt felépítő bundle-ök körül; ezeket pedig az alkalmazásunk \texttt{AppKernel.php} file-jában regisztráljuk:
+
+\begin{lstlisting}
+class AppKernel extends Kernel
+{
+    public function registerBundles()
+    {
+        $bundles = array(
+            // fentebb kihagyva a keretrendszer alapjai,
+            // utana a sajatjaink
+            new SzakdolgozatSzakdolgozatBundle(),
+            new SzakdolgozatFelhasznaloBundle(),
+            new SzakdolgozatUlesBundle(),
+            new SzakdolgozatJegyzokonyvBundle(),
+        );
+
+        return $bundles;
+    }
+}
+
+\end{lstlisting}
+
+Ezeket persze lehet feltételesen regisztrálni, azaz megtehetjük, hogy egy adott (mondjuk automatikus naplózáshoz használt) bundle csak az éles szerveren van használva, tesztkörnyezetben nem.
+
+Egy bundle egy adott funkcióhoz szükséges összes file gyűjteménye. Ez lehet néhány alapfunkció is, mint mondjuk néhány adatbázis-tábla leírása és a hozzájuk tartozó osztályok, a másik véglet mondjuk egy egész fórumrendszer. Van néhány általános ajánlás a felosztásra. Semmi nincs kőbe vésve, minden a fejlesztő döntésein múlik.
+
+\subsection*{A Dependency Injection Container}
+
+Erre a komponensre nyugodt szívvel lehet mondani, hogy a keretrendszer lelke, az, ami összefogja az egészet. Viszonylag kisméretű (kb. 10k LOC), de óriási lehetőségek rejlenek benne.
+
+Ennek a komponensnek segítségével egy helyen tudjuk leírni, milyen szolgáltatásai vannak a bundle-ünknek, azokat milyen azonosítóval lehet elérni, illetve milyen paraméterek szükségesek a példányosításához, helyes működéséhez. Támogatottak a kötelező függőségek (konstruktoros paraméterátadás) és az opcionálisak is (setteres átadás). A definiált szolgáltatások egésze, vagy akár csak egy-egy paramétere módosítható az alkalmazás szintjén, vagy egy, a mienkre épülő bundle-ben. Paraméterként használhatóak skaláris értékek, de akár egy másik szolgáltatás is.
+
+A szolgáltatások leírása szövegesen, yaml vagy xml formában történhet. Ezek értelmezése lassú folyamat, ami nem megengedhető éles környezetben. Ezen segítendő ezek csak a gyorsítótár ürítése utáni első kéréskor vannak parse-olva, a későbbiek egy php-re fordított és mentett, tehát nagyon gyors változatot használnak.
+
+Példaként álljon itt egy szolgáltatás a \texttt{SzakdolgozatFelhasznaloBundle}-ből:
+
+\begin{lstlisting}[]
+szakdolgozat.felhasznalo.felhasznalo_param_converter:
+    class: Szakdolgozat\FelhasznaloBundle\Request\
+        ParamConverter\FelhasznaloParamConverter
+    arguments: [@doctrine.orm.default_entity_manager]
+    tags:
+        - { name: "request.param_converter" }
+\end{lstlisting}
+
+Ebben a példában egy úgynevezett ParamConverter szolgáltatást írok le, ezekről a felhasználó modul leírásakor részletesebben lesz szó. Ennek egy konstruktorban átadandó paramétere van, ami egy másik szolgáltatás, a doctrine entity managere. Végül adok neki egy adott névvel rendelkező cimkét \textendash{} amikor a container összeállításra kerül, ezek alapján is lekérdezhetőek a service-ek, és megfelelően használhatóak.
+
+\subsection*{Konfigurációs lehetőségek}
+
+Ahogy majdnem mindenre, konfigurációra is több alternatívánk van. Természetesen létezik ajánlás is, amit érdemes követni, ha a bundle-ünket szeretnénk később publikálni.
+
+Az első lehetőség az XML file-ok használata. Nagy előnye, hogy széleskörűen ismert és jóldefiniált formátum, félreértési lehetőségek nélkül. A symfony.com alatt találhatóak hozzá XSD sémák, ezek segítségével a megfelelő szerkesztőkben kódkiegészítést is kapunk. Hátránya, hogy nagyon bőbeszédű.
+
+A második lehetőség a YAML formátum. Ez szintén egyszerű szöveges formátum, a hierarchia jelölésére szóközökkel való behúzást használ. Például a nem sokkal fentebbi, ParamConverter szolgáltatást regisztráló kódrészlet yaml formátumban van. Előnye, hogy kevés benne a felesleges szöveg, azaz szemmel is könnyen és gyorsan értelmezhető. Hátránya, hogy időnként nem egyértelmű, és a parser hibaüzenetei is gyakran nagyon megtévesztőek.
+
+A harmadik lehetőség az annotációk használata. Más nyelvekben, például java-ban ez már régóta nyelvi szinten támogatott, php-ban ilyen nincs, segédkönyvtárak alkalmazása szükséges. A Symfonyban a Doctrine Common ezen része használatos, ez a \lstinline!/**!-al kezdődő kommenteket értelmezi DocBlock-ként. Előnye, hogy a kód és a konfigurációja egy helyen van, hátránya, hogy a nyelv szempontjából kommentben elrejtve, ami egyeseket zavarhat, illetve bizonyos opcode cache-ek ezeket kioptimalizálják, nem működő kódot eredményezve.
+
+Kutatásom alapján az adatbázis-entitások leírására leginkább használt formátum az annotáció, minden másra a yaml, így a szakdolgozatom fejlesztése során is ezeket használtam.
+
+\subsection{Felhasználó modul}
+
+\subsection{Ülésszervező modul}
+
+\subsection{Jegyzőkönyvíró-modul}
 
 \section{Az elkészült munka értékelése}
 
