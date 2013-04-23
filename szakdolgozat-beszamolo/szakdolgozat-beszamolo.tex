@@ -24,7 +24,6 @@
     \Large
     \begin{enumerate}
         \item Feladat összefoglalása
-        \item Hasonló rendszerek
         \item Választott technológia
         \item A rendszer moduljai
         \item Kritikus részek
@@ -41,25 +40,8 @@
 	    \item Ülések hirdetése
 	    \item Ülések jegyzőkönyveinek készítése
 	    \item Jegyzőkönyvek publikálása
-	    \item Elsődlegesen a Hallgatói Önkormányzatnak, de a lehető legnagyobb általánosítás
+	    \item Elsődlegesen a Hallgatói Önkormányzatnak, de fontos a testreszabhatóság
     \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Hasonló rendszerek}
-    
-    \begin{itemize}
-        \item \large Albacomp Testületi Munkát Támogató Rendszer\\
-            \small{Önkormányzatoknak, Lotus Notes alapon}
-            
-        \item \large InterMap e-FORTE\\
-            \small{Polgármesteri hivataloknak és nagyvállalatokak, ASP.NET alapon}
-            
-        \item \large eKÖZIG döntéstámogató rendszer\\
-            \small{Közigazgatásnak, ASP alapon}
-    \end{itemize}
-    
-    \large Mindegyik fizetős.
 \end{frame}
 
 %valasztott technologia
@@ -74,6 +56,8 @@
         \item Symfony2 keretrendszerrel
         \item Bootstrap kinézettel
     \end{itemize}
+~\\~\\~\\~
+    ~~~~~~~~~~~~~~~\includegraphics[center,width=0.3\textwidth,center]{logok.png}
 \end{frame}
 
 \begin{frame}
@@ -97,7 +81,7 @@
     \frametitle{A rendszer moduljai}
     \Large
     
-    Három nagy modul:
+    Három modul:
     
     \begin{enumerate}
         \item Felhasználókezelés
@@ -131,7 +115,7 @@
         \item Dokumentumok feltöltése
     \end{itemize}
     
-    \includegraphics[width=\textwidth,center]{uleslista.png}
+    \includegraphics[width=\textwidth,center]{ules_db.png}
 \end{frame}
 
 %jegyzokonyv modul
@@ -143,6 +127,7 @@
     \begin{itemize}
         \item Üléshez párosítható
         \item Egyszerű és kényelmes szerkesztés
+        \item Hitelesítés
         \item PDF exportálás
     \end{itemize}
 \end{frame}
@@ -167,26 +152,10 @@
     
     \Large
     \begin{enumerate}
-        \item OpenID authentikáció
         \item Jegyzőkönyv mentése
         \item PDF exportálás
         \item Google Naptár integráció
     \end{enumerate}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Kritikus részek}
-    \framesubtitle{OpenID}
-    
-    \begin{itemize}
-        \item Összetett protokoll sok hibalehetőséggel\\
-            \small{40 oldalas specifikáció}
-        \item Az FpOpenIdBundle sokat segít
-    \end{itemize}
-
-    \begin{center}
-    \includegraphics[height=0.5\textheight,center]{openid.png}
-    \end{center}
 \end{frame}
 
 \begin{frame}
@@ -206,16 +175,20 @@
     \frametitle{Kritikus részek}
     \framesubtitle{PDF exportálás}
     
-    \Large
-    Jegyzőkönyv, határozatok tára.
+    \large
+    Jegyzőkönyv, határozatok tára
     
     \begin{itemize}
         \item mPDF könyvtár
         \item HTML alapú\\
             \small a Symfony2 View rétegére építve
-        \Large
+        \large
         \item Könnyen testreszabható
     \end{itemize}
+
+    \begin{center}
+        \includegraphics[center,width=0.8\textwidth,center]{jegyzokonyv-fejlec.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}
@@ -242,9 +215,13 @@
     
     \Large
     \begin{itemize}
-        \item Funkciók nagyja elkészült
-        \item Google Naptár
-        \item Hitelesítési folyamat
+        \item Két kivétellel funkcionálisan teljes
+        \begin{enumerate}
+            \large
+            \item Hitelesítési folyamat
+            \item Google Naptár
+        \end{enumerate}
+        \Large
         \item Felhasználói visszajelzések
     \end{itemize}
 \end{frame}
