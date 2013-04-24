@@ -16,10 +16,26 @@
 \allsectionsfont{\sffamily\large} %14pt
 \subsectionfont{\sffamily\normalsize} %12pt
 
-\fancyhf{} %minden fej- es lablec ures
-\chead{\rightmark} %fejlecbe fejezetcim
-\rfoot{\thepage} %oldalszam a jobb also sarokba
-\renewcommand{\headrulewidth}{0pt} %fejlec alatt ne legyen vonal
+%\fancyhf{} %minden fej- es lablec ures
+%\chead{\rightmark} %fejlecbe fejezetcim
+%\rfoot{\thepage} %oldalszam a jobb also sarokba
+%\renewcommand{\headrulewidth}{0pt} %fejlec alatt ne legyen vonal
+%\pagestyle{fancy}
+
+%A FEJEZETEK KEZDÕOLDALAINAK FEJ ES LÁBLÉCE:
+%a plain oldalstílust kell átdefiniálni, hogy ott ne legyen fejléc:
+\fancypagestyle{plain}{
+    \fancyhf{}
+    % a láblécbe jobboldalra kerüljön az oldalszám:
+    \fancyfoot[R]{\thepage}
+    %elválasztó vonal sem kell:
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+%A TÖBBI OLDAL FEJ ÉS LÁBLÉCE:
 \pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\rightmark}
+\fancyfoot[R]{\thepage}
 
 \renewcommand{\thesection}{\arabic{section}}

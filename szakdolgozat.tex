@@ -11,8 +11,8 @@
 
 \lstset{basicstyle=\ttfamily}
 
-\title{\textbf{Ülésszervezést és jegyzőkönyv-írást támogató keretrendszer készítése}}
-\author{Fási Gábor\\\\Témavezető: Dulai Tibor}
+\title{Ülésszervezést és jegyzőkönyv-írást támogató keretrendszer készítése}
+\author{Fási Gábor}
 \date{}
 
 %fattyú- és árvasorok büntetése, ha nagyobb, akkor jobban próbálja elkerülni
@@ -24,7 +24,114 @@
 \begin{document}
 \setcounter{chapter}{1}
 
-\maketitle
+\pagestyle{empty}
+%------------------------------------------------------------------
+% külsõ kötéstábla
+{
+    \begin{center}
+    \vspace*{5cm}
+    {
+        \Huge SZAKDOLGOZAT}\\
+        \vspace*{10cm}
+        {\LARGE Fási Gábor}\\
+        \vspace*{3cm}
+        {\LARGE 2013}
+    \end{center}
+}
+\newpage
+
+% címoldal
+\begin{center}
+{
+    \Large Pannon Egyetem\\
+    Villamosmérnöki és Információs Rendszerek
+Tanszék\vspace*{3mm}\\
+    Mérnök informatikus BSc szak
+}
+    \vspace*{2cm}\\
+    {\LARGE \bf SZAKDOLGOZAT}
+    \vspace{3cm}\\
+    {\LARGE\bf Ülésszervezést és jegyzőkönyv-írást támogató keretrendszer   készítése}
+    \vspace{3cm}\\
+    {\large Fási Gábor}
+    \vspace{6cm}
+    \\
+    {\large Témavezető: Dulai Tibor}
+    \vspace{1cm}\\
+    {\large 2013}
+\end{center}
+\normalsize
+% címlap vége
+\newpage
+
+Ide jön az eredeti vagy a fénymásolt feladatkiírás.
+\newpage
+
+\begin{center}
+\section*{Nyilatkozat}
+\end{center}
+
+Alulírott Fási Gábor diplomázó hallgató, kijelentem, hogy a szakdolgozatot a Pannon Egyetem Villamosmérnöki és Információs Rendszerek tanszékén készítettem Mérnök informatikus BSc szak szak (BSc in Computer Engineering
+) megszerzése érdekében.\\
+Kijelentem, hogy a szakdolgozatban lévő érdemi rész saját munkám eredménye, az érdemi részen kívül csak a hivatkozott forrásokat (szakirodalom, eszközök, stb.) használtam fel.\\
+Tudomásul veszem, hogy a szakdolgozatban foglalt eredményeket a Pannon Egyetem, valamint a feladatot kiíró szervezeti egység saját céljaira szabadon felhasználhatja.
+\newline
+
+\begin{flushleft}
+{Veszprém, 2013. május 01.\\}
+\end{flushleft}
+
+\begin{flushright}
+{Aláírás \vspace{4cm}}
+\end{flushright}
+
+{Alulírott Dulai Tibor témavezető kijelentem, hogy a szakdolgozatot Fási Gábor a Pannon Egyetem Villamosmérnöki és Információs Rendszerek tanszékén készítette Mérnök informatikus BSc szak (BSc in Computer Engineering) megszerzése érdekében.
+Kijelentem, hogy a szakdolgozat védésre bocsátását engedélyezem.
+\newline}
+
+\begin{flushleft}
+{Veszprém, 2013. május 01. \newline}
+\end{flushleft}
+
+\begin{flushright}
+{Aláírás}
+\end{flushright}
+%A tartalomjegyzék:
+\newpage
+\pagebreak
+\begin{center}
+\section*{Köszönetnyilvánítás}
+\end{center}
+Lorem.
+\newpage
+
+\begin{center}
+\section*{\textbf{\Large \MakeUppercase{Tartalmi összefoglaló}}}
+\end{center}
+{
+Lorem.
+\vspace{4cm}\\}
+
+{\bf Kulcsszavak:} {\it robotfoci, mobil robotika, mikrovezérlõ
+programozás, vezeték nélküli kommunikáció, motorvezérlés, hálózati
+programozás, Qt, OpenCV }
+\newpage
+
+\newpage
+
+\begin{center}
+\section*{\textbf{\Large \MakeUppercase{Abstract}}}
+\end{center}
+{
+Angol lorem.
+\vspace{15mm}\\}
+
+{\bf Key words:} {\it robot soccer, mobil robotics, microcontroller programming,
+wireless communication, motor control, network programming, Qt, OpenCV }
+\newpage
+%--------------%------------------------------------------------------------------
+\setcounter{page}{1} %innentől indul az oldalszámozás
+\pagestyle{plain}
 
 \listoftodos
 
@@ -37,7 +144,6 @@
 \thispagestyle{empty}
 \pagebreak
 
-\setcounter{page}{1} %innentől indul az oldalszámozás
 \section{A feladat összefoglalása}
 
 Témám egy olyan rendszer elkészítése, mely böngészőn keresztül használható, a megfelelő jogosultságú felhasználók képesek ülést hirdetni helyszínnel, időponttal, majd erre résztvevőket meghívni, akik erről automatikus értesítést kapnak. Szintén a rendszer feladata a lefolyt ülések jegyzőkönyvei elkészítésének segítése, ezek megőrzése és megfelelő feltételek esetén nyilvánossá tétele.
