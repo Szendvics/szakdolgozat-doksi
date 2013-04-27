@@ -9,7 +9,11 @@
 \usepackage[section,numbib,nottoc]{tocbibind}
 \usepackage{formai_kovetelmenyek}
 
-\lstset{basicstyle=\ttfamily}
+\lstset{
+    basicstyle = \ttfamily,
+    breaklines = true,
+    prebreak   = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+}
 
 \title{Ülésszervezést és jegyzőkönyv-írást támogató keretrendszer készítése}
 \author{Fási Gábor}
@@ -103,15 +107,16 @@ Kijelentem, hogy a szakdolgozat védésre bocsátását engedélyezem.\\
 \begin{center}
 \section*{Köszönetnyilvánítás}
 \end{center}
-Lorem.
+\todo[inline]{Köszönetnyilvánítás}
 \newpage
 
 \begin{center}
 \section*{\textbf{\Large \MakeUppercase{Tartalmi összefoglaló}}}
 \end{center}
-{
-Lorem.
-\vspace{4cm}\\}
+
+\todo[inline]{Tartalmi összefoglaló}
+
+\vspace{2cm}
 
 {\bf Kulcsszavak:} {\it robotfoci, mobil robotika, mikrovezérlõ
 programozás, vezeték nélküli kommunikáció, motorvezérlés, hálózati
@@ -123,9 +128,10 @@ programozás, Qt, OpenCV }
 \begin{center}
 \section*{\textbf{\Large \MakeUppercase{Abstract}}}
 \end{center}
-{
-Angol lorem.
-\vspace{15mm}\\}
+
+\todo[inline]{Abstract}
+
+\vspace{2cm}
 
 {\bf Key words:} {\it robot soccer, mobil robotics, microcontroller programming,
 wireless communication, motor control, network programming, Qt, OpenCV }
@@ -235,7 +241,7 @@ A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyi
 
 A rendszerem fejlesztése a 2.1-es verzióban történt. A készítés utolsó hónapjaiban adták ki a 2.2-es verziót számos visszafelé nem kompatibilis változtatással, ezért nem frissítettem rá \textendash{} a 2.1-es változat 2013 közepéig élvez hivatalos támogatást, így a rendszer további fejlesztése során mindenképpen megfontolandó a 2.2-re átállás.
 
-A Symfony remekül együtt tud működni a Doctrine ORM-el\cite{website:doctrine}\cite{book:doctrine_orm}, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egy egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk.
+A Symfony remekül együtt tud működni a Doctrine ORM-el\cite{website:doctrine}\cite{book:doctrine_orm}, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egy egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk. Szintén jó a támogatása az adatbázis-migrációkkal kapcsolatban, ha változik az adataink szerkezete, ezt nem kézzel kell lekövetnünk az éles szerveren, egyetlen, a terminálban kiadott paranccsal a Doctrine ezt megteszi nekünk.
 
 \subsubsection{Bootstrap}
 
@@ -257,13 +263,15 @@ A Symfony2 Security komponense nagyon finom jogosultság-szabályoztást tesz le
 
 \subsubsection{Google Naptár együttműködés}
 
-Az API, amivel eseményeket lehet létrehozni és arra meghívottakat hozzáadni\cite{website:gcal_event_api} nincs túlbonyolítva, és a Google ad php-hoz hivatalos klienskönyvtárat\cite{website:google_api_client}. Ennek segítségével fogok létrehozni egy Symfony2 szolgáltatást, mellyel a rendszer bármely részéről könnyen tudok majd a Naptárral kapcsolatba lépni.
+Az API, amivel eseményeket lehet létrehozni és arra meghívottakat hozzáadni\cite{website:gcal_event_api} nincs túlbonyolítva, és a Google ad php-hoz hivatalos klienskönyvtárat\cite{website:google_api_client}. Ennek segítségével hoztam létre egy Symfony2 szolgáltatást, mellyel a rendszer bármely részéről könnyen tudok a Naptárral kapcsolatba lépni.
+
+A rendszer a meghirdetett ülésekről létrehoz egy-egy naptárbejegyzést, és az ülés meghívottjait ott is felveszi a meghívottak közé \textendash{} így ez bekerül az ő naptárukba is.
 
 \subsubsection{PDF exportálás}
 
 Webes rendszerek esetén gyakran előforduló kérés, hogy valamely generált dokumentumot lehessen pdf-ben is letölteni; így nem meglepő, hogy számos Symfony2 Bundle foglalkozik ezzel a feladattal.
 
-A választásomtól függően vagy egy könyvtár megfelelő függvényeit hívva, úgymond kézzel állítom össze a kimenetet, vagy html-ből tudom a pdf-et generáltatni. A végleges választás további kísérleteket igényel.
+Választásom egy olyan könyvtárra esett, mely HTML bemenet alapján generálja a PDF kimenetet, így a későbbiekben a nyomtatott jegyzőkönyv kinézete, az elemek sorrendje, formátuma könnyen módosítható a felhasználók igényei szerint.
 
 \subsection{Felületterv}
 
@@ -423,8 +431,7 @@ Példaként álljon itt egy szolgáltatás a \texttt{SzakdolgozatFelhasznaloBund
 
 \begin{lstlisting}[]
 szakdolgozat.felhasznalo.felhasznalo_param_converter:
-    class: Szakdolgozat\FelhasznaloBundle\Request\
-        ParamConverter\FelhasznaloParamConverter
+    class: Szakdolgozat\FelhasznaloBundle\Request\ParamConverter\FelhasznaloParamConverter
     arguments: [@doctrine.orm.default_entity_manager]
     tags:
         - { name: "request.param_converter" }
@@ -446,13 +453,129 @@ Kutatásom alapján az adatbázis-entitások leírására leginkább használt f
 
 \subsection{Felhasználó modul}
 
-Az összes többi modul épít a felhasználókra, így ezt volt logikus elsőnek elkészíteni. Ez tartalmazza a felhasználók táblát, a jogaikat, illetve az authentikációért és authorizációért felelős. Ennek szerkezetét lásd az \ref{fig:db-felhasznalo}. ábrán.
+Az összes többi modul épít a felhasználókra, így ezt volt logikus elsőnek elkészíteni. A következőkben részletezem a belső felépítését és működését.
+
+\subsubsection*{Adatbázisának szerkezete}
+
+A hozzá tartozó táblák tartalmazzák a felhasználókat, a rendszer által ismert jogokat, illetve hogy ebből melyik felhasználó melyekkel rendelkezik. Ennek szerkezete látható az \ref{fig:felhasznalo_db}. ábrán.
 
 \begin{figure}[h]
-  \includegraphics[width=\textwidth]{db-felhasznalo}
+  \includegraphics[width=\textwidth]{felhasznalo_db.png}
   \caption{A felhasználó modul adatbázis-szerkezete}
-  \label{fig:db-felhasznalo}
+  \label{fig:felhasznalo_db}
 \end{figure}
+
+A felhasználók OpenID-n keresztüli azonosítása az email címük alapján történik, így ezen a mezőn egyedi megszorítás van. Az id mezőt automatikusan számozza az adatbázis-szerver, ez a tábla elsődleges kulcsa; a felületen megjelenítve sehol nincs, de másik táblák ez alapján hivatkoznak egy bizonyos felhasználóra.
+
+A jog tábla tartalmazza a rendszer által ismert jogokat. A felületen ezek nem szerkeszthetők, az, hogy ezeket nem beégettem a kódba, hanem adatbázisban tárolom, a további fejlesztést teszi könnyebbé. Minden jog rendelkezik egy névvel és egy leírással, felhasználók létrehozásakor és szerkesztésekor ezeket az adminisztrátorok látják.
+
+Az ide tartozó harmadik tábla segédtába, a felhasználó és a jog tábla közötti több-több kapcsolat teszi szükségessé. Egyéb információt nem is tárol, csak (felhasználó, jog) rendezett párokat. A két mező együtt az elsődleges (és így egyedi) kulcs.
+
+\subsubsection*{Használati esetek}
+
+A rendszer használati esetei közé tartozik a felhasználók azonosítása, ennek a folyamatnak része azok jogainak munkamenetbe mentése is; illetve az azok kezelésével kapcsolatos folyamatok: listázás, létrehozás, szerkesztés és törlés, ezek összefoglaló neve a CRUD\cite{website:crud}.
+
+\begin{figure}[h]
+    \includegraphics[width=0.8\textwidth]{felhasznalo_usecase.png}
+    \caption{A felhasználó modul használati esetei}
+    \label{fig:felhasznalo_usecase}
+\end{figure}
+
+A modul felhasználói esetei láthatóak a \ref{fig:felhasznalo_usecase}. ábrán.
+
+\subsubsection*{Adatbázis-osztályok}
+
+A megvalósítás első lépése az adatbázis tábláinak létrehozása volt. Mivel a Doctrine-nal dolgozom, ezért ezt úgy csináltam, hogy táblánként létrehoztam egy-egy PHP osztályt, és jeleztem a Doctrine-nak, hogy ezek olyan entitások, amiket tárolni szeretnék. Erre annotációkat használtam. Példaként álljon itt a {\tt Felhasznalo} osztály egy részlete:
+
+\begin{lstlisting}
+/**
+ * @ORM\Entity(repositoryClass="Szakdolgozat\FelhasznaloBundle\Entity\FelhasznaloRepository")
+ * @ORM\Table(name="felhasznalo")
+ */
+class Felhasznalo implements UserInterface
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=100, unique=true, nullable=false)
+     */
+    protected $email;
+}
+\end{lstlisting}
+
+A példában az {\tt ORM}-mel kezdődő annotációkkal foglalkozik a Doctrine. A megvalósított interfész a Symfony2 Security komponensének jelzi, hogy ez az osztály a rendszer felhasználóit tárolja. Erről később írok bővebben.
+
+Az első kettő, az {\tt Entity} és a {\tt Table} jelzi, hogy itt ez egy tárolandó osztály, az adott nevű táblába, és a megadott repository osztállyal \textendash{} ez az, ahol az egyedi lekéréseinket tudjuk tárolni egy helyen, hogy az könnyen elérhető legyen például a controllerünkből.
+
+Az {\tt id} mezőnél jelezzük, hogy ez azonosító lesz, a mező típusa egész, és hogy az adatbázismotor alapértelmezett generálási sémáját használja \textendash{} MySQL esetén ez az auto\_increment, MSSQL-nél az identity, PgSQL-nél pedig a sequence.
+
+Az email már egyszerűbb, itt csak annyit kell jeleznünk, hogy legfeljebb milyen hosszú karaktersorozatot szándékozunk tárolni, valamint hogy a mező kötelező (azaz nem tartalmazhat null vagy üres értéket), illetve egyedi kell legyen.
+
+Ennek az osztálynak még érdekessége a jogokkal fennálló több-több kapcsolata, ezt az alábbi módon jelzem annotációval:
+
+\begin{lstlisting}
+/**
+ * @ORM\ManyToMany(targetEntity="Jog", inversedBy="felhasznalok")
+ * @ORM\JoinTable(name="felhasznalo_jog")
+ */
+protected $jogok;
+\end{lstlisting}
+
+Azaz egészen egyszerűen csak mondani kell, hogy több-több kapcsolatot szeretnék a {\tt Jog} entity-vel, és a kapcsolótábla neve legyen {\tt felhasznalo\_jog}. Az {\tt inversedBy} mondja meg, hogy a {\tt Jog} entity melyik tulajdonsága ennek a relációnak az ellentéte, abban az osztályban ez a mező így néz ki:
+
+\begin{lstlisting}
+/**
+ * @ORM\ManyToMany(targetEntity="Felhasznalo", mappedBy="jogok")
+ */
+protected $felhasznalok;
+\end{lstlisting}
+
+Itt a kapcsolótáblát már nem kell megadnunk, fontos viszont, hogy az {\tt inversedBy} helyett {\tt mappedBy} tulajdonságot adunk meg. Ezzel tudjuk jelezni, hogy a kapcsolatnak melyik a tulajdonosi oldala, jelen esetben a felhasználó, azaz hozzá tartoznak a jogok, nem pedig a jogokhoz a felhasználók. Ennek az elemek szerkesztésekor van jelentősége: a Doctrine csak a tulajdonosi oldalt vizsgálja, hogy történt-e változás, kell e módosítani valamely táblát.
+
+\subsubsection*{OpenID}
+
+A protokoll két felet definiál, a {\em providert} és a {\em consumert}. A provider a szolgáltató, ahol a felhasználó rendelkezik már fiókkal, és annak engedélyével megkaphatjuk a kért adatait. A consumer a fogyasztó, jelen esetben a rendszerem, ahová a felhasználó szeretne bejelentkezni a másik oldalnál található fiókjával. A kérés során szabadon megmondhatjuk, hogy a szolgáltatónál elérhető adatok közül melyiket szeretnénk megkapni. Ezek egy része a protokollban van definiálva, de természetesen létre lehet hozni egyedi mezőket is.
+
+A rendszerem tervezésekor még nem tudtam, mennyire összetett ennek a megvalósítása a Symfony keretrendszerben, ezért csak egy szolgáltatóval (Google) történő azonosítást vállaltam. Most már tudom, hogy köszönhetően annak, csak az email mezőre van szükségem, nagyon kevés plusz munkával bármely OpenID kiszolgálóval megvalósítható a bejelentkezés.
+
+A két fél közti kommunikációt a korábban már említett {\tt FpOpenIdBundle} segítségével valósítottam meg.
+
+\subsubsection*{Bejelentkezés}
+
+A rendszer biztonságára az Symfony2 Security komponense ügyel. Előszöris az alkalmazásom {\tt security.yml} fájljában be kellett állítanom, hogy az egész rendszerhez OpenID-n keresztüli bejelentkezés szükséges:
+
+\begin{lstlisting}
+access_control:
+    - { path: ^/login_openid$, roles:\hookleftarrow IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/, role: IS_AUTHENTICATED_OPENID }
+\end{lstlisting}
+
+A szolgáltatótól kapott adatok ellenőrzését a {\tt /login\_openid} url-en elérhető controller végzi, így azt el kell tudni érni azonosítás nélkül.
+
+A következő lépés az FpOpenIdBundle konfigurálása volt:
+
+\begin{lstlisting}
+fp_openid:
+    create_user_if_not_exists: true
+    provider: openid_user_manager
+    required_attributes:
+        - contact/email
+\end{lstlisting}
+
+A {\tt create\_user\_if\_not\_exists} beállítás neve megtévesztő, ugyanis nem azt jelenti, hogy hozzon létre felhasználót, ha valaki anélkül próbál bejelentkezni. OpenID-ban egy felhasználó több úgynevezett {\em identity}-vel rendelkezik, és a beállítás azt mondja meg, hogy ha új identity-vel érkezik egy felhasználó, azzal beengedje-e. A {\tt provider} egy szolgáltatás nevét tartalmazza, amelynek a feladata a providertől kapott adatokból annak eldöntése, hozzáférhet-e a felhasználó a rendszerhez. Az utolsó érték azt mondja meg, mely adatokat szeretnénk megkapni, jelen esetben ez csak az email cím.
+
+A providerként megadott szolgáltatás egy adott interfészt kell megvalósítson, ami egyetlen függvényt tartalmaz. Bemeneti paramétere a szolgáltatótól kapott adatok tömbje, és a végén vissza kell adnia azt a {\tt Felhasznalo} példányt, akit ezek azonosítanak. Ha nincs az adatok közt email cím, vagy ilyennek rendelkező felhasználónk nincs, akkor a függvénynek exceptiont kell dobnia.
+
+\todo[inline]{szekvenciadiagram?}
+
+Sikeres bejelentkezés után a felhasználó munkamenetébe mentem annak jogait, később ennek függvényében láthat menüpontokat, illetve linkeket. Ezek természetesen szerveroldalon is ellenőrizve vannak, tehát ha egy Adminisztrátor joggal nem rendelkező felhasználó meglátogatja a {\tt /felhasznalo/uj} címet, akkor csak egy hibaoldalt kap.
+
+\subsubsection*{Felhasználók kezelése}
 
 \subsection{Ülésszervező modul}
 
@@ -464,6 +587,8 @@ Az összes többi modul épít a felhasználókra, így ezt volt logikus elsőne
 
 \section{Az elkészült munka értékelése}
 
+% ide jöhetnek a felhasználói visszajelzések is
+
 \section{Továbbfejlesztési lehetőségek}
 
 \todo[inline]{Kifejteni}
@@ -472,6 +597,7 @@ Az összes többi modul épít a felhasználókra, így ezt volt logikus elsőne
   \item Sf2.2
   \item egyéb auth megoldások (user/pass, facebook, akármi)
   \item mobilos felület életképességének vizsgálata
+  \item jk-típusok
 \end{itemize}
 
 \renewcommand{\bibname}{Irodalomjegyzék}
