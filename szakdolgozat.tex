@@ -10,9 +10,11 @@
 \usepackage{formai_kovetelmenyek}
 
 \lstset{
-    basicstyle = \ttfamily,
-    breaklines = true,
-    prebreak   = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+     basicstyle = \ttfamily
+    ,breaklines = true
+    ,prebreak   = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}
+    ,extendedchars = true
+    ,literate={á}{{\'a}}1 {ó}{{\'o}}1 {é}{{\'e}}1 {í}{{\'i}}1
 }
 
 \title{Ülésszervezést és jegyzőkönyv-írást támogató keretrendszer készítése}
@@ -575,7 +577,170 @@ A providerként megadott szolgáltatás egy adott interfészt kell megvalósíts
 
 Sikeres bejelentkezés után a felhasználó munkamenetébe mentem annak jogait, később ennek függvényében láthat menüpontokat, illetve linkeket. Ezek természetesen szerveroldalon is ellenőrizve vannak, tehát ha egy Adminisztrátor joggal nem rendelkező felhasználó meglátogatja a {\tt /felhasznalo/uj} címet, akkor csak egy hibaoldalt kap.
 
-\subsubsection*{Felhasználók kezelése}
+\subsubsection*{Felhasználók listázása}
+
+A modul funkcióinak fele elkészült, már csak lehetővé kell tennünk, hogy az adminisztrátorok szabadon tudjanak felhasználókat létrehozni, módosítani.
+
+Symfony2-ben a routingot yaml fájlok segítségével tudjuk testreszabni. Külön ilyen létezik alkalmazás- és modulszinten. A moduléban így írtam le a felhasználókat listázó (index) actiont:
+
+\begin{lstlisting}
+szakdolgozat_felhasznalo_felhasznalo_index:
+    pattern:    /
+    defaults:  { _controller: SzakdolgozatFelhasznaloBundle:Felhasznalo:index }
+\end{lstlisting}
+
+Az első sor a route neve, a későbbiekben amikor linket generálunk, ezzel tudunk rá hivatkozni úgy, hogy ha a mintát módosítjuk, akkor a linkjeink továbbra is működni fognak. A mintája az adott mappa gyökerére mutat, ezt az egyik következő bekezdésben indoklom. Végül megmondom, hogy ha ez a route illeszkedik a kértre, akkor az aktuális modul {\tt Felhasznalo} controllerének {\tt index} actionjét kell meghívni.
+
+Ettől még nem lesz elérhető ez a route-unk, alkalmazásszintre importálni kell:
+
+\begin{lstlisting}
+szakdolgozat_jegyzokonyv:
+    resource: "@SzakdolgozatJegyzokonyvBundle/Resources/config/routing.yml"
+    prefix:   /jegyzokonyv
+\end{lstlisting}
+
+Itt leírom, melyik fájlt kell importálni, valamint hogy milyen előtagot kapjon az abban leírt összes útvonal, így a felhasználók listázása a {\tt /felhasznalo/} linken érhető el. Mivel ezt, és a modul ide tartozó összes linkjét csak adminisztrátorok láthatják, a security konfigban védjük is le rögtön:
+
+\begin{lstlisting}
+- { path: ^/felhasznalo, role: ROLE_ADMINISZTRATOR }
+\end{lstlisting}
+
+ezt a sort a Bejelentkezés szekcióban mutatott két hozzáférési szabály közé kell írni.
+
+A következő lépés a lista linkelése a menübe. A keretrendszerrel több template nyelv támogatás érkezik beépítve, ebből én a Twiget\cite{website:twig} választottam. Az alapvető vezérlési szerkezetek megtalálhatóak benne, és a Symfony számos függvénnyel kiegészíti, például ezzel, amelyikkel azt tudjuk ellenőrizni, a bejelentkezett felhasználónk jelentkezik-e egy adott joggal:
+
+\begin{lstlisting}
+{% if is_granted("ROLE_ADMINISZTRATOR") %}
+<li><a href="{{ path('szakdolgozat_felhasznalo_felhasznalo_index') }}">Felhasználók</a></li>
+{% endif %}
+\end{lstlisting}
+
+Ezután már elkészíthetjük a controllerünk erre az url-re meghívott függvényét. A konvenció szerint a routingban megadott {\tt index} értékre a Symfony a {\tt indexAction} nevű függvényt keresi. Ez a függvény a következőképp néz ki:
+
+\begin{lstlisting}
+public function indexAction()
+{
+    $felhasznalok = $this->getDoctrine()->getRepository("SzakdolgozatFelhasznaloBundle:Felhasznalo")->findAll();
+
+    return $this->render("SzakdolgozatFelhasznaloBundle:Felhasznalo:index.html.twig", array(
+        "felhasznalok" => $felhasznalok,
+    ));
+}
+\end{lstlisting}
+
+Azaz lekérjük az összes felhasználót, majd átadjuk a twig template-ünknek. A {\tt findAll} függvény alapértelmezetten az adatbázisbeli sorrendben adja vissza a rekordokat, nekünk ez nem jó, név szerinti ABC-rendezést szeretnénk. Korábban, a {\tt Felhasznalo} entity leírásánál már láthattuk, hogy ez egy saját {\tt Repository} osztállyal rendelkezik, ahol a {\tt findAll} függvényt így definiálom:
+
+\begin{lstlisting}
+public function findAll()
+{
+    return $this->createQueryBuilder("f")
+        ->select("f")
+        ->orderBy("f.nev", "ASC")
+        ->getQuery()
+        ->getResult();
+}
+\end{lstlisting}
+
+ami az alapértelmezett megvalósítástól egyedül a rendezést leíró sorban tér el.
+
+Utolsó lépésként a megfelelő template fájlban végig kell iterálnunk a kapott felhasználókon, kiírni a megjeleníteni szándékozott adataikat, illetve egy szerkesztés linket:
+
+\begin{lstlisting}
+{% for f in felhasznalok %}
+<tr>
+    <td>{{ f.nev }}</td>
+    <td>{{ f.email }}</td>
+    <td>{% for j in f.jogok %}{{ j.nev }}{% if not loop.last %}, {% endif %}{% endfor %}</td>
+    <td><a href="{{ path("szakdolgozat_felhasznalo_felhasznalo_edit", { "id": f.id }) }}">szerkesztés</a></td>
+</tr>
+{% endfor %}
+\end{lstlisting}
+
+ebben a kódrészletben két példát is láthatunk a {\tt for} ciklusra: a külső a felhasználókon megy végig, a belső pedig azok jogain, végeredménye a jogok vesszővel elválasztott névsora lesz. A kimenete látható a \ref{fig:felhasznalo_lista}. ábrán.
+
+A táblázat utolsó cellája egy olyan link lesz, amelyet meglátogatva az a felhasználó szerkeszthető. A következő szakaszban ezt részletezem.
+
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{felhasznalo_lista.png}
+    \caption{A felhasználók listája}
+    \label{fig:felhasznalo_lista}
+\end{figure}
+
+\subsubsection*{Felhasználók szerkesztése}
+
+Most már van linkünk, ami a szerkesztőfelületre mutat, és átadjuk benne a felhasználó azonosítóját. Az action függvényünkben ez alapján lekérjük az adatbázisból és megjelenítjük ez űrlapon.
+
+A lekérést megtehetnénk a függvényünk részeként is, de van rá jobb megoldás: egy saját {\tt ParamConverter} írása. Ezek arra jók, hogy az url-ben kapott értékek alapján a függvényünk rögtön egy {\tt Felhasznalo} példányt kaphat. Korábban, amikor a Dependency Injection Containerről írtam, mutattam azt a kódrészletet, amely a felhasználókat id-ből {\tt Felhasznalo} objektummá átalakító {\tt ParamConverter}t regisztrálja.
+
+Ezek az osztályok egy adott interfészt kell megvalósítsanak, amely két függvényt ír le: az első paraméterként egy osztálynevet kap, és vissza kell adnia, támogatja-e az ilyenre átalakítást. A második magát az alakítást végzi paraméterként kapott {\tt Request} alapján. Ebben a példában az url-ben kapott {\tt id} paraméter alapján kérek az adatbázisból, ha nincs ilyen, hibát dobok, amúgy beállítom a {\tt Request}be a konfigurációban beállitott kulcs alá. Végeredményként az action függvényünk ennyire leegyszerűsödik:
+
+\begin{lstlisting}
+public function editAction(Felhasznalo $felhasznalo, Request $request)
+{
+    $form = $this->createForm(new FelhasznaloType(), $felhasznalo);
+
+    return $this->render("SzakdolgozatFelhasznaloBundle:Felhasznalo:edit.html.twig", array(
+        "form"          =>  $form->createView(),
+        "felhasznalo"   =>  $felhasznalo,
+    ));
+}
+\end{lstlisting}
+
+Jól látható, hogy már egy felhasználót kapunk bemeneti paraméterként. Létrehozunk egy formot, melyet feltöltünk az ebben található értékekkel, majd a twiggel rendereltetjük a szerkesztés űrlapot tartalmazó template-et. Abban az űrlap egy részlete így néz ki:
+
+\begin{lstlisting}
+<form method="post" action="{{ app.request.requesturi }}">
+    {{ form_row(form.nev) }}
+    {{ form_row(form.email) }}
+\end{lstlisting}
+
+Azaz az elküldés POST-tal kell történjen, méghozzá az aktuális url-re. A {\tt form\_row} twig függvények pedig az űrlap egy-egy sorát renderelik, cimkével, mezővel és az esetleges hibaüzenettel. Ennek pontos módját testreszabhatjuk, ahogy én is tettem, hogy a Bootstrapnak megfelelő kimenete legyen.
+
+Az elküldött form feldolgozását ugyanaz a függvény végzi, a formot létrehozó, majd a kimenetet renderelő sor között található ez:
+
+\begin{lstlisting}
+if ($request->isMethod("post")) {
+    $form->bind($request);
+
+    if ($form->isValid()) {
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirect($this->generateUrl("szakdolgozat_felhasznalo_felhasznalo_index"));
+    }
+}
+\end{lstlisting}
+
+Azaz ha az aktuális kérés POST, akkor a kapott értékeket átadjuk a formnak, ekkor megtörténik azok ellenőrzése. Ha minden érték helyes, akkor a Doctrine Entity Managerén meghívjuk a {\tt flush} függvényt, ami a kezelt objektumok (mint a felhasználónk) módosításait menti az adatbázisba. Végül átirányítjuk a felhasználót a listára.
+
+A form példányunk a Symfony2 Form komponensére épít \textendash{} itt egy osztályban leírjuk, milyen mezőket szeretnénk és milyen validálási szabályokkal, a controllerünk pedig a fent látható mértékben leegyszerűsödik. A leírást a {\tt buildForm} függvény végzi, egy részlete:
+
+\begin{lstlisting}
+public function buildForm(FormBuilderInterface $builder, array $options)
+{
+    $builder->add("email", "email", array(
+        "label"         =>  "E-mail cím",
+        "constraints"   =>  array(
+            new Assert\NotBlank(),
+            new Assert\Email(),
+        ),
+    ));
+
+    $builder->add("jogok", "entity", array(
+        "class"         =>  "SzakdolgozatFelhasznaloBundle:Jog",
+        "expanded"      =>  true,
+        "multiple"      =>  true,
+    ));
+
+}
+\end{lstlisting}
+
+Ebben a példában két mezőt mutatok, az első a felhasználó email címe, amelyhez egy email típusú mező szükséges, valamint kötelező, és szintaktikailag érvényes email cím kell legyen. A második egy adatbázis-entity hivatkozás, méghozzá a Jogra. A fenti beállításokkal egy jelölőnégyzetes listát kapunk, mellyel szabadon meghatározhatjuk, mely jogokkal rendelkezzen a felhasználó. Az űrlap a \ref{fig:felhasznalo_szerkesztes}. ábrán látható.
+
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{felhasznalo_szerkesztes.png}
+    \caption{A felhasználók szerkesztésére szolgáló űrlap}
+    \label{fig:felhasznalo_szerkesztes}
+\end{figure}
 
 \subsection{Ülésszervező modul}
 
