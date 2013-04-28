@@ -744,11 +744,64 @@ Ebben a példában két mezőt mutatok, az első a felhasználó email címe, am
 
 \subsection{Ülésszervező modul}
 
+A fejlesztés logikusan következő lépése az ülések szervezésére szolgáló modul elkészítése volt. Ez már épít a felhasználókra, úgy mint az ülés hirdetője és meghívottjai. Feladata, hogy a létrehozott üléseket tárolja, az azokhoz feltöltött dokumentumokat kezelje és elérhetővé tegye az elérésükre jogosultaknak. Végül értesítenie kell a meghívottakat arról, hogy ülésük lesz.
+
+\subsubsection*{Adatbázisa}
+
+Ebben a modulban két entitást kell leírnunk, az egyik az ülés, a másik a dokumentum.
+
+A dokumentumot az azonosítójából generált néven tároljuk a szerveren, egy olyan helyen, ami nem közvetlenül elérhető kívülről, így biztosítani tudjuk, hogy csak a hozzáféréssel rendelkező felhasználók tölthetnek le egy-egy csatolmányt. A generált név miatt azonban tárolnunk kell az file eredeti nevét, hogy letöltéskor így tudjuk kiszolgálni.
+
+Az ülésekről tárolunk néhány alapadatot, ezeken kívül több relációval is rendelkezik: tartozhat hozzá akármennyi dokumentum (természetesen akár nulla is), szintén tetszőleges számú meghívott, valamint pontosan egy hirdető. A meghívottak és a hirdető a felhasználó modulban definiált {\tt Felhasznalo} entitásra hivatkozik.
+
+Az adatbázis szerkezete látható a \ref{fig:ules_db}. ábrán. Az {\tt UlesMeghivott} tábla csak az adatbázisban létezik az ülés-meghívott több-több kapcsolat segédtálájaként, entitás nincs hozzá.
+
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{ules_db.png}
+    \caption{Az ülés modul adatbázisának szerkezete}
+    \label{fig:ules_db}
+\end{figure}
+
+Korábban nem mutattam még példát egy-több kapcsolatra, mint ami az ülés és a dokumentumok közt van. Az {\tt Ules} osztályban az annotáció a következő:
+
+\begin{lstlisting}
+/**
+ * @ORM\OneToMany(targetEntity="Dokumentum", mappedBy="ules")
+ */
+protected $dokumentumok;
+\end{lstlisting}
+
+A {\tt Dokumentum} osztályban pedig:
+
+\begin{lstlisting}
+/**
+ * @ORM\ManyToOne(targetEntity="Ules", inversedBy="dokumentumok")
+ * @ORM\JoinColumn(name="ules_id", referencedColumnName="id", nullable=false)
+ */
+protected $ules;
+\end{lstlisting}
+
+\subsubsection*{Használati esetek}
+
+Ennek a modulnak a felelőssége az ülések létrehozása, szerkesztése, törlése; azok meghívottjainak és dokumentumainak számontartása; a dokumentumok kiszolgálása jogosultság esetén. Ezek a használati esetek láthatóak a \ref{fig:ules_usecase}. ábrán.
+
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{ules_usecase.png}
+    \caption{Az ülésszervező modul használati esetei}
+    \label{fig:ules_usecase}
+\end{figure}
+
+\subsubsection*{Új ülés hirdetése}
+
+\subsubsection*{Google Naptár}
+
+\todo[inline]{Ezt az egészet még kódszinten is meg kell valósítani előbb}
+
 \subsection{Jegyzőkönyvíró-modul}
 
 \subsection{Általános modul}
 
-\todo[inline]{Olyan dolgok, amelyek több modulhoz nyúlnak, mint pl. a kezdőoldal}
+% Olyan dolgok, amelyek több modulhoz nyúlnak, mint pl. a kezdőoldal
 
 \section{Az elkészült munka értékelése}
 
