@@ -243,7 +243,7 @@ A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyi
 
 A rendszerem fejlesztése a 2.1-es verzióban történt. A készítés utolsó hónapjaiban adták ki a 2.2-es verziót számos visszafelé nem kompatibilis változtatással, ezért nem frissítettem rá \textendash{} a 2.1-es változat 2013 közepéig élvez hivatalos támogatást, így a rendszer további fejlesztése során mindenképpen megfontolandó a 2.2-re átállás.
 
-A Symfony remekül együtt tud működni a Doctrine ORM-el\cite{website:doctrine}\cite{book:doctrine_orm}, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egy egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk. Szintén jó a támogatása az adatbázis-migrációkkal kapcsolatban, ha változik az adataink szerkezete, ezt nem kézzel kell lekövetnünk az éles szerveren, egyetlen, a terminálban kiadott paranccsal a Doctrine ezt megteszi nekünk.
+A Symfony remekül együtt tud működni a Doctrine ORM-el\cite{website:doctrine,book:doctrine_orm}, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egy egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk. Szintén jó a támogatása az adatbázis-migrációkkal kapcsolatban, ha változik az adataink szerkezete, ezt nem kézzel kell lekövetnünk az éles szerveren, egyetlen, a terminálban kiadott paranccsal a Doctrine ezt megteszi nekünk.
 
 \subsubsection{Bootstrap}
 
@@ -564,7 +564,7 @@ A rendszer biztonságára az Symfony2 Security komponense ügyel. Előszöris az
 
 \begin{lstlisting}
 access_control:
-    - { path: ^/login_openid$, roles:\hookleftarrow IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/login_openid$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/, role: IS_AUTHENTICATED_OPENID }
 \end{lstlisting}
 
@@ -815,7 +815,7 @@ public function newAction(Request $request)
 
 Ezután a Security komponens az ide mutató összes url elérésekor ellenőrzi, a bejelentkezett felhasználó rendelkezik-e ezzel a joggal, ha nem, automatikusan hibaoldalra irányítja.
 
-Az űrlap a korábban már mutatott adatbázis-séma alapadatait tartalmazza, valamint egy listát a rendszer felhasználóiról, mindegyikhez tartozik egy jelölőnégyzet, amivel azt tudjuk megadni: meghívott-e az illető. Ez látható a \ref{fig:ules_uj}. ábrán.
+Az űrlap a korábban már mutatott adatbázis-séma alapadatait tartalmazza, valamint egy listát a rendszer felhasználóiról, mindegyikhez tartozik egy jelölőnégyzet, amivel azt tudjuk megadni: meghívott-e az illető. Ez látható a \ref{fig:ules_uj}. ábrán. Nagy felhasználószámnál a jelölőnégyzetes megoldás problémás, erre a továbbfejlesztés során szeretnék valami jól használható megoldást találni.
 
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{ules_uj.png}
@@ -884,7 +884,25 @@ Definiáltam továbbá egy {\tt GcalEvent} osztályt, az események adataként i
 $this->get("event_dispatcher")->dispatch("ules.new", new GcalEvent($ules));
 \end{lstlisting}
 
-Az {\tt ulesNew} függvényünk gondoskodik a naptárbejegyzés létrehozásáról, valamint annak visszakapott azonosítójának adatbázisba mentéséről \textendash{} erre később az ülés szerkesztésekor és törlésekor lesz szükségünk.
+Az {\tt ulesNew} függvényünk gondoskodik a naptárbejegyzés létrehozásáról, valamint annak visszakapott azonosítójának adatbázisba mentéséről \textendash{} erre később az ülés szerkesztésekor és törlésekor lesz szükségünk:
+
+\begin{lstlisting}
+public function ulesNew(GcalEvent $event)
+{
+    $ules = $event->getUles();
+
+    $event = new \Google_Event();
+    $this->ulesAdatokEventbe($ules, $event);
+
+    $service = $this->getGoogleCalendarService();
+    $created_event = $service->events->insert($this->calendar_id, $event, array("sendNotifications" => true));
+
+    $ules->setGcalEventId($created_event->getId());
+    $this->entity_manager->flush($ules);
+}
+\end{lstlisting}
+
+Azaz egy segédfüggvény használatával az ülés adatait átmásolom egy újonnan létrehozott {\tt Google\_Event} objektumba, majd egy megfelelően konfigurált {\tt Google\_CalendarService} példánynak átadva hozom létre a szerveren az naptárbejegyzést. Végül a létrehozott bejegyzés azonosítóját mentem az ülés adatai közé.
 
 \subsection{Jegyzőkönyvíró-modul}
 
