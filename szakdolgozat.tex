@@ -281,21 +281,33 @@ Az következőkben bemutatom a rendszer három várhatóan leggyakrabban látoga
 
 \subsubsection{Kezdőlap}
 
-Bejelentkezés után minden felhasználó erre az oldalra érkezik. Áttekintő táblázatot kap az elkövetkező üléseiről, illetve azon jegyzőkönyveiről, melyek már létre lettek hozva, de még nincsenek lezárva.
+Bejelentkezés után minden felhasználó erre az oldalra érkezik. Áttekintő táblázatot kap az elkövetkező üléseiről, illetve azon jegyzőkönyveiről, melyek már létre lettek hozva, de még nincsenek lezárva. Ennek terve látható a \ref{fig:wireframe-kezdolap}. ábrán.
 
-\includegraphics[width=\textwidth]{wireframe-kezdolap}
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{wireframe-kezdolap}
+    \caption{A bejelentkezettek kezdőlapjának látványterve}
+    \label{fig:wireframe-kezdolap}
+\end{figure}
 
 \subsubsection{Üléshirdetés}
 
-Ezen a képernyőn lehet megadni az ülés alapadatait és résztvevőket meghívni.
+Ezen a képernyőn lehet megadni az ülés alapadatait és résztvevőket meghívni. Ennek terve látható a \ref{fig:wireframe-uleshirdetes}. ábrán.
 
-\includegraphics[width=\textwidth]{wireframe-uleshirdetes}
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{wireframe-uleshirdetes}
+    \caption{Az ülés hirdetésére szolgáló űrlap látványterve}
+    \label{fig:wireframe-uleshirdetes}
+\end{figure}
 
 \subsubsection{Jegyzőkönyvírás}
 
-Itt tudja az írással megbízott felhasználó felvinni a jegyzőkönyv elemeit, melyek sorrendfüggően egymás alatt látszanak.
+Itt tudja az írással megbízott felhasználó felvinni a jegyzőkönyv elemeit, melyek sorrendfüggően egymás alatt látszanak. Ennek látványterve található a \ref{fig:wireframe-jegyzokonyvszerkesztes}. ábrán.
 
-\includegraphics[width=\textwidth]{wireframe-jegyzokonyvszerkesztes}
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{wireframe-jegyzokonyvszerkesztes}
+    \caption{A jegyzőkönyv szerkesztésére szolgáló felület látványterve}
+    \label{fig:wireframe-jegyzokonyvszerkesztes}
+\end{figure}
 
 \subsection{Jogosultságok leírása}
 
@@ -414,7 +426,6 @@ class AppKernel extends Kernel
         return $bundles;
     }
 }
-
 \end{lstlisting}
 
 Ezeket persze lehet feltételesen regisztrálni, azaz megtehetjük, hogy egy adott (mondjuk automatikus naplózáshoz használt) bundle csak az éles szerveren van használva, tesztkörnyezetben nem.
@@ -793,9 +804,87 @@ Ennek a modulnak a felelőssége az ülések létrehozása, szerkesztése, törl
 
 \subsubsection*{Új ülés hirdetése}
 
+Az üléshirdető joggal rendelkező felhasználók létrehozhatnak új üléseket, megadhatják meghívottjaikat, illetve létrehozás után tölthetnek fel hozzá dokumentumokat. Az üléslista alján található {\it Új ülés} gomb a korábban már látott {\tt is\_granted} függvénnyel van biztosítva, a controllerünk viszont egy eddig nem látott módszerrel: a megfelelő függvény kapott egy annotációt:
+
+\begin{lstlisting}
+/**
+ * @Secure(roles="ROLE_ULESHIRDETO")
+ */
+public function newAction(Request $request)
+\end{lstlisting}
+
+Ezután a Security komponens az ide mutató összes url elérésekor ellenőrzi, a bejelentkezett felhasználó rendelkezik-e ezzel a joggal, ha nem, automatikusan hibaoldalra irányítja.
+
+Az űrlap a korábban már mutatott adatbázis-séma alapadatait tartalmazza, valamint egy listát a rendszer felhasználóiról, mindegyikhez tartozik egy jelölőnégyzet, amivel azt tudjuk megadni: meghívott-e az illető. Ez látható a \ref{fig:ules_uj}. ábrán.
+
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{ules_uj.png}
+    \caption{Az új ülés hirdetésére szolgáló űrlap}
+    \label{fig:ules_uj}
+\end{figure}
+
+\subsubsection*{Dokumentumok kezelése}
+
+Miután kihirdette az ülést, a szerkesztésére szolgáló oldalon a felhasználó tud hozzá tetszőleges számú dokumentumot feltölteni \textendash{} ez akkor hasznos, amikor például az ülés egy belső szabályzat tervezett módosításáról szól, ahogy nem sokkal ezelőtt a Hallgatói Önkormányzat tárgyalta a tervezett TVSz-változtatásokat. A dokumentumoknak egy kötelező mezője van, a leírásuk, ide 255 karakter hosszan bármit lehet írni. Tárolom ezen kívül az eredeti fájlnevet, hogy letöltéskor ugyanazon a néven lehessen menteni.
+
+Ezeket a dokumenentumokat később nyilvános ülés esetén bárki, zárt ülés esetén pedig a meghívottak tudják letölteni. A fájlok olyan helyen vannak tárolva, ami nem elérhető kívülről, így a letöltést mindenképp a rendszeren keresztül kell végezni, ahol van lehetőség a jogosultság ellenőrzésére.
+
+A fájlokat kiszolgáló controller egy {\tt ParamConverter} segítségével rögtön egy {\tt Dokumentum} objektumot kap, lérehoz egy választ, beállítja a letöltéshez szükséges fejléceket és a tartalmat, majd visszatér azzal:
+
+\begin{lstlisting}
+public function downloadAction(Dokumentum $dokumentum)
+{
+    $response = new Response();
+    $response->setContent(file_get_contents($dokumentum->getFilename()));
+    $response->headers->set("Content-Type", "application/octet-stream");
+    $response->headers->set("Content-Disposition", "attachment; filename=" . $dokumentum->getEredetiFilenev());
+
+    return $response;
+}
+\end{lstlisting}
+
 \subsubsection*{Google Naptár}
 
-\todo[inline]{Ezt az egészet még kódszinten is meg kell valósítani előbb}
+A hirdetett ülésekről a rendszer a Google Naptárában létrehoz egy eseményt a rendszerben megadott adatokkal, meghívottakkal. Ennek három fontos előnye van:
+
+\begin{enumerate}
+    \item Esemény létrehozásakor a meghívottak emailben értesítőt kapnak, amiben szerepel az ülés címe, leírása, helye és ideje
+    \item Esemény módosításakor a meghívottak erről is értesítést kapnak
+    \item Az esemény a meghívottak naptárában is látszik, ezzel segítve a teendőik átlátását
+\end{enumerate}
+
+A kommunikációt a Google hivatalos klienskönyvtárának segítségével valósítottam meg.
+
+A Symfony2 része egy eseménykezelő komponens. Ebben tetszőleges eseményeket hozhatunk létre, és iratkozhatunk fel rájuk. Erre az egyik lehetőség egy {\it Event Subscriber} osztály készítése, majd regisztrációja:
+
+\begin{lstlisting}
+szakdolgozat.ules.gcal_event_subscriber:
+    class: Szakdolgozat\UlesBundle\EventSubscriber\GcalEventSubscriber
+    arguments: [@session, @doctrine.orm.default_entity_manager]
+    tags:
+        - { name: "kernel.event_subscriber" }
+\end{lstlisting}
+
+Egy statikus függvény visszatérési értékével kell meghatároznunk, mely eseményekre akarunk feliratkozni, és azok mely függvényeket hívják meg:
+
+\begin{lstlisting}
+public static function getSubscribedEvents()
+{
+    return array(
+        "ules.new"      =>  "ulesNew",
+        "ules.edit"     =>  "ulesEdit",
+        "ules.delete"   =>  "ulesDelete",
+    );
+}
+\end{lstlisting}
+
+Definiáltam továbbá egy {\tt GcalEvent} osztályt, az események adataként ilyet továbbítok. Új ülés létrehozásakor a controllerben szükséges kód a következő:
+
+\begin{lstlisting}
+$this->get("event_dispatcher")->dispatch("ules.new", new GcalEvent($ules));
+\end{lstlisting}
+
+Az {\tt ulesNew} függvényünk gondoskodik a naptárbejegyzés létrehozásáról, valamint annak visszakapott azonosítójának adatbázisba mentéséről \textendash{} erre később az ülés szerkesztésekor és törlésekor lesz szükségünk.
 
 \subsection{Jegyzőkönyvíró-modul}
 
