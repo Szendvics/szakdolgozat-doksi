@@ -10,7 +10,7 @@
 \usepackage{formai_kovetelmenyek}
 
 \lstset{
-     basicstyle = \ttfamily
+     basicstyle = \ttfamily\footnotesize
     ,breaklines = true
     ,prebreak   = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}
     ,extendedchars = true
@@ -248,7 +248,7 @@ A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyi
 
 A rendszerem fejlesztése a 2.1-es verzióban történt. A készítés utolsó hónapjaiban adták ki a 2.2-es verziót számos visszafelé nem kompatibilis változtatással, ezért nem frissítettem rá \textendash{} a 2.1-es változat 2013 közepéig élvez hivatalos támogatást, így a rendszer további fejlesztése során mindenképpen megfontolandó a 2.2-re átállás.
 
-A Symfony remekül együtt tud működni a Doctrine ORM-el\cite{website:doctrine,book:doctrine_orm}, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egy egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk. Szintén jó a támogatása az adatbázis-migrációkkal kapcsolatban, ha változik az adataink szerkezete, ezt nem kézzel kell lekövetnünk az éles szerveren, egyetlen, a terminálban kiadott paranccsal a Doctrine ezt megteszi nekünk.
+A Symfony remekül együtt tud működni a Doctrine ORM-el\cite{website:doctrine,book:doctrine_orm}, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk. Szintén jó a támogatása az adatbázis-migrációkkal kapcsolatban, ha változik az adataink szerkezete, ezt nem kézzel kell lekövetnünk az éles szerveren, egyetlen, a terminálban kiadott paranccsal a Doctrine ezt megteszi nekünk.
 
 \subsubsection{Bootstrap}
 
@@ -282,7 +282,7 @@ Választásom egy olyan könyvtárra esett, mely HTML bemenet alapján generálj
 
 \subsection{Felületterv}
 
-Az következőkben bemutatom a rendszer három várhatóan leggyakrabban látogatott képernyőjét. Az elrendezése mindegyiknek ugyanaz: felül egy menüsáv, ahol a bejelentkezett felhasználó jogosultsági szintjétől függően látszanak a menüpontok.
+A következőkben bemutatom a rendszer három várhatóan leggyakrabban látogatott képernyőjét. Az elrendezése mindegyiknek ugyanaz: felül egy menüsáv, ahol a bejelentkezett felhasználó jogosultsági szintjétől függően látszanak a menüpontok.
 
 \subsubsection{Kezdőlap}
 
@@ -378,7 +378,7 @@ A Symfony2 remekül támogatatja az egység- és funkcionális tesztek írását
 \todo[inline]{Tesztelésről részletesebben}
 Szintén hasznát fogom venni a Travis-CI szolgáltatásnak, melynek lényege az, hogy minden verziókövetőbe történő commit után automatikusan lefuttatja a teszteket akár több PHP verzión, illetve adatbázis-szerveren.
 
-Emellett amint a rendszer eléri a megfelelő fejlettségi szintet, telepítésre kerül egy alkalmas szerverre, hogy valós felhasználók is elkezdhessék annak próbálgatását és visszajelzések küldését.
+Emellett amint a rendszer eléri a megfelelő fejlettségi szintet, telepítésre kerül egy alkalmas szerverre, hogy valós felhasználók is elkezdhessék annak próbálgatását és visszajelzéseket küldhessenek.
 
 \section{Fejlesztési napló}
 
@@ -441,7 +441,7 @@ Egy bundle egy adott funkcióhoz szükséges összes file gyűjteménye. Ez lehe
 
 Erre a komponensre nyugodt szívvel lehet mondani, hogy a keretrendszer lelke, az, ami összefogja az egészet. Viszonylag kisméretű (kb. 10k LOC), de óriási lehetőségek rejlenek benne.
 
-Ennek a komponensnek segítségével egy helyen tudjuk leírni, milyen szolgáltatásai vannak a bundle-ünknek, azokat milyen azonosítóval lehet elérni, illetve milyen paraméterek szükségesek a példányosításához, helyes működéséhez. Támogatottak a kötelező függőségek (konstruktoros paraméterátadás) és az opcionálisak is (setteres átadás). A definiált szolgáltatások egésze, vagy akár csak egy-egy paramétere módosítható az alkalmazás szintjén, vagy egy, a mienkre épülő bundle-ben. Paraméterként használhatóak skaláris értékek, de akár egy másik szolgáltatás is.
+Ennek a komponensnek segítségével egy helyen tudjuk leírni, milyen szolgáltatásai vannak a bundle-ünknek, azokat milyen azonosítóval lehet elérni, illetve milyen paraméterek szükségesek a példányosításukhoz, helyes működésükhöz. Támogatottak a kötelező függőségek (konstruktoros paraméterátadás) és az opcionálisak is (setteres átadás). A definiált szolgáltatások egésze, vagy akár csak egy-egy paramétere módosítható az alkalmazás szintjén, vagy egy, a mienkre épülő bundle-ben. Paraméterként használhatóak skaláris értékek, de akár egy másik szolgáltatás is.
 
 A szolgáltatások leírása szövegesen, yaml vagy xml formában történhet. Ezek értelmezése lassú folyamat, ami nem megengedhető éles környezetben. Ezen segítendő ezek csak a gyorsítótár ürítése utáni első kéréskor vannak parse-olva, a későbbiek egy php-re fordított és mentett, tehát nagyon gyors változatot használnak.
 
@@ -461,7 +461,7 @@ Ebben a példában egy úgynevezett ParamConverter szolgáltatást írok le, eze
 
 Ahogy majdnem mindenre, konfigurációra is több alternatívánk van. Természetesen létezik ajánlás is, amit érdemes követni, ha a bundle-ünket szeretnénk később publikálni.
 
-Az első lehetőség az XML file-ok használata. Nagy előnye, hogy széleskörűen ismert és jóldefiniált formátum, félreértési lehetőségek nélkül. A symfony.com alatt találhatóak hozzá XSD sémák, ezek segítségével a megfelelő szerkesztőkben kódkiegészítést is kapunk. Hátránya, hogy nagyon bőbeszédű.
+Az első lehetőség az XML file-ok használata. Nagy előnye, hogy széleskörűen ismert és jól definiált formátum, félreértési lehetőségek nélkül. A symfony.com alatt találhatóak hozzá XSD sémák, ezek segítségével a megfelelő szerkesztőkben kódkiegészítést is kapunk. Hátránya, hogy nagyon bőbeszédű.
 
 A második lehetőség a YAML formátum. Ez szintén egyszerű szöveges formátum, a hierarchia jelölésére szóközökkel való behúzást használ. Például a nem sokkal fentebbi, ParamConverter szolgáltatást regisztráló kódrészlet yaml formátumban van. Előnye, hogy kevés benne a felesleges szöveg, azaz szemmel is könnyen és gyorsan értelmezhető. Hátránya, hogy időnként nem egyértelmű, és a parser hibaüzenetei is gyakran nagyon megtévesztőek.
 
@@ -475,7 +475,7 @@ Az összes többi modul épít a felhasználókra, így ezt volt logikus elsőne
 
 \subsubsection*{Adatbázisának szerkezete}
 
-A hozzá tartozó táblák tartalmazzák a felhasználókat, a rendszer által ismert jogokat, illetve hogy ebből melyik felhasználó melyekkel rendelkezik. Ennek szerkezete látható az \ref{fig:felhasznalo_db}. ábrán.
+A hozzá tartozó táblák tartalmazzák a felhasználókat, a rendszer által ismert jogokat, illetve hogy ebből melyik felhasználó melyekkel rendelkezik. Szerkezetét lásd a \ref{fig:felhasznalo_db}. ábrán.
 
 \begin{figure}[h]
   \includegraphics[width=\textwidth]{felhasznalo_db.png}
@@ -553,19 +553,19 @@ Azaz egészen egyszerűen csak mondani kell, hogy több-több kapcsolatot szeret
 protected $felhasznalok;
 \end{lstlisting}
 
-Itt a kapcsolótáblát már nem kell megadnunk, fontos viszont, hogy az {\tt inversedBy} helyett {\tt mappedBy} tulajdonságot adunk meg. Ezzel tudjuk jelezni, hogy a kapcsolatnak melyik a tulajdonosi oldala, jelen esetben a felhasználó, azaz hozzá tartoznak a jogok, nem pedig a jogokhoz a felhasználók. Ennek az elemek szerkesztésekor van jelentősége: a Doctrine csak a tulajdonosi oldalt vizsgálja, hogy történt-e változás, kell e módosítani valamely táblát.
+Itt a kapcsolótáblát már nem kell megadnunk, fontos viszont, hogy a korábban látott {\tt inversedBy} helyett {\tt mappedBy} tulajdonságot adunk meg. Ezzel tudjuk jelezni, hogy a kapcsolatnak melyik a tulajdonosi oldala, jelen esetben a felhasználó, azaz hozzá tartoznak a jogok, nem pedig a jogokhoz a felhasználók. Ennek az elemek szerkesztésekor van jelentősége: a Doctrine csak a tulajdonosi oldalt vizsgálja, hogy történt-e változás, kell-e módosítani valamely táblát.
 
 \subsubsection*{OpenID}
 
 A protokoll két felet definiál, a {\em providert} és a {\em consumert}. A provider a szolgáltató, ahol a felhasználó rendelkezik már fiókkal, és annak engedélyével megkaphatjuk a kért adatait. A consumer a fogyasztó, jelen esetben a rendszerem, ahová a felhasználó szeretne bejelentkezni a másik oldalnál található fiókjával. A kérés során szabadon megmondhatjuk, hogy a szolgáltatónál elérhető adatok közül melyiket szeretnénk megkapni. Ezek egy része a protokollban van definiálva, de természetesen létre lehet hozni egyedi mezőket is.
 
-A rendszerem tervezésekor még nem tudtam, mennyire összetett ennek a megvalósítása a Symfony keretrendszerben, ezért csak egy szolgáltatóval (Google) történő azonosítást vállaltam. Most már tudom, hogy köszönhetően annak, csak az email mezőre van szükségem, nagyon kevés plusz munkával bármely OpenID kiszolgálóval megvalósítható a bejelentkezés.
+A rendszerem tervezésekor még nem tudtam, mennyire összetett ennek a megvalósítása a Symfony keretrendszerben, ezért csak egy szolgáltatóval (Google) történő azonosítást vállaltam. Most már tudom, hogy köszönhetően annak, hogy csak az email mezőre van szükségem, nagyon kevés plusz munkával bármely OpenID kiszolgálóval megvalósítható a bejelentkezés.
 
 A két fél közti kommunikációt a korábban már említett {\tt FpOpenIdBundle} segítségével valósítottam meg.
 
 \subsubsection*{Bejelentkezés}
 
-A rendszer biztonságára az Symfony2 Security komponense ügyel. Előszöris az alkalmazásom {\tt security.yml} fájljában be kellett állítanom, hogy az egész rendszerhez OpenID-n keresztüli bejelentkezés szükséges:
+A rendszer biztonságára az Symfony2 Security komponense ügyel. Először is az alkalmazásom {\tt security.yml} fájljában be kellett állítanom, hogy az egész rendszerhez OpenID-n keresztüli bejelentkezés szükséges:
 
 \begin{lstlisting}
 access_control:
@@ -587,7 +587,7 @@ fp_openid:
 
 A {\tt create\_user\_if\_not\_exists} beállítás neve megtévesztő, ugyanis nem azt jelenti, hogy hozzon létre felhasználót, ha valaki anélkül próbál bejelentkezni. OpenID-ban egy felhasználó több úgynevezett {\em identity}-vel rendelkezik, és a beállítás azt mondja meg, hogy ha új identity-vel érkezik egy felhasználó, azzal beengedje-e. A {\tt provider} egy szolgáltatás nevét tartalmazza, amelynek a feladata a providertől kapott adatokból annak eldöntése, hozzáférhet-e a felhasználó a rendszerhez. Az utolsó érték azt mondja meg, mely adatokat szeretnénk megkapni, jelen esetben ez csak az email cím.
 
-A providerként megadott szolgáltatás egy adott interfészt kell megvalósítson, ami egyetlen függvényt tartalmaz. Bemeneti paramétere a szolgáltatótól kapott adatok tömbje, és a végén vissza kell adnia azt a {\tt Felhasznalo} példányt, akit ezek azonosítanak. Ha nincs az adatok közt email cím, vagy ilyennek rendelkező felhasználónk nincs, akkor a függvénynek exceptiont kell dobnia.
+A providerként megadott szolgáltatás egy adott interfészt kell megvalósítson, ami egyetlen függvényt tartalmaz. Bemeneti paramétere a szolgáltatótól kapott adatok tömbje, és a végén vissza kell adnia azt a {\tt Felhasznalo} példányt, akit ezek azonosítanak. Ha nincs az adatok közt email cím, vagy ilyennel rendelkező felhasználónk nincs, akkor a függvénynek exceptiont kell dobnia.
 
 \todo[inline]{szekvenciadiagram?}
 
@@ -623,7 +623,7 @@ Itt leírom, melyik fájlt kell importálni, valamint hogy milyen előtagot kapj
 
 ezt a sort a Bejelentkezés szekcióban mutatott két hozzáférési szabály közé kell írni.
 
-A következő lépés a lista linkelése a menübe. A keretrendszerrel több template nyelv támogatás érkezik beépítve, ebből én a Twiget\cite{website:twig} választottam. Az alapvető vezérlési szerkezetek megtalálhatóak benne, és a Symfony számos függvénnyel kiegészíti, például ezzel, amelyikkel azt tudjuk ellenőrizni, a bejelentkezett felhasználónk jelentkezik-e egy adott joggal:
+A következő lépés a lista linkelése a menübe. A keretrendszerrel több template nyelv támogatás érkezik beépítve, ebből én a Twiget\cite{website:twig} választottam. Az alapvető vezérlési szerkezetek megtalálhatóak benne, és a Symfony számos függvénnyel kiegészíti, például ezzel, amelyikkel azt tudjuk ellenőrizni, a bejelentkezett felhasználónk rendelkezik-e egy adott joggal:
 
 \begin{lstlisting}
 {% if is_granted("ROLE_ADMINISZTRATOR") %}
@@ -684,11 +684,11 @@ A táblázat utolsó cellája egy olyan link lesz, amelyet meglátogatva az a fe
 
 \subsubsection*{Felhasználók szerkesztése}
 
-Most már van linkünk, ami a szerkesztőfelületre mutat, és átadjuk benne a felhasználó azonosítóját. Az action függvényünkben ez alapján lekérjük az adatbázisból és megjelenítjük ez űrlapon.
+Most már van linkünk, ami a szerkesztőfelületre mutat, és átadjuk benne a felhasználó azonosítóját. Az action függvényünkben ez alapján lekérjük az adatbázisból és megjelenítjük az űrlapon.
 
 A lekérést megtehetnénk a függvényünk részeként is, de van rá jobb megoldás: egy saját {\tt ParamConverter} írása. Ezek arra jók, hogy az url-ben kapott értékek alapján a függvényünk rögtön egy {\tt Felhasznalo} példányt kaphat. Korábban, amikor a Dependency Injection Containerről írtam, mutattam azt a kódrészletet, amely a felhasználókat id-ből {\tt Felhasznalo} objektummá átalakító {\tt ParamConverter}t regisztrálja.
 
-Ezek az osztályok egy adott interfészt kell megvalósítsanak, amely két függvényt ír le: az első paraméterként egy osztálynevet kap, és vissza kell adnia, támogatja-e az ilyenre átalakítást. A második magát az alakítást végzi paraméterként kapott {\tt Request} alapján. Ebben a példában az url-ben kapott {\tt id} paraméter alapján kérek az adatbázisból, ha nincs ilyen, hibát dobok, amúgy beállítom a {\tt Request}be a konfigurációban beállitott kulcs alá. Végeredményként az action függvényünk ennyire leegyszerűsödik:
+Ezek az osztályok egy adott interfészt kell megvalósítsanak, amely két függvényt ír le: az első paraméterként egy osztálynevet kap, és vissza kell adnia, támogatja-e az ilyenre átalakítást. A második magát az alakítást végzi paraméterként kapott {\tt Request} alapján. Ebben a példában az url-ben kapott {\tt id} paraméter alapján kérek az adatbázisból, ha nincs ilyen, hibát dobok, amúgy beállítom a {\tt Request}be a konfigurációban beállított kulcs alá. Végeredményként az action függvényünk ennyire leegyszerűsödik:
 
 \begin{lstlisting}
 public function editAction(Felhasznalo $felhasznalo, Request $request)
@@ -753,7 +753,8 @@ public function buildForm(FormBuilderInterface $builder, array $options)
 Ebben a példában két mezőt mutatok, az első a felhasználó email címe, amelyhez egy email típusú mező szükséges, valamint kötelező, és szintaktikailag érvényes email cím kell legyen. A második egy adatbázis-entity hivatkozás, méghozzá a Jogra. A fenti beállításokkal egy jelölőnégyzetes listát kapunk, mellyel szabadon meghatározhatjuk, mely jogokkal rendelkezzen a felhasználó. Az űrlap a \ref{fig:felhasznalo_szerkesztes}. ábrán látható.
 
 \begin{figure}[h]
-    \includegraphics[width=\textwidth]{felhasznalo_szerkesztes.png}
+    \centering
+    \includegraphics[width=.65\textwidth]{felhasznalo_szerkesztes.png}
     \caption{A felhasználók szerkesztésére szolgáló űrlap}
     \label{fig:felhasznalo_szerkesztes}
 \end{figure}
@@ -766,11 +767,11 @@ A fejlesztés logikusan következő lépése az ülések szervezésére szolgál
 
 Ebben a modulban két entitást kell leírnunk, az egyik az ülés, a másik a dokumentum.
 
-A dokumentumot az azonosítójából generált néven tároljuk a szerveren, egy olyan helyen, ami nem közvetlenül elérhető kívülről, így biztosítani tudjuk, hogy csak a hozzáféréssel rendelkező felhasználók tölthetnek le egy-egy csatolmányt. A generált név miatt azonban tárolnunk kell az file eredeti nevét, hogy letöltéskor így tudjuk kiszolgálni.
+A dokumentumot az azonosítójából generált néven tároljuk a szerveren, egy olyan helyen, ami nem közvetlenül elérhető kívülről, így biztosítani tudjuk, hogy csak a hozzáféréssel rendelkező felhasználók tölthetnek le egy-egy csatolmányt. A generált név miatt azonban tárolnunk kell a file eredeti nevét, hogy letöltéskor így tudjuk kiszolgálni.
 
 Az ülésekről tárolunk néhány alapadatot, ezeken kívül több relációval is rendelkezik: tartozhat hozzá akármennyi dokumentum (természetesen akár nulla is), szintén tetszőleges számú meghívott, valamint pontosan egy hirdető. A meghívottak és a hirdető a felhasználó modulban definiált {\tt Felhasznalo} entitásra hivatkozik.
 
-Az adatbázis szerkezete látható a \ref{fig:ules_db}. ábrán. Az {\tt UlesMeghivott} tábla csak az adatbázisban létezik az ülés-meghívott több-több kapcsolat segédtálájaként, entitás nincs hozzá.
+Az adatbázis szerkezete látható a \ref{fig:ules_db}. ábrán. Az {\tt UlesMeghivott} tábla csak az adatbázisban létezik az ülés-meghívott több-több kapcsolat segédtáblájaként, entitás nincs hozzá.
 
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{ules_db.png}
@@ -802,7 +803,8 @@ protected $ules;
 Ennek a modulnak a felelőssége az ülések létrehozása, szerkesztése, törlése; azok meghívottjainak és dokumentumainak számontartása; a dokumentumok kiszolgálása jogosultság esetén. Ezek a használati esetek láthatóak a \ref{fig:ules_usecase}. ábrán.
 
 \begin{figure}[h]
-    \includegraphics[width=\textwidth]{ules_usecase.png}
+    \centering
+    \includegraphics[width=.65\textwidth]{ules_usecase.png}
     \caption{Az ülésszervező modul használati esetei}
     \label{fig:ules_usecase}
 \end{figure}
@@ -823,7 +825,8 @@ Ezután a Security komponens az ide mutató összes url elérésekor ellenőrzi,
 Az űrlap a korábban már mutatott adatbázis-séma alapadatait tartalmazza, valamint egy listát a rendszer felhasználóiról, mindegyikhez tartozik egy jelölőnégyzet, amivel azt tudjuk megadni: meghívott-e az illető. Ez látható a \ref{fig:ules_uj}. ábrán. Nagy felhasználószámnál a jelölőnégyzetes megoldás problémás, erre a továbbfejlesztés során szeretnék valami jól használható megoldást találni.
 
 \begin{figure}[h]
-    \includegraphics[width=\textwidth]{ules_uj.png}
+    \centering
+    \includegraphics[width=.9\textwidth]{ules_uj.png}
     \caption{Az új ülés hirdetésére szolgáló űrlap}
     \label{fig:ules_uj}
 \end{figure}
@@ -851,7 +854,8 @@ public function downloadAction(Dokumentum $dokumentum)
 Az ülés dokumentumainak kezelérésre szolgáló felület látható a \ref{fig:ules_dokumentumok}. ábrán.
 
 \begin{figure}[h]
-    \includegraphics[width=\textwidth]{ules_dokumentumok.png}
+    \centering
+    \includegraphics[width=.8\textwidth]{ules_dokumentumok.png}
     \caption{Az ülés dokumentumainak kezelésére szolgáló felület}
     \label{fig:ules_dokumentumok}
 \end{figure}
