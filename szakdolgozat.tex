@@ -27,6 +27,10 @@
 
 \graphicspath{{./kepek/}}
 
+\setcounter{secnumdepth}{3} %szamozza a subsubsection-oket is
+\AtBeginDocument{\addtocontents{toc}{\protect\pagestyle{empty}}} %ezzel erem el, hogy a tartalomjegyzek ne kapjon oldalszamot
+\AtBeginDocument{\addtocontents{tod}{\protect\thispagestyle{empty}}}
+
 \begin{document}
 \setcounter{chapter}{1}
 
@@ -139,19 +143,20 @@ programozás, Qt, OpenCV }
 wireless communication, motor control, network programming, Qt, OpenCV }
 \newpage
 %--------------%------------------------------------------------------------------
-\setcounter{page}{1} %innentől indul az oldalszámozás
-\pagestyle{plain}
-
+\pagenumbering{gobble} %ne legyen oldalszamozas
 \listoftodos
-
-\setcounter{secnumdepth}{3} %szamozza a subsubsection-oket is
 
 \renewcommand{\thefigure}{\arabic{figure}}
 
 \setcounter{tocdepth}{3} %subsubsection-ok is latszodjanak
-\tableofcontents
 \thispagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
 \pagebreak
+
+\pagenumbering{arabic} %legyen oldalszamozas
+\setcounter{page}{1} %innentől indul az oldalszámozás
+\pagestyle{plain}
 
 \section{A feladat összefoglalása}
 
@@ -912,9 +917,136 @@ public function ulesNew(GcalEvent $event)
 
 Azaz egy segédfüggvény használatával az ülés adatait átmásolom egy újonnan létrehozott {\tt Google\_Event} objektumba, majd egy megfelelően konfigurált {\tt Google\_CalendarService} példánynak átadva hozom létre a szerveren az naptárbejegyzést. Végül a létrehozott bejegyzés azonosítóját mentem az ülés adatai közé.
 
-\subsection{Jegyzőkönyvíró-modul}
+\subsection{Jegyzőkönykészítő modul}
+
+\subsubsection*{Adatbázisának szerkezete}
+
+Ennek a modulnak a feladata tárolni a jegyzőkönyveket, alapadataikkal és elemeikkel, illetve azok sorrendjével együtt. A szerkezete látható a \ref{fig:jegyzokonyv_db}. ábrán, amelyről helytakarékossági okból lehagytam a {\tt Felhasznalo} és az {\tt Ules} táblákat.
+
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{jegyzokonyv_db.png}
+    \caption{A jegyzőkönyvkészítő modul adatbázisának szerkezete}
+    \label{fig:jegyzokonyv_db}
+\end{figure}
+
+A {\tt Jegyzokonyv} tábla két nem ábrázolt relációval rendelkezik: az egyik a {\tt Felhasznalo} táblára mutat és három mezőre vonatkozik: a jegyzőkönyv írójára és a két hitelesítőre; a másik az {\tt Ules} táblára mutat, és azt jelzi, tartozik-e hozzá ülés. A lezárási, hitelesítési folyamatot dátum mezőkkel ábrázoltam, mert így egyszerre követhető az is, mikor történtek az egyes lépések.
+
+A {\tt JegyzokonyElem} egy absztrakt osztály, a három típusú elem közös mezőit tartalmazza. A Doctrine Single Table Inheritance-ét használom, ezzel az elemet egy közös táblában tárolódnak, plusz egy mezővel, mely megmondja, az adott rekord melyik típusba tartozik. A másik hasonló lehetőség az, amikor elemenként külön táblákban tárolódnak, de mivel az elemek részben közös mezőkkel rendelkeznek, valamint az összes mezőjük kisméretű, a közös táblás tárolás mellett döntöttem. Bár a tárolás így nem optimális, a lekérdezések sebessége ellensúlyozza ezt.
+
+\subsubsection*{Használati esetek}
+
+E modul feladatai közé tartozik az új jegyzőkönyv létrehozása, ami utána csak a készítője (vagy valamely adminisztrátor) által szerkeszthető. A folyamatban levő vagy kész jegyzőkönyveket bárki megtekintheti, ha a hozzájuk tartozó ülés nyilvános, vagy nincs üléshez párosítva; zárt ülés esetén csak annak meghívottjai. Szintén e modul felügyeli a jegyzőkönyvek lezárási folyamatát, valamint képes azokat PDF formátumban exportálni. Ezeken felül az adminisztrátorok tudják a már létező jegyzőkönyvek készítőjét módosítani. Ezen használati esetek láthatóak a \ref{fig:jegyzokonyv_usecase}. ábrán.
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=.8\textwidth]{jegyzokonyv_usecase.png}
+        \caption{A jegyzőkönyv modul használati esetei}
+        \label{fig:jegyzokonyv_usecase}
+\end{figure}
+
+\subsubsection*{Új jegyzőkönyv létrehozása}
+
+A jegyzőkönyvek menüpont mindenki által látható, és a felhasználó által látható jegyzőkönyvek listájára mutat. A táblázat alján található gomb az egyik lehetőség az új jegyzőkönyv létrehozására \textendash{} ekkor az nem kapcsolódik üléshez.
+
+A másik lehetőség a felhasználó kezdőlapján található {\it Üléseim} táblázat, amibe pontosan akkor kerül a {\it Jegyzőkönyv létrehozása} link, ha ahhoz az üléshez még nem kapcsolódik jegyzőkönyv.
+
+Mindkét út ugyanarra az űrlapra vezet, ahol először az ülés alapadatait kell megadni. Ha üléshez kapcsolódó jegyzőkönyv készül, akkor ezeket a rendszer automatikusan kitölti, a jegyzőkönyvírónak csak azzal kell foglalkoznia, amit nem tudott, mint például az ülés zárásának időpontja, vagy a jelen levő szavazati jogú tagok száma. Az adatokkal kitöltött űrlap látható a \ref{fig:jegyzokonyv_uj}. ábrán.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{jegyzokonyv_uj.png}
+    \caption{Az új jegyzőköny létrehozására szolgáló űrlap}
+    \label{fig:jegyzokonyv_uj}
+\end{figure}
+
+Az alapadatok megadása már elég, hogy a jegyzőkönyvet menteni lehessen.
+
+Új jegyzőkönyv-elemeket az űrlap alján található, az egyes típusoknak megfelelő gombokkal lehet; ekkor az új elem a sorrend végére kerül, de a felhasználó egyszerű drag'n'drop módszerrel tetszőleges helyre mozgathatja (ugyanezzel a megoldással átrendezhetőek az elemek a későbbiek során is).
+
+Az egyes elemek vizuálisan jól elkülöníthetőek, ez látható a \ref{fig:jegyzokonyv_szerkesztes}. ábrán. A jobb felső sarkukban található gombbal lehet őket törölni.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{jegyzokonyv_szerkesztes.png}
+    \caption{Jegyzőkönyvelemek}
+    \label{fig:jegyzokonyv_szerkesztes}
+\end{figure}
+
+\subsubsection*{Szerkesztett jegyzőkönyv mentése}
+
+Az egész rendszernek a legösszetettebb algoritmusa, ennek a működését szeretném bemutatni. Két adatforrást kell összefésülnie: az adatbázisban levőt, valamint a felhasználótól kapottat.
+
+Amikor a szerkesztés űrlapot elküldi a felhasználó, három tömböt kapok: az első a jegyzőkönyv alapadatait tartamazza, a második a jegyzőkönyv elemeit, a harmadik pedig a törölt, korábban már adatbázisba mentett elemek azonosítóit. Az elemeket tartalmazó tömb újabb tömböket tartalmaz, amelyekben találhatóak az egyes elemek adatai.
+
+Szerveroldalon a jegyzőkönyvnek, illetve az elemtípusoknak létrehoztam egy-egy űrlapot a Symfony2 Form komponensében, az azoknak megfelelő mezőkkel illetve validálási szabályokkal. A feldolgozás első lépése az, hogy az adatbázisban található adatokkal és elemekkel létrehozok egy form objektumot a jegyzőkönyvnek és egy-egy darabot az elemeinek.
+
+A következő lépés a létrehozott objektumokhoz az oda tartozó, felhasználótól kapott értékek hozzárendelése. Ennek során figyelem, van-e olyan elem, amelyik érvénytelen értékeket tartalmaz.
+
+Ezután ha az űrlap alapadatai helyesek, és az összes elemet tartalmazó form is helyes, kezdem a kapott adatok adatbázisba tárolását. A jegyzőkönyv már mentve van, itt csak frissíteni kell annak értékeit. Az elemek tömb kulcsának jelentése van:
+
+\begin{itemize}
+    \item ha pozitív, akkor már tárolt elemről van szó, a kulcs az azonosítója, és az adatbázisban módosítanunk kell
+    \item ha negatív, akkor új elemről van szó, és az adatbázisba beillesztenünk kell
+\end{itemize}
+
+A feldolgozást e jelentéseknek megfelelően végzem. A folyamat során figyelek arra is, hogy az elemek sorrendjét helyesen mentsem mind új, mint módosított elemeknél.
+
+A feldolgozás utolsó lépése a törölt elemek adatbázisból eltávolítása. Kliensoldalról egy tömbben megkaptam azok azonosítóit, egyszerűen végigiterálok ezeken, és törlöm őket.
+
+Sikeres mentés után a felhasználót továbbirányítom a jegyzőkönyvek listájára. Ha a mentés során valahol hibás adattal találkozom, akkor a felhasználó visszakapja a szerkesztés űrlapot az általa megadott adatokkal, jelezve azt, melyik hibás és miért.
+
+Ez az algoritmus közel 200 sor hosszú. A továbbfejlesztés során ezt szeretném szétbontani lépésenként külön függvényekbe, amiket egyenként tudok egységtesztelni, hogy a későbbiek során garantáltan ne kerülhessen beléjük hiba.
+
+\subsubsection*{PDF exportálás}
+
+Számos helyen a mai napig papíralapú iktatást használnak, többek között a Hallgatói Önkormányzat irodájában is. Ezt mindenképpen lehetővé kellett tennie rendszeremnek, így a jegyzőkönyveket lehet pdf formátumban exportálni.
+
+Több php nyelvű könyvtár is elérhető, mely ezt teszi lehetővé; a választásom az mPDF-re esett az alábbi okokból:
+
+\begin{itemize}
+    \item ma is aktívan fejlesztik
+    \item jó a dokumentációja
+    \item HTML bemenetből dolgozik
+\end{itemize}
+
+Ebből az utolsó a legfontosabb. Ezzel tudtam azt elérni, hogy a későbbiekben a pdf fájlok tetszés szerint testreszabhatóak legyenek anélkül, hogy a rendszer kódjához hozzá kelljen nyúlni. Csak két érték van beégetve: a papír mérete, valamint hogy álló helyzetű legyen.
+
+Az exportálást végző kódrészletet egy külön osztályba tettem, amelyet szolgáltatásként regisztráltam:
+
+\begin{lstlisting}
+szakdolgozat.jegyzokonyv.export.pdf:
+    class: Szakdolgozat\JegyzokonyvBundle\Export\Pdf
+    arguments: [@templating]
+\end{lstlisting}
+
+Látható, hogy paraméterként várja a keretrendszer templating szolgáltatását, a twiget. Ennek segítségével a jegyzőkönyvek készítése során használhatóak az abban található ellenőrzések, vezérlési szerkezetek, így akár azt is lehetővé téve, hogy ha nem adminisztrátor exportál, akkor valamilyen vízjelet kapjanak az oldalak.
+
+Az osztályunkban a függvény mindössze pár soros:
+
+\begin{lstlisting}
+public function jegyzokonyv(Jegyzokonyv $jegyzokonv)
+{
+    $mpdf = $this->alapMPDF();
+
+    $mpdf->WriteHTML($this->templating->render("SzakdolgozatJegyzokonyvBundle:Pdf:jegyzokonyv.html.twig", array("jegyzokonyv"   =>  $jegyzokonv)));
+
+    $mpdf->Output($jegyzokonv->getNev() . ".pdf", "I");
+}
+\end{lstlisting}
+
+Az első sor egy mPDF objektumot hoz létre, mely az alapbeállításokat tartalmazza: a lap mérete, orientációja, valamint hogy mely fájlokban találhatóak a fej- és láblécek leírásai. A második sor ennek beállítja a HTML tartalmát arra, amit a twig generál, majd a harmadik sor visszaadja azt a felhasználónak.
+
+A fejlesztés során elkészítettem egy olyan kimenetet, amely nagyon hasonló ahhoz, amilyet a Hallgatói Önkormányzat most használt rendszere készít, ennek egy részlete látható a \ref{fig:jegyzokonyv_export}. ábrán.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{jegyzokonyv_export.png}
+    \caption{Az exportált jegyzőkönyv egy részlete}
+    \label{fig:jegyzokonyv_export}
+\end{figure}
 
 \subsection{Általános modul}
+\todo[inline]{Kell ez vajon?}
 
 % Olyan dolgok, amelyek több modulhoz nyúlnak, mint pl. a kezdőoldal
 
@@ -924,14 +1056,15 @@ Azaz egy segédfüggvény használatával az ülés adatait átmásolom egy újo
 
 \section{Továbbfejlesztési lehetőségek}
 
-\todo[inline]{Kifejteni}
+Van néhány olyan feladat, amiket nem tartalmaz a vállalt témám, de a jövőben szeretném megvalósítani.
 
-\begin{itemize}
-  \item Sf2.2
-  \item egyéb auth megoldások (user/pass, facebook, akármi)
-  \item mobilos felület életképességének vizsgálata
-  \item jk-típusok
-\end{itemize}
+Az első ilyen a keretrendszer frissítése. A fejlesztést a 2.1-es verzióban kezdtem, és annak során adták ki a 2.2-es verziót számos olyan változtatással, amelyek visszafelé nem kompatibilisek. Ezeket szeretném tanulmányozni, és a programom úgy módosítani, hogy ne okozzanak gondot. Ezen túl május végére várható a 2.3-as verzió, amely az első LTS, azaz hosszútávon támogatott változat lesz \textendash{} ez itt három évet jelent.
+
+A második ilyen újabb authentikációs módok hozzáadása. Jelenleg csak Google fiókkal lehet belépni, de ezen belül nincs korlátozás. Viszonylag kevés munkával meg lehet oldani egyéb, OpenID-kompatibilis szolgáltatókkal való belépést, valamivel több munkával pedig a hagyományos, felhasználónév-jelszó használatával történőt is.
+
+A harmadik ilyen a mobileszközök használhatóságának vizsgálata. Egy mai mobiltelefon kijelzője túl kicsi, hogy hosszabb szöveg bevitelét tegye lehetővé, de a terjedő tabletek már elég nagyok. A megjelenítésre használt Bootstrap keretrendszer ezeket valamennyire támogatja, de rendelkezésemre álló eszköz híján ezt tesztelni nem tudtam.
+
+Az utolsó ilyen a jegyzőkönyvtípusok támogatása. Jelenleg csak egyet támogat a rendszer, de már felmerült az igény, hogy többet is tegyen lehetővé. Ennek hatása csak az exportált PDF kinézetére terjed, a létrehozási, szerkesztési és lezárási folyamat minden esetben ugyanaz lenne.
 
 \renewcommand{\bibname}{Irodalomjegyzék}
 \bibliographystyle{pemik}
