@@ -755,9 +755,9 @@ FUNCTION {mastersthesis}
 
 FUNCTION {misc}
 { output.bibitem
+  howpublished new.block.checkb
   format.authors output
   format.date output
-  title howpublished new.block.checkb
   format.title output
   howpublished new.block.checka
   howpublished output

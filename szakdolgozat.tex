@@ -113,20 +113,34 @@ Kijelentem, hogy a szakdolgozat védésre bocsátását engedélyezem.\\
 \begin{center}
 \section*{Köszönetnyilvánítás}
 \end{center}
-\todo[inline]{Köszönetnyilvánítás}
+
+Köszönöm a családomnak a sok türelmet és segítséget amit kaptam, nélkülük ez a szakdolgozat nem készült volna el.
+\\
+\\
+Köszönöm a témavezetőmnek, Dulai Tibornak az iránymutatást, amit kaptam az elmúlt egy év során.
+\\
+\\
+Végül de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bíztatást.
+
 \newpage
 
 \begin{center}
 \section*{\textbf{\Large \MakeUppercase{Tartalmi összefoglaló}}}
 \end{center}
 
+%Az összefoglalónak tartalmaznia kell (rövid, velős és összefüggő megfogalmazásban) a következőket:
+%téma megnevezése,
+%megoldott feladat megfogalmazása,
+%megoldási mód,
+%elért eredmények,
+%kulcsszavak (4-6 darab)
+%terjedelme nem lehet több 1 A4-es oldalnál.
+
 \todo[inline]{Tartalmi összefoglaló}
 
 \vspace{2cm}
 
-{\bf Kulcsszavak:} {\it robotfoci, mobil robotika, mikrovezérlõ
-programozás, vezeték nélküli kommunikáció, motorvezérlés, hálózati
-programozás, Qt, OpenCV }
+{\bf Kulcsszavak:} {\it web, jegyzőkönyv, ülés, PHP, Symfony, MySQL, Bootstrap, Google Calendar }
 \newpage
 
 \newpage
@@ -139,17 +153,15 @@ programozás, Qt, OpenCV }
 
 \vspace{2cm}
 
-{\bf Key words:} {\it robot soccer, mobil robotics, microcontroller programming,
-wireless communication, motor control, network programming, Qt, OpenCV }
+{\bf Keywords:} {\it zing }
 \newpage
 %--------------%------------------------------------------------------------------
-\pagenumbering{gobble} %ne legyen oldalszamozas
+\pagenumbering{gobble} %ne legyen oldalszamozas a tartalomjegyzek oldalon
 \listoftodos
 
 \renewcommand{\thefigure}{\arabic{figure}}
 
 \setcounter{tocdepth}{3} %subsubsection-ok is latszodjanak
-\thispagestyle{empty}
 \thispagestyle{empty}
 \tableofcontents
 \pagebreak
@@ -157,6 +169,8 @@ wireless communication, motor control, network programming, Qt, OpenCV }
 \pagenumbering{arabic} %legyen oldalszamozas
 \setcounter{page}{1} %innentől indul az oldalszámozás
 \pagestyle{plain}
+\fancyhead[C]{\rightmark}
+\fancyfoot[R]{\thepage}
 
 \section{A feladat összefoglalása}
 
@@ -919,13 +933,13 @@ public function ulesNew(GcalEvent $event)
 }
 \end{lstlisting}
 
-Azaz egy segédfüggvény használatával az ülés adatait átmásolom egy újonnan létrehozott {\tt Google\_Event} objektumba, majd egy megfelelően konfigurált {\tt Google\_CalendarService} példánynak átadva hozom létre a szerveren az naptárbejegyzést. Végül a létrehozott bejegyzés azonosítóját mentem az ülés adatai közé.
+Azaz egy segédfüggvény használatával az ülés adatait átmásolom egy újonnan létrehozott {\tt Google\_Event} objektumba, majd egy megfelelően konfigurált {\tt Google\_CalendarService} példánynak átadva hozom létre a szerveren a naptárbejegyzést. Végül a létrehozott bejegyzés azonosítóját mentem az ülés adatai közé.
 
 \subsection{Jegyzőkönykészítő modul}
 
 \subsubsection*{Adatbázisának szerkezete}
 
-Ennek a modulnak a feladata tárolni a jegyzőkönyveket, alapadataikkal és elemeikkel, illetve azok sorrendjével együtt. A szerkezete látható a \ref{fig:jegyzokonyv_db}. ábrán, amelyről helytakarékossági okból lehagytam a {\tt Felhasznalo} és az {\tt Ules} táblákat.
+Ennek a modulnak a feladata tárolni a jegyzőkönyveket, alapadataikkal és elemeikkel, illetve azok sorrendjével együtt. A szerkezete látható a \ref{fig:jegyzokonyv_db}. ábrán.
 
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{jegyzokonyv_db.png}
@@ -933,9 +947,9 @@ Ennek a modulnak a feladata tárolni a jegyzőkönyveket, alapadataikkal és ele
     \label{fig:jegyzokonyv_db}
 \end{figure}
 
-A {\tt Jegyzokonyv} tábla két nem ábrázolt relációval rendelkezik: az egyik a {\tt Felhasznalo} táblára mutat és három mezőre vonatkozik: a jegyzőkönyv írójára és a két hitelesítőre; a másik az {\tt Ules} táblára mutat, és azt jelzi, tartozik-e hozzá ülés. A lezárási, hitelesítési folyamatot dátum mezőkkel ábrázoltam, mert így egyszerre követhető az is, mikor történtek az egyes lépések.
+A {\tt Jegyzokonyv} tábla két relációval rendelkezik: az egyik a {\tt Felhasznalo} táblára mutat és három mezőre vonatkozik: a jegyzőkönyv írójára és a két hitelesítőre; a másik az {\tt Ules} táblára mutat, és azt jelzi, tartozik-e hozzá ülés. A lezárási, hitelesítési folyamatot dátum mezőkkel ábrázoltam, mert így egyszerre követhető az is, mikor történtek az egyes lépések.
 
-A {\tt JegyzokonyElem} egy absztrakt osztály, a három típusú elem közös mezőit tartalmazza. A Doctrine Single Table Inheritance-ét használom, ezzel az elemet egy közös táblában tárolódnak, plusz egy mezővel, mely megmondja, az adott rekord melyik típusba tartozik. A másik hasonló lehetőség az, amikor elemenként külön táblákban tárolódnak, de mivel az elemek részben közös mezőkkel rendelkeznek, valamint az összes mezőjük kisméretű, a közös táblás tárolás mellett döntöttem. Bár a tárolás így nem optimális, a lekérdezések sebessége ellensúlyozza ezt.
+A {\tt JegyzokonyElem} egy absztrakt osztály, a három típusú elem közös mezőit tartalmazza. A Doctrine által biztosított Single Table Inheritance-et használom, ezzel az elemek egy közös táblában tárolódnak plusz egy mezővel, mely megmondja, az adott rekord melyik típusba tartozik. A másik hasonló lehetőség az, amikor elemenként külön táblákban tárolódnak, de mivel az elemek részben közös mezőkkel rendelkeznek, valamint az összes mezőjük kisméretű, a közös táblás tárolás mellett döntöttem. Bár a tárolás így nem optimális, a lekérdezések sebessége ellensúlyozza ezt.
 
 \subsubsection*{Használati esetek}
 
@@ -958,14 +972,14 @@ Mindkét út ugyanarra az űrlapra vezet, ahol először az ülés alapadatait k
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{jegyzokonyv_uj.png}
+    \includegraphics[width=.9\textwidth]{jegyzokonyv_uj.png}
     \caption{Az új jegyzőköny létrehozására szolgáló űrlap}
     \label{fig:jegyzokonyv_uj}
 \end{figure}
 
 Az alapadatok megadása már elég, hogy a jegyzőkönyvet menteni lehessen.
 
-Új jegyzőkönyv-elemeket az űrlap alján található, az egyes típusoknak megfelelő gombokkal lehet; ekkor az új elem a sorrend végére kerül, de a felhasználó egyszerű drag'n'drop módszerrel tetszőleges helyre mozgathatja (ugyanezzel a megoldással átrendezhetőek az elemek a későbbiek során is).
+Új jegyzőkönyv-elemeket létrehozni az űrlap alján található, az egyes típusoknak megfelelő gombokkal lehet; ekkor az új elem a sorrend végére kerül, de a felhasználó egyszerű drag'n'drop módszerrel tetszőleges helyre mozgathatja (ugyanezzel a megoldással átrendezhetőek az elemek a későbbiek során is).
 
 Az egyes elemek vizuálisan jól elkülöníthetőek, ez látható a \ref{fig:jegyzokonyv_szerkesztes}. ábrán. A jobb felső sarkukban található gombbal lehet őket törölni.
 
@@ -980,7 +994,7 @@ Az egyes elemek vizuálisan jól elkülöníthetőek, ez látható a \ref{fig:je
 
 Az egész rendszernek a legösszetettebb algoritmusa, ennek a működését szeretném bemutatni. Két adatforrást kell összefésülnie: az adatbázisban levőt, valamint a felhasználótól kapottat.
 
-Amikor a szerkesztés űrlapot elküldi a felhasználó, három tömböt kapok: az első a jegyzőkönyv alapadatait tartamazza, a második a jegyzőkönyv elemeit, a harmadik pedig a törölt, korábban már adatbázisba mentett elemek azonosítóit. Az elemeket tartalmazó tömb újabb tömböket tartalmaz, amelyekben találhatóak az egyes elemek adatai.
+Amikor a szerkesztés űrlapot elküldi a felhasználó, három tömböt kapok: az első a jegyzőkönyv alapadatait tartalmazza, a második a jegyzőkönyv elemeit, a harmadik pedig a törölt, korábban már adatbázisba mentett elemek azonosítóit. Az elemeket tartalmazó tömb újabb tömböket tartalmaz, amelyekben találhatóak az egyes elemek adatai.
 
 Szerveroldalon a jegyzőkönyvnek, illetve az elemtípusoknak létrehoztam egy-egy űrlapot a Symfony2 Form komponensében, az azoknak megfelelő mezőkkel illetve validálási szabályokkal. A feldolgozás első lépése az, hogy az adatbázisban található adatokkal és elemekkel létrehozok egy form objektumot a jegyzőkönyvnek és egy-egy darabot az elemeinek.
 
@@ -1238,8 +1252,90 @@ A harmadik ilyen a mobileszközök használhatóságának vizsgálata. Egy mai m
 
 Az utolsó ilyen a jegyzőkönyvtípusok támogatása. Jelenleg csak egyet támogat a rendszer, de már felmerült az igény, hogy többet is tegyen lehetővé. Ennek hatása csak az exportált PDF kinézetére terjed, a létrehozási, szerkesztési és lezárási folyamat minden esetben ugyanaz lenne.
 
-\renewcommand{\bibname}{Irodalomjegyzék}
-\bibliographystyle{pemik}
-\bibliography{irodalomjegyzek}
+%\renewcommand{\bibname}{Irodalomjegyzék}
+%\bibliographystyle{pemik}
+%\bibliography{irodalomjegyzek}
+
+\begin{thebibliography}{99}
+    \bibitem{book:gentle_introduction}
+        {POTENCIER}, F., {ZANINOTTO}, F. (2010)
+        {\em A Gentle Introduction to symfony 1.4}
+        Sensio Labs
+
+    \bibitem{book:doctrine_orm}
+        WAGE, J., BORSCHEL, R., BLANCO, G. (2010)
+        {\em Doctrine ORM for PHP}
+        Sensio Labs
+
+    \bibitem{website:actmtr}
+        http://www.albacomp.hu/index.php?pg=menu\_8715
+        (letöltés dátuma 2013. május 1.)
+        {\em Albacomp Testületi Munkát Támogató Rendszer}
+
+    \bibitem{website:openid_specifikacio}
+        https://openid.net/specs/openid-authentication-2\_0.html
+        (letöltés dátuma 2013. május 1.)
+        {\em az OpenID protokoll specifikációja}
+
+    \bibitem{website:symfony2_bundle}
+        http://symfony.com/doc/current/book/page\_creation.html\#the-bundle-system
+        (letöltés dátuma 2013. május 1.)
+        {\em Creating Pages in Symfony2, The Bundle System}
+
+    \bibitem{website:crud}
+        https://en.wikipedia.org/wiki/Create,\_read,\_ update\_and\_delete
+        (letöltés dátuma 2013. május 1.)
+        {\em Create, read, update and delete}
+
+    \bibitem{website:symfony_dailymotion}
+        http://symfony.com/blog/dailymotion-powered-by-symfony
+        {\em Dailymotion, powered by symfony}
+
+    \bibitem{website:doctrine}
+        http://www.doctrine-project.org/
+        (letöltés dátuma 2013. május 1.)
+        {\em Doctrine Project}
+
+    \bibitem{website:ekozig}
+        http://www.ekozig.hu/dt.html
+        (letöltés dátuma 2013. május 1.)
+        {\em eKÖZIG döntéstámogató rendszer}
+
+    \bibitem{website:eforte}
+        http://intermap.hu/termekek/termekekonkormanyzat.html
+        (letöltés dátuma 2013. május 1.)
+        {\em InterMap e-FORTE}
+
+    \bibitem{website:fpopenidbundle}
+        http://knpbundles.com/formapro/FpOpenIdBundle
+        (letöltés dátuma 2013. május 1.)
+        {\em FpOpenIdBundle leírása}
+
+    \bibitem{website:google_api_client}
+        https://code.google.com/p/google-api-php-client/
+        (letöltés dátuma 2013. május 1.)
+        {\em Google API php kliens}
+
+    \bibitem{website:gcal_event_api}
+        https://developers.google.com/google-apps/calendar/v3/reference/events
+        (letöltés dátuma 2013. május 1.)
+        {\em Google Calendar Event API}
+
+    \bibitem{website:twig}
+        http://twig.sensiolabs.org/
+        (letöltés dátuma 2013. május 1.)
+        {\em Twig, The flexible, fast, and secure template engine for PHP}
+
+    \bibitem{website:bootstrap}
+        http://twitter.github.com/bootstrap/
+        (letöltés dátuma 2013. május 1.)
+        {\em Twitter Bootstrap}
+
+    \bibitem{website:symfony_yahoo}
+        http://symfony.com/blog/yahoo-answers-powered-by-symfony
+        (letöltés dátuma 2013. május 1.)
+        {\em Yahoo! Answers powered by symfony}
+
+\end{thebibliography}
 
 \end{document}

@@ -18,10 +18,11 @@
 \subsubsectionfont{\sffamily\normalsize} %12pt
 
 %\fancyhf{} %minden fej- es lablec ures
-%\chead{\rightmark} %fejlecbe fejezetcim
 %\rfoot{\thepage} %oldalszam a jobb also sarokba
 %\renewcommand{\headrulewidth}{0pt} %fejlec alatt ne legyen vonal
 %\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
 
 %A FEJEZETEK KEZDÕOLDALAINAK FEJ ES LÁBLÉCE:
 %a plain oldalstílust kell átdefiniálni, hogy ott ne legyen fejléc:
@@ -34,7 +35,7 @@
 }
 
 %A TÖBBI OLDAL FEJ ÉS LÁBLÉCE:
-\pagestyle{fancy}
+\pagestyle{fancy}{
 \fancyhf{}
 \fancyhead[C]{\rightmark}
 \fancyfoot[R]{\thepage}
