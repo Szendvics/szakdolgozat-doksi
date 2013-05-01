@@ -1,0 +1,493 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Blog &mdash; Doctrine-Project</title>
+    <link rel="stylesheet" href="../_static/bootstrap/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/layout.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/configurationblock.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/configurationblock.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/configurationblock.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/configurationblock.js"></script>
+    <script src="../_static/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    <!--
+        $(document).ready(function() {
+            $("#versions").change(function() {
+                var docsUrl = $(this).val();
+                window.location.href = docsUrl;
+            });
+        });
+    -->
+    </script>
+    <link rel="shortcut icon" href="../_static/doctrine.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="Doctrine-Project" href="../index.html" />
+    <link rel="next" title="0.10.2 Released" href="0-10-2-released.html" />
+    <link rel="prev" title="Implementing Aggregate Fields with Doctrine 2" href="implementing-aggregate-fields.html" /> 
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <h1 id="h1title"></h1>
+        <div id="logo">
+          <a href="http://www.doctrine-project.org/">Doctrine - PHP Database Libraries</a>
+        </div>
+      </div>
+      <div id="nav" class="cls">
+        <div class="tl cls">
+          <ul>
+            <li><a target="_top" href="/">home</a></li>
+            <li><a class="" target="_top" href="http://www.doctrine-project.org/about">about</a></li>
+            <li><a class="" target="_top" href="http://www.doctrine-project.org/projects.html">projects</a></li>
+            <li><a class="" target="_top" href="http://www.doctrine-project.org/projects/orm">orm</a></li>
+            <li><a class="" target="_top" href="http://www.doctrine-project.org/projects/dbal">dbal</a></li>
+            <li><a class="" target="_top" href="http://www.doctrine-project.org/blog">blog</a></li>
+            <li><a class="" target="_top" href="http://www.doctrine-project.org/jira">development</a></li>
+            <li><a class="" target="_top" href="http://www.doctrine-project.org/contribute">contribute</a></li>
+            <li><a class="" target="_top" href="http://www.doctrine-project.org/community">community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content" class="cls">
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="0-10-2-released.html" title="0.10.2 Released"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="implementing-aggregate-fields.html" title="Implementing Aggregate Fields with Doctrine 2"
+             accesskey="P">previous</a> |</li>
+        <li><a href="/">Doctrine Homepage</a> &raquo;</li>
+        <li><a href="../index.html">Homepage</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+        <div class="document">
+            <div class="documentwrapper">
+
+              <div class="body" style="margin: auto;">
+                
+  <div class="section" id="blog">
+<h1>Blog<a class="headerlink" href="#blog" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-3-3.html">Doctrine 2.3.3 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-4-beta.html">Doctrine 2.4 Beta1 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-3-2.html">Doctrine 2.3.2 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-orientdb-odm.html">Doctrine OrientDB Object Document Mapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-3-1.html">Doctrine 2.3.1 relased</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-3-final.html">Doctrine 2.3 final relased</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-3-rc4.html">Doctrine 2.3.0 RC4 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-3-rc3.html">Doctrine 2.3.0 RC3 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-3-rc2.html">Doctrine 2.3.0 RC2 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-3-beta.html">Doctrine 2.3 Beta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-1-7-released.html">Doctrine 2.1.7 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-2-2-released.html">Doctrine 2.2.2 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-2-1-released.html">Doctrine 2.2.1 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-1-6.html">DBAL/ORM 2.1.6 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-2-final.html">Doctrine 2.2 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbal-orm-22rc1.html">DBAL and ORM 2.2 Release candidates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-2-beta2.html">Doctrine 2.2 Beta 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-2-beta.html">Doctrine 2.2 Beta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-1-5.html">Doctrine ORM 2.1.5 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-orm-2-1-4-released.html">Doctrine ORM 2.1.4 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-maintenance-nov2011.html">Doctrine Common 2.1.3, DBAL 2.1.5 and ORM 2.1.3 Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a-doctrine-orm-odm-base-class.html">An ORM/ODM Base Class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="a-doctrine-orm-odm-base-class.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a-doctrine-orm-odm-base-class.html#future-developments">Future Developments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a-doctrine-orm-odm-base-class.html#last-words">Last words</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-maintenance-sep2011.html">Maintenance 2.1 Releases for Common, DBAL and ORM and DBAL 2.0.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbal-security-2011-1.html">Security releases 2.0.8 and 2.1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-1-1.html">DBAL and ORM 2.1.1 maintenance releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-0-7-and-eol.html">Doctrine 2.0.7 and EOL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-1.html">Doctrine 2.1 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-1-rc3.html">Doctrine 2.1 Release Candidate 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-1-rc2.html">Doctrine 2.1 Release Candidate 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-1-rc1.html">Doctrine 2.1 Release Candidate 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-0-6.html">Doctrine 2.0.6 DBAL and ORM Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-1-beta-release.html">Doctrine 2.1 Beta and Backwards Compatibility Competition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-maintenance-may11.html">Maintenance Releases 2.0.5 for DBAL and ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-april-2011-maintenance.html">Maintenance Releases of Common, DBAL, ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-security-fix.html">Security Fix: Upgrade to 1.2.4 and 2.0.3 immediately</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-oxm-intro.html">A Doctrine OXM Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-maintenance-mar05.html">Maintenance Releases 2.0.2 DBAL and ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-mongodb-odm-beta2-released.html">Doctrine MongoDB ODM BETA2 Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-odm-beta2-released.html#about-the-release">About the Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-odm-beta2-released.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-odm-beta2-released.html#doctrine-project-as-a-whole">Doctrine Project as a Whole</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-maintenance-jan2011.html">Maintenance Releases 2.0.1 of Common, DBAL and ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-released.html">Doctrine 2 First Stable Release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-released.html#what-is-new-in-doctrine-2">What is new in Doctrine 2?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-released.html#why-did-we-take-so-long-to-develop-this-new-major-release">Why did we take so long to develop this new major release?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-released.html#dropping-features-of-doctrine-1">Dropping Features of Doctrine 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-released.html#is-doctrine-2-backwards-compatible">Is Doctrine 2 backwards compatible?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-released.html#what-is-the-plan-for-doctrine-2-beyond-this-release">What is the plan for Doctrine 2 beyond this release?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-released.html#where-do-i-start">Where do I start?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-orm-rc2-released.html">Doctrine DBAL RC5 and ORM RC2 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-rc1.html">Doctrine ORM RC1 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rc2-dbal-rc2-release.html">Common RC2 and DBAL RC3 released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-behavioral-extensions.html">Doctrine2 Behavioral Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behavioral-extensions.html#attaching-the-event-listeners-on-the-event-manager">Attaching the Event Listeners on the event manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behavioral-extensions.html#translatable-annotations">Translatable annotations:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behavioral-extensions.html#using-the-default-locale">Using the &#8220;default locale&#8221;:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behavioral-extensions.html#using-a-diferent-translation-entity-for-translation-storage">Using a diferent Translation Entity for translation storage:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behavioral-extensions.html#using-treenoderepository-functions">Using TreeNodeRepository functions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behavioral-extensions.html#sluggable-annotations">Sluggable annotations:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behavioral-extensions.html#timestampable-annotations">Timestampable annotations:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="birthday-release-party.html">Birthday Release Party</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="birthday-release-party.html#doctrine-common-rc1">Doctrine Common RC1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="birthday-release-party.html#doctrine-dbal-beta4">Doctrine DBAL BETA4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="birthday-release-party.html#doctrine-orm-beta4">Doctrine ORM BETA4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="birthday-release-party.html#what-next">What next</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-orm-version-1-2-3-released.html">Doctrine ORM Version 1.2.3 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dc2-experimental-associations-id-fields.html">Experimental Doctrine 2 Feature: Associated Entities as Id Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-orm-beta3.html">Doctrine ORM Beta 3 released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-orm-beta3.html#changed-sql-implementation-of-postgres-and-oracle-datetime-types">Changed SQL implementation of Postgres and Oracle DateTime types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-orm-beta3.html#removed-multi-dot-deep-path-expressions-in-dql">Removed multi-dot/deep-path expressions in DQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-orm-beta3.html#default-allocation-size-for-sequences">Default Allocation Size for Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-orm-beta3.html#what-next">What next</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-mongodb-odm-1-0-0alpha2-released.html">Doctrine MongoDB ODM 1.0.0ALPHA2 Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-odm-1-0-0alpha2-released.html#download">Download</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dbal2-beta3-released.html">Release of DBAL 2.0.0 Beta3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document-oriented-databases-vs-relational-databases.html">MongoDB ODM: Document-Oriented Databases vs. Relational Databases.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-large-collections.html">Working with Large Collections in Doctrine2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-large-collections.html#working-with-a-largecollection">Working with a LargeCollection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementing-aggregate-fields.html">Implementing Aggregate Fields with Doctrine 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implementing-aggregate-fields.html#an-example-model">An example model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing-aggregate-fields.html#using-dql">Using DQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing-aggregate-fields.html#using-your-domain-model">Using your Domain Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing-aggregate-fields.html#using-an-aggregate-field">Using an Aggregate Field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing-aggregate-fields.html#tackling-race-conditions-with-aggregate-fields">Tackling Race Conditions with Aggregate Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing-aggregate-fields.html#keeping-updates-and-deletes-in-sync">Keeping Updates and Deletes in Sync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing-aggregate-fields.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-beta2-released.html">Doctrine2 BETA2 Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-beta2-released.html#common">Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-beta2-released.html#dbal">DBAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-beta2-released.html#orm">ORM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-mongodb-odm-1-0-0alpha1-released.html">Doctrine MongoDB ODM 1.0.0ALPHA1 Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-odm-1-0-0alpha1-released.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-odm-1-0-0alpha1-released.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-odm-1-0-0alpha1-released.html#download">Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-odm-1-0-0alpha1-released.html#reporting-issues">Reporting Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bringing-it-all-together.html">Bringing it all together</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bringing-it-all-together.html#website-changes">Website Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bringing-it-all-together.html#the-switch-to-git">The Switch to git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bringing-it-all-together.html#splitting-doctrine-2-sources">Splitting Doctrine 2 Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bringing-it-all-together.html#id3">Bringing it all together</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-mongodb-object-document-mapper.html">Doctrine MongoDB Object Document Mapper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-object-document-mapper.html#introducing-doctrine-mongodb-object-document-mapper-odm">Introducing Doctrine MongoDB Object Document Mapper (ODM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-object-document-mapper.html#getting-started">Getting Started?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-mongodb-object-document-mapper.html#how-can-i-contribute">How can I contribute?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="a-few-website-changes.html">Website Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-0-0-beta1-released.html">Doctrine 2 BETA1 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-2-released.html">Doctrine 1.2.2 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-custom-dql-udfs.html">Extending DQL in Doctrine 2: User-Defined Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-custom-dql-udfs.html#registering-your-own-dql-functions">Registering your own DQL functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-custom-dql-udfs.html#date-diff">Date Diff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-custom-dql-udfs.html#date-add">Date Add</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-custom-dql-udfs.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-give-me-my-constructor-back.html">Doctrine 2: Give me my constructor back</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-2-give-me-my-constructor-back.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-performance-revisited.html">Doctrine Performance Revisited</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-performance-revisited.html#doctrine-2-insert-performance">Doctrine 2 Insert Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-performance-revisited.html#doctrine-2-find-by-primary-key-performance">Doctrine 2 Find By Primary Key Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-performance-revisited.html#doctrine-2-complex-query-performance">Doctrine 2 Complex Query Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-performance-revisited.html#hydration-performance-scenario-4-and-5">Hydration Performance (Scenario 4 and 5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-performance-revisited.html#hydration-with-non-object-results">Hydration with non Object Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-performance-revisited.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-at-confoo-2010.html">Doctrine 2 at ConFoo 2010</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-validations.html">Validation of Doctrine 2 Entities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-versionable.html">A re-usable Versionable Behavior for Doctrine 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-behaviours-nutshell.html">Doctrine 2 &#8220;Behaviours&#8221; in a Nutshell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#straightforward-combination-of-behaviours">Straightforward combination of &#8220;Behaviours&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#timestampable">Timestampable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#sluggable">Sluggable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#nestedset">NestedSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#searchable">Searchable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#versionable">Versionable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#i18n">I18N</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#soft-delete">Soft Delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#blameable">Blameable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#sortable">Sortable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-behaviours-nutshell.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database-support-doctrine2.html">Database-Driver Support in Doctrine 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-0-0-alpha4-released.html">Doctrine 2 ALPHA4 Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-2-0-0-alpha4-released.html#highlights">Highlights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-2-0-0-alpha4-released.html#what-is-next">What is Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-1-released.html">Doctrine 1.2.1 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-0-stable-released.html">Doctrine 1.2.0 Stable Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-2-0-stable-released.html#release-highlights">Release Highlights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-0-rc1-released.html">Doctrine 1.2.0-RC1 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-0-beta3-released.html">Doctrine 1.2.0 BETA3 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-0-0-alpha3-released.html">Doctrine 2.0.0-ALPHA3 Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-2-0-0-alpha3-released.html#highlights">Highlights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-2-0-0-alpha3-released.html#what-is-next">What is Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-0-beta2-released.html">Doctrine 1.2.0-BETA2 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-documentation-available.html">Doctrine 1.2 Documentation Available</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-2-documentation-available.html#new-chapters">New Chapters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="a-doctrine-triple-play.html">A Doctrine Triple Play</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="a-doctrine-triple-play.html#doctrine-1-0-13">Doctrine 1.0.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a-doctrine-triple-play.html#doctrine-1-1-5">Doctrine 1.1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a-doctrine-triple-play.html#doctrine-1-2-0-beta1">Doctrine 1.2.0-BETA1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-alpha3-released.html">Doctrine 1.2 ALPHA3 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-documentation.html">Doctrine 2 Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-nearing-stable-release.html">Doctrine 1.2 Nearing Stable Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-fedora-package.html">Doctrine Fedora Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-12-and-1-1-4-released.html">Doctrine 1.0.12 and 1.1.4 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-2-0-alpha-released.html">Doctrine 1.2.0-ALPHA Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-preview-release.html">Doctrine 2 Preview Release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-preview-release.html#packages">Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-preview-release.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-preview-release.html#mapping-drivers">Mapping drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-preview-release.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-preview-release.html#sandbox">Sandbox</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-2-0-quality-assurance.html">Doctrine 2.0 Quality Assurance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-native-queries.html">Doctrine 2 Native Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine2-batch-processing.html">Doctrine 2 Batch Processing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-batch-processing.html#mass-inserts">Mass inserts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-batch-processing.html#mass-object-processing">Mass object processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine2-batch-processing.html#update">UPDATE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="help-write-tests-for-new-dql-parser.html">Help write tests for new DQL Parser</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help-write-tests-for-new-dql-parser.html#what-does-this-subset-do">What does this subset do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help-write-tests-for-new-dql-parser.html#how-does-it-do-that">How does it do that?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help-write-tests-for-new-dql-parser.html#how-can-i-help">How can I help?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help-write-tests-for-new-dql-parser.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-11-and-1-1-3-released.html">Doctrine 1.0.11 and 1.1.3 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-orm-for-php-available-in-print.html">Doctrine ORM for PHP available in print</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-future-roadmap.html">Doctrine Future Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross-database-joins.html">Cross Database Joins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cross-database-joins.html#id1">Cross Database Joins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-changing-homes.html">Doctrine changing homes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-10-and-1-1-2-released.html">Doctrine 1.0.10 and 1.1.2 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-visiting-conferences-around-the-world.html">Doctrine visiting conferences around the world</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-visiting-conferences-around-the-world.html#what-s-new-in-doctrine-symfony-live">What&#8217;s new in Doctrine (symfony live)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-visiting-conferences-around-the-world.html#what-is-doctrine-nashville-lamp-group">What is Doctrine? (Nashville LAMP Group)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-visiting-conferences-around-the-world.html#what-s-new-in-doctrine-phpday-2009">What&#8217;s new in Doctrine (phpDay 2009)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-visiting-conferences-around-the-world.html#sympal-the-flexible-symfony-cms-symfony-live">Sympal - The flexible Symfony CMS (symfony live)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-visiting-conferences-around-the-world.html#sympal-the-flexible-symfony-cms-phpday-2009">Sympal - The flexible Symfony CMS (phpDay 2009)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-statistics.html">Doctrine Statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-statistics.html#google-analytics">Google Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-statistics.html#downloads">Downloads</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-lazy-loading.html">Doctrine Lazy Loading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-lazy-loading.html#did-you-know">Did you know?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-lazy-loading.html#be-aware">Be aware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-lazy-loading.html#more-examples">More Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-lazy-loading.html#why">Why?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-lazy-loading.html#how">How?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-database-abstraction-layer.html">Doctrine Database Abstraction Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-database-abstraction-layer.html#public-method-index">Public Method Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-database-abstraction-layer.html#some-2-0-examples">Some 2.0 Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glimpse-of-doctrine-2-0.html">Glimpse of Doctrine 2.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="glimpse-of-doctrine-2-0.html#a-few-quick-facts">A few quick facts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glimpse-of-doctrine-2-0.html#hydration-performance">Hydration Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glimpse-of-doctrine-2-0.html#a-few-code-snippets">A few code snippets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-9-and-1-1-1-released.html">Doctrine 1.0.9 and 1.1.1 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-1-released.html">Doctrine 1.1 Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-1-released.html#highlights">Highlights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-1-released.html#download">Download</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="get-trained-by-doctrine-experts.html">Want to get trained by Doctrine experts?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="get-trained-by-doctrine-experts.html#what-is-it">What is it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-trained-by-doctrine-experts.html#when-is-it">When is it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-trained-by-doctrine-experts.html#us-sessions">US Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-trained-by-doctrine-experts.html#europe-sessions">Europe Sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-1-documentation.html">Doctrine 1.1 Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-8-and-1-1-0-rc2-released.html">Doctrine 1.0.8 and 1.1.0-RC2 Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-0-8-and-1-1-0-rc2-released.html#highlights">1.0.8 Highlights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-0-8-and-1-1-0-rc2-released.html#rc2-highlights">1.1.0-RC2 Highlights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-7-is-available.html">Doctrine 1.0.7 is Available!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-0-7-is-available.html#highlights">Highlights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cookbook-recipe-relation-dql-behavior.html">Cookbook Recipe: Relation DQL Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation-updates.html">Documentation Updates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation-updates.html#enhancements">Enhancements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation-updates.html#why">Why?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-1-is-right-around-the-corner.html">Doctrine 1.1 is right around the corner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-1-is-right-around-the-corner.html#release-manager">1.1 Release Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-1-is-right-around-the-corner.html#release-candidate">1.1 Release Candidate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2nd-1-1-beta-released.html">2nd 1.1 Beta Released!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2nd-1-1-beta-released.html#development-highlights">Development Highlights</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-6-released.html">Doctrine 1.0.6 Released</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-0-6-released.html#welcome-back">Welcome Back</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-0-6-released.html#released">1.0.6 Released</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doctrine-1-0-6-released.html#doctrine-1-1">Doctrine 1.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="double-dose-of-doctrine.html">Double Dose of Doctrine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-1-1-alpha-version-released.html">First 1.1 Alpha Version Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-4-released.html">Doctrine 1.0.4 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-3-released.html">Doctrine 1.0.3 Released!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-symfony-1-1-workshop-in-atlanta-usa.html">First symfony 1.1 workshop in Atlanta, USA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-1-development-begins.html">Doctrine 1.1 Development Begins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-expert-training.html">Get Expert Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-at-latino-ware-2008.html">Doctrine at LatinoWare 2008</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-and-symfony-frameworks-collaborating.html">Doctrine and symfony frameworks collaborating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-2-released.html">Doctrine 1.0.2 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-1-released.html">Doctrine 1.0.1 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-at-symfony-camp2008.html">Doctrine at SymfonyCamp2008</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-released.html">Doctrine 1.0 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating-a-unit-of-work-using-doctrine.html">Creating a Unit of Work Using Doctrine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-beta1-released.html">Doctrine 1.0 BETA1 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-growth.html">Doctrine growth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-gets-its-first-employee.html">Doctrine gets its first employee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-0-11-1-and-1-0.html">Doctrine 0.11.1 and 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-1-0-and-symfony-1-2.html">Doctrine 1.0 and symfony 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1000th-ticket-closed.html">1000th Ticket Closed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0-11-0-stable-released.html">0.11.0 Stable Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-in-your-language.html">Doctrine in your language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started-with-doctrine-and-symfony-1-1.html">Getting started with Doctrine and symfony 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0-11-0-rc3-released.html">0.11.0-RC3 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0-11-0-release-candidate-2.html">0.11.0 Release Candidate 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0-11-0-release-candidate-1.html">0.11.0 Release Candidate 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-frequently-asked-questions.html">Doctrine frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-goes-pecl.html">APRIL FOOLS! Doctrine goes PECL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0-10-4-released-46-closed-tickets.html">0.10.4 Released - 46 Closed Tickets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0-10-3-released.html">0.10.3 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4-000th-svn-commit-revision.html">4,000th svn commit/revision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-cheat-sheet.html">Doctrine Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0-10-2-released.html">0.10.2 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-orm-sandbox.html">Doctrine ORM Sandbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-0-9-1-0-10-1-released.html">Doctrine 0.9.1 / 0.10.1 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doctrine-all-grown-up.html">Doctrine all grown up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="a-few-updates-for-2008.html">A few updates for 2008</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cleaning_up_the_mess.html">Cleaning up the mess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beta2_released.html">Beta 2 Released</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beta-2.html">Beta 2</a></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+
+            </div>
+          <div class="clearer"></div>
+        </div>
+          <div class="footer">
+              &copy; Copyright 2011, Doctrine Project Team.
+              Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+            <br/>
+            <a target="_BLANK" href="http://www.servergrove.com"><img src="http://www.doctrine-project.org/images/servergrove.jpg" /></a>      <br/><br/>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input type="hidden" name="hosted_button_id" value="BAE2E3XANQ77Y" />
+              <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+              <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+          </div>
+      </div>
+
+      <div id="bot-rcnr">
+        <div class="tl"><!-- corner --></div>
+      </div>
+    </div>
+
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+  _uacct = "UA-288343-7";
+  urchinTracker();
+  </script>
+  <a class="githublink" href="http://github.com/doctrine"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+  </body>
+</html>

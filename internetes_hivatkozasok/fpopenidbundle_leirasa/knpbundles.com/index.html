@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Discover 1989 bundles for Symfony2 | KnpBundles</title>
+    <meta name="description" content="All Open Source Symfony 2 Bundles sorted by trend">
+    
+    <link rel="shortcut icon" href="/favicon.png?v1" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v1">
+
+    <link rel="alternate" href="/latest?format=atom" title="ATOM" type="application/atom+xml">
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient {
+            filter: none;
+        }
+    </style>
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/5d82e50.css?v1" type="text/css" media="screen">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+
+<header id="page-header">
+    <section>
+        <h1 id="logo"><a href="/"><img src="/bundles/knpbundles/images/logo.gif?v1" alt="KnpBundles"></a></h1>
+
+        <nav>
+                <ul>
+                <li class="current first">        <a href="/">Bundles</a>        
+    </li>
+
+        <li>        <a href="/developer">Developers</a>        
+    </li>
+
+        <li>        <a href="/organization">Organizations</a>        
+    </li>
+
+        <li>        <a href="/evolution">Evolution</a>        
+    </li>
+
+        <li class="last">        <a href="/add">Register a bundle</a>        
+    </li>
+
+
+    </ul>
+
+        </nav>
+
+        <div id="auth">
+    <ul id="auth-menu">
+        <li class="login"><img src="/bundles/knpbundles/images/icon_person.gif?v1" alt="Log out">Login via</li>
+        <li>
+            <ul>
+                <li><a href="/connect/github">GitHub</a></li>
+                <li><a href="/connect/sensio">SensioConnect</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+        <form method="get" action="/search" id="search-box">
+            <label for="search-query">Search:</label>
+            <input type="text" id="search-query" name="q" value="" placeholder="Search..."><input type="submit" id="search-btn" value="&nbsp;">
+        </form>
+    </section>
+</header>
+
+<div id="content-wrapper" class="clearfix">
+    <div id="content-center">
+                <div id="content-header">
+            <div id="promo">
+    <figure>
+        <img src="/bundles/knpbundles/images/icon_heart.png?v1" alt="">
+    </figure>
+
+    <section onclick="_gaq.push(['_trackEvent', 'banner']);">
+        <span>Developed with love by KnpLabs</span>
+
+        <a href="http://knplabs.com/" onclick="_gaq.push(['_trackEvent', 'banner']);">Hire us for your project!</a>
+    </section>
+</div>
+
+            <div id="intro">
+    <h1>Over 1989 bundles</h1>
+    <h2>Find a bundle that fits your needs!</h2>
+</div>
+        </div>
+        
+        <div id="content-holder">
+        <div id="sidebar">
+        <div class="sidebar-box sidebar-chart">
+    <hgroup>
+        <h2>Statistics</h2>
+    </hgroup>
+
+    <section>
+        
+<div id="chart1"></div>
+
+<script type="text/javascript" src="/bundles/knpbundles/js/highcharts.js?v1"></script>
+
+<script type="text/javascript">
+    $(function () {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'chart1',
+                                type: 'area'
+            },
+                        credits: {
+                enabled: false
+            },
+                        title: {
+                text: null
+            },
+            colors: [
+                                '#f08561'
+                            ],
+            legend: {
+                                enabled: false,
+                                align: 'right',
+                floating: true,
+                verticalAlign: 'top',
+                borderWidth: 0,
+                symbolPadding: 8,
+                symbolWidth: 40,
+                itemStyle: {
+                    color: '#949494',
+                    fontSize: '13px'
+                },
+                x: -30,
+                y: -10
+            },
+            tooltip: {
+                backgroundColor: {
+                    linearGradient: [0, 0, 0, 60],
+                    stops: [
+                        [0, '#FFFFFF'],
+                        [1, '#f3f3f3']
+                    ]
+                },
+                borderWidth: 1,
+                borderColor: '#d0d0d0',
+                style: {
+                    padding: '5px 10px'
+                },
+                useHTML: true,
+                                xDateFormat: '%Y-%m-%d',
+                headerFormat: '<small>{point.key}</small>',
+                pointFormat: '<center style="font-size: 11px"><strong>{point.y} new<br>bundles</strong></center>'
+                            },
+            xAxis: {
+                type: 'datetime',
+                tickLength: 0,
+                tickPixelInterval: 35,
+                labels: {
+                                        enabled: false,
+                                        x: -35,
+                    y: 50,
+                    rotation: -30,
+                    style: {
+                        color: '#6d6d6d'
+                    },
+                    step: 1,
+                    align: 'left',
+                    formatter: function() {
+                        return Highcharts.dateFormat('%Y-%m-%e', this.value);
+                    }
+                },
+                gridLineColor: '#cccccc',
+                gridLineWidth: 1
+                            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                                        enabled: false,
+                                        style: {
+                        color: '#6d6d6d',
+                        fontSize: '12px'
+                    }
+                },
+                gridLineDashStyle: 'dash',
+                gridLineColor: '#cccccc'
+            },
+            plotOptions: {
+                series: {
+                    lineWidth: 2,
+                    fillOpacity: 0.3,
+                    shadow: false,
+                    marker: {
+                        symbol: 'circle',
+                        fillColor: '#FFFFFF',
+                        lineWidth: 2,
+                        lineColor: null,
+                        radius: 4,
+                        states: {
+                            hover: {
+                                enabled: false
+                            }
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'New bundles',
+                data: [
+                    [Date.UTC(2013, 3, 11), 1],
+                    [Date.UTC(2013, 3, 12), 1],
+                    [Date.UTC(2013, 3, 13), 1],
+                    [Date.UTC(2013, 3, 14), 2],
+                    [Date.UTC(2013, 3, 15), 2],
+                    [Date.UTC(2013, 3, 17), 1],
+                    [Date.UTC(2013, 3, 18), 1],
+                    [Date.UTC(2013, 3, 22), 4],
+                    [Date.UTC(2013, 3, 23), 1],
+                    [Date.UTC(2013, 3, 25), 1],
+                    [Date.UTC(2013, 3, 26), 2],
+                    [Date.UTC(2013, 3, 29), 2]
+                    ]
+            }]
+        });
+    });
+</script>
+
+        <h4><a href="/evolution">Discover evolution of Symfony2 ecosystem</a></h4>
+    </section>
+</div>
+
+<div class="sidebar-box sidebar-knpuniversity">
+    <section>
+        <h1><a href="http://knpuniversity.com/">Screencasts for Symfony2</a></h1>
+
+        <div class="logo">
+            <a href="http://knpuniversity.com/" class="play" src="/bundles/knpbundles/images/logo_knpuniversity_play.png?v1" alt="KNP University">
+            </a>
+        </div>
+
+        <!-- <div class="baseline">Your comfy place for Symfony and PHP Tutorials</div> -->
+        <div class="baseline">Your Symfony and PHP Video Tutorials</div>
+    </section>
+</div>
+
+<div class="sidebar-box sidebar-developers-list clearfix">
+    <hgroup>
+        <h2>Newest developers</h2>
+    </hgroup>
+
+    <section>
+        <ul>
+                        <li>
+                <a href="/developer/jjanvier/profile">
+                    <img src="https://secure.gravatar.com/avatar/ad9db80b4ef9fde765cdd187efefd3ab?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="jjanvier" title="jjanvier" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/IsabelleJ/profile">
+                    <img src="https://secure.gravatar.com/avatar/2060cc4c9566af6051a0a2cce299f635?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="IsabelleJ" title="IsabelleJ" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/jeeeevs/profile">
+                    <img src="https://secure.gravatar.com/avatar/8c1dd29c8f2e2c447030ce448d4427e0?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="jeeeevs" title="jeeeevs" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/ccapndave/profile">
+                    <img src="https://secure.gravatar.com/avatar/f1092d3ac395ac0d4998a2c143b70a97?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="ccapndave" title="ccapndave" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/adityapatadia/profile">
+                    <img src="https://secure.gravatar.com/avatar/d8350e088261388b7a6260a2305c977c?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="adityapatadia" title="adityapatadia" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/kuonirat/profile">
+                    <img src="https://secure.gravatar.com/avatar/db3516305def8121435be327a05ee0ae?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="kuonirat" title="kuonirat" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/Matzz/profile">
+                    <img src="https://secure.gravatar.com/avatar/69d6d164de91ab31367d35952cbb842e?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="Matzz" title="Matzz" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/mgrinko/profile">
+                    <img src="https://secure.gravatar.com/avatar/947328f490b78585715ceb5d23ce0c45?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="mgrinko" title="mgrinko" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/russhendy/profile">
+                    <img src="https://secure.gravatar.com/avatar/ab499622ee916cd83e9ff547f731c02b?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="russhendy" title="russhendy" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/stuhar/profile">
+                    <img src="https://secure.gravatar.com/avatar/bbd7c0913ba42f306994361574039a33?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="stuhar" title="stuhar" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/rtbaker/profile">
+                    <img src="https://secure.gravatar.com/avatar/51bc8b3f3d4d2ab49ecca0195c515e27?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="rtbaker" title="rtbaker" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/simonrice/profile">
+                    <img src="https://secure.gravatar.com/avatar/1f0d081ad6f9eb7fe4996eecc8c7ed82?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="simonrice" title="simonrice" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/okjake/profile">
+                    <img src="https://secure.gravatar.com/avatar/4bc19d2134494bc311123c184d816a97?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="okjake" title="okjake" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/devantoine/profile">
+                    <img src="https://secure.gravatar.com/avatar/c975081b5d952f18a806d0aafb2537ee?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="devantoine" title="devantoine" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/damour/profile">
+                    <img src="https://secure.gravatar.com/avatar/116d246bd1e8bb2479a4312e1358806b?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="damour" title="damour" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/souflam89/profile">
+                    <img src="https://secure.gravatar.com/avatar/1c83a7beab886120a79d5eae25b5ded2?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="souflam89" title="souflam89" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/digitalage01/profile">
+                    <img src="https://secure.gravatar.com/avatar/1e749395f34ccd6169adeda35d62304c?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="digitalage01" title="digitalage01" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/ajanssen/profile">
+                    <img src="https://secure.gravatar.com/avatar/b77dccf9ebe83e0f26b45c305aca0c5b?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="ajanssen" title="ajanssen" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/easycloud/profile">
+                    <img src="https://secure.gravatar.com/avatar/5657e62eb6c76cdf534dc9f89176de86?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="easycloud" title="easycloud" width="40" height="40">
+                </a>
+            </li>
+                        <li>
+                <a href="/developer/mkrauser/profile">
+                    <img src="https://secure.gravatar.com/avatar/deb2a456478bff846b19c0b53e3e5bbc?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="mkrauser" title="mkrauser" width="40" height="40">
+                </a>
+            </li>
+                    </ul>
+    </section>
+</div>
+
+<div class="sidebar-box sidebar-recent clearfix">
+    <hgroup>
+        <h2>Latest activities</h2>
+    </hgroup>
+
+    <section>
+        <ul>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build passed <a href="/nodrew/NodrewDfpBundle">NodrewDfpBundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build passed <a href="/monofone/BlageConnectBundle">BlageConnectBundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build failed <a href="/Sylius/SyliusAssortmentBundle">SyliusAssortmentBundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build passed <a href="/Kunstmaan/KunstmaanPagePartBundle">KunstmaanPagePartBundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build passed <a href="/miguel250/MZMailChimpBundle">MZMailChimpBundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build passed <a href="/widop/WidopGoogleAnalyticsBundle">WidopGoogleAnalyticsBundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build failed <a href="/Cybernox/AmazonWebServicesBundle">AmazonWebServicesBundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build passed <a href="/egeloen/IvoryLuceneSearchBundle">IvoryLuceneSearchBundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build failed <a href="/fabstei/shorturl-bundle">shorturl-bundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                            <li>
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&amp;f=y&amp;s=30" alt="" title="" width="30" height="30">
+                    <span><strong></strong>                        CI build passed <a href="/loicfrering/LosoDiAnnotationsBundle">LosoDiAnnotationsBundle</a> <strong>1 hour ago</strong>
+                    </span>
+                </li>
+                    </ul>
+    </section>
+</div>
+    </div>
+    
+        <div id="content">
+        <div class="content-box">
+    <hgroup>
+        <div class="btn-group btn-sort">
+            <button class="btn dropdown-title" data-toggle="dropdown"><i class="icon-trend"></i>Trending</button>
+            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">                <li><i class="icon-trend"></i><a href="/">Trending</a></li>                <li><i class="icon-best"></i><a href="/best">Best score</a></li>                <li><i class="icon-updated"></i><a href="/updated">Updated recently</a></li>                <li><i class="icon-newest"></i><a href="/newest">Newest</a></li>                <li><i class="icon-recommended"></i><a href="/recommended">Most recommended</a></li>            </ul>
+        </div>
+
+        <h2>1989 bundles for Symfony2</h2>
+    </hgroup>
+
+    <section class="bundles-list">
+        <article class="bundle">
+    <div class="bundle-score">
+        <h3>49</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/Sylius/SyliusShippingBundle" class="name">SyliusShippingBundle</a>
+                    </h2>
+
+        <p>Shipments, shipping methods and categories management for Symfony2 projects.</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/organization/Sylius/profile">Sylius</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/Sylius/SyliusShippingBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 15 hours ago" class="high">High</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/Sylius/SyliusShippingBundle">
+            <img src="https://secure.gravatar.com/avatar/51710342957a82f3a2ed91d1d45f11dc?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png" alt="SyliusShippingBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+<article class="bundle">
+    <div class="bundle-score">
+        <h3>155</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/stephpy/TimelineBundle" class="name">TimelineBundle</a>
+            <abbr title="This bundle is ready for production usage">(ready)</abbr>        </h2>
+
+        <p>Symfony2 bundle to make timeline</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/developer/stephpy/profile">stephpy</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/stephpy/TimelineBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 1 day ago" class="high">High</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/stephpy/TimelineBundle">
+            <img src="https://secure.gravatar.com/avatar/5758d7b1da8f7127370c7963d050f91d?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="TimelineBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+<article class="bundle">
+    <div class="bundle-score">
+        <h3>642</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/stof/StofDoctrineExtensionsBundle" class="name">StofDoctrineExtensionsBundle</a>
+            <abbr title="This bundle is ready for production usage">(ready)</abbr>        </h2>
+
+        <p>Integration bundle for DoctrineExtensions by l3pp4rd in Symfony2</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/developer/stof/profile">stof</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/stof/StofDoctrineExtensionsBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 24 days ago" class="medium">Medium</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/stof/StofDoctrineExtensionsBundle">
+            <img src="https://secure.gravatar.com/avatar/7894bbdf1c05b18a1444ad8c76c9d583?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="StofDoctrineExtensionsBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+<article class="bundle">
+    <div class="bundle-score">
+        <h3>589</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/KnpLabs/KnpMenuBundle" class="name">KnpMenuBundle</a>
+            <abbr title="This bundle is ready for production usage">(ready)</abbr>        </h2>
+
+        <p>Object Oriented menus for your Symfony2 project.</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/organization/KnpLabs/profile">KnpLabs</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/KnpLabs/KnpMenuBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 15 hours ago" class="high">High</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/KnpLabs/KnpMenuBundle">
+            <img src="https://secure.gravatar.com/avatar/cdc56f94f578a933f732cd8f163c1504?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png" alt="KnpMenuBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+<article class="bundle">
+    <div class="bundle-score">
+        <h3>71</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/egeloen/IvoryCKEditorBundle" class="name">IvoryCKEditorBundle</a>
+                    </h2>
+
+        <p>Provides a CKEditor integration for your Symfony2 Project.</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/developer/egeloen/profile">egeloen</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/egeloen/IvoryCKEditorBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 4 days ago" class="high">High</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/egeloen/IvoryCKEditorBundle">
+            <img src="https://secure.gravatar.com/avatar/81e83270085f7f733a440c0283c4b39b?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="IvoryCKEditorBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+<article class="bundle">
+    <div class="bundle-score">
+        <h3>1817</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/FriendsOfSymfony/FOSUserBundle" class="name">FOSUserBundle</a>
+            <abbr title="This bundle is ready for production usage">(ready)</abbr>        </h2>
+
+        <p>Provides user management for your Symfony2 Project. Compatible with Doctrine ORM &amp; ODM, and Propel.</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/organization/FriendsOfSymfony/profile">FriendsOfSymfony</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/FriendsOfSymfony/FOSUserBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 4 days ago" class="high">High</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/FriendsOfSymfony/FOSUserBundle">
+            <img src="https://secure.gravatar.com/avatar/eedcf60e1fa2ae2d70a06b23c1cca44a?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png" alt="FOSUserBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+<article class="bundle">
+    <div class="bundle-score">
+        <h3>847</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/sonata-project/SonataAdminBundle" class="name">SonataAdminBundle</a>
+                    </h2>
+
+        <p>AdminBundle - The missing Symfony2 Admin Generator</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/organization/sonata-project/profile">sonata-project</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/sonata-project/SonataAdminBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 20 days ago" class="medium">Medium</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/sonata-project/SonataAdminBundle">
+            <img src="https://secure.gravatar.com/avatar/e5aabc10df524bb9a1738e7de7f3b14d?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png" alt="SonataAdminBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+<article class="bundle">
+    <div class="bundle-score">
+        <h3>692</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/FriendsOfSymfony/FOSRestBundle" class="name">FOSRestBundle</a>
+                    </h2>
+
+        <p>This Bundle provides various tools to rapidly develop RESTful API&#039;s with Symfony2</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/organization/FriendsOfSymfony/profile">FriendsOfSymfony</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/FriendsOfSymfony/FOSRestBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 10 days ago" class="medium">Medium</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/FriendsOfSymfony/FOSRestBundle">
+            <img src="https://secure.gravatar.com/avatar/eedcf60e1fa2ae2d70a06b23c1cca44a?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png" alt="FOSRestBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+<article class="bundle">
+    <div class="bundle-score">
+        <h3>531</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/phiamo/MopaBootstrapBundle" class="name">MopaBootstrapBundle</a>
+            <abbr title="This bundle is ready for production usage">(ready)</abbr>        </h2>
+
+        <p>Easy integration of twitters bootstrap into symfony2</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/developer/phiamo/profile">phiamo</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/phiamo/MopaBootstrapBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 1 day ago" class="high">High</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/phiamo/MopaBootstrapBundle">
+            <img src="https://secure.gravatar.com/avatar/9ea94f828e1b14d8aae270f326728d76?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" alt="MopaBootstrapBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+<article class="bundle">
+    <div class="bundle-score">
+        <h3>428</h3>
+    </div>
+
+    <div class="bundle-info">
+        <h2>
+            <a href="/FriendsOfSymfony/FOSJsRoutingBundle" class="name">FOSJsRoutingBundle</a>
+            <abbr title="This bundle is ready for production usage">(ready)</abbr>        </h2>
+
+        <p>A pretty nice way to expose your Symfony2 routing to client applications.</p>
+
+        <ul>
+            <li class="bundle-author">
+                owner:
+                <a href="/organization/FriendsOfSymfony/profile">FriendsOfSymfony</a>,
+            </li>
+            <li class="bundle-license">
+                license:
+                <a href="/FriendsOfSymfony/FOSJsRoutingBundle#license" class="bundle-license-detected">MIT</a>,
+            </li>            <li class="bundle-activity">
+                activity                <abbr title="Last commit 26 days ago" class="medium">Medium</abbr>
+            </li>
+        </ul>
+    </div>
+
+    <figure>
+        <a href="/FriendsOfSymfony/FOSJsRoutingBundle">
+            <img src="https://secure.gravatar.com/avatar/eedcf60e1fa2ae2d70a06b23c1cca44a?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png" alt="FOSJsRoutingBundle developer" width="50" height="50" />
+        </a>
+    </figure>
+</article>
+
+        <div class="pagination pagination-centered"><ul><li class="prev disabled"><a href="">«</a></li><li class="active"><a href="/?page=1">1</a></li><li><a href="/?page=2">2</a></li><li><a href="/?page=3">3</a></li><li><a href="/?page=4">4</a></li><li><a href="/?page=5">5</a></li><li><a href="/?page=6">6</a></li><li><a href="/?page=7">7</a></li><li class="disabled"><a href="">&hellip;</a></li><li><a href="/?page=199">199</a></li><li class="next"><a href="/?page=2">»</a></li></ul></div>
+    </section>
+</div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<footer id="page-footer">
+    <section>
+        <section id="copyrights">
+            <h2><a href="http://knplabs.com/" hreflang="en"><img src="/bundles/knpbundles/images/knp_logo.png?v1" alt="KnpBundles"></a></h2>
+            <p>Copyright &copy; 2012 <a href="http://knplabs.com/" hreflang="en"><strong>KnpBundles.com</strong></a><br>All rights reserved</p>
+
+            <ul>
+                <li><a href="http://knplabs.com/" hreflang="en">KnpLabs World</a></li>
+                <li><a href="http://knplabs.fr/" hreflang="fr">KnpLabs France</a></li>
+            </ul>
+        </section>
+
+        <nav>
+            <dl>
+                <dt><a href="/">KnpBundles</a></dt>
+                <dd>
+                    <ul>
+                        <li><a href="https://github.com/knplabs/knpbundles">Show the code on Github</a></li>
+                        <li><a href="/api">API</a></li>
+                        <li><a href="/about/faq-scoring">Scoring FAQ</a></li>
+                        <li><a href="/symfony2bundles">Symfony2bundles</a></li>
+                        <li><a href="https://github.com/KnpLabs/KnpBundles/issues/new">Report an issue</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt><a href="http://knplabs.com/" hreflang="en">KnpLabs</a></dt>
+                <dd>
+                    <ul>
+                        <li><a href="http://knplabs.com/training/symfony2" hreflang="en">Symfony training</a> (World)</li>
+                        <li><a href="http://knplabs.fr/formation/symfony2" hreflang="fr">Formation Symfony</a> (France)</li>
+                        <li><a href="http://knpuniversity.com/">Symfony tutorial</a> screencast</li>
+
+                        <li><a href="http://twitter.com/knplabs">KnpLabs on Twitter</a></li>
+                        <li><a href="http://behat.org/">Behat: BDD framework for PHP</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </nav>
+    </section>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7062980-9']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+<script type="text/javascript" src="/js/a75f41a.js?v1"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

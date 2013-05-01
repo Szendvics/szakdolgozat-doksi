@@ -1,0 +1,912 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <!--[if lt IE 9]>
+            <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="index, follow, all" />
+        <meta name="Author" content="Extreme Sensio" />
+        <meta name="Language" content="en"/>
+        <meta name="Copyright" content="Sensio Labs" />
+        <meta name="Publisher" content="Sensio Labs" />
+        <meta name="Description" content="Symfony - Open-Source PHP web framework" />
+        <meta name="Keywords" content="symfony2, symfony, project, framework, php, php5, open-source, components, symphony, symfony framework, symfony tutorial" />
+
+        <link rel="search" type="application/opensearchdescription+xml" href="http://symfony.com/opensearch/documentation.xml" title="Symfony2 documentation" />
+
+        <title>Installing and Configuring Symfony (current) - Symfony</title>
+
+                        <link rel="stylesheet" href="/css/compiled/all.css?v=3" />
+                 <link href="https://connect.sensiolabs.com/css/sln.css" rel="stylesheet" type="text/css" media="all" />
+
+                
+                
+                    <script type="text/javascript" src="/js/all.js?v=3"></script>
+        
+                
+        <!--[if lt IE 9]>
+          <script src="/js/common/html5.js" type="text/javascript"></script>
+        <![endif]-->
+
+        <!--[if IE 6]>
+            <script src="/js/common/DD_belatedPNG_0.0.7a-min.js" type="text/javascript"></script>
+            <script src="/js/common/ExtendDD_belatedPNG_0.0.7a.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                DD_belatedPNG.fix('.png_fix');
+            </script>
+        <![endif]-->
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-89393-6']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    </head>
+
+    <body>
+        <div id="content_wrapper" class="">
+            <div id="sln"></div>
+
+            <div class="content">
+                
+
+    
+<div class="header">
+    <div class="content_header clear_fix">
+        <div class="illustration_logo_header">
+                            <a href="/"><img src="/images/common/logo/logo_symfony_header.png" alt="Symfony" class="png_fix" /></a>
+                    </div>
+        <div class="box_download clear_fix">
+            <div class="legend_download">
+                <img src="/images/en/a_sensiolabs_product.png" alt="a SensioLabs product" class="png_fix" />
+            </div>
+            <div class="download_button_wrapper">
+                <a href="/download" class="download_button">    <span class="border_l png_fix">
+        <span class="border_r png_fix">
+            <span class="btn_bg png_fix">
+                DOWNLOAD NOW
+            </span>
+        </span>
+    </span>
+</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main_menu clear_fix" id="main_menu_id">
+    <ul class="clear_fix">
+        <li class="first what_is_symfony"><a href="/what-is-symfony">What is Symfony?</a></li>
+        <li class="get_started">
+            <a href="/get_started">Get started</a>
+                    </li>
+        <li class="learn selected"><a href="/doc/current/index.html">Documentation</a></li>
+        <li class="community"><a href="/community">Community</a></li>
+        <li class="services"><a href="/services">Services</a></li>
+        <li class="blog">
+            <a href="/blog/">News</a>
+            <div class="box_dropdown_wrapper">
+    <div class="border_l">
+        <div class="middle_border_l">
+            <div class="border_r">
+                <div class="middle_border_r">
+                    <div class="content_wrapper">
+                        <div class="box_content">
+                                <div class="inner_drop_box_two_columns clear_fix">
+        <div class="inner_drop_box_two_columns_column_01">
+            <h2 class="dropdown_title">
+                <div class="button"><a href="http://twitter.com/symfony" title="twitter account"><img style="width: 35px; margin-top: -10px" src="/images/common/picto/twitter.png" alt="Twitter" /></a></div>
+                <div class="button"><a href="http://feeds.feedburner.com/symfony/blog" title="blog feed"><img src="/images/common/picto/rss.gif" alt="feed" /></a></div>
+                <a href="/blog/">Latest News</a>
+            </h2>
+
+            <div class="box_article post">
+                    <div class="gravatar"><a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15"><img width="57" height="57" src="https://connect.sensiolabs.com/api/images/4aed4f5d-e0cb-4320-902f-885fddaa7d15.png?format=57x57" alt="Fabien Potencier"></a></div>
+                <h3 class="title_05"><a href="/blog/symfony-2-3-schedule-update">Symfony 2.3 schedule update</a></h3>
+                <div class="complementaries_informations">
+    by
+            <a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15">Fabien Potencier</a>
+            – April 30, 2013
+        </div>
+            </div>
+
+                <div class="box_hr"><hr /></div>
+
+
+            <div class="box_article">
+                <h2 class="title_05"><a href="/blog/a-week-of-symfony-330-22-28-april-2013">What happened last week in Symfony?</a></h2>
+                <p>This week, it was announced that the Symfony 2.3 Standard Edition will only include MIT/BSD licensed libraries and bundles (<a href="https://github.com/symfony/symfony-standard/pull/535">view pull request</a>). In addition, Symfony 2.3 <a href="http://twitter.com/fabpot/status/327525715903905793">was declared nearly completed</a>, with just a few important PR remaining before the first beta version. Lastly, a new version of <a href="http://desktop.sensiolabs.org/">SensioLabs Desktop</a> was released.</p>
+            </div>
+        </div>
+        <div class="inner_drop_box_two_columns_column_02">
+            <h2 class="dropdown_title">
+                <div class="button"><a href="http://twitter.com/symfony" title="twitter account"><img style="width: 35px; margin-top: -10px" src="/images/common/picto/twitter.png" alt="Twitter" /></a></div>
+                <div class="button"><a href="http://feeds.feedburner.com/symfony/events" title="events rss"><img src="/images/common/picto/rss.gif" alt="RSS" /></a></div>
+                <a href="/events/">Upcoming Events</a>
+            </h2>
+
+            <div class="box_article">
+                <p>The Symfony Community organizes events all over the world on a regular basis. Here are the next ones.</p>
+                                                            <h2 class="title_05">
+                            <img src="/images/flags/de.png?v=3" />
+                                                            <a href="http://www.meetup.com/sfugmd/events/113619892/">Germany, Gera &mdash; Symfony User Group Mitteldeutschland Treffen</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            on May 08, 2013, from 19:00 to 20:30
+                                                    </div>
+                                            <h2 class="title_05">
+                            <img src="/images/flags/de.png?v=3" />
+                                                            <a href="http://www.meetup.com/sfugcgn/events/104715432/">Germany, Köln &mdash; Treffen der Symfony User Group Cologne</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            on May 08, 2013, from 19:30 to 21:00
+                                                    </div>
+                                            <h2 class="title_05">
+                            <img src="/images/flags/fr.png?v=3" />
+                                                            <a href="http://sfpotparismai2013.eventbrite.fr/">France, Paris &mdash; sfPot Paris Mai - Formulaire et Tests</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            on May 14, 2013, from 19:30 to 21:00
+                                                    </div>
+                                            <h2 class="title_05">
+                            <img src="/images/flags/us.png?v=3" />
+                                                            <a href="http://portland2013.live.symfony.com/">United States, Portland &mdash; SymfonyLive Portland 2013</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            from May 20, 2013 to May 24, 2013
+                                                    </div>
+                                                </div>
+        </div>
+    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="corner_l">
+            <div class="corner_r">
+                <div class="border"></div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+        <li class="last about"><a href="/about">About</a></li>
+    </ul>
+</div>
+
+                                    <div class="main_content">
+                                                    <div class="box_columns clear_fix">
+                                                                                                            <div class="column_01">
+                                                                                            <div class="submenu">
+                                                    <ul class="list_submenu">    <li class="first selected"><a href="/doc/current/book/index.html">The Book</a></li>
+<li><a href="/doc/current/cookbook/index.html">The Cookbook</a></li>
+<li><a href="/doc/current/components/index.html">The Components</a></li>
+<li><a href="/doc/current/reference/index.html">Reference</a></li>
+<li><a href="/doc/current/glossary.html">Glossary</a></li>
+<li><a href="/doc/current/genindex.html">Index</a></li>
+<li><a href="/doc/current/bundles/index.html">Bundles</a></li>
+<li><a href="/doc/master/cmf/index.html">Symfony CMF</a></li>
+<li><a href="/doc/master/contributing/code/security.html#security-advisories">Security Advisories</a></li>
+<li><a href="/legacy/doc">Docs for symfony 1.x</a></li>
+<li><a href="/doc/current/contributing/index.html">Contributing</a></li>
+<li><a href="/talks">Talks</a></li>
+<li><a href="http://trainings.sensiolabs.com/">Trainings</a></li>
+<li class="last"><a href="http://books.sensiolabs.com">Books</a></li>
+</ul>
+                                                </div>
+                                                                        <div class="toc">
+                <h2 class="title_05">Table of Contents</h2>
+                <div class="toc-content">
+                    <ul>
+<li><a class="reference internal" href="#">Installing and Configuring Symfony</a><ul>
+<li><a class="reference internal" href="#installing-a-symfony2-distribution">Installing a Symfony2 Distribution</a><ul>
+<li><a class="reference internal" href="#option-1-composer">Option 1) Composer</a></li>
+<li><a class="reference internal" href="#option-2-download-an-archive">Option 2) Download an Archive</a></li>
+<li><a class="reference internal" href="#updating-vendors">Updating Vendors</a></li>
+<li><a class="reference internal" href="#configuration-and-setup">Configuration and Setup</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#beginning-development">Beginning Development</a></li>
+<li><a class="reference internal" href="#using-source-control">Using Source Control</a><ul>
+<li><a class="reference internal" href="#ignoring-the-vendor-directory">Ignoring the <tt class="docutils literal"><code>vendor/</code></tt> Directory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            
+    <div class="feedback">
+    <h2 class="title_05">Questions &amp; Feedback</h2>
+    <p>
+      <em>Found a typo or an error?</em><br />
+      <em>Want to improve this document?</em> <a href="https://github.com/symfony/symfony-docs/edit/2.2/book/installation.rst">Edit</a> it.
+    </p>
+    <p>
+      <em>Need support or have a technical question?</em><br />
+      Post to the <a href="http://groups.google.com/group/symfony2">user mailing-list</a>.
+     </p>
+</div>
+    <div id="license">
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        <img alt="Creative Commons License" src="http://symfony.com/images/license.png" />
+    </a>
+    <div>
+        This <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/MovingImage" rel="dc:type">work</span> is licensed under a
+        <br />
+        Creative Commons
+        <br />
+        Attribution-Share Alike 3.0
+        <br />
+        Unported <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">License</a>.
+    </div>
+</div>
+                                                                                                    
+<div class="ads">
+        <div class="box_hr"><hr /></div>
+
+
+            <div class="ad" id="ad_trainings_1">
+            <h3><a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">Master Symfony2 fundamentals</a></h3>
+            <div>Be trained by SensioLabs experts (2 to 6 day sessions -- French or English).</div>
+            <div><cite>trainings.sensiolabs.com</cite></div>
+        </div>
+            <div class="ad" id="ad_servergrove_1">
+            <h3><a href="http://symfony.com/servergrove">Symfony hosting done right</a></h3>
+            <div>ServerGrove, outstanding support at the right price for your Symfony hosting needs.</div>
+            <div><cite>servergrove.com</cite></div>
+        </div>
+            <div class="ad" id="ad_support_1">
+            <h3><a href="http://sensiolabs.com/en/support/sensiolabs_support.html">Discover the SensioLabs Support</a></h3>
+            <div>Access to the SensioLabs Competency Center for an exclusive and tailor-made support on Symfony</div>
+            <div><cite>sensiolabs.com</cite></div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+                    $("#ad_trainings_1").click(function () { _gaq.push(['_trackEvent', 'Ads', 'Ads', 'trainings_1']); });
+                    $("#ad_servergrove_1").click(function () { _gaq.push(['_trackEvent', 'Ads', 'Ads', 'servergrove_1']); });
+                    $("#ad_support_1").click(function () { _gaq.push(['_trackEvent', 'Ads', 'Ads', 'support_1']); });
+            });
+</script>
+                                                                                                                                                    <div class="ads">
+                                                        <a href="https://connect.sensiolabs.com/"><img src="/images/sensiolabs_connect.png?v=3" /></a>
+                                                    </div>
+                                                                                                                                    </div>
+                                                                        <div class="column_02">
+                                                                                    <div class="breadcrumb">
+                                                <a href="/">Home</a> &raquo;
+                                                            <a href="/doc/current/index.html">Documentation</a> &raquo;
+    
+            <a href="index.html" accesskey="U">The Book</a> &raquo;
+    
+    Installing and Configuring Symfony
+                                            </div>
+
+                                                                                                <div class="box_title">
+                                                        <div class="box_version_wrapper">
+        <div class="version_wrapper">
+            <div class="version">
+                2.2 version
+                <span class="arrow">
+                    <img src="/images/common/picto/down_arrow_white.png" alt="" />
+                </span>
+            </div>
+            <div class="other_version">
+                                    <ul>
+                                                                                    <li>
+                                    <a href="/doc/2.0/book/installation.html">2.0 version</a>
+                                </li>
+                                                                                                                <li>
+                                    <a href="/doc/2.1/book/installation.html">2.1 version</a>
+                                </li>
+                                                                                                                                                                    <li>
+                                    <a href="/doc/master/book/installation.html">master version</a>
+                                </li>
+                                                                        </ul>
+                                                                            <hr />
+                                        <ul>
+                                                                                    <li>
+                                    <a href="/fr/doc/current/book/installation.html">French</a>
+                                </li>
+                                                                                                                <li>
+                                    <a href="/it/doc/current/book/installation.html">Italian</a>
+                                </li>
+                                                                        </ul>
+                            </div>
+        </div>
+    </div>
+                                                    <h1 class="title_01">Installing and Configuring Symfony</h1>
+                                                </div>
+                                            
+        
+                                                
+    <div class="box_article doc_page">
+        <div class="section" id="installing-and-configuring-symfony">
+<span id="index-0"></span><h1>Installing and Configuring Symfony<a class="headerlink" href="#installing-and-configuring-symfony" title="Permalink to this headline">¶</a></h1>
+<p>The goal of this chapter is to get you up and running with a working application
+built on top of Symfony. Fortunately, Symfony offers &quot;distributions&quot;, which
+are functional Symfony &quot;starter&quot; projects that you can download and begin
+developing in immediately.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">If you're looking for instructions on how best to create a new project
+and store it via source control, see <a class="reference internal" href="#using-source-control">Using Source Control</a>.</p>
+</div></div>
+<div class="section" id="installing-a-symfony2-distribution">
+<h2>Installing a Symfony2 Distribution<a class="headerlink" href="#installing-a-symfony2-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">First, check that you have installed and configured a Web server (such
+as Apache) with PHP 5.3.8 or higher. For more information on Symfony2
+requirements, see the <a class="reference internal" href="../reference/requirements.html"><em>requirements reference</em></a>.</p>
+</div></div>
+<p>Symfony2 packages &quot;distributions&quot;, which are fully-functional applications
+that include the Symfony2 core libraries, a selection of useful bundles, a
+sensible directory structure and some default configuration. When you download
+a Symfony2 distribution, you're downloading a functional application skeleton
+that can be used immediately to begin developing your application.</p>
+<p>Start by visiting the Symfony2 download page at <a class="reference external" href="http://symfony.com/download">http://symfony.com/download</a>.
+On this page, you'll see the <em>Symfony Standard Edition</em>, which is the main
+Symfony2 distribution. There are 2 ways to get your project started:</p>
+<div class="section" id="option-1-composer">
+<h3>Option 1) Composer<a class="headerlink" href="#option-1-composer" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://getcomposer.org/">Composer</a> is a dependency management library for PHP, which you can use
+to download the Symfony2 Standard Edition.</p>
+<p>Start by <a class="reference external" href="http://getcomposer.org/download/">downloading Composer</a> anywhere onto your local computer. If you
+have curl installed, it's as easy as:</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>curl -s https://getcomposer.org/installer | php
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If your computer is not ready to use Composer, you'll see some recommendations
+when running this command. Follow those recommendations to get Composer
+working properly.</p>
+</div></div>
+<p>Composer is an executable PHAR file, which you can use to download the Standard
+Distribution:</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>php composer.phar create-project symfony/framework-standard-edition /path/to/webroot/Symfony 2.2.0
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">For an exact version, replace <cite>2.2.0</cite> with the latest Symfony version
+(e.g. 2.2.1). For details, see the <a class="reference external" href="http://symfony.com/download">Symfony Installation Page</a></p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">To download the vendor files faster, add the <tt class="docutils literal"><code>--prefer-dist</code></tt> option at
+the end of any Composer command.</p>
+</div></div>
+<p>This command may take several minutes to run as Composer downloads the Standard
+Distribution along with all of the vendor libraries that it needs. When it finishes,
+you should have a directory that looks something like this:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre>path/to/webroot/ &lt;- your web server directory (sometimes named htdocs or public)
+    Symfony/ &lt;- the new directory
+        app/
+            cache/
+            config/
+            logs/
+        src/
+            ...
+        vendor/
+            ...
+        web/
+            app.php
+            ...
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="option-2-download-an-archive">
+<h3>Option 2) Download an Archive<a class="headerlink" href="#option-2-download-an-archive" title="Permalink to this headline">¶</a></h3>
+<p>You can also download an archive of the Standard Edition. Here, you'll
+need to make two choices:</p>
+<ul class="simple">
+<li>Download either a <tt class="docutils literal"><code>.tgz</code></tt> or <tt class="docutils literal"><code>.zip</code></tt> archive - both are equivalent, download
+whatever you're more comfortable using;</li>
+<li>Download the distribution with or without vendors. If you're planning on
+using more third-party libraries or bundles and managing them via Composer,
+you should probably download &quot;without vendors&quot;.</li>
+</ul>
+<p>Download one of the archives somewhere under your local web server's root
+directory and unpack it. From a UNIX command line, this can be done with
+one of the following commands (replacing <tt class="docutils literal"><code>###</code></tt> with your actual filename):</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># for .tgz file</span>
+<span class="nv">$ </span>tar zxvf Symfony_Standard_Vendors_2.2.###.tgz
+
+<span class="c"># for a .zip file</span>
+<span class="nv">$ </span>unzip Symfony_Standard_Vendors_2.2.###.zip
+</pre></div>
+</td></tr></table></div></div>
+<p>If you've downloaded &quot;without vendors&quot;, you'll definitely need to read the
+next section.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">You can easily override the default directory structure. See
+<a class="reference internal" href="../cookbook/configuration/override_dir_structure.html"><em>How to override Symfony's Default Directory Structure</em></a> for more
+information.</p>
+</div></div>
+<p>All public files and the front controller that handles incoming requests in
+a Symfony2 application live in the <tt class="docutils literal"><code>Symfony/web/</code></tt> directory. So, assuming
+you unpacked the archive into your web server's or virtual host's document root,
+your application's URLs will start with <tt class="docutils literal"><code>http://localhost/Symfony/web/</code></tt>.
+To get nice and short URLs you should point the document root of your web
+server or virtual host to the <tt class="docutils literal"><code>Symfony/web/</code></tt> directory. Though this is not
+required for development it is recommended when your application goes into
+production as all system and configuration files become inaccessible to clients.
+For information on configuring your specific web server document root, see
+the following documentation: <a class="reference external" href="http://httpd.apache.org/docs/current/mod/core.html#documentroot">Apache</a> | <a class="reference external" href="http://wiki.nginx.org/Symfony">Nginx</a> .</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">The following examples assume you don't touch the document root settings
+so all URLs start with <tt class="docutils literal"><code>http://localhost/Symfony/web/</code></tt></p>
+</div></div>
+</div>
+<div class="section" id="updating-vendors">
+<span id="installation-updating-vendors"></span><h3>Updating Vendors<a class="headerlink" href="#updating-vendors" title="Permalink to this headline">¶</a></h3>
+<p>At this point, you've downloaded a fully-functional Symfony project in which
+you'll start to develop your own application. A Symfony project depends on
+a number of external libraries. These are downloaded into the <cite>vendor/</cite> directory
+of your project via a library called <a class="reference external" href="http://getcomposer.org/">Composer</a>.</p>
+<p>Depending on how you downloaded Symfony, you may or may not need to do update
+your vendors right now. But, updating your vendors is always safe, and guarantees
+that you have all the vendor libraries you need.</p>
+<p>Step 1: Get <a class="reference external" href="http://getcomposer.org/">Composer</a> (The great new PHP packaging system)</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>curl -s http://getcomposer.org/installer | php
+</pre></div>
+</td></tr></table></div></div>
+<p>Make sure you download <tt class="docutils literal"><code>composer.phar</code></tt> in the same folder where
+the <tt class="docutils literal"><code>composer.json</code></tt> file is located (this is your Symfony project
+root by default).</p>
+<p>Step 2: Install vendors</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>php composer.phar install
+</pre></div>
+</td></tr></table></div></div>
+<p>This command downloads all of the necessary vendor libraries - including
+Symfony itself - into the <tt class="docutils literal"><code>vendor/</code></tt> directory.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p>If you don't have <tt class="docutils literal"><code>curl</code></tt> installed, you can also just download the <tt class="docutils literal"><code>installer</code></tt>
+file manually at <a class="reference external" href="http://getcomposer.org/installer">http://getcomposer.org/installer</a>. Place this file into your
+project and then run:</p>
+<div class="literal-block"><div class="last highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre>php installer
+php composer.phar install
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>When running <tt class="docutils literal"><code>php composer.phar install</code></tt> or <tt class="docutils literal"><code>php composer.phar update</code></tt>,
+composer will execute post install/update commands to clear the cache
+and install assets. By default, the assets will be copied into your <tt class="docutils literal"><code>web</code></tt>
+directory.</p>
+<p>Instead of copying your Symfony assets, you can create symlinks if
+your operating system supports it. To create symlinks, add an entry
+in the <tt class="docutils literal"><code>extra</code></tt> node of your composer.json file with the key
+<tt class="docutils literal"><code>symfony-assets-install</code></tt> and the value <tt class="docutils literal"><code>symlink</code></tt>:</p>
+<div class="literal-block"><div class="highlight-json"><pre>"extra": {
+    "symfony-app-dir": "app",
+    "symfony-web-dir": "web",
+    "symfony-assets-install": "symlink"
+}</pre>
+</div></div>
+<p class="last">When passing <tt class="docutils literal"><code>relative</code></tt> instead of <tt class="docutils literal"><code>symlink</code></tt> to symfony-assets-install,
+the command will generate relative symlinks.</p>
+</div></div>
+</div>
+<div class="section" id="configuration-and-setup">
+<h3>Configuration and Setup<a class="headerlink" href="#configuration-and-setup" title="Permalink to this headline">¶</a></h3>
+<p>At this point, all of the needed third-party libraries now live in the <tt class="docutils literal"><code>vendor/</code></tt>
+directory. You also have a default application setup in <tt class="docutils literal"><code>app/</code></tt> and some
+sample code inside the <tt class="docutils literal"><code>src/</code></tt> directory.</p>
+<p>Symfony2 comes with a visual server configuration tester to help make sure
+your Web server and PHP are configured to use Symfony. Use the following URL
+to check your configuration:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>http://localhost/config.php
+</pre></div>
+</td></tr></table></div></div>
+<p>If there are any issues, correct them now before moving on.</p>
+<div class="admonition-wrapper">
+<div class="sidebar"></div><div class="admonition admonition-sidebar"><p class="first sidebar-title">Setting up Permissions</p>
+<p>One common issue is that the <tt class="docutils literal"><code>app/cache</code></tt> and <tt class="docutils literal"><code>app/logs</code></tt> directories
+must be writable both by the web server and the command line user. On
+a UNIX system, if your web server user is different from your command
+line user, you can run the following commands just once in your project
+to ensure that permissions will be setup properly.</p>
+<p><strong>Note that not all web servers run as the user</strong> <tt class="docutils literal"><code>www-data</code></tt> as in the examples
+below. Instead, check which user <em>your</em> web server is being run as and
+use it in place of <tt class="docutils literal"><code>www-data</code></tt>.</p>
+<p>On a UNIX system, this can be done with one of the following commands:</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>ps aux | grep httpd
+</pre></div>
+</td></tr></table></div></div>
+<p>or</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>ps aux | grep apache
+</pre></div>
+</td></tr></table></div></div>
+<p><strong>1. Using ACL on a system that supports chmod +a</strong></p>
+<p>Many systems allow you to use the <tt class="docutils literal"><code>chmod +a</code></tt> command. Try this first,
+and if you get an error - try the next method. Be sure to replace <tt class="docutils literal"><code>www-data</code></tt>
+with your web server user on the first <tt class="docutils literal"><code>chmod</code></tt> command:</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rm -rf app/cache/*
+<span class="nv">$ </span>rm -rf app/logs/*
+
+<span class="nv">$ </span>sudo chmod +a <span class="s2">&quot;www-data allow delete,write,append,file_inherit,directory_inherit&quot;</span> app/cache app/logs
+<span class="nv">$ </span>sudo chmod +a <span class="s2">&quot;`whoami` allow delete,write,append,file_inherit,directory_inherit&quot;</span> app/cache app/logs
+</pre></div>
+</td></tr></table></div></div>
+<p><strong>2. Using Acl on a system that does not support chmod +a</strong></p>
+<p>Some systems don't support <tt class="docutils literal"><code>chmod +a</code></tt>, but do support another utility
+called <tt class="docutils literal"><code>setfacl</code></tt>. You may need to <a class="reference external" href="https://help.ubuntu.com/community/FilePermissionsACLs">enable ACL support</a> on your partition
+and install setfacl before using it (as is the case with Ubuntu), like
+so:</p>
+<div class="literal-block"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>sudo setfacl -R -m u:www-data:rwX -m u:<span class="sb">`</span>whoami<span class="sb">`</span>:rwX app/cache app/logs
+<span class="nv">$ </span>sudo setfacl -dR -m u:www-data:rwx -m u:<span class="sb">`</span>whoami<span class="sb">`</span>:rwx app/cache app/logs
+</pre></div>
+</td></tr></table></div></div>
+<p><strong>3. Without using ACL</strong></p>
+<p>If you don't have access to changing the ACL of the directories, you will
+need to change the umask so that the cache and log directories will
+be group-writable or world-writable (depending if the web server user
+and the command line user are in the same group or not). To achieve
+this, put the following line at the beginning of the <tt class="docutils literal"><code>app/console</code></tt>,
+<tt class="docutils literal"><code>web/app.php</code></tt> and <tt class="docutils literal"><code>web/app_dev.php</code></tt> files:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="nb">umask</span><span class="p">(</span><span class="mo">0002</span><span class="p">);</span> <span class="c1">// This will let the permissions be 0775</span>
+
+<span class="c1">// or</span>
+
+<span class="nb">umask</span><span class="p">(</span><span class="mo">0000</span><span class="p">);</span> <span class="c1">// This will let the permissions be 0777</span>
+</pre></div>
+</td></tr></table></div></div>
+<p class="last">Note that using the ACL is recommended when you have access to them
+on your server because changing the umask is not thread-safe.</p>
+</div></div>
+<p>When everything is fine, click on &quot;Go to the Welcome page&quot; to request your
+first &quot;real&quot; Symfony2 webpage:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>http://localhost/app_dev.php/
+</pre></div>
+</td></tr></table></div></div>
+<p>Symfony2 should welcome and congratulate you for your hard work so far!</p>
+<img alt="../_images/welcome.png" src="../_images/welcome.png" />
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">To get nice and short urls you should point the document root of your
+webserver or virtual host to the <tt class="docutils literal"><code>Symfony/web/</code></tt> directory. Though
+this is not required for development it is recommended at the time your
+application goes into production as all system and configuration files
+become inaccessible to clients then. For information on configuring
+your specific web server document root, read
+<a class="reference internal" href="../cookbook/configuration/web_server_configuration.html"><em>Configuring a web server</em></a>
+or consult the official documentation of your webserver:
+<a class="reference external" href="http://httpd.apache.org/docs/current/mod/core.html#documentroot">Apache</a> | <a class="reference external" href="http://wiki.nginx.org/Symfony">Nginx</a> .</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="beginning-development">
+<h2>Beginning Development<a class="headerlink" href="#beginning-development" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have a fully-functional Symfony2 application, you can begin
+development! Your distribution may contain some sample code - check the
+<tt class="docutils literal"><code>README.md</code></tt> file included with the distribution (open it as a text file)
+to learn about what sample code was included with your distribution.</p>
+<p>If you're new to Symfony, check out &quot;<a class="reference internal" href="page_creation.html"><em>Creating Pages in Symfony2</em></a>&quot;, where you'll
+learn how to create pages, change configuration, and do everything else you'll
+need in your new application.</p>
+<p>Be sure to also check out the <a class="reference internal" href="../cookbook/index.html"><em>Cookbook</em></a>, which contains
+a wide variety of articles about solving specific problems with Symfony.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you want to remove the sample code from your distribution, take a look
+at this cookbook article: &quot;<a class="reference internal" href="../cookbook/bundles/remove.html"><em>How to remove the AcmeDemoBundle</em></a>&quot;</p>
+</div></div>
+</div>
+<div class="section" id="using-source-control">
+<h2>Using Source Control<a class="headerlink" href="#using-source-control" title="Permalink to this headline">¶</a></h2>
+<p>If you're using a version control system like <tt class="docutils literal"><code>Git</code></tt> or <tt class="docutils literal"><code>Subversion</code></tt>, you
+can setup your version control system and begin committing your project to
+it as normal. The Symfony Standard edition <em>is</em> the starting point for your
+new project.</p>
+<p>For specific instructions on how best to setup your project to be stored
+in git, see <a class="reference internal" href="../cookbook/workflow/new_project_git.html"><em>How to Create and store a Symfony2 Project in git</em></a>.</p>
+<div class="section" id="ignoring-the-vendor-directory">
+<h3>Ignoring the <tt class="docutils literal"><code>vendor/</code></tt> Directory<a class="headerlink" href="#ignoring-the-vendor-directory" title="Permalink to this headline">¶</a></h3>
+<p>If you've downloaded the archive <em>without vendors</em>, you can safely ignore
+the entire <tt class="docutils literal"><code>vendor/</code></tt> directory and not commit it to source control. With
+<tt class="docutils literal"><code>Git</code></tt>, this is done by creating and adding the following to a <tt class="docutils literal"><code>.gitignore</code></tt>
+file:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>/vendor/
+</pre></div>
+</td></tr></table></div></div>
+<p>Now, the vendor directory won't be committed to source control. This is fine
+(actually, it's great!) because when someone else clones or checks out the
+project, he/she can simply run the <tt class="docutils literal"><code>php composer.phar install</code></tt> script to
+install all the necessary project dependencies.</p>
+</div>
+</div>
+</div>
+
+    </div>
+
+            <div class="navigation">
+                            <a accesskey="P" title="Symfony2 versus Flat PHP" href="from_flat_php_to_symfony2.html">
+                    &laquo;&nbsp;Symfony2 versus Flat PHP
+                </a>
+                        <span class="separator">|</span>                            <a accesskey="N" title="Creating Pages in Symfony2" href="page_creation.html">
+                    Creating Pages in Symfony2&nbsp;&raquo;
+                </a>
+                    </div>
+
+            <div class="box_hr"><hr /></div>
+
+                                                                                </div>
+                                                            </div>
+                        
+                        
+                                                    <div class="box_relative_content">
+    <div class="relative_content_box_columns clear_fix">
+        <div class="column_01">
+            <h2 class="title_05">NEWS FROM THE BLOG</h2>
+
+<ul class="event_list">
+            <li>
+            <h3>
+                <a href="/blog/symfony-2-3-schedule-update">
+                    Symfony 2.3 schedule update<br />
+                    <span class="place_date">April 30, 2013</span>
+                </a>
+            </h3>
+        </li>
+            <li>
+            <h3>
+                <a href="/blog/a-week-of-symfony-330-22-28-april-2013">
+                    A week of symfony #330 (22-&gt;28 April 2013)<br />
+                    <span class="place_date">April 28, 2013</span>
+                </a>
+            </h3>
+        </li>
+            <li>
+            <h3>
+                <a href="/blog/new-in-symfony-2-3-new-validators">
+                    New in Symfony 2.3: New validators<br />
+                    <span class="place_date">April 25, 2013</span>
+                </a>
+            </h3>
+        </li>
+    </ul>
+
+<div class="link_01">
+    <a href="/blog/" class="png_fix">Visit Symfony's blog</a>
+</div>
+        </div>
+
+        <div class="column_02">
+                        <h2 class="title_05">IN THE NEWS</h2>
+
+
+<div class="upcoming_event clear_fix">
+    <div>
+        <a href="http://portland2013.live.symfony.com/" target="_blank">
+            <img style="width: 100px" src="http://live.symfony.com/bundles/sensiosymfonylive/images/landing/sfl_portland.png" class="png_fix" alt="The Symfony Live Conference Portland 2013" />
+        </a>
+    </div>
+
+    <div style="margin-top: 13px">
+        <h3 style="font-size: 13px; font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif">Announcing the next Symfony Live Conference 2013 in Portland</h3>
+        <div style="margin-top: 5px">
+            <a href="http://portland2013.live.symfony.com/registration/" class="non_extensible_button button_01">    <span class="border_l png_fix">
+        <span class="border_r png_fix">
+            <span class="btn_bg png_fix">
+                REGISTER TODAY
+            </span>
+        </span>
+    </span>
+</a>
+        </div>
+    </div>
+</div>
+
+                    </div>
+
+        <div class="column_03">
+            <h2 class="title_05">UPCOMING TRAINING SESSIONS</h2>
+
+<ul class="event_list">
+        <li>
+        <a href="http://trainings.sensiolabs.com/en/training/symfony-certification">
+            Symfony2 Framework Certification
+            <br />
+            <span class="place_date">Cologne - 2013-04-26</span>
+        </a>
+    </li>
+        <li>
+        <a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">
+            Getting Started with Symfony2
+            <br />
+            <span class="place_date">Paris - 2013-05-13</span>
+        </a>
+    </li>
+        <li>
+        <a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">
+            Getting Started with Symfony2
+            <br />
+            <span class="place_date">Cologne - 2013-05-13</span>
+        </a>
+    </li>
+    </ul>
+
+<div class="link_01">
+    <a href="http://trainings.sensiolabs.com/" class="png_fix">View all sessions</a>
+</div>
+        </div>
+    </div>
+</div>
+                        
+                    </div>
+                            </div>
+
+            
+<div class="footer">
+    <div class="content">
+        <h2 class="title_02">
+            <img src="/images/common/logo/logo_sf.png" alt="sf - Symfony" class="illustration_logo_footer png_fix"/> is a trademark of Fabien Potencier. All rights reserved.
+        </h2>
+
+        <div class="box_menu_footer clear_fix">
+            <div class="menu_footer first">
+                <h3 class="title_03"><a href="/what-is-symfony">What is Symfony?</a></h3>
+                <ul class="list_menu_footer">
+                    <li class="first"><a href="/symfony-at-a-glance">Symfony at a Glance</a></li>
+<li><a href="/symfony-in-five-minutes">Symfony in 5 Minutes</a></li>
+<li><a href="/elevator-pitches">Elevator Pitches</a></li>
+<li><a href="/blog/category/case-studies">Case Studies</a></li>
+<li><a href="/doc/current/contributing/community/releases.html">Versioning Policy</a></li>
+<li><a href="/doc/current/contributing/community/releases.html#long-term-support-releases">Long Term Support</a></li>
+<li><a href="/doc/current/contributing/code/security.html">Security Policy</a></li>
+<li class="last"><a href="/doc/current/contributing/code/license.html">License</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/get_started">Get Started</a></h3>
+                <ul class="list_menu_footer">
+                    <li class="first"><a href="/download">Download Symfony</a></li>
+<li><a href="/distributions">Symfony Distributions</a></li>
+<li><a href="/components">Symfony Components</a></li>
+<li><a href="/doc/current/quick_tour/the_big_picture.html">Quick Tour</a></li>
+<li class="last"><a href="/legacy">symfony1 Legacy</a></li>
+                </ul>
+
+                <h3 class="title_03"><a href="/doc/current/index.html">Learn Symfony</a></h3>
+                <ul class="list_menu_footer">
+                    <li class="first selected"><a href="/doc/current/book/index.html">The Book</a></li>
+<li><a href="/doc/current/cookbook/index.html">The Cookbook</a></li>
+<li><a href="/doc/current/components/index.html">The Components</a></li>
+<li><a href="/doc/current/reference/index.html">Reference</a></li>
+<li><a href="/doc/current/glossary.html">Glossary</a></li>
+<li><a href="/doc/current/genindex.html">Index</a></li>
+<li><a href="/doc/current/bundles/index.html">Bundles</a></li>
+<li><a href="/doc/master/cmf/index.html">Symfony CMF</a></li>
+<li><a href="/doc/master/contributing/code/security.html#security-advisories">Security Advisories</a></li>
+<li><a href="/legacy/doc">Docs for symfony 1.x</a></li>
+<li><a href="/doc/current/contributing/index.html">Contributing</a></li>
+<li><a href="/talks">Talks</a></li>
+<li><a href="http://trainings.sensiolabs.com/">Trainings</a></li>
+<li class="last"><a href="http://books.sensiolabs.com">Books</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/marketplace">Marketplace</a></h3>
+                <ul class="list_menu_footer">
+                </ul>
+
+                <h3 class="title_03"><a href="/community">Community</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="https://connect.sensiolabs.com/">SensioLabs Connect</a></li>
+<li><a href="/irc">IRC channel</a></li>
+<li><a href="/mailing-lists">Mailing lists</a></li>
+
+<li><a href="http://forum.symfony-project.org/">Forum</a></li>
+<li><a href="/doc/current/contributing/index.html">How to be involved</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/services">Services</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="/services/list">Our services</a></li>
+<li><a href="/services/guide#before">Starting a new project</a></li>
+<li><a href="/services/guide#during">Struggling with your project</a></li>
+<li><a href="http://sensiolabs.com/en/support/sensiolabs_support.html">Support</a></li>
+<li><a href="/services/request">Contact us</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/blog/">Blog</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="/events/"><em>Community Events</em></a></li>
+
+    <li><a href="/blog/category/a-week-of-symfony">A week of symfony</a></li>
+    <li><a href="/blog/category/call-the-expert">Call the expert</a></li>
+    <li><a href="/blog/category/case-studies">Case studies</a></li>
+    <li><a href="/blog/category/community">Community</a></li>
+    <li><a href="/blog/category/documentation">Documentation</a></li>
+    <li><a href="/blog/category/living-on-the-edge">Living on the edge</a></li>
+    <li><a href="/blog/category/plugins">Plugins</a></li>
+    <li><a href="/blog/category/releases">Releases</a></li>
+    <li><a href="/blog/category/security-advisories">Security Advisories</a></li>
+    <li><a href="/blog/category/tutorials">Tutorials</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/about">About</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="http://www.sensiolabs.com/">Sensio Labs</a></li>
+<li><a href="/contributors">Contributors</a></li>
+<li><a href="/trademark">Trademark &amp; Logo Policy</a></li>
+<li><a href="/logo">Logo</a></li>
+<li><a href="http://sensiolabs.com/recrutement/rejoignez_nous.html">Jobs</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+
+        <script type="text/javascript">
+            (function(w, d, s) {
+                function go() {
+                    var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+                        if (d.getElementById(id)) {return;}
+                        js = d.createElement(s); js.src = url; js.id = id;
+                        fjs.parentNode.insertBefore(js, fjs);
+                    };
+                    load('https://connect.sensiolabs.com/sln.js?customize_url=http://symfony.com/sln_customiser.js', 'sln_bar');
+                }
+                if (w.addEventListener) { w.addEventListener("load", go, false); }
+                else if (w.attachEvent) { w.attachEvent("onload",go); }
+            } (window, document, 'script'));
+        </script>
+                    </body>
+</html>

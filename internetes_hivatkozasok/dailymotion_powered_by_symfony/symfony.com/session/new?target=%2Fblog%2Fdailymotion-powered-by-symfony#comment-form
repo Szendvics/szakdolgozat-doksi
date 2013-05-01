@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+    <head>
+                            <title>Join the Community - SensioLabs Connect</title>
+                        <meta charset="utf-8" />
+        <meta name="keywords" content="Symfony, community, PHP, framework, bundle, component, sensiolabs, sensio" />
+        <meta name="description" content="SensioLabs Connect is a developer social network. Join the community, create your developer profile, and start earning achievements for your community involvement and commitment." />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <!--[if lt IE 9]>
+                <script src="/bundles/sensioplatform/js/html5.js" type="text/javascript"></script>
+            <![endif]-->
+                                            <link rel="stylesheet" href="https://d48n5utym4v7z.cloudfront.net/css/all.css?v=d20b23d4" />
+            
+                            <link rel="stylesheet" href="https://d48n5utym4v7z.cloudfront.net/css/sln.css?v=d20b23d4" />
+                    
+                                    <script type="text/javascript" src="https://d48n5utym4v7z.cloudfront.net/js/all.js?v=d20b23d4"></script>
+                                        <meta property="twitter:site" content="@sensiolabs" />
+            <meta property="twitter:creator" content="@sensiolabs" />
+            <meta property="og:url" content="https://connect.sensiolabs.com/login" />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:site_name" content="SensioLabs Connect" />
+                <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1221949-7']);
+        _gaq.push(['_trackPageview']);
+                
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        </script>
+    </head>
+    <body>
+        <div class="clear_fix"><div id="sln"></div></div>
+
+                            
+                <div  id="wrapper" class="container ">
+            <div class="row">
+                <div class="span12">
+                    <header>
+                        <div class="row">
+                                <div class="span5">
+        <img class="logo" src="/images/logo-header.png" alt="SensioLabs Connect" />
+    </div>
+    <div id="login-form" class="span7">
+        <div style="float:right;">
+    <form method="POST" action="/secured/login_check" novalidate class="form-vertical">
+        <div class="errors">
+            
+        </div>
+        <div class="control-group">
+            <label for="form__username" class="required control-label">Username</label>
+            <div class="controls">
+                <input type="text" id="form__username" name="form[_username]" required="required"    class="span2" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="form__password" class="required control-label">Password</label>
+            <div class="controls">
+                <input type="password" id="form__password" name="form[_password]" required="required"    class="span2" />
+                <br />
+                <a href="/forgot-password-request">Forgot your password?</a><br />
+                <a href="/register/send-confirmation">Resend confirmation email</a>
+            </div>
+        </div>
+        <div class="control-group submit">
+            <input type="hidden" id="form__token" name="form[_token]" value="02e4799566df5f0af2b2af867ba2d082be7eed0d" />
+            &nbsp;
+            <div class="controls">
+                <button type="submit" class="btn btn-connect"><i class="icon-white icon-play"></i> Sign in</button>
+            </div>
+        </div>
+    </form>
+</div>
+    </div>
+                        </div>
+                    </header>
+                </div>
+            </div>
+
+                <div class="row append_bottom">
+        <div class="span7">
+            <section>
+                <h1>Be an active Community member!</h1>
+                <p id="welcome">
+                    Join the community, create your developer profile, and start
+                    earning achievements for your community involvement and
+                    commitment.
+                </p>
+            </section>
+            <section id="registred_users">
+            <div>
+                <h2>Recently registered users</h2>
+                <ul class="thumbnails">
+            <li>
+            <a class="thumbnail" href="/profile/ibrahimjan" title="ibrahim jan"><img src="https://secure.gravatar.com/avatar/2850fb693e01eb2b5dcb2a2c43ce6727?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="ibrahim jan" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/corentin" title="Corentin Pajot"><img src="https://secure.gravatar.com/avatar/385fdaf54f605b185020727c7f407344?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Corentin Pajot" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/darles" title="Darius Leskauskas"><img src="https://secure.gravatar.com/avatar/90d4f64469bf7f163711037792065b28?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Darius Leskauskas" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/jonaswidmark" title="jonas widmark"><img src="https://secure.gravatar.com/avatar/e5e0dd904b1995e04343960775389c28?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="jonas widmark" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/hhaythem" title="haythem"><img src="https://secure.gravatar.com/avatar/517ef27c717eea798cf8b70b4ac6c396?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="haythem" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/ienzam" title="Md. Enzam Hossain"><img src="https://secure.gravatar.com/avatar/5f4cb4b3af32314213d624496dd2c830?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Md. Enzam Hossain" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/djaneiro" title="Erik Persson"><img src="https://secure.gravatar.com/avatar/faef7b8263573a4a0024e265581ffb4a?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Erik Persson" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/wespacker" title="Wes Packer"><img src="https://secure.gravatar.com/avatar/a1bf7005001dc22ba216017f6d9689c6?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Wes Packer" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/akhor89" title="Alexandr"><img src="https://secure.gravatar.com/avatar/817b7ab74382637e1cc62ff2ccd0c1dc?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Alexandr" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/onlinesid" title="Sid"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/675415ab-c5c4-40a7-acef-1597c8e92e55.jpeg?v=1367394570" alt="Sid" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/mehmet_yildiz" title="Mehmet YILDIZ"><img src="https://secure.gravatar.com/avatar/fd9996ae23d80f17238db42a61c14620?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Mehmet YILDIZ" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/oduold" title="Donald O"><img src="https://secure.gravatar.com/avatar/3233f65a9378512d4947929a8c99d0e5?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Donald O" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/kalianto" title="Kal Wong"><img src="https://secure.gravatar.com/avatar/7407a042fa9ad9aa93e352e6faf7598f?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Kal Wong" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/nohypeactivist" title="Kai Kroker"><img src="/media/cache/40x40/uploads/98f23613-e413-4fa4-9c5d-7bdae8154724.png?v=1367365056" alt="Kai Kroker" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/lordbuster" title="dylan d"><img src="https://secure.gravatar.com/avatar/8d6f17b31a35fccde8ad1db1ee5cfd17?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="dylan d" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/gruner" title="Andrew Gruner"><img src="https://secure.gravatar.com/avatar/af2c5d116c7635dd821081e7113ef515?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Andrew Gruner" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/bobnelson0" title="Robert Nelson"><img src="https://secure.gravatar.com/avatar/14401032449b0365e59b7916b1d949b0?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Robert Nelson" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/knowsimpler" title="Bill Cullingford"><img src="https://secure.gravatar.com/avatar/edf5d70aaf99a8fd616c66840721fc49?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Bill Cullingford" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/jaay" title="Jerome DUCHAT"><img src="https://secure.gravatar.com/avatar/385501a098439df24c67135d9b2d710b?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Jerome DUCHAT" /></a>
+        </li>
+            <li>
+            <a class="thumbnail" href="/profile/orest22" title="Orest Hazda"><img src="https://secure.gravatar.com/avatar/1f3f1cd3dd2d71813b32ff127d32af7e?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Favatar-default.png%3Fv%3Dd20b23d4" alt="Orest Hazda" /></a>
+        </li>
+    </ul>
+            </div>
+            </section>
+            <section id="awarded_badges">
+                <div>
+                    <h2>Recently awarded badges</h2>
+                    
+<ul class="thumbnails">
+                                    <li><a class="thumbnail" href="/badge/1/noob" title="Noob to ibrahim jan"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to ibrahim jan" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Corentin Pajot"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Corentin Pajot" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Darius Leskauskas"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Darius Leskauskas" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to jonas widmark"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to jonas widmark" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to haythem"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to haythem" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Md. Enzam Hossain"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Md. Enzam Hossain" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Erik Persson"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Erik Persson" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Wes Packer"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Wes Packer" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Alexandr"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Alexandr" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Sid"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Sid" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Mehmet YILDIZ"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Mehmet YILDIZ" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Donald O"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Donald O" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Kal Wong"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Kal Wong" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Kai Kroker"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Kai Kroker" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to dylan d"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to dylan d" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Andrew Gruner"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Andrew Gruner" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Robert Nelson"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Robert Nelson" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Bill Cullingford"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Bill Cullingford" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Jerome DUCHAT"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Jerome DUCHAT" /></a></li>
+                                            <li><a class="thumbnail" href="/badge/1/noob" title="Noob to Orest Hazda"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/9a527385-2220-476d-a4aa-5823501c8d5f.png?v=1320338396" alt="Noob to Orest Hazda" /></a></li>
+            </ul>
+                </div>
+            </section>
+            <section id="created_clubs">
+                <div>
+                    <h2>Recently created clubs</h2>
+                    
+<ul class="thumbnails">
+            <li><a class="thumbnail" href="/club/tunisia-symfony" title="Tunisia Symfony"><img src="/media/cache/40x40/uploads/b847cb9d-9e21-4de5-8a86-f289f5e2b904.png?v=1366413214" alt="Tunisia Symfony" /></a></li>
+            <li><a class="thumbnail" href="/club/wanadev" title="Wanadev"><img src="https://secure.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="Wanadev" /></a></li>
+            <li><a class="thumbnail" href="/club/indonesian-symfonian" title="Indonesian Symfonian"><img src="https://secure.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="Indonesian Symfonian" /></a></li>
+            <li><a class="thumbnail" href="/club/symfonyvlc" title="Symfony Valencia"><img src="https://secure.gravatar.com/avatar/b9c317edab06f794e135b053d54b1141?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="Symfony Valencia" /></a></li>
+            <li><a class="thumbnail" href="/club/nordnet" title="NordNet"><img src="/media/cache/40x40/uploads/732c434c-6001-47fd-994b-e8983411e0f1.png?v=1365415547" alt="NordNet" /></a></li>
+            <li><a class="thumbnail" href="/club/symfonyvalencia" title="Symfony Valencia"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/dacdf90d-3b0c-4d9c-8371-9be330c0e7c4.png?v=1364130778" alt="Symfony Valencia" /></a></li>
+            <li><a class="thumbnail" href="/club/omsk" title="Omsk"><img src="https://secure.gravatar.com/avatar/dead4fa9964b19bf8b78baa6e66a979a?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="Omsk" /></a></li>
+            <li><a class="thumbnail" href="/club/alicantephp-user-group" title="AlicantePHP User Group"><img src="https://secure.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="AlicantePHP User Group" /></a></li>
+            <li><a class="thumbnail" href="/club/symfony-toronto-meetup-group" title="Toronto&#039;s Symfony Meetup Group"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/2f2d1e0b-e24c-40da-8a79-1bd01a9f3826.png?v=1363181308" alt="Toronto&#039;s Symfony Meetup Group" /></a></li>
+            <li><a class="thumbnail" href="/club/sismic" title="SISMIC"><img src="https://secure.gravatar.com/avatar/57b1fae852b667bd68365a1ef03c81ec?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="SISMIC" /></a></li>
+            <li><a class="thumbnail" href="/club/smashing-team" title="Smashing Team"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/cd24b73e-5c39-4a24-a29f-89dd44a5637a.png?v=1362169273" alt="Smashing Team" /></a></li>
+            <li><a class="thumbnail" href="/club/experiencepoint" title="ExperiencePoint"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/e34bcaeb-ff2d-4650-80ba-0edef258720c.png?v=1359560010" alt="ExperiencePoint" /></a></li>
+            <li><a class="thumbnail" href="/club/san-diego-php-meetup" title="San Diego PHP Meetup"><img src="https://secure.gravatar.com/avatar/115ca2df9f349f443825c6ace671c32f?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="San Diego PHP Meetup" /></a></li>
+            <li><a class="thumbnail" href="/club/azuriel-technologies" title="Azuriel Technologies"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/3a9d9889-beba-458a-a479-5ef26267f094.jpeg?v=1359132866" alt="Azuriel Technologies" /></a></li>
+            <li><a class="thumbnail" href="/club/marlon" title="Marlon"><img src="https://d48n5utym4v7z.cloudfront.net/40x40/uploads/24d62a5a-4e92-42ce-a21f-8d7824730533.png?v=1358844002" alt="Marlon" /></a></li>
+            <li><a class="thumbnail" href="/club/connectholland" title="Connect Holland"><img src="/media/cache/40x40/uploads/757d085b-3022-4989-8086-af91c985445b.gif?v=1358772984" alt="Connect Holland" /></a></li>
+            <li><a class="thumbnail" href="/club/connect" title="Connect"><img src="https://secure.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="Connect" /></a></li>
+            <li><a class="thumbnail" href="/club/symfony-panama" title="Symfony Panama"><img src="https://secure.gravatar.com/avatar/1f6afe1f1940220bc2522b69300ba6c4?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="Symfony Panama" /></a></li>
+            <li><a class="thumbnail" href="/club/meetphp" title="meet.php"><img src="https://secure.gravatar.com/avatar/7d733c6f029411d3729441629667f093?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="meet.php" /></a></li>
+            <li><a class="thumbnail" href="/club/ssa" title="Stunt Shiners Anonymous"><img src="https://secure.gravatar.com/avatar/376970b70bc9170e974c77d1b2310032?s=40&amp;d=https%3A%2F%2Fd48n5utym4v7z.cloudfront.net%2F40x40%2Fimages%2Fclub-default.png%3Fv%3Dd20b23d4" alt="Stunt Shiners Anonymous" /></a></li>
+    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="span5">
+            <section class="form_container">
+                <h2>Join the <em>Community!</em></h2>
+
+                <p>All fields are mandatory.</p>
+<form method="POST" action="/register/" class="form-vertical" novalidate>
+    <div class="control-group">
+        <label for="registration_name" class="required control-label">Your complete name</label>
+        <div class="controls">
+            <input type="text" id="registration_name" name="registration[name]" required="required" maxlength="255"    class="whole_name span4" />
+            
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="registration_country" class="required control-label">Country</label>
+        <div class="controls">
+            <select id="registration_country" name="registration[country]" required="required"    class="span4"><option value="" disabled="disabled" selected="selected"></option><option value="AF">Afghanistan</option><option value="AX">Åland Islands</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua and Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AC">Ascension Island</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BQ">Bonaire, Sint Eustatius, and Saba</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BV">Bouvet Island</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="VG">British Virgin Islands</option><option value="BN">Brunei</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="IC">Canary Islands</option><option value="CV">Cape Verde</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="EA">Ceuta and Melilla</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CP">Clipperton Island</option><option value="CC">Cocos [Keeling] Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CG">Congo - Brazzaville</option><option value="CD">Congo - Kinshasa</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="CI">Côte d’Ivoire</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CW">Curaçao</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option value="DK">Denmark</option><option value="DG">Diego Garcia</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="EU">European Union</option><option value="FK">Falkland Islands</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="TF">French Southern Territories</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HM">Heard Island and McDonald Islands</option><option value="HN">Honduras</option><option value="HK">Hong Kong SAR China</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau SAR China</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar [Burma]</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="AN">Netherlands Antilles</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="KP">North Korea</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="QO">Outlying Oceania</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestinian Territories</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn Islands</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RE">Réunion</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="RW">Rwanda</option><option value="BL">Saint Barthélemy</option><option value="SH">Saint Helena</option><option value="KN">Saint Kitts and Nevis</option><option value="LC">Saint Lucia</option><option value="MF">Saint Martin</option><option value="PM">Saint Pierre and Miquelon</option><option value="VC">Saint Vincent and the Grenadines</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">São Tomé and Príncipe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="CS">Serbia and Montenegro</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="GS">South Georgia and the South Sandwich Islands</option><option value="KR">South Korea</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard and Jan Mayen</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syria</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad and Tobago</option><option value="TA">Tristan da Cunha</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks and Caicos Islands</option><option value="TV">Tuvalu</option><option value="UM">U.S. Minor Outlying Islands</option><option value="VI">U.S. Virgin Islands</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VA">Vatican City</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="WF">Wallis and Futuna</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option></select>
+            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            <div class="control-group">
+                <label for="registration_username" class="required control-label">Username</label>
+                <div class="controls">
+                    <input type="text" id="registration_username" name="registration[username]" required="required" maxlength="255" pattern=".{1,}"    class="span2" />
+                    
+                </div>
+            </div>
+        </div>
+        <div class="span2">
+            <div class="control-group">
+                <label for="registration_email" class="required control-label">Email</label>
+                <div class="controls">
+                    <input type="email" id="registration_email" name="registration[email]" required="required"    class="span2" />
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            <div class="control-group">
+                <label for="registration_password_password" class="required control-label">Password</label>
+                    
+                <div class="controls">
+                    <input type="password" id="registration_password_password" name="registration[password][password]" required="required"    class="span2" />
+                    
+                </div>
+            </div>
+        </div>
+        <div class="span2">
+            <div class="control-group">
+                <label for="registration_password_repeat" class="required control-label">Confirm password</label>
+                <div class="controls">
+                    <input type="password" id="registration_password_repeat" name="registration[password][repeat]" required="required"    class="span2" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span4">
+            <div class="control-group">
+                <div class="controls">
+                    
+                    <label class="checkbox">
+                    <input type="checkbox" id="registration_optin" name="registration[optin]" required="required" value="1" />
+                        I would like to receive offers and messages from SensioLabs
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="registration__token" name="registration[_token]" value="02e4799566df5f0af2b2af867ba2d082be7eed0d" />
+    <div class="row">
+        <div class="span2 offset2">
+            <div class="control-group">
+                <div class="controls" style="text-align: right;">
+                    <button type="submit" class="btn btn-connect"><i class="icon-play icon-white"></i> Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+            </section>
+        </div>
+    </div>
+            <div id="wrapper_footer"></div>
+        </div>
+        
+                <footer>
+            <div class="container">
+                        <div id="footer_wrapper" class="row">
+                <div class="span12">
+                    <a href="/"><img src="https://d48n5utym4v7z.cloudfront.net/images/logo-footer.png?v=d20b23d4" alt="SensioLabs Connect" /></a>
+                    <p></p>
+                    <p>&copy; 2011-2013 <a href="http://sensiolabs.com">Sensio Labs</a> -  <a href="https://connect.sensiolabs.com/about">About</a> - <a href="/contact">Contact us</a> - <a href="https://connect.sensiolabs.com/api/">Api</a></p>
+                </div>
+            </div>
+                        </div>
+        </footer>
+                <script type="text/javascript">
+            (function(w, d, s) {
+                function go() {
+                    var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+                        if (d.getElementById(id)) {return;}
+                        js = d.createElement(s); js.src = url; js.id = id;
+                        fjs.parentNode.insertBefore(js, fjs);
+                    };
+                    load('https://connect.sensiolabs.com/sln.js?customize_url=https%3A%2F%2Fconnect.sensiolabs.com%2Fsln-customize.js', 'sln_bar');
+                }
+                if (w.addEventListener) { w.addEventListener("load", go, false); }
+                else if (w.attachEvent) { w.attachEvent("onload",go); }
+            } (window, document, 'script'));
+        </script>
+    </body>
+</html>

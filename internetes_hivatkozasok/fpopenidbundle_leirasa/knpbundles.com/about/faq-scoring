@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>KnpBundles FAQ Scoring | KnpBundles</title>
+    <meta name="description" content="Frequent answers to questions regarding bundle scoring issues">
+    
+    <link rel="shortcut icon" href="/favicon.png?v1" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v1">
+
+    <link rel="alternate" href="/latest?format=atom" title="ATOM" type="application/atom+xml">
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient {
+            filter: none;
+        }
+    </style>
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/5d82e50.css?v1" type="text/css" media="screen">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+
+<header id="page-header">
+    <section>
+        <h1 id="logo"><a href="/"><img src="/bundles/knpbundles/images/logo.gif?v1" alt="KnpBundles"></a></h1>
+
+        <nav>
+                <ul>
+                <li class="first">        <a href="/">Bundles</a>        
+    </li>
+
+        <li>        <a href="/developer">Developers</a>        
+    </li>
+
+        <li>        <a href="/organization">Organizations</a>        
+    </li>
+
+        <li>        <a href="/evolution">Evolution</a>        
+    </li>
+
+        <li class="last">        <a href="/add">Register a bundle</a>        
+    </li>
+
+
+    </ul>
+
+        </nav>
+
+        <div id="auth">
+    <ul id="auth-menu">
+        <li class="login"><img src="/bundles/knpbundles/images/icon_person.gif?v1" alt="Log out">Login via</li>
+        <li>
+            <ul>
+                <li><a href="/connect/github">GitHub</a></li>
+                <li><a href="/connect/sensio">SensioConnect</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+        <form method="get" action="/search" id="search-box">
+            <label for="search-query">Search:</label>
+            <input type="text" id="search-query" name="q" value="" placeholder="Search..."><input type="submit" id="search-btn" value="&nbsp;">
+        </form>
+    </section>
+</header>
+
+<div id="content-wrapper" class="clearfix">
+    <div id="content-center">
+                <div id="content-header">
+            <div id="promo">
+    <figure>
+        <img src="/bundles/knpbundles/images/icon_heart.png?v1" alt="">
+    </figure>
+
+    <section onclick="_gaq.push(['_trackEvent', 'banner']);">
+        <span>Developed with love by KnpLabs</span>
+
+        <a href="http://knplabs.com/" onclick="_gaq.push(['_trackEvent', 'banner']);">Hire us for your project!</a>
+    </section>
+</div>
+
+            <div id="intro">
+    <h1>KnpBundles FAQ Scoring</h1>
+    <h2>Frequent answers to questions regarding bundle scoring issues</h2>
+</div>
+        </div>
+        
+        <div id="content-holder">
+    
+    <div class="content-box">
+    <section class="markdown">
+        <h2>FAQ On Scoring Issues:</h2>
+<h4>How does the site calculate the score?</h4>
+<p>It does by considering the following factors:</p>
+<ul>
+<li><strong>1</strong> point for each followers on <strong>GitHub</strong>. This is an indicator of the bundle&#39;s popularity in the community.</li>
+<li><strong>5</strong> points if your <code>README</code> is more than 300 characters long. Encourages maintainer to write a proper <code>README</code>.</li>
+<li><strong>5</strong> points if you use <strong>Travis CI</strong>, since it means you have a running test suite.</li>
+<li><strong>5</strong> more points if your <strong>Travis CI</strong> build status is actually ok ;)</li>
+<li><strong>5</strong> points if you provide a <strong>Composer</strong> package.</li>
+<li><strong>5</strong> points per person recommending the bundle on <strong>KnpBundles</strong>.</li>
+<li>Small boost (the actual formula is <code>(30 - days) / 5</code>) for bundles with commits in the past 30 days. Active bundles get more points, but not much to avoid spoiling <em>stable</em> bundles.</li>
+</ul>
+<p>For more details on the items above please refer to the remaining answers.</p>
+<h4>Why my bundle is not ranking higher?</h4>
+<p>Along the months or years now it has been realized that tuning and coming<br>
+with the right metrics for the Symfony2 bundle ecosystem is not an easy thing.</p>
+<p>The metrics and its threshold values are evolving with the feedback of users<br>
+and daily monitoring experience. Remember each day metrics change so they are<br>
+dynamic, sometimes we have to wait for the numbers to show up, sometimes we have<br>
+misunderstood the metric. Metrics are defined to display preference and usage<br>
+so you can take a well informed decision. Of course this should be just one<br>
+metric to ponder among others.</p>
+<h4>What is the minimum score your bundle needs to have before it is regarded as trendy?</h4>
+<p>Currently a bundle is considered trendy at a given time if the change<br>
+in its score becomes greater than 25 points between consecutive inspections.</p>
+<h4>How often a score is updated? What is the time between consecutive inspections?</h4>
+<p>Our system currently is monitoring bundles more than once a day, and scores could<br>
+be updated even withing few hours.</p>
+<h4>Will points be given for failed travis builds?</h4>
+<p>There will be no points awarded for failed travis builds.</p>
+<h5>If you think we missed something important, don&#39;t hesitate to <a href="https://github.com/KnpLabs/KnpBundles/issues/new">open an issue and tell us</a>!</h5>
+
+    </section>
+</div>
+</div>
+    </div>
+</div>
+
+<footer id="page-footer">
+    <section>
+        <section id="copyrights">
+            <h2><a href="http://knplabs.com/" hreflang="en"><img src="/bundles/knpbundles/images/knp_logo.png?v1" alt="KnpBundles"></a></h2>
+            <p>Copyright &copy; 2012 <a href="http://knplabs.com/" hreflang="en"><strong>KnpBundles.com</strong></a><br>All rights reserved</p>
+
+            <ul>
+                <li><a href="http://knplabs.com/" hreflang="en">KnpLabs World</a></li>
+                <li><a href="http://knplabs.fr/" hreflang="fr">KnpLabs France</a></li>
+            </ul>
+        </section>
+
+        <nav>
+            <dl>
+                <dt><a href="/">KnpBundles</a></dt>
+                <dd>
+                    <ul>
+                        <li><a href="https://github.com/knplabs/knpbundles">Show the code on Github</a></li>
+                        <li><a href="/api">API</a></li>
+                        <li><a href="/about/faq-scoring">Scoring FAQ</a></li>
+                        <li><a href="/symfony2bundles">Symfony2bundles</a></li>
+                        <li><a href="https://github.com/KnpLabs/KnpBundles/issues/new">Report an issue</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt><a href="http://knplabs.com/" hreflang="en">KnpLabs</a></dt>
+                <dd>
+                    <ul>
+                        <li><a href="http://knplabs.com/training/symfony2" hreflang="en">Symfony training</a> (World)</li>
+                        <li><a href="http://knplabs.fr/formation/symfony2" hreflang="fr">Formation Symfony</a> (France)</li>
+                        <li><a href="http://knpuniversity.com/">Symfony tutorial</a> screencast</li>
+
+                        <li><a href="http://twitter.com/knplabs">KnpLabs on Twitter</a></li>
+                        <li><a href="http://behat.org/">Behat: BDD framework for PHP</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </nav>
+    </section>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7062980-9']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+<script type="text/javascript" src="/js/a75f41a.js?v1"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

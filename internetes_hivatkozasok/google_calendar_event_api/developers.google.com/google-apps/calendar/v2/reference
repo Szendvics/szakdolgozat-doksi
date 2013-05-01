@@ -1,0 +1,1904 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  <head>
+    <meta charset="utf-8" />
+    <script src="/_static/js/script_head.js"></script>
+    <link rel="stylesheet" type="text/css" href="/_static/css/screen.css" />
+    <link rel="shortcut icon" href="/_static/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/_static/images/apple-touch-icon.png">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script id="jqueryui" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="//www.google.com/jsapi?key=AIzaSyCZfHRnq7tigC-COeQRmoa9Cxr0vbrK6xw"></script>
+
+    <script type="text/javascript" src="//www.gstatic.com/feedback/api.js"></script>
+    <script type="text/javascript" src="/jsi18n/"></script>
+    <!--[if lt IE 9]>
+    <script src="/_static/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Google Calendar API v2 Atom Reference - Google Apps Platform &mdash; Google Developers</title>
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/google-apps/css/apps.css" />
+
+
+
+    
+    
+
+  </head>
+  <body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="/">
+    <img src="/_static/images/developers-logo.svg" alt="Google"/>
+  </a>
+<script>
+if (!Modernizr || !Modernizr.svg) {
+  $('#gc-logo img').attr({src:'/_static/images/developers-logo.png'});
+}
+</script>
+
+  <div class="gc-social">
+    
+    <span class='signed-out'>
+      <a href="/setup?state=%2Fgoogle-apps%2Fcalendar%2Fv2%2Freference" id="loginLink" class="button">Sign in</a>
+    </span>
+    
+  </div>
+
+  <form class="gc-search" action="/search/results" method="GET">
+    <div class="searchbox">
+      
+      
+        <span class="button button-blue mini">Google Calendar API</span>
+      
+      <input type="text" name="q" class="q" id="q" value="" placeholder='Search' autocomplete="off" />
+    </div>
+    <button class="button button-blue">
+      <img src="/_static/images/search.png" alt="Search"/>
+    </button>
+    
+      <input type="hidden" name="p" id="search_project" value="/google-apps/calendar" />
+    
+  </form>
+
+</header>
+
+
+<script>
+  var a=!1,h=window.devsite||{};window.devsite=h;var _gaq=_gaq||[];WebFontConfig={google:{families:["Open+Sans"]}};h.location=window.location;h.reloadWindow=function(){h.location.reload()};h.openWindow=window.open;h.devsite=h.devsite||{};h.devsite.dialogConfig={autoOpen:a,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:a,draggable:a,zIndex:9999};h.KD_FADE_LONG=218;h.KD_FADE_SHORT=130;h.progress=h.progress||{};h.progress.INTERVAL_TIME_MS=460;h.progress.MAX_LOOP=100;h.progress.RIGHT_MARGIN=6;h.progress.TOP_MARGIN=-15;
+h.progress.kennedyProgressDot=function(c){var b=c.parent().find(".progress");b.remove();h.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';h.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';b=
+$("<div></div>").prop("id","loader").prop("class","yellow").html(h.progress.spinnerHtml);b.find(".red").html(h.progress.circleInnerHtml);b.find(".blue").html(h.progress.circleInnerHtml);b.find(".green").html(h.progress.circleInnerHtml);b.find(".yellow").html(h.progress.circleInnerHtml);b.css({position:"absolute",right:h.progress.RIGHT_MARGIN+"px",top:h.progress.TOP_MARGIN+"px"});c.parent().append(b);c=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=b;this.loopCount=
+0;this.shouldStop=a};c.prototype.start=function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},h.progress.INTERVAL_TIME_MS)};c.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),
+b.remove()):(this.colorIndex=(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>h.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};c.prototype.stop=function(){this.shouldStop=!0};var e=new c;return c={start:function(){$.fx.off||e.start()},clear:function(){b.remove()},error:function(){e.stop()}}};h.progress=h.progress||{};
+h.progress.progressDot=function(c){function b(){d+=1;100>d&&f.animate({opacity:"toggle"},h.KD_FADE_LONG,b)}var e=6,f=c.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":e+"px",border:e+"px solid #3D9400",right:e+"px",top:c.parent().height()/2-e+"px",width:0,height:0});c.parent().append(f);var d=0;return c={start:function(){$.fx.off||b()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:e+"px solid #DD4B39"})}}};h.location=window.location;h.setTimeout=function(){return window.setTimeout.apply(window,arguments)};h.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};h.localInit=function(){h.search.init()};h.search={KEY_ESC:27,fadeTime:h.KD_FADE_SHORT,keyDelay:300};
+h.search.init=function(){h.search.initResultHandlers();var c=$(".gc-search");c.submit(function(){if(window.devsite.geo){var b=window.devsite.geo.lat+","+window.devsite.geo.lon,b=$('<input type="hidden" name="l"/>').val(b);c.append(b)}});var b=$("#q");b.unbind("keyup click");b.bind("keyup click",function(b){h.search.timeout&&h.clearTimeout(h.search.timeout);$(this).val()&&b.keyCode!=h.search.KEY_ESC?h.search.timeout=h.setTimeout(function(){h.search.updateResults()},h.search.keyDelay):h.search.removeAutocomplete()});
+var b=$(".searchbox").children(".button"),e=$("#restrict input");(e.is(":checked")||0==e.length&&0!=b.length)&&h.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?h.search.grow($("#restrict input").val()):h.search.shrink();h.search.updateResults();$("#q").focus()})};
+h.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var c={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",c,function(b){b&&(h.location.href=b)});return a})};h.search.fadeOutIfExists=function(c,b,e){c&&c.length?c.fadeOut(b,e):e()};h.search.removeAutocomplete=function(){var c=$(".search-autocomplete");c.remove();h.search.lastQ=null};
+h.search.grow=function(c){var b=$("#q"),e=$(".searchbox"),f=$(".gc-search").children("button"),d=e.children(".button");if(c){var d=b.val(),g=$(".results").data("query-match");g&&b.val(d.substr(g.length+1));d=$("<span></span>");d.addClass("button button-blue mini");d.text($("#restrict").find("span").text());d.data("query-match",g);e.prepend(d);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:c});$(".gc-search").append(g)}d.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+c=d.outerWidth(!0);var l=e.outerWidth(!0)+c;e.css("width",l+"px");b.css("width",g+"px");b=f.offset();b.left+=c+10;f.offset(b);f=function(){h.search.shrink();$("#q").focus()};d.click(f)};
+h.search.shrink=function(){var c=$("#q"),b=$(".searchbox"),e=b.children("input"),f=b.children(".button"),d=f.data("query-match");d&&e.val($.trim(d)+" "+e.val());e=$(".gc-search").children("button");$("#restrict input").prop("checked",a);$("#search_project").remove();d=f.outerWidth(!0);f.remove();f=e.offset();f.left-=d+10;b.css("width","");c.css("width","100%");e.offset(f)};
+h.search.updateResults=function(){var c=$(".searchbox"),b=$("#q"),e=$("#search_project"),f={q:$.trim(b.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);e&&e.val()&&(f.p=escape(e.val()));if(!h.search.lastQ||!(h.search.lastQ.q==f.q&&h.search.lastQ.p==f.p)){h.search.lastQ=f;h.search.xhr&&h.search.xhr.abort();var d=$(".search-results");f.n=d.data("n")||4;var g=h.progress.kennedyProgressDot(b);g.start();h.search.xhr=$.get("/search/results",f,function(e){g.clear();
+e&&($("#what-q").text(f.q),d=$(".search-results"),h.search.fadeOutIfExists(d,h.search.fadeTime,function(){d.empty();if($.trim(e).length){if(!d.length){d=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(d);var g=c.offset();d.css({position:"absolute",top:g.top+c.outerHeight()+3,left:g.left})}d.append(e);var g=$("#search-next"),k=d.children(".results").data("c");g.length?k?(g.attr("href","/search/results?c="+encodeURIComponent(k)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(c){!$.contains(d.get(0),c.target)&&(!d.is(c.target)&&!b.is(c.target))&&d.hasClass("search-autocomplete")&&(h.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});h.search.initResultHandlers();d.fadeIn(h.search.fadeTime)}}))});h.search.xhr.error(function(){g.error()})}};
+
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      window.devsite.search.init();
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    
+
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1" />
+      
+
+      
+
+      <div id="gc-topnav">
+        <div>
+
+          
+          
+
+          <ul>
+
+            
+            
+
+            
+            
+            
+            
+            <li class=""><a href="/">Home</a></li>
+            
+            <li class="active"><a href="/products/">Products</a></li>
+            
+            <li class=""><a href="/events/">Conferences</a></li>
+            
+            <li class=""><a href="/showcase/">Showcase</a></li>
+            
+            <li class=""><a href="/live/">Live</a></li>
+            
+            <li class=""><a href="/groups/">Groups</a></li>
+            
+
+            
+            
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+
+      
+      
+      
+        <div id="gc-appbar">
+          
+          
+<h1>
+
+  <a href="/google-apps/">Google Apps Platform</a>
+  <div class="plusone-container">
+    <div class="g-plusone"
+      data-href="https://developers.google.com/google-apps/calendar/v2/reference"
+      data-size="medium"
+      data-source="google:developers"></div>
+  </div>
+
+
+
+
+
+
+</h1>
+
+
+          
+        </div>
+      
+      
+
+      
+        
+      <div id="gc-main">
+        
+        
+  
+  
+      
+      
+      <div id="gc-sidebar">
+        
+
+  
+
+
+
+  <nav class="gc-toc"><ul><li class=""><a href="/google-apps/calendar" data-title="Google Calendar API v3"><span>Google Calendar API v3</span></a><ul><li class=""><span class="tlw-title" data-title="Get Started">Get Started</span><ul><li class=""><a href="/google-apps/calendar/get_started" data-title="Ways to Get Started"><span>Ways to Get Started</span></a></li><li class=""><a href="/google-apps/calendar/concepts" data-title="Calendar Concepts"><span>Calendar Concepts</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Your First App">Your First App</span><ul><li class=""><a href="/google-apps/calendar/firstapp" data-title="Prerequisites"><span>Prerequisites</span></a></li><li class=""><a href="/google-apps/calendar/setup" data-title="Set up a Client Library"><span>Set up a Client Library</span></a></li><li class=""><a href="/google-apps/calendar/instantiate" data-title="Configure your App"><span>Configure your App</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="How-To Guides">How-To Guides</span><ul><li class=""><a href="/google-apps/calendar/recurringevents" data-title="Create Recurring Events"><span>Create Recurring Events</span></a></li><li class=""><a href="/google-apps/calendar/auth" data-title="Authorize Requests"><span>Authorize Requests</span></a></li><li class=""><a href="/google-apps/calendar/performance" data-title="Improve Performance"><span>Improve Performance</span></a></li><li class=""><a href="/google-apps/calendar/batch" data-title="Batch Support"><span>Batch Support</span></a></li><li class=""><a href="/google-apps/calendar/migration" data-title="Migrate to v3"><span>Migrate to v3</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference" data-title="Reference"><span>Reference</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/acl" data-title="Acl"><span>Acl</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/acl/delete" data-title="delete"><span>delete</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/insert" data-title="insert"><span>insert</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/list" data-title="list"><span>list</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/update" data-title="update"><span>update</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/patch" data-title="patch"><span>patch</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList" data-title="CalendarList"><span>CalendarList</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/delete" data-title="delete"><span>delete</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/insert" data-title="insert"><span>insert</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/list" data-title="list"><span>list</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/update" data-title="update"><span>update</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/patch" data-title="patch"><span>patch</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars" data-title="Calendars"><span>Calendars</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/calendars/clear" data-title="clear"><span>clear</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/delete" data-title="delete"><span>delete</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/insert" data-title="insert"><span>insert</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/update" data-title="update"><span>update</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/patch" data-title="patch"><span>patch</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/colors" data-title="Colors"><span>Colors</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/colors/get" data-title="get"><span>get</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/events" data-title="Events"><span>Events</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/events/delete" data-title="delete"><span>delete</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/import" data-title="import"><span>import</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/insert" data-title="insert"><span>insert</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/instances" data-title="instances"><span>instances</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/list" data-title="list"><span>list</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/move" data-title="move"><span>move</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/quickAdd" data-title="quickAdd"><span>quickAdd</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/update" data-title="update"><span>update</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/patch" data-title="patch"><span>patch</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/freebusy" data-title="Freebusy"><span>Freebusy</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/freebusy/query" data-title="query"><span>query</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/settings" data-title="Settings"><span>Settings</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/settings/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/settings/list" data-title="list"><span>list</span></a></li></ul></li></ul></li><li class=""><a href="/google-apps/calendar/downloads" data-title="Downloads"><span>Downloads</span></a></li><li class=""><a href="/google-apps/calendar/pricing" data-title="Usage Limits"><span>Usage Limits</span></a></li><li class=""><a href="/google-apps/calendar/v3/whats-new" data-title="What&#39;s New in v3"><span>What&#39;s New in v3</span></a></li></ul></li></ul><hr/><ul><li class="deprecated"><a href="/google-apps/calendar/v2/developers_guide_protocol" data-title="Google Calendar API v2"><span>Google Calendar API v2<sup>Deprecated</sup></span></a><ul><li class=""><a href="/google-apps/calendar/v2/developers_guide_protocol" data-title="Protocol Guide"><span>Protocol Guide</span></a></li><li class=""><a href="/google-apps/calendar/v2/developers_guide_dotnet" data-title=".NET Guide"><span>.NET Guide</span></a></li><li class=""><a href="/google-apps/calendar/v2/developers_guide_java" data-title="Java Guide"><span>Java Guide</span></a></li><li class=""><a href="/google-apps/calendar/v2/developers_guide_python" data-title="Python Guide"><span>Python Guide</span></a></li><li class=""><a href="/google-apps/calendar/v2/reference" data-title="Atom Reference"><span>Atom Reference</span></a></li><li class=""><a href="/google-apps/calendar/v2/faq" data-title="FAQ"><span>FAQ</span></a></li></ul></li></ul><hr/><ul><li class="deprecated"><a href="/google-apps/calendar/v1/developers_guide_protocol" data-title="Google Calendar API v1"><span>Google Calendar API v1<sup>Deprecated</sup></span></a><ul><li class=""><a href="/google-apps/calendar/v1/developers_guide_protocol" data-title="Protocol Guide"><span>Protocol Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/developers_guide_dotnet" data-title=".NET Guide"><span>.NET Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/developers_guide_java" data-title="Java Guide"><span>Java Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/developers_guide_python" data-title="Python Guide"><span>Python Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/developers_guide_javascript" data-title="JavaScript Guide"><span>JavaScript Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/reference" data-title="Atom Reference"><span>Atom Reference</span></a></li></ul></li></ul><hr/><ul><li class=""><a href="/google-apps/calendar/gadgets" data-title="Calendar Gadgets"><span>Calendar Gadgets</span></a><ul><li class=""><a href="/google-apps/calendar/gadgets/event/" data-title="Event Gadgets"><span>Event Gadgets</span></a></li><li class=""><a href="/google-apps/calendar/gadgets/sidebar/" data-title="Sidebar Gadgets"><span>Sidebar Gadgets</span></a></li></ul></li></ul><hr/><ul><li class=""><a href="/google-apps/calendar/caldav" data-title="CalDAV Developer&#39;s Guide"><span>CalDAV Developer&#39;s Guide</span></a></li></ul><hr/><ul><li class=""><a href="https://groups.google.com/forum/embed/?place=forum/google-calendar-api&amp;showsearch=true" data-title="Discussions"><span>Discussions</span></a></li><li class=""><a href="http://code.google.com/a/google.com/p/apps-api-issues/issues/list?q=label:API-Calendar" data-title="Issue Tracker"><span>Issue Tracker</span></a></li></ul><hr/><ul><li class=""><a href="/google-apps/calendar/terms" data-title="Terms of Service"><span>Terms of Service</span></a></li></ul></nav>
+
+
+
+      </div>
+      
+
+      <div id="gc-content"
+           
+           
+           >
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title" >Google Calendar API v2 Atom Reference</h1>
+  
+  <div itemprop="articleBody">
+  
+  <nav class="inline-toc">
+  <ol>
+    <li><a href="#Audience">Audience</a></li>
+    <li><a href="#Feeds">Calendar feed types</a>
+      <ol>
+        <li><a href="#Calendar_feeds">Calendar feeds</a></li>
+        <li><a href="#Event_feeds">Event feeds</a></li>
+        <li><a href="#Comment_feeds">Comment feeds</a></li>
+        <li><a href="#Personal_Settings_feed">Personal settings feeds</a> <span class="exp-feat">(Experimental)</span></li>
+        <li><a href="#Visibility">Visibility values</a></li>
+        <li><a href="#Projection">Projection values</a></li>
+      </ol>
+    </li>
+    <li><a href="#Parameters">Calendar query parameters reference</a></li>
+    <li><a href="#Elements">Calendar elements reference</a>
+      <ol class="toc">
+        <li><a href="#gcal_reference">GCal namespace element reference</a></li>
+        <li><a href="#gacl_reference">GAcl namespace element reference</a></li>
+      </ol>
+    </li>
+    <li><a href="#Schema">Calendar Feeds Schema Reference</a></li>
+  </ol>
+  </nav>
+
+  <h2 id="Audience">Audience</h2>
+  <p>This document is intended for programmers who want to write client applications that can interact with Google Calendar.</p>
+  <p>It's a reference document; it assumes that you understand the concepts presented in the <a href="developers_guide_protocol.html">developer's guide</a>, and  the general ideas behind the <a href="/gdata/docs/2.0/basics">Google Data APIs protocol</a>.</p>
+  <h2 id="Feeds">Calendar feed types</h2>
+  <p>Google Calendar provides a variety of representations of calendar data. There are two independent axes for specifying a representation: visibility and projection.</p>
+  <p>Visibility values indicate whether the representation is publicly visible or not. For example, a visibility value of <code>public</code> indicates that the representation is publicly visible. For a list of values, see <a href="#Visibility">Visibility values</a>, below.</p>
+  <p>Projection values indicate how much and what kind of information is included in the representation. For example, a projection value of <code>basic</code> indicates that the representation is a basic Atom feed without any extension elements. For a list of values, see <a href="#Projection">Projection values</a>, below.</p>
+
+  <h3 id="Calendar_feeds">Calendar feeds</h3>
+  <p>There are three feeds that return a collection of calendar entries: the <i>metafeed</i>, the <i>allcalendars</i> feed, and the <i>owncalendars</i> feed.</p>
+  <p>The <i>metafeed</i> is a private, read-only feed that contains an entry for each calendar that a user has access to.  The URL for the <i>metafeed</i> is:</p>
+  <pre>https://www.google.com/calendar/feeds/default</pre>
+  <p>The <i>allcalendars</i> feed is a private read/write feed that is used for managing subscriptions and personalization settings of a user's calendars.  Unlike the <i>metafeed</i>, the <i>allcalendars</i> feed is writable, so calendar entries can be inserted and deleted, which is equivalent to subscribing and unsubscribing to existing calendars.  Calendar entries in the <i>allcalendars</i> feed can also be updated, but since a user may not own all the calendars in this feed, only personalization settings can be updated with this feed.  You can update the following personalization settings of a calendar using the <i>allcalendars</i> feed:</p>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>color</code></td>
+      <td>Specifies the color of the calendar in the UI.</td>
+    </tr>
+    <tr>
+      <td><code>hidden</code></td>
+      <td>Indicates whether or not the calendar is shown in the UI.</td>
+    </tr>
+    <tr>
+      <td><code>selected</code></td>
+      <td>Indicates whether or not the calendar is selected in the UI.</td>
+    </tr>
+  </table>
+
+  <p>For more information about interacting with the <i>allcalendars</i> feed, see the <a href="developers_guide_protocol.html#ManagingSubscriptions">Managing Subscriptions</a> section of the Developer's Guide.  The URL for the <i>allcalendars</i> feeds is:</p>
+  <pre>https://www.google.com/calendar/feeds/default/allcalendars/full</pre>
+  <p>The <i>owncalendars</i> feeds is a private read/write feed that can be used to manage calendars that a user owns.  A user is an owner of a calendar if they either created the calendar or if they were granted ownership by an existing owner of the calendar.  For the <i>allcalendars</i> feed, inserting and deleting calendar entries is equivalent to creating and deleting secondary calendars.  Since a user owns all the calendars in the <i>ownclendars</i> feed, properties such as the title and summary can be updated using this feed.  For more information about interacting with the <i>owncalendars</i> feed, see the <a href="developers_guide_protocol.html#ManagingCalendars">Managing Calendars</a> section of the Developer's Guide.  The URL for the  <i>owncalendars</i> feed is:</p>
+  <pre>https://www.google.com/calendar/feeds/default/owncalendars/full</pre>
+  <p>Since all the calendar feeds are private, you can only access it using an authenticated request.  That is, the request must contain an authentication token for the user whose calendars you want to retrieve.  The Calendar Data API <a href="developers_guide_protocol.html">Developer's Guide</a> contains more information about authentication.</p>
+  <h3 id="Event_feeds">Event feeds</h3>
+  <p>To request a particular representation of an event feed, you specify both a visibility value and a projection value in the URI that you send to Calendar.</p>
+  <p>The URI of a representation of an event feed takes the following form:</p>
+  <pre>https://www.google.com/calendar/feeds/<i>userID</i>/<i>visibility</i>/<i>projection</i></pre>
+  <p>For example, the following URI is for a feed of calendar events with <code>private</code> visibility and <code>full</code> projection:</p>
+  <pre>https://www.google.com/calendar/feeds/jo@gmail.com/private/full</pre>
+  <p>As a developer, you may want to use any of the projections, but you'll normally use only two of the visibility levels: <code>public</code> or <code>private</code>.</p>
+  <p>For a private feed, instead of specifying an ID for <code>userID</code>, you can specify the special value <code>default</code>, which tells Calendar to use the default calendar for the username and password that you provided during authentication. For an example of using a default feed, see the <a href="developers_guide_protocol.html#CreatingSingle">Creating single-occurrence events</a> example.</p>
+  <p>If you know an event's ID, you can request a specific event rather than a full feed. The URI of a representation of a specific Calendar entry (with a given event ID) takes the following form:</p>
+  <pre>https://www.google.com/calendar/feeds/<i>userID</i>/<i>visibility</i>/<i>projection</i>/<i>eventID</i></pre>
+  <p>Some feed types are read/write (that is, you can post new events to them, and edit or delete existing events), while others are read-only. Read-only feeds don't include a <code>&lt;link rel="http://schemas.google.com/g/2005#post"&gt;</code> element (to tell you where to post new events), and events in read-only feeds don't include <code>&lt;link rel="edit"&gt;</code> elements.</p>
+
+  <h3 id="Comment_feed">Comment feeds</h3>
+  <p>An event can have a subfeed of comments attached to it. In a <code>full</code> projection event feed, the event feed doesn't include the comments feed inline; instead, the event feed provides a link to the comments feed, with a URL of the following form:</p>
+  <pre>https://www.google.com/calendar/feeds/<i>userID</i>/<i>visibility</i>/full/<i>eventID</i>/comments/<i>subfeedEntryID</i></pre>
+  <p>The subfeed entry ID at the end is optional; if you include it, then Calendar returns the specified comment entry instead of a feed.</p>
+  <p>In a <code>composite</code> projection, the event feed does include the comments feed inline. For more information, see <a href="#Projection">Projection values</a>, below.</p>
+
+  <h3 id="Personal_Settings_feed">Personal Settings feed <span class="exp-feat">(Experimental)</span></h3>
+  <p>The <i>settings</i> feed is a private, read-only feed that contains user preferences for Calendar. It is a representation of Calendar General Settings page in Calendar UI.</p>
+  <p>The URI for settings feed has the following form:</p>
+  <pre>https://www.google.com/calendar/feeds/<i>userID</i>/settings</pre>
+  <p>You can only fetch settings feed for the <i>userID</i> corresponding to the currently authenticated user (or use <code>default</code> as <i>userID</i>). Each user preference is represented as a name/value pair. A given user preference entry with known name can be retrieved with the following URI:</p>
+  <pre>https://www.google.com/calendar/feeds/<i>userID</i>/settings/<i>preferenceName</i></pre>
+  <p>Each settings feed entry has an <a href="#gCalsettingsProperty"><code>gCal:settingsProperty</code></a> element which has the name and value of particular user preference.</p>
+
+  <h3 id="Visibility">Visibility values</h3>
+  <p>The following table describes the supported visibility values:</p>
+  <table>
+    <tr>
+      <th>Visibility</th>
+      <th>Description</th>
+      <th>Updatability</th>
+      <th>Security Notes</th>
+    </tr>
+    <tr>
+      <td><code>public</code></td>
+      <td>Shows only public events.</td>
+      <td>Always read-only.</td>
+      <td>Does not require authentication. Inaccessible if the user turns off sharing.</td>
+    </tr>
+    <tr>
+      <td><code>private</code></td>
+      <td>Shows both public and private events.</td>
+      <td>Potentially read/write.</td>
+      <td>Requires authentication. Updatable only by authorized users.</td>
+    </tr>
+    <tr>
+      <td><code>private-<i>magicCookie</i></code></td>
+      <td>Shows both public and private events.</td>
+      <td>Always read-only.</td>
+      <td>Does not require authentication. Instead, authentication information is embedded within the feed URI in the <code>magicCookie</code> string. The magic cookie is a random, high-entropy string combined with authentication information.</td>
+    </tr>
+  </table>
+  <h3 id="Projection">Projection values</h3>
+  <p>Although the examples in this document use only the <code>full</code> projection, there are a variety of other useful projections. You may want to start by using <code>full</code>, and then try other projections as you need them and as you get more comfortable with interacting with Calendar.</p>
+  <p>The following table describes the supported projection values:</p>
+  <table>
+    <tr>
+      <th>Projection Name</th>
+      <th>Description</th>
+      <th>Updatability</th>
+    </tr>
+    <tr>
+      <td><code>full</code></td>
+      <td>Full-fidelity feed; contains all event properties, but comments aren't included inline; instead, they're specified (in the <code>&lt;gd:feedLink&gt;</code> element) as a link to a separate comment feed.</td>
+      <td>Potentially read/write.</td>
+    </tr>
+    <tr>
+      <td><code>full-noattendees</code></td>
+      <td>Same as <code>full</code>, but without any <code>&lt;gd:who&gt;</code> elements.</td>
+      <td>Potentially read/write.</td>
+    </tr>
+    <tr>
+      <td><code>composite</code></td>
+      <td>Same as <code>full</code>, but additionally contains inlined comments, in an <code>&lt;atom:feed&gt;</code> element inside the <code>&lt;gd:feedLink&gt;</code> element. The <code>composite</code> feed also contains <code>&lt;gd:recurrenceException&gt;</code> elements inline in recurring events, and each of those exception elements contains a <code>&lt;gd:originalEvent&gt;</code> element pointing to the original recurring event. Note that the <code>composite</code> feed is often significantly longer than the <code>full</code> feed.</td>
+      <td>Always read-only.</td>
+    </tr>
+    <tr>
+      <td><code>attendees-only</code></td>
+      <td>Attendees-only feed. Contains minimal event information, but includes <code>&lt;gd:who&gt;</code>.</td>
+      <td>Always read-only.</td>
+    </tr>
+    <tr>
+      <td><code>free-busy</code></td>
+      <td>Free/busy feed. Contains minimal event information, but includes <code>&lt;gd:when&gt;</code>.</td>
+      <td>Always read-only.</td>
+    </tr>
+    <tr>
+      <td><code>basic</code></td>
+      <td>Basic Atom feed without any extension elements. Its <code>&lt;atom:summary&gt;</code> and <code>&lt;atom:content&gt;</code> properties contain pre-rendered HTML.</td>
+      <td>Always read-only.</td>
+    </tr>
+  </table>
+
+  <h2 id="Parameters">Calendar query parameters reference</h2>
+  <p>In addition to the standard <a href="/gdata/docs/2.0/reference#Queries">Data API query parameters</a>, Calendar uses the following optional parameters:</p>
+  <table>
+    <tr>
+      <th width="107">Parameter</th>
+      <th width="372">Meaning</th>
+      <th width="487">Notes</th>
+    </tr>
+    <tr>
+      <td><code>ctz</code></td>
+      <td>The current timezone.  If not specified, times are returned in the calendar time zone.</td>
+      <td>
+        <ul>
+          <li>Times in the resulting feed will be represented in this timezone.</li>
+          <li>Replace all spaces with underscores (e.g. "ctz=America/Los_Angeles").</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>fields</code></td>
+      <td>Response filter</td>
+      <td><p>Returns only the requested portions of the resource representation for improved performance and efficiency. See the Google Data Protocol <a href="/gdata/docs/2.0/reference#fields">query parameter reference</a>.</p>
+        <p>This parameter is currently an experimental feature.</p></td>
+  </tr>
+    <tr>
+      <td><code>futureevents</code></td>
+      <td>A shortcut to request all events that are scheduled for future times. Overrides the <code>recurrence-expansion-start</code>, <code>recurrence-expansion-end</code>, <code>start-min</code>, and <code>start-max</code> values. </td>
+      <td>Valid values are <code>true</code> (return all future events) or <code>false</code> (ignore this parameter). Default is <code>false</code>. </td>
+    </tr>
+    <tr>
+      <td><code>max-attendees</code></td>
+      <td>The maximum number of attendees to return for each event.</td>
+      <td>If the number of attendees for the event is greater than <code>max-attendees</code>, only the attendee on whose calendar this copy of the event is and the event's organizer if different.</td>
+    </tr>
+    <tr>
+      <td><code>orderby</code></td>
+      <td>Specifies order of entries in a feed.</td>
+      <td><p>Currently, the only supported values are <code>lastmodified</code> (the default) and <code>starttime</code>.</p>
+      <p>If you add <code>orderby=lastmodified</code> as a query parameter, then the returned feed's entries are  ordered by their <code>&lt;updated&gt;</code> values, which is the default ordering. </p>
+      <p>If you add  <code>orderby=starttime</code> as a query parameter, then the returned feed's entries are in order  by the <code>&lt;gd:when&gt;</code> element's <code>starttime</code> attribute.</p></td>
+    </tr>
+    <tr>
+      <td><code>recurrence-expansion-start</code></td>
+      <td>Specifies beginning of time period for which to expand recurring events. </td>
+      <td rowspan="2"><ul>
+        <li>Use the RFC 3339 timestamp format. For example: <code>2005-08-09T10:57:00-08:00</code>.</li>
+        <li>The lower bound is inclusive, whereas the upper bound is exclusive.</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>recurrence-expansion-end</code></td>
+      <td>Specifies end of time period for which to expand recurring events. </td>
+    </tr>
+    <tr>
+      <td><code>singleevents</code></td>
+      <td>Indicates whether recurring events should be expanded or represented as a single event.</td>
+      <td>Valid values are <code>true</code> (expand recurring events) or <code>false</code> (leave recurring events represented as single events). Default is <code>false</code>. </td>
+    </tr>
+    <tr>
+      <td><code>showdeleted</code></td>
+      <td>Displays deleted/canceled events.</td>
+      <td>Valid values are <code>true</code> (display deleted/canceled events) or <code>false</code> (hide deleted/canceled events). Default is <code>false</code>. </td>
+    </tr>
+    <tr>
+      <td><code>showhidden</code></td>
+      <td>Displays events corresponding to invitations that the user yet to respond to.</td>
+      <td>
+        <ul>
+          <li>If 'Automatically add invitations to my calendar' is enabled, this flag has no effect.
+          </li>
+          <li>
+            Defaults to <code>false</code>.
+          </li>
+      </td>
+    </tr>
+    <tr>
+      <td><code>sortorder</code></td>
+      <td>Specifies direction of sorting. </td>
+      <td>Valid values are <code>ascending</code> (with synonyms <code>ascend</code> and <code>a</code>) and <code>descending</code> (with synonyms <code>descend</code> and <code>d</code>). </td>
+    </tr>
+    <tr>
+      <td><code>start-min</code></td>
+      <td>Together with start-max creates a timespan such that
+      only events that are within the timespan are returned. If not
+      specified, default start-min is 1970-01-01.</td>
+      <td rowspan="2"><ul>
+          <li>Use the RFC 3339 timestamp format. For example: <code>2005-08-09T10:57:00-08:00</code>.</li>
+          <li>The lower bound is inclusive, whereas the upper bound is exclusive.</li>
+          <li>Events that overlap the range are included. <br />
+          </li>
+        </ul></td>
+    </tr>
+    <tr>
+      <td><code>start-max</code></td>
+      <td>Together with start-min creates a timespan such that
+      only events that are within the timespan are returned. If not
+      specified, default start-max is 2031-01-01.</td>
+    </tr>
+    <tr>
+      <td><code>updated-min</code></td>
+      <td>Returns events that have been updated, added and/or deleted since the given date. </td>
+      <td>Use the RFC 3339 timestamp format. For example: <code>2005-08-09T10:57:00-08:00</code>. When using this parameter, <code>showdeleted=false</code> will have no effects.</td>
+    </tr>
+  </table>
+  <p class="note"><strong>Note:</strong> If using <code>GData-Version: 2.1</code> or later, when <code>updated-min</code> is set to a date far enough in the past that data isn't available, such as when the primary calendar has been deleted, an HTTP 410 (Gone) status code will be returned.</p>
+  <p>To receive a feed of all events that overlap with a given time period, set <code>start-min</code> to the beginning of the period and <code>start-max</code> to the end of the period. </p>
+  <p>In fact, it's usually a good idea to specify <code>start-min</code> and/or <code>start-max</code> to limit the results you get back.</p>
+  <p>If the user's calendar contains recurring events, then the returned feed includes information about all recurring-event instances that overlap the specified time period.</p>
+  <p>Specifically, each recurring event is represented by a <code>&lt;gd:recurrence&gt;</code> element in the result feed, and each of those elements includes a <code>&lt;gd:when&gt;</code> element for each occurrence of that event that falls between the start time and the end time. Looking at <code>&lt;gd:when&gt;</code> elements is much simpler than parsing recurrences and exceptions yourself, so in general if you want to handle recurring events it's a good idea to specify <code>start-min</code> and/or <code>start-max</code>.</p>
+  <p>For example, say you specify a <code>start-min</code> value of <code>2006-04-01T00:00:00</code> and a <code>start-max</code> value of <code>2006-04-20T23:59:59</code>, and the user's calendar includes a weekly meeting that takes place every Monday in 2006. Then the returned feed will include all the events (single or recurring events) that occur within or overlap with that period, plus any event that contains <code>&lt;gd:when&gt;</code> elements for the meetings on 2006-04-03, 2006-04-10, and 2006-04-17&mdash;each of the Mondays within the given date range.</p>
+  <p>For more information about recurring events and how they're handled by services, see the <a href="/gdata/docs/2.0/elements">Common Elements: "Kinds"</a> document.</p>
+  <p>Calendar does not support Data API category queries. It does support full-text queries, using the standard Data API <code>q</code> query parameter; it searches all of the text fields in events, except for extended properties. It also supports the other standard Data API query parameters. For more information about those parameters, see the <a href="/gdata/docs/2.0/reference">Google Data API protocol reference document</a>.</p>
+  <p class="note"><strong>Note</strong>: The <code>max-results</code> query parameter for Calendar is set to 25 by default, so that you won't receive an entire calendar feed by accident. If you want to receive the entire feed, you can specify a very large number for <code>max-results</code>.</p>
+  <h2 id="Elements">Calendar elements reference</h2>
+  <p>In addition to the standard <a href="/gdata/docs/2.0/reference#DocumentFormat">Data API elements</a>, Calendar uses elements  described in the <a href="/gdata/docs/2.0/elements">Common Elements  document</a>.</p>
+  <p>Specifically, each entry in a Calendar feed is an <a href="/gdata/docs/2.0/elements#gdEventKind">Event kind</a>. Each event may contain any or all of the following:</p>
+  <ul>
+    <li>One or more <code>&lt;gd:who&gt;</code> elements that represent people associated with the event, each of whom is described with a <a href="/gdata/docs/2.0/elements#gdContactKind">Contact kind</a>. The <code>&lt;gd:who&gt;</code> element in Calendar  events is extended with  <a href="#gCaladditionalGuests"><code>gCal:additionalGuests</code></a>.</li>
+    <li>A  <code>&lt;gd:comments&gt;</code> element that points to a feed containing <a href="/gdata/docs/2.0/elements#gdMessageKind">Message kinds</a>.</li>
+    <li>One or more <code>&lt;<a href="/gdata/docs/2.0/elements#gdExtendedProperty">gd:extendedProperty</a>&gt;</code> elements to store custom data. For example, synchronization tools may find it useful to store non-Calendar event IDs as extended properties. In Calendar, an extended property name must be no more than 44 characters long, and an extended property value must be no more than 1024 characters long. <br />
+      <br />
+    The <code>realm</code> attribute value for Calendar <code>&lt;gd:extendedProperty&gt;</code> elements can be either:
+    <ul>
+      <li><code>&quot;http://schemas.google.com/g/2005#shared&quot;</code>
+      <p>This means that the extended property can be set only by the event organizer but is visible by all participants.</p></li>
+      <li><code>&quot;http://schemas.google.com/gCal/2005#calendar&quot;</code>
+        <p>This means that the extended property can only be set or retrieved through the calendar currently being used to access the event.  </p></li>
+      </ul>
+    <p>If no realm attribute is specified, the <code>&lt;gd:extendedProperty&gt;</code> is considered shared, by default.<br />
+      <br />
+      Note that each calendar gets a separate namespace. As a result, an event could have one <strong>shared</strong> extended property named &quot;foo,&quot;  as well as multiple calendar-specific extended properties also named &quot;foo&quot; (on different calendars), and each of these extended properties could have a different value.</p>
+    </li>
+  </ul>
+  <p>There are a few differences between the <code>&lt;feed&gt;</code> element used by the Calendar Data API and the <code>&lt;feed&gt;</code> element used by other Google Data APIs. Specifically:</p>
+  <ul>
+    <li>In Calendar, the <code>&lt;author&gt;</code> element of a feed is required. (In other Google Data APIs, it's optional).</li>
+    <li>In Calendar, the <code>&lt;atom:link rel="http://schemas.google.com/g/2005#feed" type="application/atom+xml" href="..."/&gt;</code> element is required for updatable feeds.</li>
+  </ul>
+  <p>Also, Calendar supports a few <code>rel</code> and <code>type</code> attribute values for <code>&lt;atom:link&gt;</code> that aren't used in other Google Data APIs:</p>
+  <table>
+    <tr>
+      <th>rel and type value</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>atom:link[@rel='alternate'][@type='text/calendar']</code></td>
+      <td>Specifies the URL of the ICS source of the calendar, if it came from an ICS source.</td>
+    </tr>
+    <tr>
+      <td><code>atom:link[@rel='source'][@type='application/atom+xml']</code></td>
+      <td>Specifies the URL of the Data API source of the calendar, if it came from a Data API source.</td>
+    </tr>
+    <tr>
+      <td><code>atom:link[@rel='related']</code></td>
+      <td>Specifies a URL related to the feed.</td>
+    </tr>
+    <tr>
+      <td><code>atom:link[@rel='http://schemas.google.com/gCal/2005/webContent'] [@type='<i>type</i>']</code></td>
+      <td>Specifies "web content" for an event; for more information, see <a href="#gCalwebContent">gCal:webContent</a>.</td>
+    </tr>
+  </table>
+  <p>Finally, the Calendar <code>&lt;entry&gt;</code> element may optionally contain an <code>&lt;atom:source&gt;</code> element, which isn't used in entries in other Google Data APIs.</p>
+  <h3 id="gcal_reference">GCal namespace element reference</h3>
+  <p>Google Calendar provides several extension elements for use in a metafeed (the feed that lists the user's calendars). These elements are in the gCal namespace, not the Google Data namespace, because they're specific to Calendar.</p>
+  <h4 id="gCalaccesslevel">gCal:accesslevel</h4>
+  <p>Indicates what level of access the current user (the one whose credentials are being used to request the metafeed) has to the calendar.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@value</code></td>
+      <td><code>xs:string</code></td>
+      <td><p>Must be one of the following:</p>
+        <dl>
+          <dt><code>none</code></dt>
+          <dd>Current user has no access to the calendar.</dd>
+          <dt><code>read</code></dt>
+          <dd>Current user has read-only access to the calendar.</dd>
+          <dt><code>freebusy</code></dt>
+          <dd>Current user can see only the free/busy information on the calendar, not the details of events.</dd>
+          <dt><code>editor</code></dt>
+          <dd>Current user has full edit access to the calendar, except that they can't change the calendar's access control settings.</dd>
+          <dt><code>owner</code></dt>
+          <dd>Current user has full owner access to the calendar.</dd>
+          <dt><code>root</code></dt>
+          <dd>Available only in Google Apps domains. User is a domain administrator, and therefore has full owner access to the calendar regardless of access control settings.</dd>
+        </dl></td>
+    </tr>
+  </table>
+  <h5>Example</h5>
+  <p>A calendar for which the current user has full owner access:</p>
+  <pre class="prettyprint lang-xml">&lt;gCal:accesslevel value="owner" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = accesslevel
+
+accesslevel =
+  element gCal:accesslevel {
+    attribute value { xs:string }
+  }</pre>
+  <h4 id="gCaladditionalGuests">gCal:additionalGuests</h4>
+  <p>Indicates how many additional guests are associated with an event attendee. This field is present in <code>&lt;gd:who&gt;</code> elements only when the number of additional guests  is greater than zero.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@value?</code></td>
+      <td><code>xs:integer</code></td>
+      <td>Number of additional guests.</td>
+    </tr>
+  </table>
+  <h5>Example</h5>
+  <p>An attendee that has five additional guests:</p>
+  <pre class="prettyprint lang-xml">&lt;gCal:additionalGuests value="5" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = additionalGuests
+
+additionalGuests =
+  element gCal:additionalGuests {
+    attribute value { xs:integer }
+  }</pre>
+  <h4 id="gCalbusy">gCal:busy</h4>
+  <p>A block of busy times.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>gd:<a href="/gdata/docs/2.0/elements#gdWhen">when</a></code></td>
+      <td>Busy time.</td>
+    </tr>
+  </table>
+  <h5>Example</h5>
+  <p>A busy time on 03/13/2010 between 2:00pm and 2:30pm UTC:</p>
+<pre class="prettyprint lang-xml">&lt;gCal:busy&gt;
+  &lt;gd:when startTime='2010-03-13T14:00Z' endTime='2010-03-13T14:30Z'/&gt;
+&lt;/gCal:busy&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = busy
+
+busy =
+  element gCal:busy {
+    element gd:when
+  }</pre>
+  <h4 id="gCalcolor">gCal:color</h4>
+  <p>The color used to highlight a calendar in the user's browser.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@value</code></td>
+      <td><code>xs:string</code></td>
+      <td>Must be one of the following hexadecimal RGB color values:
+        <table>
+          <tr>
+            <td style="background-color:#A32929"></td><td>#A32929</td>
+            <td style="background-color:#B1365F"></td><td>#B1365F</td>
+            <td style="background-color:#7A367A"></td><td>#7A367A</td>
+            <td style="background-color:#5229A3"></td><td>#5229A3</td>
+            <td style="background-color:#29527A"></td><td>#29527A</td>
+            <td style="background-color:#2952A3"></td><td>#2952A3</td>
+            <td style="background-color:#1B887A"></td><td>#1B887A</td>
+          </tr>
+          <tr>
+            <td style="background-color:#28754E"></td><td>#28754E</td>
+            <td style="background-color:#0D7813"></td><td>#0D7813</td>
+            <td style="background-color:#528800"></td><td>#528800</td>
+            <td style="background-color:#88880E"></td><td>#88880E</td>
+            <td style="background-color:#AB8B00"></td><td>#AB8B00</td>
+            <td style="background-color:#BE6D00"></td><td>#BE6D00</td>
+            <td style="background-color:#B1440E"></td><td>#B1440E</td>
+          </tr>
+          <tr>
+            <td style="background-color:#865A5A"></td><td>#865A5A</td>
+            <td style="background-color:#705770"></td><td>#705770</td>
+            <td style="background-color:#4E5D6C"></td><td>#4E5D6C</td>
+            <td style="background-color:#5A6986"></td><td>#5A6986</td>
+            <td style="background-color:#4A716C"></td><td>#4A716C</td>
+            <td style="background-color:#6E6E41"></td><td>#6E6E41</td>
+            <td style="background-color:#8D6F47"></td><td>#8D6F47</td>
+          </tr>
+          <tr>
+            <td style="background-color:#853104"></td><td>#853104</td>
+            <td style="background-color:#691426"></td><td>#691426</td>
+            <td style="background-color:#5C1158"></td><td>#5C1158</td>
+            <td style="background-color:#23164E"></td><td>#23164E</td>
+            <td style="background-color:#182C57"></td><td>#182C57</td>
+            <td style="background-color:#060D5E"></td><td>#060D5E</td>
+            <td style="background-color:#125A12"></td><td>#125A12</td>
+          </tr>
+          <tr>
+            <td style="background-color:#2F6213"></td><td>#2F6213</td>
+            <td style="background-color:#2F6309"></td><td>#2F6309</td>
+            <td style="background-color:#5F6B02"></td><td>#5F6B02</td>
+            <td style="background-color:#8C500B"></td><td>#8C500B</td>
+            <td style="background-color:#8C500B"></td><td>#8C500B</td>
+            <td style="background-color:#754916"></td><td>#754916</td>
+            <td style="background-color:#6B3304"></td><td>#6B3304</td>
+          </tr>
+          <tr>
+            <td style="background-color:#5B123B"></td><td>#5B123B</td>
+            <td style="background-color:#42104A"></td><td>#42104A</td>
+            <td style="background-color:#113F47"></td><td>#113F47</td>
+            <td style="background-color:#333333"></td><td>#333333</td>
+            <td style="background-color:#0F4B38"></td><td>#0F4B38</td>
+            <td style="background-color:#856508"></td><td>#856508</td>
+            <td style="background-color:#711616"></td><td>#711616</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <h5>Example</h5>
+  <p>A color:</p>
+  <pre class="prettyprint lang-xml">&lt;gCal:color value="#A32929" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = color
+
+color =
+  element gCal:color {
+    attribute value { xs:string }
+  }</pre>
+  <h4 id="gCalhidden">gCal:hidden</h4>
+  <p>Indicates whether a calendar is visible or not.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@value</code></td>
+      <td><code>xs:boolean</code></td>
+      <td>Is calendar visible?</td>
+    </tr>
+  </table>
+  <h5>Example</h5>
+  <p>A hidden calendar:</p>
+  <pre class="prettyprint lang-xml">&lt;gCal:hidden value="true" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = hidden
+
+hidden =
+  element gCal:hidden {
+    attribute value { xs:boolean }
+  }</pre>
+  <h4 id="gCaloverrideName">gCal:overrideName</h4>
+    <p>Defines the updated name for shared calendars.</p>
+    <h5>Properties</h5>
+    <table>
+      <tr>
+        <th>Property</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>@value</code></td>
+        <td><code>xs:string</code></td>
+        <td>Name to override the default calendar.</td>
+      </tr>
+    </table>
+    <h5>Example</h5>
+    <p>An overridden name:</p>
+    <pre class="prettyprint lang-xml">&lt;gCal:overrideName value="Awesome Calendar" /&gt;</pre>
+    <h5>Schema</h5>
+<pre class="prettyprint">start = overrideName
+
+overrideName =
+  element gCal:overrideName {
+    attribute value { xs:string }
+  }</pre>
+  <h4 id="gCaltimeRange">gCal:timeRange</h4>
+  <p></p>
+  <p>Indicates the time range of the current feed.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>gd:<a href="/gdata/docs/2.0/elements#gdWhen">when</a></code></td>
+      <td>Feed time range.</td>
+    </tr>
+  </table>
+  <h5>Example</h5>
+<pre class="prettyprint lang-xml"> &lt;gCal:timeRange&gt;
+  &lt;gd:when startTime='2010-03-13T00:00:00Z' endTime='2010-03-14T00:00:00Z'/&gt;
+&lt;gCal:timeRange&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = timeRange
+
+timeRange =
+  element gCal:timeRange {
+    element gd:when
+  }</pre>
+  <h4 id="gCalselected">gCal:selected</h4>
+  <p>Indicates whether calendar is selected.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@value</code></td>
+      <td><code>xs:boolean</code></td>
+      <td>Is calendar selected?</td>
+    </tr>
+  </table>
+  <h5>Example</h5>
+  <p>A selected calendar:</p>
+  <pre class="prettyprint lang-xml">&lt;gCal:selected value="true" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = selected
+
+selected =
+  element gCal:selected {
+    attribute value { xs:boolean }
+  }</pre>
+
+  <h4 id="gCalsendEventNotifications">gCal:sendEventNotifications</h4>
+  <p>Indicates whether notifications should be sent to the attendees of an event.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@value</code></td>
+      <td><code>xs:boolean</code></td>
+      <td>Should notifications be sent?</td>
+    </tr>
+  </table>
+  <h5>Example</h5>
+  <p>An event for which notifications should be sent to attendees:</p>
+  <pre class="prettyprint lang-xml">&lt;gCal:sendEventNotifications value="true" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = sendEventNotifications
+
+sendEventNotifications =
+  element gCal:sendEventNotifications {
+    attribute value { xs:boolean }
+  }</pre>
+
+  <h4 id="gCalsettingsProperty">gCal:settingsProperty <span class="exp-feat">(Experimental)</span></h4>
+
+  <p>Represents a key/value pair from the selected user's Calendar settings.</p>
+  <h5>Settings</h5>
+  <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Value Format</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>locale</code></td>
+      <td>Currently selected Calendar interface language.</td>
+      <td>ISO 639-1 Language Code.</td>
+      <td><code>en_GB</code><br><code>en_US</code></td>
+    </tr>
+    <tr>
+      <td><code>country</code></td>
+      <td>User country selected for time zone display.</td>
+      <td>ISO two-letter country code.</td>
+      <td><code>US</code><br><code>GB</code></td>
+    </tr>
+    <tr>
+      <td><code>timezone</code></td>
+      <td>User time zone. This is not a time zone of any calendar, but the time zone in which events appear on Calendar UI.</td>
+      <td>Long format time zone ID (<b>not</b> <code>PST</code>, but <code>America/Los_Angeles</code>.</td>
+      <td><code>America/Los_Angeles</code><br><code>UTC</code><br><code>Europe/Prague</code></td>
+    </tr>
+    <tr>
+      <td><code>timezoneLabel</code></td>
+      <td>Custom time zone label if specfied by user.</td>
+      <td>Arbitraty string or empty if not set.</td>
+      <td><code>My time zone label</code><br><code>Home</code></td>
+    </tr>
+    <tr>
+      <td><code>displayAllTimezones</code></td>
+      <td>Indicates whether all time zones are visible in Calendar Settings regardless of selected country.</td>
+      <td><code>true</code> or <code>false</code>.</td>
+      <td><code>true</code><br><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>dateFieldOrder</code></td>
+      <td>User's desired date format to use in Calendar UI.</td>
+      <td>One of the following values: <code>DMY</code> (day/month/year), <code>MDY</code>, <code>YMD</code>.</td>
+      <td><code>DMY</code><br><code>MDY</code></td>
+    </tr>
+    <tr>
+      <td><code>format24HourTime</code></td>
+      <td>Indicates whether 24-hour format is used in Calendar UI.</td>
+      <td><code>true</code> or <code>false</code>.</td>
+      <td><code>true</code><br><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>weekStart</code></td>
+      <td>Indicates the day of the week that the week starts on in Calendar UI.</td>
+      <td><code>0</code> to <code>6</code> integer, <code>0</code> for Sunday.</td>
+      <td><code>0</code><br><code>6</code></td>
+    </tr>
+    <tr>
+      <td><code>defaultCalMode</code></td>
+      <td>The default calendar view to display.</td>
+      <td><code>day</code> for day view, <code>week</code> for week view, <code>month</code> for month view, <code>list</code> for agenda view, <code>custom</code> for custom view. See <code>customCalMode</code> property.</td>
+      <td><code>week</code><br><code>custom</code></td>
+    </tr>
+    <tr>
+      <td><code>customCalMode</code></td>
+      <td>The number of days to display in <code>custom</code> calendar view mode.</td>
+      <td><code>custom,<i>days</i></code> where <i>days</i> is the number of days to display.</td>
+      <td><code>custom,7</code><br><code>custom,28</code></td>
+    </tr>
+    <tr>
+      <td><code>userLocation</code></td>
+      <td>User location, used to display weather.</td>
+      <td>Arbitrary string (common is city name or ZIP code). Empty if not set.</td>
+      <td><code>Mountain View</code><br><code>93043</code></td>
+    </tr>
+    <tr>
+      <td><code>weather</code></td>
+      <td>Whether to show weather based on location, and weather format to use.</td>
+      <td>Empty string if weather is not shown. <code>C</code> for Celsius, <code>F</code> for Fahrenheit format.</td>
+      <td><code>C</code><br><code>F</code></td>
+    </tr>
+    <tr>
+      <td><code>showDeclinedEvents</code></td>
+      <td>Whether to display declined events.</td>
+      <td><code>true</code> or <code>false</code>.</td>
+      <td><code>true</code><br><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>hideInvitations</code></td>
+      <td>Whether to hide event invitations which are not yet accepted.</td>
+      <td><code>true</code> or <code>false</code>.</td>
+      <td><code>true</code><br><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>alternateCalendar</code></td>
+      <td>Whether alternate calendar view is used and which one.</td>
+      <td><code>0</code> if alternate view is not used. <code>1</code> for standard Hijri calendar, <code>2</code> for Kuwaiti Hijri calendar, <code>3</code> for Saudi Hijri calendar.</td>
+      <td><code>0</code><br><code>1</code></td>
+    </tr>
+  </tbody>
+  </table>
+
+  <h5>Properties</h5>
+  <table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>@name</code></td>
+      <td><code>xs:string</code></td>
+      <td>Indicates the name of the current setting. See the table above for possible settings and their valid values.</td>
+    </tr>
+    <tr>
+      <td><code>@value</code></td>
+      <td><code>xs:string</code></td>
+      <td>Indicates the value of the current setting.</td>
+    </tr>
+  </tbody>
+  </table>
+  <h5>Example</h5>
+  <pre class="prettyprint lang-xml">&lt;gCal:settingsProperty name="timezone" value="America/Los_Angeles"/&gt;</pre>
+
+  <h5>Schema</h5>
+<pre class="prettyprint">
+start = settingsProperty
+
+settingsProperty =
+  element gCal:settingsProperty {
+    attribute name { xs:string },
+    attribute value { xs:string }
+  }</pre>
+
+  <h4 id="gCalsequence">gCal:sequence</h4>
+
+  <p>Indicates the revision sequence number of the event as defined in Section 4.8.7.4 of <a href="http://www.ietf.org/rfc/rfc2445.txt">RFC 2445</a>. Must be non-negative.</p>
+  <h5>Properties</h5>
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>@value</code></td>
+        <td><code>xs:integer</code></td>
+        <td>Indicates the revision sequence number of the event.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5>Example</h5>
+  <pre class="prettyprint lang-xml">&lt;gCal:sequence value='1' /&gt;</pre>
+
+  <h5>Schema</h5>
+<pre class="prettyprint">
+start = sequence
+
+sequence =
+  element gCal:sequence {
+    attribute value { xs:integer }
+  }</pre>
+
+  <h4 id="gCalsuppressReplyNotifications">gCal:suppressReplyNotifications</h4>
+  <p>Prevents email notifications from being sent to event organizers when an attendee replies to an event.</p>
+  <p>This must be set by the attendee. If this element is omitted, it is assumed to have a value of <code>false</code>.</p>
+  <h5>Properties</h5>
+  <table>
+  <thead>
+  <tr>
+    <th>Property</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>@value</code></td>
+    <td><code>xs:boolean</code></td>
+    <td><code>true</code> when reply notifications are disabled, <code>false</code> otherwise.</td>
+  </tr>
+  <tr>
+    <td><code>@methods</code></td>
+    <td><code>xs:string</code></td>
+    <td>Comma-separated list of methods to suppress, currently only <code>email</code> is supported.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h5>Example</h5>
+  <pre class="prettyprint lang-xml">&lt;gCal:suppressReplyNotifications value="true" methods="email" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">
+start = suppressReplyNotifications
+
+suppressReplyNotifications =
+  element gCal:suppressReplyNotifications {
+    attribute value { xs:boolean }
+    attribute methods { xs:string }
+  }</pre>
+
+  <h4 id="gCalsyncevent">gCal:syncEvent</h4>
+  <p>Indicates whether this is a sync scenario where we allow setting the <code>gCal:uid</code>, the <code>gCal:sequence</code>, and the organizer of an event as an attendee.</p>
+  <p>This element makes sense only when inserting and updating synced events. This element should primarily be used in a sync scenario.</p>
+  <h5>Properties</h5>
+  <table>
+  <thead>
+  <tr>
+    <th>Property</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>@value</code></td>
+    <td><code>xs:boolean</code></td>
+    <td>Indicates whether this is a sync scenario or not.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h5>Example</h5>
+  <pre class="prettyprint lang-xml">&lt;gCal:syncEvent value="true" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">
+start = syncEvent
+
+syncEvent =
+  element gCal:syncEvent {
+    attribute value { xs:boolean }
+  }</pre>
+
+  <p class="warning"><strong>Warning:</strong> By default, gCal:syncEvent only works on a user's primary calendar. In order to work with secondary calendars, the HTTP header <code>X-Redirect-Calendar-Shard: true</code> must be included with the request.</p>
+
+  <h4 id="gCaltimezone">gCal:timezone</h4>
+  <p>A time zone.</p>
+  <h5>Properties</h5>
+  <table>
+  <tr>
+  <th>Property</th>
+  <th>Type</th>
+  <th>Description</th>
+  </tr>
+  <tr>
+  <td><code>@value</code></td>
+  <td><code>xs:string</code></td>
+  <td>A time zone ID.</td>
+  </tr>
+  </table>
+  <h5>Example</h5>
+  <p>A time zone:</p>
+  <pre class="prettyprint lang-xml">&lt;gCal:timezone value="America/Los_Angeles" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = timezone
+
+timezone =
+  element gCal:timezone {
+    attribute value { xs:string }
+  }</pre>
+
+  <h4 id="gCaltimesCleaned">gCal:timesCleaned</h4>
+  <p>The number of times the specified calendar has been completely cleared of events.</p>
+  <h5>Properties</h5>
+  <table>
+  <tr>
+  <th>Property</th>
+  <th>Type</th>
+  <th>Description</th>
+  </tr>
+  <tr>
+  <td><code>@value</code></td>
+  <td><code>xs:integer</code></td>
+  <td>The number of times the calendar has been cleared of events</td>
+  </tr>
+  </table>
+  <h5>Example</h5>
+  <pre class="prettyprint lang-xml">&lt;gCal:timesCleaned value="2" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = timesCleaned
+
+timesCleaned =
+  element gCal:timesCleaned {
+    attribute value { xs:integer }
+  }</pre>
+
+  <h4 id="gCaluid">gCal:uid</h4>
+  <p>Indicates the globally unique identifier (UID) of the event as defined in Section 4.8.4.7 of <a href="http://www.ietf.org/rfc/rfc2445.txt">RFC 2445</a>.</p>
+  <p>Must be a globally unique string and must follow specifications in Section 4.8.4.7 of RFC 2445.</p>
+  <h5>Properties</h5>
+  <table>
+  <thead>
+  <tr>
+    <th>Property</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>@value</code></td>
+    <td><code>xs:string</code></td>
+    <td>Indicates the globally unique identifier (UID) of the event.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h5>Example</h5>
+  <pre class="prettyprint lang-xml">&lt;gCal:uid value='t9d6o9stha0j0cblaoi4s5l29c' /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">
+start = uid
+
+uid =
+  element gCal:uid {
+    attribute value { xs:string }
+  }</pre>
+
+  <h4 id="gCalwebContent">gCal:webContent</h4>
+  <p>Information about a Calendar Event Gadget, formerly called a web content event. The web content icon appears at the top of a day on a calendar; clicking the icon opens a pop-up window that displays the Calendar Event Gadget.  Multiple <code>&lt;gCal:webContentGadgetPrefs&gt;</code> elements can be used to specify user preferences for the gadget.</p>
+  <p class="note"><strong>Note</strong>: This element appears only inside a webContent <code>&lt;link&gt;</code> element.</p>
+  <h5>atom:link Properties for webContent </h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@rel</code></td>
+      <td><code>xs:string</code></td>
+      <td>Must be <code>"http://schemas.google.com/gCal/2005/webContent"</code>.</td>
+    </tr>
+    <tr>
+      <td><code>@title</code></td>
+      <td><code>xs:string</code></td>
+      <td>Human-readable title to appear in the header of the pop-up window, and in the tooltip for the icon.</td>
+    </tr>
+    <tr>
+      <td><code>@href</code></td>
+      <td><code>xs:string</code></td>
+      <td>URL of the icon to display. Icon can be in any image format that can be displayed in a web browser. Image will be scaled to 16 pixels square.</td>
+    </tr>
+    <tr>
+      <td><code>@type</code></td>
+      <td><code>xs:string</code></td>
+      <td>Specifies the type of the content. Allowed values are <code>"application/x-google-gadgets+xml"</code>, <code>"text/html"</code>, and <code>"image/<i>imageformat</i>"</code>, where <i>imageformat</i> is a format name like <code>gif</code> or <code>png</code>.</td>
+    </tr>
+  </table>
+  <h5>gCal:webContent Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@height</code></td>
+      <td><code>xs:integer</code></td>
+      <td>Height (in pixels) of the <code>&lt;iframe&gt;</code> or <code>&lt;img&gt;</code> element.</td>
+    </tr>
+    <tr>
+      <td><code>@url</code></td>
+      <td><code>xs:string</code></td>
+      <td>URL of the content to display in the pop-up window. The content can be a gadget, an HTML file or an image, as long as you set the <code>type</code> attribute correctly in the webContent <code>&lt;link&gt;</code> element.</td>
+    </tr>
+    <tr>
+      <td><code>@width</code></td>
+      <td><code>xs:integer</code></td>
+      <td>Width (in pixels) of the <code>&lt;iframe&gt;</code> or <code>&lt;img&gt;</code> element.</td>
+    </tr>
+  </table>
+  <h5>gCal:webContentGadgetPrefs Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@name</code></td>
+      <td><code>xs:string</code></td>
+      <td>Name of the gadget user preference.</td>
+    </tr>
+    <tr>
+      <td><code>@value</code></td>
+      <td><code>xs:string</code></td>
+      <td>Value of the gadget user preference.</td>
+    </tr>
+  </table>    <h5>Example</h5>
+  <p>The DateTime gadget (in green):</p>
+<pre class="prettyprint lang-xml">&lt;link rel="http://schemas.google.com/gCal/2005/webContent"
+     href="http://www.google.com/favicon.ico"
+     title="DateTime Gadget (a classic!)"
+     type="application/x-google-gadgets+xml"&gt;
+  &lt;gCal:webContent url="http://google.com/ig/modules/datetime.xml" width="300" height="136"&gt;
+    &lt;gCal:webContentGadgetPref name="color" value="green" /&gt;
+  &lt;gCal:webContent&gt;
+&lt;/link&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = webContentLink
+
+webContentLink =
+  element atom:link {
+    attribute rel { <code>xs:string</code> },
+    attribute href { <code>xs:string</code> },
+    attribute title { <code>xs:string</code> },
+    attribute type { <code>xs:string</code> },
+    element gCal:webContent {
+      attribute height { xs:integer },
+      attribute url { xs:string },
+      attribute width { xs:integer }
+      element gCal:webContentGadgetPref {
+        attribute name { xs:integer },
+        attribute value { xs:integer }
+      }*
+    }
+  }</pre>
+
+  <h4 id="gCalguestsCanModify">gCal:guestsCanModify</h4>
+  <p>Indicates whether event attendees may modify the original event, so that changes are visible to organizer and other attendees. Otherwise, any changes made by attendees will be restricted to that attendee's calendar.</p>
+  <p>This element may only be changed by the organizer of the event, and may be set to <code>true</code> only if both <a href="#gCalguestsCanInviteOthers"><code>gCal:guestsCanInviteOthers</code></a> and <a href="#gCalguestsCanSeeGuests"><code>gCal:guestsCanSeeGuests</code></a> are set to <code>true</code> in the same <code>PUT</code>/<code>POST</code> request. Otherwise, request fails with HTTP error code 400 (Bad Request).</p>
+  <p>If not included as part of the event entry, this element will default to <code>false</code> during a <code>POST</code> request, and will inherit its previous value during a <code>PUT</code> request.</p>
+  <h5>Properties</h5>
+  <table>
+  <thead>
+  <tr>
+    <th>Property</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>@value</code></td>
+    <td><code>xs:boolean</code></td>
+    <td><code>true</code> if event attendees can modify original event.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h5>Example</h5>
+  <pre class="prettyprint lang-xml">&lt;gCal:guestsCanModify value='true' /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">
+start = guestsCanModify
+
+guestsCanModify =
+  element gCal:guestsCanModify {
+    attribute value { xs:boolean }
+  }</pre>
+
+  <h4 id="gCalguestsCanInviteOthers">gCal:guestsCanInviteOthers</h4>
+  <p>Indicates whether event attendees may invite other people to the event.</p>
+  <p>This element may only be changed by the organizer of the event.</p>
+  <p>If not included as part of the event entry, this element will default to <code>true</code> during a <code>POST</code> request, and will inherit its previous value during a <code>PUT</code> request.</p>
+  <h5>Properties</h5>
+  <table>
+  <thead>
+  <tr>
+    <th>Property</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>@value</code></td>
+    <td><code>xs:boolean</code></td>
+    <td><code>true</code> if event attendees can invite others.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h5>Example</h5>
+  <pre class="prettyprint lang-xml">&lt;gCal:guestsCanInviteOthers value='true' /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">
+start = guestsCanInviteOthers
+
+guestsCanInviteOthers =
+  element gCal:guestsCanInviteOthers {
+    attribute value { xs:boolean }
+  }</pre>
+
+  <h4 id="gCalguestsCanSeeGuests">gCal:guestsCanSeeGuests</h4>
+  <p>Indicates whether event attendees can see other people invited to the event.</p>
+  <p>The organizer always sees all attendees. Guests always see themselves. This property affects what attendees see in the event's guest list via both the Calendar UI and API feeds.</p>
+  <p>This element may only be changed by the organizer of the event.</p>
+  <p>If not included as part of the event entry, this element will default to <code>true</code> during a <code>POST</code> request, and will inherit its previous value during a <code>PUT</code> request.</p>
+  <h5>Properties</h5>
+  <table>
+  <thead>
+  <tr>
+    <th>Property</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>@value</code></td>
+    <td><code>xs:boolean</code></td>
+    <td><code>true</code> if event attendees can see other attendees besides event organizer and themselves.</td>
+  </tr>
+  </tbody>
+  </table>
+  <h5>Example</h5>
+  <pre class="prettyprint lang-xml">&lt;gCal:guestsCanSeeGuests value='true' /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">
+start = guestsCanSeeGuests
+
+guestsCanSeeGuests =
+  element gCal:guestsCanSeeGuests {
+    attribute value { xs:boolean }
+  }</pre>
+
+  <h3 id="gacl_reference">GAcl namespace element reference</h3>
+  <p>Google defines the Google Data API ACL namespace as <code>http://schemas.google.com/acl/2007</code>. We recommend using the namespace alias <code>gAcl</code>.</p>
+  <p>Google currently defines two elements in the <code>gAcl</code> namespace:</p>
+  <ul>
+    <li>gAcl:scope</li>
+    <li>gAcl:role</li>
+  </ul>
+  <p>Each element appears exactly once in every rule. </p>
+  <h4 id="gAclscope">gAcl:scope</h4>
+  <p>Defines which set of users are governed by the rule that contains this element.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>@type</code></td>
+      <td><code>xs:string</code></td>
+      <td><p>Must be one of the following:</p>
+        <dl>
+          <dt>user</dt>
+          <dd>Indicates that this access rule applies to an individual.  The <code>value</code> attribute is an email address.</dd>
+          <dt>domain</dt>
+          <dd>Available only in Google Apps For Your Domain. Indicates that this access rule applies to all users with email addresses in your domain, which allows you to (for example) create calendars that are shared with everyone in your domain.  The <code>value</code> attribute should contain your domain name.</dd>
+          <dt>default</dt>
+          <dd>Indicates that this access rule applies to all users. There is no <code>value</code> attribute. </dd>
+      </dl></td>
+    </tr>
+    <tr>
+      <td><code>@value</code>?</td>
+      <td><code>xs:string</code></td>
+      <td><p>An email address or a  domain name, depending on the value of the <code>type</code> attribute. </p>
+      </td>
+    </tr>
+  </table>
+  <p>If a given user matches multiple scopes, then they can perform any operation allowed by any of the levels they have been granted in any scope.  Consider an ACL with the following rules:</p>
+  <ul>
+    <li> user darcy@gmail.com has the role <code>read</code></li>
+    <li>default has the role <code>freebusy</code> <br />
+    </li>
+  </ul>
+  <p>Given those rules, user darcy@gmail.com can perform any operation allowed by the <code>read</code> or <code>freebusy</code> access levels.</p>
+  <h5>Example</h5>
+  <p>A specific user:</p>
+  <pre class="prettyprint lang-xml">&lt;gAcl:scope type="user" value="darcy@gmail.com" /&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = scope
+
+scope =
+  element gAcl:scope {
+    attribute type { xs:string },
+    attribute value { xs:string }?
+  }</pre>
+  <h4 id="gAclrole">gAcl:role</h4>
+  <p>Defines an access level that applies to all users specified in the associated <code>&lt;gAcl:scope&gt;</code>.</p>
+  <h5>Properties</h5>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+
+    <tr>
+      <td><code>@value</code></td>
+      <td><code>xs:string</code></td>
+      <td><p>Every role value listed below, other than <code>none</code>, must start with the namespace <code>http://schemas.google.com/gCal/2005#</code>. For example, <code>read</code> in the below list must appear as <code>http://schemas.google.com/gCal/2005#read</code>. The <code>none</code> value doesn't have a prefix; it's in the <code>gAcl</code> namespace. </p>
+        <p>The value must be one of the following:</p>
+        <dl>
+            <dt><code>none</code></dt>
+            <dd>The specified users have no rights.</dd>
+            <dt><code>read</code></dt>
+            <dd>The specified users have read-only access to the calendar.</dd>
+            <dt><code>freebusy</code></dt>
+            <dd>The specified users can see only the free/busy information on the calendar, not the details of events.</dd>
+            <dt><code>editor</code></dt>
+            <dd>The specified users have full edit access to the calendar, except that they can't change the calendar's access control settings.</dd>
+            <dt><code>owner</code></dt>
+            <dd>The specified users have full owner access to the calendar.</dd>
+            <dt><code>root</code></dt>
+            <dd>Available only in Google Apps For Your Domain. The specified users have administrator access to the calendar server.</dd>
+        </dl></td>
+    </tr>
+  </table>
+  <h5>Example</h5>
+  <p>To indicate that the specified users can edit the calendar but can't change ACL settings:</p>
+  <pre class="prettyprint lang-xml"> &lt;gAcl:role value='<code>http://schemas.google.com/gCal/2005#</code>editor'&gt;&lt;/gAcl:role&gt;</pre>
+  <h5>Schema</h5>
+<pre class="prettyprint">start = role
+
+role =
+  element gAcl:role {
+    attribute value { xs:string }
+  }</pre>
+  <h3 id="Schema">Calendar Feeds Schema Reference</h3>
+  <ol>
+    <li><a href="schema/calendars_atom.rnc">Calendar List Feed</li>
+    <li><a href="schema/comments_atom.rnc">Calendar Event Comments Feed</li>
+    <li><a href="schema/events_atom.rnc">Calendar Events Feed</li>
+  </ol>
+  <p class="backtotop"><a href="#top">Back to top</a></p>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+
+
+<div itemprop="datePublished" content="2012-12-20T13:07:21.776930" id="gc-content-last-updated">Last updated December 20, 2012.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+      
+      <footer id="gc-footer">
+        <div id="gc-copyright">
+          <a href="/">
+            <img id="developers-logo-footer" src="/_static/images/developers-logo-footer.png" alt="Google Developers logo" style="vertical-align: center; float: left"/>
+          </a>
+          <ul>
+            <li><a href="http://www.google.com/">Google</a></li>
+            <li><a href="/readme/terms">Terms of Service</a></li>
+            <li><a href="http://www.google.com/intl/en/privacy/">Privacy Policy</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a class="google-feedback" data-p="81425" data-b="Documentation"  data-v="devsite-20130430-rc10.default" href="">Report a bug</a></li>
+          </ul>
+        </div>
+        
+        <div id="gc-language">
+          <ul>
+            <li>
+              <form id="setlang" action="/i18n/setlang/" method="post">
+                <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='46a277638ae61c9df837b5648d00049c' /></div>
+                <select id="footer_language" name="language">
+                  
+                  
+                  <option
+                     value="ar"
+                     >
+                    العربيّة
+                  </option>
+                  
+                  <option
+                     value="bg"
+                     >
+                    български
+                  </option>
+                  
+                  <option
+                     value="ca"
+                     >
+                    català
+                  </option>
+                  
+                  <option
+                     value="zh-cn"
+                     >
+                    简体中文
+                  </option>
+                  
+                  <option
+                     value="zh-tw"
+                     >
+                    繁體中文
+                  </option>
+                  
+                  <option
+                     value="hr"
+                     >
+                    Hrvatski
+                  </option>
+                  
+                  <option
+                     value="cs"
+                     >
+                    česky
+                  </option>
+                  
+                  <option
+                     value="da"
+                     >
+                    Dansk
+                  </option>
+                  
+                  <option
+                     value="nl"
+                     >
+                    Nederlands
+                  </option>
+                  
+                  <option
+                     value="en"
+                      selected="selected" >
+                    English
+                  </option>
+                  
+                  <option
+                     value="fa"
+                     >
+                    فارسی
+                  </option>
+                  
+                  <option
+                     value="fi"
+                     >
+                    suomi
+                  </option>
+                  
+                  <option
+                     value="fr"
+                     >
+                    Français
+                  </option>
+                  
+                  <option
+                     value="de"
+                     >
+                    Deutsch
+                  </option>
+                  
+                  <option
+                     value="el"
+                     >
+                    Ελληνικά
+                  </option>
+                  
+                  <option
+                     value="he"
+                     >
+                    עברית
+                  </option>
+                  
+                  <option
+                     value="hi"
+                     >
+                    Hindi
+                  </option>
+                  
+                  <option
+                     value="hu"
+                     >
+                    Magyar
+                  </option>
+                  
+                  <option
+                     value="id"
+                     >
+                    Bahasa Indonesia
+                  </option>
+                  
+                  <option
+                     value="it"
+                     >
+                    italiano
+                  </option>
+                  
+                  <option
+                     value="ja"
+                     >
+                    日本語
+                  </option>
+                  
+                  <option
+                     value="ko"
+                     >
+                    한국어
+                  </option>
+                  
+                  <option
+                     value="lv"
+                     >
+                    latviešu
+                  </option>
+                  
+                  <option
+                     value="lt"
+                     >
+                    Lithuanian
+                  </option>
+                  
+                  <option
+                     value="nb"
+                     >
+                    Norsk (bokmål)
+                  </option>
+                  
+                  <option
+                     value="nn"
+                     >
+                    Norsk (nynorsk)
+                  </option>
+                  
+                  <option
+                     value="pl"
+                     >
+                    polski
+                  </option>
+                  
+                  <option
+                     value="pt-br"
+                     >
+                    Português Brasileiro
+                  </option>
+                  
+                  <option
+                     value="pt"
+                     >
+                    Português
+                  </option>
+                  
+                  <option
+                     value="ro"
+                     >
+                    Română
+                  </option>
+                  
+                  <option
+                     value="ru"
+                     >
+                    Русский
+                  </option>
+                  
+                  <option
+                     value="sr"
+                     >
+                    српски
+                  </option>
+                  
+                  <option
+                     value="sk"
+                     >
+                    slovenský
+                  </option>
+                  
+                  <option
+                     value="sl"
+                     >
+                    Slovenščina
+                  </option>
+                  
+                  <option
+                     value="es"
+                     >
+                    español
+                  </option>
+                  
+                  <option
+                     value="sv"
+                     >
+                    Svenska
+                  </option>
+                  
+                  <option
+                     value="th"
+                     >
+                    Thai
+                  </option>
+                  
+                  <option
+                     value="tr"
+                     >
+                    Türkçe
+                  </option>
+                  
+                  <option
+                     value="uk"
+                     >
+                    Українська
+                  </option>
+                  
+                  <option
+                     value="vi"
+                     >
+                    Vietnamese
+                  </option>
+                  
+                </select>
+              </form>
+            </li>
+          </ul>
+        </div>
+        
+      </footer>
+      
+      
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href='http://www.google.com/+'>Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script src="/_static/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+      
+    </script>
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    <script>
+      
+      google.load('visualization', '1', {packages: ['table']});
+    </script>
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+    // Render any carousels on the page
+    $('.carousel').carousel();
+    // Render any feed widgets on the page
+    
+    $('.feed').rss();
+    $('.feed-plain').rss();
+    // Render any OSS widgets on the page.
+    $('.oss').oss();
+    });
+</script>
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+</html>

@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"assetVersionPath":"https://ssl.gstatic.com/codesite/ph/5872825996519583439","token":null,"domainName":null,"projectHomeUrl":"/p/google-api-php-client","relativeBaseUrl":"","loggedInUserEmail":null,"profileUrl":null,"projectName":"google-api-php-client","assetHostPath":"https://ssl.gstatic.com/codesite/ph"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ _gaq.push(
+ ['projectTracker._setAccount', 'UA-18058-13'],
+ ['projectTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>
+ google-api-php-client -
+ 
+ 
+ Google APIs Client Library for PHP - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/5872825996519583439/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/5872825996519583439/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/5872825996519583439/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ 
+ .activity-level-High {
+ background:no-repeat url(https://ssl.gstatic.com/codesite/ph/images/activity-level.png) 0 0;
+ width: 16px;
+ height: 16px;
+ }
+ .activity-level-Low {
+ background:no-repeat url(https://ssl.gstatic.com/codesite/ph/images/activity-level.png) 0 -16px;
+ width: 16px;
+ height: 16px;
+ }
+ .activity-level-Medium {
+ background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/activity-level.png) -16px 0;
+ width: 16px;
+ height: 16px;
+ }
+ .activity-level-None {
+ background:no-repeat url(https://ssl.gstatic.com/codesite/ph/images/activity-level.png) -16px -16px;
+ width: 16px;
+ height: 16px;
+ }
+
+ .psicon-container {
+ min-width:24px;
+ }
+
+ 
+ </style>
+</head>
+<body class="t1">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoogle-api-php-client%2F&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoogle-api-php-client%2F" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/google-api-php-client">
+ <a href="/p/google-api-php-client/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/search-48.gif" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/google-api-php-client/"><span itemprop="name">google-api-php-client</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/google-api-php-client/"><span itemprop="description">Google APIs Client Library for PHP</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/google-api-php-client/" class="tab active">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ <a href="/p/google-api-php-client/downloads/list" class="tab ">Downloads</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/google-api-php-client/w/list" class="tab ">Wiki</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/google-api-php-client/issues/list"
+ class="tab ">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/google-api-php-client/source/checkout"
+ class="tab ">Source</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class=gtbc></div>
+</div>
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="st1">
+ <div class="isf">
+ <span class="inst1">
+ <a href="/p/google-api-php-client/">Summary</a>
+ </span>
+ 
+ 
+ 
+ &nbsp;
+ <span class="inst3">
+ <a href="/p/google-api-php-client/people/list">People</a>
+ </span>
+ 
+ 
+ </div>
+</div>
+
+ </td>
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+<table width="100%">
+ <tr class="pscontent">
+ <td class="pscolumnl">
+ 
+ <div class="phead">Project Information</div>
+ 
+ 
+ <div class="psicon" style="min-height:23px">
+ <g:plusone size="small" annotation="inline" width="200"></g:plusone>
+ </div>
+ 
+ 
+ <ul class="pslist">
+ 
+ 
+ 
+ 
+ <li class="psmeta">
+ <a href="/p/google-api-php-client/feeds">Project feeds</a>
+ </li>
+ <li class="psgap"/>
+ 
+ 
+ 
+ <li class="psmeta"><b>Code license</b></li>
+ <li class="psmeta">
+ <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow">Apache License 2.0</a>
+ 
+ </li>
+ <li class="psgap"/>
+ 
+ 
+ 
+ 
+ 
+ 
+ <li class="psmeta">
+ <span id="project_labels">
+ <b>Labels</b><br/>
+ 
+ <a class="label"
+ href="/hosting/search?q=label:PHP">PHP</a>, 
+ 
+ <a class="label"
+ href="/hosting/search?q=label:Gdata">Gdata</a>, 
+ 
+ <a class="label"
+ href="/hosting/search?q=label:API">API</a>, 
+ 
+ <a class="label"
+ href="/hosting/search?q=label:google">google</a>
+ 
+ </span>
+ </li>
+ <li class="psgap"/>
+ 
+ 
+ </ul>
+ <div class="psicon">
+ <div class="psicon-container goog-inline-block">
+ <div style="float:right" class="SPRITE_people-y16 goog-inline-block vt"></div>
+ </div>
+ <span><b>Members</b></span>
+ </div>
+ <ul class="pslist">
+ 
+ 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/110547825053290505051/">ianbar...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/100682245760160682928/">silv...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/118276561380249048216/">silvano....@gmail.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/chirags@google.com/">chirags@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/118051310819094153327/">chiragsh...@gmail.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/100604066747317821367/">afeld...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/100554834005084165212/">alopy...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/113609466358727998239/">mst...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/106703976254772448950/">sgl...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/111815493751521097215/">yan...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/111541293037698895607/">vicfry...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/113482085710852847492/">skotw...@google.com</a
+>
+ 
+ 
+ 
+ <li class="psmeta">
+ <a href="people/list">8 committers</a>
+ </li>
+ 
+ 
+ <li class="psgap"/>
+ 
+ 
+ </ul>
+ 
+ 
+ <div class="phead pfeatured">Featured</div>
+ 
+ <div class="psicon">
+ <div class="psicon-container goog-inline-block">
+ <div style="float:right" class="SPRITE_filedownload-g16 goog-inline-block vt"></div>
+ </div>
+ <span><b>Downloads</b></span>
+ </div>
+ <ul class="pslist">
+ 
+ <li class="psmeta nowrap">
+ <a title="Download" href="//google-api-php-client.googlecode.com/files/google-api-php-client-0.6.2.tar.gz" onclick="_gaq.push(['siteTracker._trackEvent', 'Download - Downloaded', '//google-api-php-client.googlecode.com/files/google-api-php-client-0.6.2.tar.gz', 'Featured']);_gaq.push(['projectTracker._trackEvent', 'Download - Downloaded', '//google-api-php-client.googlecode.com/files/google-api-php-client-0.6.2.tar.gz', 'Featured']);">
+ </a>
+ <a href="downloads/detail?name=google-api-php-client-0.6.2.tar.gz"
+ title="Google API PHP Client 0.6.2">google-api-php-client-0.6.2.tar.gz</a>
+ </li>
+ 
+ <li class="psmeta"><a href="downloads/list">Show all &raquo</a></li>
+ <li class="psgap"/>
+ </ul>
+ 
+ 
+ <div class="psicon">
+ <div class="psicon-container goog-inline-block">
+ <div style="float:right" class="SPRITE_paper_pencil-y16 goog-inline-block vt"></div>
+ </div>
+ <span><b>Wiki pages</b></span>
+ </div>
+ <ul class="pslist nowrap">
+ 
+ <li class="psmeta">
+ <a href="wiki/BecomingAContributor" title="How to become a contributor and submit patches"
+ >BecomingAContributor</a>
+ </li>
+ 
+ <li class="psmeta">
+ <a href="wiki/GettingStarted" title="Downloading and installing the Google API PHP client library."
+ >GettingStarted</a>
+ </li>
+ 
+ <li class="psmeta">
+ <a href="wiki/OAuth2" title="OAuth 2.0 in the client library"
+ >OAuth2</a>
+ </li>
+ 
+ <li class="psmeta">
+ <a href="wiki/Samples" title="Libraries and samples"
+ >Samples</a>
+ </li>
+ 
+ <li class="psmeta"><a href="w/list">Show all &raquo</a></li>
+ <li class="psgap"/>
+ </ul>
+ 
+ 
+ 
+ 
+ <div class="phead">Links</div>
+ <ul class="pslist" style="white-space:nowrap">
+ 
+ 
+ <li class="psmeta"><b>External links</b></li>
+ 
+ <li class="psmeta">
+ <a href="http://code.google.com/p/google-api-python-client/" rel="nofollow">Google API Python Client</a>
+ </li>
+ 
+ <li class="psmeta">
+ <a href="http://code.google.com/p/google-api-java-client/" rel="nofollow">Google API Java Client</a>
+ </li>
+ 
+ <li class="psmeta">
+ <a href="http://code.google.com/p/google-api-ruby-client/" rel="nofollow">Google API Ruby Client</a>
+ </li>
+ 
+ <li class="psgap"/>
+ 
+ 
+ <li class="psmeta"><b>Groups</b></li>
+ 
+ <li class="psmeta">
+ <a href="http://groups.google.com/group/google-api-php-client" rel="nofollow">Discuss</a>
+ </li>
+ 
+ <li class="psgap"/>
+ 
+ </ul>
+ 
+ </td>
+ <td id="wikicontent" class="psdescription">
+ <h1><a name="Google_APIs_Client_Library_for_PHP"></a>Google APIs Client Library for PHP <g:plusone size="medium" source="google:projecthosting"></g:plusone><a href="#Google_APIs_Client_Library_for_PHP" class="section_anchor"></a></h1><p>The Google API Client Library enables you to work with Google APIs such as Analytics, Adsense, Google+, Calendar, Moderator, Tasks, or Latitude on your server, in the language of your choice ( as long as it&#x27;s PHP :P ) </p><p><b>Status:</b> This library is currently <strong>beta</strong> and still under development. </p><h2><a name="Getting_up_and_running_in_60_seconds"></a>Getting up and running in 60 seconds<a href="#Getting_up_and_running_in_60_seconds" class="section_anchor"></a></h2><p>1) Download the <a href="http://google-api-php-client.googlecode.com/files/google-api-php-client-0.6.2.tar.gz" rel="nofollow">latest release file</a> </p><pre class="prettyprint">curl &quot;http://google-api-php-client.googlecode.com/files/google-api-php-client-0.6.2.tar.gz&quot; -O
+tar -xvf  google-api-php-client-0.6.2.tar.gz
+cd google-api-php-client/examples/</pre><p>2) Extract the library from the archive and copy the <tt>google-api-php-client</tt> directory to your project root. </p><p>3) Include and use the library in your project or take a look at an example under google-api-php-client/examples/plus. </p><pre class="prettyprint">&lt;?php
+require_once &#x27;google-api-php-client/src/Google_Client.php&#x27;;
+require_once &#x27;google-api-php-client/src/contrib/Google_PlusService.php&#x27;;
+
+// Set your cached access token. Remember to replace $_SESSION with a
+// real database or memcached.
+session_start();
+
+$client = new Google_Client();
+$client-&gt;setApplicationName(&#x27;Google+ PHP Starter Application&#x27;);
+// Visit https://code.google.com/apis/console?api=plus to generate your
+// client id, client secret, and to register your redirect uri.
+$client-&gt;setClientId(&#x27;insert_your_oauth2_client_id&#x27;);
+$client-&gt;setClientSecret(&#x27;insert_your_oauth2_client_secret&#x27;);
+$client-&gt;setRedirectUri(&#x27;insert_your_oauth2_redirect_uri&#x27;);
+$client-&gt;setDeveloperKey(&#x27;insert_your_simple_api_key&#x27;);
+$plus = new Google_PlusService($client);
+
+if (isset($_GET[&#x27;code&#x27;])) {
+  $client-&gt;authenticate();
+  $_SESSION[&#x27;token&#x27;] = $client-&gt;getAccessToken();
+  $redirect = &#x27;http://&#x27; . $_SERVER[&#x27;HTTP_HOST&#x27;] . $_SERVER[&#x27;PHP_SELF&#x27;];
+  header(&#x27;Location: &#x27; . filter_var($redirect, FILTER_SANITIZE_URL));
+}
+
+if (isset($_SESSION[&#x27;token&#x27;])) {
+  $client-&gt;setAccessToken($_SESSION[&#x27;token&#x27;]);
+}
+
+if ($client-&gt;getAccessToken()) {
+  $activities = $plus-&gt;activities-&gt;listActivities(&#x27;me&#x27;, &#x27;public&#x27;);
+  print &#x27;Your Activities: &lt;pre&gt;&#x27; . print_r($activities, true) . &#x27;&lt;/pre&gt;&#x27;;
+
+  // We&#x27;re not done yet. Remember to update the cached access token.
+  // Remember to replace $_SESSION with a real database or memcached.
+  $_SESSION[&#x27;token&#x27;] = $client-&gt;getAccessToken();
+} else {
+  $authUrl = $client-&gt;createAuthUrl();
+  print &quot;&lt;a href=&#x27;$authUrl&#x27;&gt;Connect Me!&lt;/a&gt;&quot;;
+}</pre><h2><a name="The_next_steps"></a>The next steps<a href="#The_next_steps" class="section_anchor"></a></h2><ul><li>Questions? You can find us on the <a href="https://groups.google.com/forum/#!forum/google-api-php-client" rel="nofollow">mailing list</a> </li><li><a href="/p/google-api-php-client/wiki/GettingStarted">Getting Started</a> has more information about how to register and add your own <a href="http://code.google.com/p/google-api-php-client/wiki/OAuth2" rel="nofollow">OAuth 2.0</a> keys, advanced configuration, and how to share one copy of the library between different projects. </li><li>We have a whole bunch of <a href="/p/google-api-php-client/wiki/Samples">code samples</a> </li><li>Want to contribute?  Check out <a href="/p/google-api-php-client/wiki/BecomingAContributor">this guide to becoming a contributor</a>. </li></ul><p><g:plusone size="medium" source="google:projecthosting"></g:plusone> </p>
+ </td>
+ </tr>
+</table>
+<script src="https://ssl.gstatic.com/codesite/ph/5872825996519583439/js/prettify/prettify_core_compiled.js"></script>
+<script type="text/javascript">
+ prettyPrint();
+</script>
+
+ 
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/5872825996519583439/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

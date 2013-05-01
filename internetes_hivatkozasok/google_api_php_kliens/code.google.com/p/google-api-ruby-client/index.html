@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="http://www.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"projectHomeUrl":"/p/google-api-ruby-client","domainName":null,"projectName":"google-api-ruby-client","token":null,"relativeBaseUrl":"","assetHostPath":"http://www.gstatic.com/codesite/ph","assetVersionPath":"http://www.gstatic.com/codesite/ph/5872825996519583439","profileUrl":null,"loggedInUserEmail":null};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ _gaq.push(
+ ['projectTracker._setAccount', 'UA-18058-10'],
+ ['projectTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>
+ google-api-ruby-client -
+ 
+ 
+ Google APIs Client Library for Ruby - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/5872825996519583439/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/5872825996519583439/css/ph_detail.css" >
+ 
+ 
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/5872825996519583439/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ 
+ .activity-level-High {
+ background:no-repeat url(http://www.gstatic.com/codesite/ph/images/activity-level.png) 0 0;
+ width: 16px;
+ height: 16px;
+ }
+ .activity-level-Low {
+ background:no-repeat url(http://www.gstatic.com/codesite/ph/images/activity-level.png) 0 -16px;
+ width: 16px;
+ height: 16px;
+ }
+ .activity-level-Medium {
+ background: no-repeat url(http://www.gstatic.com/codesite/ph/images/activity-level.png) -16px 0;
+ width: 16px;
+ height: 16px;
+ }
+ .activity-level-None {
+ background:no-repeat url(http://www.gstatic.com/codesite/ph/images/activity-level.png) -16px -16px;
+ width: 16px;
+ height: 16px;
+ }
+
+ .psicon-container {
+ min-width:24px;
+ }
+
+ 
+ </style>
+</head>
+<body class="t1">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=http%3A%2F%2Fcode.google.com%2Fp%2Fgoogle-api-ruby-client%2F&amp;followup=http%3A%2F%2Fcode.google.com%2Fp%2Fgoogle-api-ruby-client%2F" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/google-api-ruby-client">
+ <a href="/p/google-api-ruby-client/">
+ 
+ <img src="http://www.gstatic.com/codesite/ph/images/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/google-api-ruby-client/"><span itemprop="name">google-api-ruby-client</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/google-api-ruby-client/"><span itemprop="description">Google APIs Client Library for Ruby</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/google-api-ruby-client/" class="tab active">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/google-api-ruby-client/w/list" class="tab ">Wiki</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class=gtbc></div>
+</div>
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <td class="subt">
+ <div class="st1">
+ <div class="isf">
+ <span class="inst1">
+ <a href="/p/google-api-ruby-client/">Summary</a>
+ </span>
+ 
+ 
+ 
+ &nbsp;
+ <span class="inst3">
+ <a href="/p/google-api-ruby-client/people/list">People</a>
+ </span>
+ 
+ 
+ </div>
+</div>
+
+ </td>
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+>
+
+ 
+
+
+
+
+
+<table width="100%">
+ <tr class="pscontent">
+ <td class="pscolumnl">
+ 
+ <div class="phead">Project Information</div>
+ 
+ 
+ <div class="psicon" style="min-height:23px">
+ <g:plusone size="small" annotation="inline" width="200"></g:plusone>
+ </div>
+ 
+ 
+ <ul class="pslist">
+ 
+ 
+ 
+ 
+ <li class="psmeta">
+ <a href="/p/google-api-ruby-client/feeds">Project feeds</a>
+ </li>
+ <li class="psgap"/>
+ 
+ 
+ 
+ <li class="psmeta"><b>Code license</b></li>
+ <li class="psmeta">
+ <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow">Apache License 2.0</a>
+ 
+ </li>
+ <li class="psgap"/>
+ 
+ 
+ 
+ 
+ 
+ 
+ <li class="psmeta">
+ <span id="project_labels">
+ <b>Labels</b><br/>
+ 
+ <a class="label"
+ href="/hosting/search?q=label:Ruby">Ruby</a>, 
+ 
+ <a class="label"
+ href="/hosting/search?q=label:API">API</a>
+ 
+ </span>
+ </li>
+ <li class="psgap"/>
+ 
+ 
+ </ul>
+ <div class="psicon">
+ <div class="psicon-container goog-inline-block">
+ <div style="float:right" class="SPRITE_people-y16 goog-inline-block vt"></div>
+ </div>
+ <span><b>Members</b></span>
+ </div>
+ <ul class="pslist">
+ 
+ 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/bobaman@google.com/">bobaman@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/113609466358727998239/">mst...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/111815493751521097215/">yan...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/100604066747317821367/">afeld...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/102383647968207344192/">mimm...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/willnorris@google.com/">willnorris@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/102169232131428342982/">wo...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/112551196268481112795/">jhart...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/106703976254772448950/">sgl...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/101343531212106691203/">afuen...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/109052429299753016317/">sba...@google.com</a
+>, 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/113482085710852847492/">skotw...@google.com</a
+>
+ 
+ 
+ 
+ <li class="psmeta">
+ <a href="people/list">5 committers</a>
+ </li>
+ 
+ 
+ <li class="psgap"/>
+ 
+ 
+ </ul>
+ 
+ 
+ <div class="phead pfeatured">Featured</div>
+ 
+ 
+ <div class="psicon">
+ <div class="psicon-container goog-inline-block">
+ <div style="float:right" class="SPRITE_paper_pencil-y16 goog-inline-block vt"></div>
+ </div>
+ <span><b>Wiki pages</b></span>
+ </div>
+ <ul class="pslist nowrap">
+ 
+ <li class="psmeta">
+ <a href="wiki/Batch" title="Batching requests"
+ >Batch</a>
+ </li>
+ 
+ <li class="psmeta">
+ <a href="wiki/FAQ" title="Answers to common issues!"
+ >FAQ</a>
+ </li>
+ 
+ <li class="psmeta"><a href="w/list">Show all &raquo</a></li>
+ <li class="psgap"/>
+ </ul>
+ 
+ 
+ 
+ 
+ </td>
+ <td id="wikicontent" class="psdescription">
+ <h1><a name="Google_API_Client"></a>Google API Client<a href="#Google_API_Client" class="section_anchor"></a></h1><p>IMPORTANT: Primary development has <a href="https://github.com/google/google-api-ruby-client" rel="nofollow">moved to our Github repository</a> Please report issue there. </p><h2><a name="Description"></a>Description<a href="#Description" class="section_anchor"></a></h2><p>The Google API Ruby Client makes it trivial to discover and access <a href="https://developers.google.com/apis-explorer/" rel="nofollow">Google APIs</a>. </p><h2><a name="Install"></a>Install<a href="#Install" class="section_anchor"></a></h2><p>Be sure <tt>http://rubygems.org/</tt> is in your gem sources. </p><p>For normal client usage, this is sufficient: </p><pre class="prettyprint">    $ sudo gem install google-api-client</pre><h2><a name="Example_Usage"></a>Example Usage<a href="#Example_Usage" class="section_anchor"></a></h2><pre class="prettyprint">    # Initialize the client &amp; Google+ API
+    require &#x27;google/api_client&#x27;
+    client = Google::APIClient.new
+    plus = client.discovered_api(&#x27;plus&#x27;)
+
+    # Initialize OAuth 2.0 client    
+    client.authorization.client_id = &#x27;&lt;CLIENT_ID_FROM_API_CONSOLE&gt;&#x27;
+    client.authorization.client_secret = &#x27;&lt;CLIENT_SECRET&gt;&#x27;
+    client.authorization.redirect_uri = &#x27;&lt;YOUR_REDIRECT_URI&gt;&#x27;
+    
+    client.authorization.scope = &#x27;https://www.googleapis.com/auth/plus.me&#x27;
+
+    # Request authorization
+    redirect_uri = client.authorization.authorization_uri
+
+    # Wait for authorization code then exchange for token
+    client.authorization.code = &#x27;....&#x27;
+    client.authorization.fetch_access_token!
+
+    # Make an API call
+    result = client.execute(
+      :api_method =&gt; plus.activities.list,
+      :parameters =&gt; {&#x27;collection&#x27; =&gt; &#x27;public&#x27;, &#x27;userId&#x27; =&gt; &#x27;me&#x27;}
+    )
+
+    puts result.data</pre><h2><a name="API_Features"></a>API Features<a href="#API_Features" class="section_anchor"></a></h2><h3><a name="API_Discovery"></a>API Discovery<a href="#API_Discovery" class="section_anchor"></a></h3><p>To take full advantage of the client, load API definitions prior to use. To load an API: </p><pre class="prettyprint">    urlshortener = client.discovered_api(&#x27;urlshortener&#x27;)</pre><p>Specific versions of the API can be loaded as well: </p><pre class="prettyprint">    drive = client.discovered_api(&#x27;drive&#x27;, &#x27;v2&#x27;)</pre><p>Locally cached discovery documents may be used as well. To load an API from a local file: </p><pre class="prettyprint">    doc = File.read(&#x27;my-api.json&#x27;)
+    my_api = client.register_discovery_document(&#x27;myapi&#x27;, &#x27;v1&#x27;, doc)</pre><h3><a name="Authorization"></a>Authorization<a href="#Authorization" class="section_anchor"></a></h3><p>Most interactions with Google APIs require users to authorize applications via OAuth 2.0. The client library uses <a href="https://github.com/google/signet" rel="nofollow">Signet</a> to handle most aspects of authorization. For additional details about Google&#x27;s OAuth support, see <a href="https://developers.google.com/accounts/docs/OAuth2" rel="nofollow">Google Developers</a>.  </p><p>Credentials can be managed at the connection level, as shown, or supplied on a per-request basis when calling <tt>execute</tt>.      For server-to-server interactions, like those between a web application and Google Cloud Storage, Prediction, or BigQuery APIs, use service accounts. Assertions for service accounts are made with <tt>Google::APIClient::JWTAsserter</tt>. </p><pre class="prettyprint">    client = Google::APIClient.new
+    key = Google::APIClient::PKCS12.load_key(&#x27;client.p12&#x27;, &#x27;notasecret&#x27;)
+    service_account = Google::APIClient::JWTAsserter.new(
+        &#x27;123456-abcdef@developer.gserviceaccount.com&#x27;,
+        &#x27;https://www.googleapis.com/auth/prediction&#x27;,
+        key)
+    client.authorization = service_account.authorize</pre><h3><a name="Batching_Requests"></a>Batching Requests<a href="#Batching_Requests" class="section_anchor"></a></h3><p>Some Google APIs support batching requests into a single HTTP request. Use <tt>Google::APIClient::BatchRequest</tt> to bundle multiple requests together. </p><p>Example: </p><pre class="prettyprint">    client = Google::APIClient.new
+    urlshortener = client.discovered_api(&#x27;urlshortner&#x27;)
+    
+    batch = Google::APIClient::BatchRequest.new do |result|
+        puts result.data
+    end
+    
+    batch.add(:api_method=&gt;urlshortener.url.insert, 
+              :body_object =&gt; { &#x27;longUrl&#x27; =&gt; &#x27;http://example.com/foo&#x27; })
+    batch.add(:api_method=&gt;urlshortener.url.insert, 
+              :body_object =&gt; { &#x27;longUrl&#x27; =&gt; &#x27;http://example.com/bar&#x27; })
+    client.execute(batch)</pre><p>  Blocks for handling responses can be specified either at the batch level or when adding an individual API call. For example: </p><pre class="prettyprint">    batch.add(:api_method=&gt;urlshortener.url.insert, :body_object =&gt; { &#x27;longUrl&#x27; =&gt; &#x27;http://example.com/bar&#x27; }) do |result|
+       puts result.data
+    end</pre><h3><a name="Media_Upload"></a>Media Upload<a href="#Media_Upload" class="section_anchor"></a></h3><p>For APIs that support file uploads, use <tt>Google::APIClient::UploadIO</tt> to load the stream. Both multipart and resumable uploads can be used. For example, to upload a file to Google Drive using multipart </p><pre class="prettyprint">    drive = client.discovered_api(&#x27;drive&#x27;, &#x27;v2&#x27;)
+   
+    media = Google::APIClient::UploadIO.new(&#x27;mymovie.m4v&#x27;, &#x27;video/mp4&#x27;)
+    metadata = {
+        &#x27;title&#x27; =&gt; &#x27;My movie&#x27;,
+        &#x27;description&#x27; =&gt; &#x27;The best home movie ever made&#x27;
+    }
+    client.execute(:api_method =&gt; drive.files.insert,
+                   :parameters =&gt; { &#x27;uploadType&#x27; =&gt; &#x27;multipart&#x27; },
+                   :body_object =&gt; metadata,
+                   :media =&gt; media )</pre><p>To use resumable uploads, change the <tt>uploadType</tt> parameter to <tt>resumable</tt>. To check the status of the upload and continue if necessary, check <tt>result.resumable_upload</tt>. </p><pre class="prettyprint">    client.execute(:api_method =&gt; drive.files.insert,
+               :parameters =&gt; { &#x27;uploadType&#x27; =&gt; &#x27;resumable&#x27; },
+               :body_object =&gt; metadata,
+               :media =&gt; media )
+    upload = result.resumable_upload
+
+    # Resume if needed
+    if upload.resumable?
+        client.execute(upload)
+    end</pre><h2><a name="Command_Line"></a>Command Line<a href="#Command_Line" class="section_anchor"></a></h2><p>Included with the gem is a command line interface for working with Google APIs. </p><pre class="prettyprint">    # Log in
+    google-api oauth-2-login --client-id=&#x27;...&#x27; --client-secret=&#x27;...&#x27; --scope=&quot;https://www.googleapis.com/auth/plus.me&quot;
+
+    # List the signed-in user&#x27;s activities
+    google-api execute plus.activities.list --api=plus -- userId=&quot;me&quot; collection=&quot;public&quot;
+
+    # Start an interactive API session
+    google-api irb
+    &gt;&gt; plus = $client.discovered_api(&#x27;plus&#x27;)
+    &gt;&gt; $client.execute(plus.activities.list, {&#x27;userId&#x27; =&gt; &#x27;me&#x27;, &#x27;collection&#x27; =&gt; &#x27;public&#x27;})
+    =&gt; # returns a response from the API</pre><p>For more information, use <tt>google-api --help</tt> </p><h2><a name="Documentation"></a>Documentation<a href="#Documentation" class="section_anchor"></a></h2><p>Reference documentation is for the client library is available at <a href="http://rubydoc.info/github/google/google-api-ruby-client/frames" rel="nofollow">RubyDoc.info</a>. </p><h2><a name="Samples"></a>Samples<a href="#Samples" class="section_anchor"></a></h2><p>See the full list of <a href="http://code.google.com/p/google-api-ruby-client/source/browse?repo=samples" rel="nofollow">samples on Google Code</a>. </p><h2><a name="Support"></a>Support<a href="#Support" class="section_anchor"></a></h2><p>Please <a href="http://code.google.com/p/google-api-ruby-client/issues/entry" rel="nofollow">report bugs at the project on Google Code</a>. Don&#x27;t hesitate to <a href="http://stackoverflow.com/questions/tagged/google-api-ruby-client" rel="nofollow">ask questions</a> about the client or APIs on <a href="http://stackoverflow.com" rel="nofollow">StackOverflow</a>. </p>
+ </td>
+ </tr>
+</table>
+<script src="http://www.gstatic.com/codesite/ph/5872825996519583439/js/prettify/prettify_core_compiled.js"></script>
+<script type="text/javascript">
+ prettyPrint();
+</script>
+
+ 
+ 
+ 
+ <script type="text/javascript" src="http://www.gstatic.com/codesite/ph/5872825996519583439/js/ph_core.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+

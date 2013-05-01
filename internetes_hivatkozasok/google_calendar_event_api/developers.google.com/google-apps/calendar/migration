@@ -1,0 +1,3107 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  <head>
+    <meta charset="utf-8" />
+    <script src="/_static/js/script_head.js"></script>
+    <link rel="stylesheet" type="text/css" href="/_static/css/screen.css" />
+    <link rel="shortcut icon" href="/_static/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/_static/images/apple-touch-icon.png">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script id="jqueryui" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="//www.google.com/jsapi?key=AIzaSyCZfHRnq7tigC-COeQRmoa9Cxr0vbrK6xw"></script>
+
+    <script type="text/javascript" src="//www.gstatic.com/feedback/api.js"></script>
+    <script type="text/javascript" src="/jsi18n/"></script>
+    <!--[if lt IE 9]>
+    <script src="/_static/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Google Calendar API Version 3.0 Migration Guide - Google Apps Platform &mdash; Google Developers</title>
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="/google-apps/css/apps.css" />
+  
+
+
+    
+    
+
+  </head>
+  <body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="/">
+    <img src="/_static/images/developers-logo.svg" alt="Google"/>
+  </a>
+<script>
+if (!Modernizr || !Modernizr.svg) {
+  $('#gc-logo img').attr({src:'/_static/images/developers-logo.png'});
+}
+</script>
+
+  <div class="gc-social">
+    
+    <span class='signed-out'>
+      <a href="/setup?state=%2Fgoogle-apps%2Fcalendar%2Fmigration" id="loginLink" class="button">Sign in</a>
+    </span>
+    
+  </div>
+
+  <form class="gc-search" action="/search/results" method="GET">
+    <div class="searchbox">
+      
+      
+        <span class="button button-blue mini">Google Calendar API</span>
+      
+      <input type="text" name="q" class="q" id="q" value="" placeholder='Search' autocomplete="off" />
+    </div>
+    <button class="button button-blue">
+      <img src="/_static/images/search.png" alt="Search"/>
+    </button>
+    
+      <input type="hidden" name="p" id="search_project" value="/google-apps/calendar" />
+    
+  </form>
+
+</header>
+
+
+<script>
+  var a=!1,h=window.devsite||{};window.devsite=h;var _gaq=_gaq||[];WebFontConfig={google:{families:["Open+Sans"]}};h.location=window.location;h.reloadWindow=function(){h.location.reload()};h.openWindow=window.open;h.devsite=h.devsite||{};h.devsite.dialogConfig={autoOpen:a,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:a,draggable:a,zIndex:9999};h.KD_FADE_LONG=218;h.KD_FADE_SHORT=130;h.progress=h.progress||{};h.progress.INTERVAL_TIME_MS=460;h.progress.MAX_LOOP=100;h.progress.RIGHT_MARGIN=6;h.progress.TOP_MARGIN=-15;
+h.progress.kennedyProgressDot=function(c){var b=c.parent().find(".progress");b.remove();h.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';h.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';b=
+$("<div></div>").prop("id","loader").prop("class","yellow").html(h.progress.spinnerHtml);b.find(".red").html(h.progress.circleInnerHtml);b.find(".blue").html(h.progress.circleInnerHtml);b.find(".green").html(h.progress.circleInnerHtml);b.find(".yellow").html(h.progress.circleInnerHtml);b.css({position:"absolute",right:h.progress.RIGHT_MARGIN+"px",top:h.progress.TOP_MARGIN+"px"});c.parent().append(b);c=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=b;this.loopCount=
+0;this.shouldStop=a};c.prototype.start=function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},h.progress.INTERVAL_TIME_MS)};c.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),
+b.remove()):(this.colorIndex=(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>h.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};c.prototype.stop=function(){this.shouldStop=!0};var e=new c;return c={start:function(){$.fx.off||e.start()},clear:function(){b.remove()},error:function(){e.stop()}}};h.progress=h.progress||{};
+h.progress.progressDot=function(c){function b(){d+=1;100>d&&f.animate({opacity:"toggle"},h.KD_FADE_LONG,b)}var e=6,f=c.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":e+"px",border:e+"px solid #3D9400",right:e+"px",top:c.parent().height()/2-e+"px",width:0,height:0});c.parent().append(f);var d=0;return c={start:function(){$.fx.off||b()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:e+"px solid #DD4B39"})}}};h.location=window.location;h.setTimeout=function(){return window.setTimeout.apply(window,arguments)};h.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};h.localInit=function(){h.search.init()};h.search={KEY_ESC:27,fadeTime:h.KD_FADE_SHORT,keyDelay:300};
+h.search.init=function(){h.search.initResultHandlers();var c=$(".gc-search");c.submit(function(){if(window.devsite.geo){var b=window.devsite.geo.lat+","+window.devsite.geo.lon,b=$('<input type="hidden" name="l"/>').val(b);c.append(b)}});var b=$("#q");b.unbind("keyup click");b.bind("keyup click",function(b){h.search.timeout&&h.clearTimeout(h.search.timeout);$(this).val()&&b.keyCode!=h.search.KEY_ESC?h.search.timeout=h.setTimeout(function(){h.search.updateResults()},h.search.keyDelay):h.search.removeAutocomplete()});
+var b=$(".searchbox").children(".button"),e=$("#restrict input");(e.is(":checked")||0==e.length&&0!=b.length)&&h.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?h.search.grow($("#restrict input").val()):h.search.shrink();h.search.updateResults();$("#q").focus()})};
+h.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var c={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",c,function(b){b&&(h.location.href=b)});return a})};h.search.fadeOutIfExists=function(c,b,e){c&&c.length?c.fadeOut(b,e):e()};h.search.removeAutocomplete=function(){var c=$(".search-autocomplete");c.remove();h.search.lastQ=null};
+h.search.grow=function(c){var b=$("#q"),e=$(".searchbox"),f=$(".gc-search").children("button"),d=e.children(".button");if(c){var d=b.val(),g=$(".results").data("query-match");g&&b.val(d.substr(g.length+1));d=$("<span></span>");d.addClass("button button-blue mini");d.text($("#restrict").find("span").text());d.data("query-match",g);e.prepend(d);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:c});$(".gc-search").append(g)}d.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+c=d.outerWidth(!0);var l=e.outerWidth(!0)+c;e.css("width",l+"px");b.css("width",g+"px");b=f.offset();b.left+=c+10;f.offset(b);f=function(){h.search.shrink();$("#q").focus()};d.click(f)};
+h.search.shrink=function(){var c=$("#q"),b=$(".searchbox"),e=b.children("input"),f=b.children(".button"),d=f.data("query-match");d&&e.val($.trim(d)+" "+e.val());e=$(".gc-search").children("button");$("#restrict input").prop("checked",a);$("#search_project").remove();d=f.outerWidth(!0);f.remove();f=e.offset();f.left-=d+10;b.css("width","");c.css("width","100%");e.offset(f)};
+h.search.updateResults=function(){var c=$(".searchbox"),b=$("#q"),e=$("#search_project"),f={q:$.trim(b.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);e&&e.val()&&(f.p=escape(e.val()));if(!h.search.lastQ||!(h.search.lastQ.q==f.q&&h.search.lastQ.p==f.p)){h.search.lastQ=f;h.search.xhr&&h.search.xhr.abort();var d=$(".search-results");f.n=d.data("n")||4;var g=h.progress.kennedyProgressDot(b);g.start();h.search.xhr=$.get("/search/results",f,function(e){g.clear();
+e&&($("#what-q").text(f.q),d=$(".search-results"),h.search.fadeOutIfExists(d,h.search.fadeTime,function(){d.empty();if($.trim(e).length){if(!d.length){d=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(d);var g=c.offset();d.css({position:"absolute",top:g.top+c.outerHeight()+3,left:g.left})}d.append(e);var g=$("#search-next"),k=d.children(".results").data("c");g.length?k?(g.attr("href","/search/results?c="+encodeURIComponent(k)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(c){!$.contains(d.get(0),c.target)&&(!d.is(c.target)&&!b.is(c.target))&&d.hasClass("search-autocomplete")&&(h.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});h.search.initResultHandlers();d.fadeIn(h.search.fadeTime)}}))});h.search.xhr.error(function(){g.error()})}};
+
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      window.devsite.search.init();
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    
+
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1" />
+      
+
+      
+
+      <div id="gc-topnav">
+        <div>
+
+          
+          
+
+          <ul>
+
+            
+            
+
+            
+            
+            
+            
+            <li class=""><a href="/">Home</a></li>
+            
+            <li class="active"><a href="/products/">Products</a></li>
+            
+            <li class=""><a href="/events/">Conferences</a></li>
+            
+            <li class=""><a href="/showcase/">Showcase</a></li>
+            
+            <li class=""><a href="/live/">Live</a></li>
+            
+            <li class=""><a href="/groups/">Groups</a></li>
+            
+
+            
+            
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+
+      
+      
+      
+        <div id="gc-appbar">
+          
+          
+<h1>
+
+  <a href="/google-apps/">Google Apps Platform</a>
+  <div class="plusone-container">
+    <div class="g-plusone"
+      data-href="https://developers.google.com/google-apps/calendar/migration"
+      data-size="medium"
+      data-source="google:developers"></div>
+  </div>
+
+
+
+
+
+
+</h1>
+
+
+          
+        </div>
+      
+      
+
+      
+        
+      <div id="gc-main">
+        
+        
+  
+  
+      
+      
+      <div id="gc-sidebar">
+        
+
+  
+
+
+
+  <nav class="gc-toc"><ul><li class=""><a href="/google-apps/calendar" data-title="Google Calendar API v3"><span>Google Calendar API v3</span></a><ul><li class=""><span class="tlw-title" data-title="Get Started">Get Started</span><ul><li class=""><a href="/google-apps/calendar/get_started" data-title="Ways to Get Started"><span>Ways to Get Started</span></a></li><li class=""><a href="/google-apps/calendar/concepts" data-title="Calendar Concepts"><span>Calendar Concepts</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Your First App">Your First App</span><ul><li class=""><a href="/google-apps/calendar/firstapp" data-title="Prerequisites"><span>Prerequisites</span></a></li><li class=""><a href="/google-apps/calendar/setup" data-title="Set up a Client Library"><span>Set up a Client Library</span></a></li><li class=""><a href="/google-apps/calendar/instantiate" data-title="Configure your App"><span>Configure your App</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="How-To Guides">How-To Guides</span><ul><li class=""><a href="/google-apps/calendar/recurringevents" data-title="Create Recurring Events"><span>Create Recurring Events</span></a></li><li class=""><a href="/google-apps/calendar/auth" data-title="Authorize Requests"><span>Authorize Requests</span></a></li><li class=""><a href="/google-apps/calendar/performance" data-title="Improve Performance"><span>Improve Performance</span></a></li><li class=""><a href="/google-apps/calendar/batch" data-title="Batch Support"><span>Batch Support</span></a></li><li class=""><a href="/google-apps/calendar/migration" data-title="Migrate to v3"><span>Migrate to v3</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference" data-title="Reference"><span>Reference</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/acl" data-title="Acl"><span>Acl</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/acl/delete" data-title="delete"><span>delete</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/insert" data-title="insert"><span>insert</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/list" data-title="list"><span>list</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/update" data-title="update"><span>update</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/acl/patch" data-title="patch"><span>patch</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList" data-title="CalendarList"><span>CalendarList</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/delete" data-title="delete"><span>delete</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/insert" data-title="insert"><span>insert</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/list" data-title="list"><span>list</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/update" data-title="update"><span>update</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendarList/patch" data-title="patch"><span>patch</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars" data-title="Calendars"><span>Calendars</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/calendars/clear" data-title="clear"><span>clear</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/delete" data-title="delete"><span>delete</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/insert" data-title="insert"><span>insert</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/update" data-title="update"><span>update</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/calendars/patch" data-title="patch"><span>patch</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/colors" data-title="Colors"><span>Colors</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/colors/get" data-title="get"><span>get</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/events" data-title="Events"><span>Events</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/events/delete" data-title="delete"><span>delete</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/import" data-title="import"><span>import</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/insert" data-title="insert"><span>insert</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/instances" data-title="instances"><span>instances</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/list" data-title="list"><span>list</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/move" data-title="move"><span>move</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/quickAdd" data-title="quickAdd"><span>quickAdd</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/update" data-title="update"><span>update</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/events/patch" data-title="patch"><span>patch</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/freebusy" data-title="Freebusy"><span>Freebusy</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/freebusy/query" data-title="query"><span>query</span></a></li></ul></li><li class=""><a href="/google-apps/calendar/v3/reference/settings" data-title="Settings"><span>Settings</span></a><ul><li class=""><a href="/google-apps/calendar/v3/reference/settings/get" data-title="get"><span>get</span></a></li><li class=""><a href="/google-apps/calendar/v3/reference/settings/list" data-title="list"><span>list</span></a></li></ul></li></ul></li><li class=""><a href="/google-apps/calendar/downloads" data-title="Downloads"><span>Downloads</span></a></li><li class=""><a href="/google-apps/calendar/pricing" data-title="Usage Limits"><span>Usage Limits</span></a></li><li class=""><a href="/google-apps/calendar/v3/whats-new" data-title="What&#39;s New in v3"><span>What&#39;s New in v3</span></a></li></ul></li></ul><hr/><ul><li class="deprecated"><a href="/google-apps/calendar/v2/developers_guide_protocol" data-title="Google Calendar API v2"><span>Google Calendar API v2<sup>Deprecated</sup></span></a><ul><li class=""><a href="/google-apps/calendar/v2/developers_guide_protocol" data-title="Protocol Guide"><span>Protocol Guide</span></a></li><li class=""><a href="/google-apps/calendar/v2/developers_guide_dotnet" data-title=".NET Guide"><span>.NET Guide</span></a></li><li class=""><a href="/google-apps/calendar/v2/developers_guide_java" data-title="Java Guide"><span>Java Guide</span></a></li><li class=""><a href="/google-apps/calendar/v2/developers_guide_python" data-title="Python Guide"><span>Python Guide</span></a></li><li class=""><a href="/google-apps/calendar/v2/reference" data-title="Atom Reference"><span>Atom Reference</span></a></li><li class=""><a href="/google-apps/calendar/v2/faq" data-title="FAQ"><span>FAQ</span></a></li></ul></li></ul><hr/><ul><li class="deprecated"><a href="/google-apps/calendar/v1/developers_guide_protocol" data-title="Google Calendar API v1"><span>Google Calendar API v1<sup>Deprecated</sup></span></a><ul><li class=""><a href="/google-apps/calendar/v1/developers_guide_protocol" data-title="Protocol Guide"><span>Protocol Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/developers_guide_dotnet" data-title=".NET Guide"><span>.NET Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/developers_guide_java" data-title="Java Guide"><span>Java Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/developers_guide_python" data-title="Python Guide"><span>Python Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/developers_guide_javascript" data-title="JavaScript Guide"><span>JavaScript Guide</span></a></li><li class=""><a href="/google-apps/calendar/v1/reference" data-title="Atom Reference"><span>Atom Reference</span></a></li></ul></li></ul><hr/><ul><li class=""><a href="/google-apps/calendar/gadgets" data-title="Calendar Gadgets"><span>Calendar Gadgets</span></a><ul><li class=""><a href="/google-apps/calendar/gadgets/event/" data-title="Event Gadgets"><span>Event Gadgets</span></a></li><li class=""><a href="/google-apps/calendar/gadgets/sidebar/" data-title="Sidebar Gadgets"><span>Sidebar Gadgets</span></a></li></ul></li></ul><hr/><ul><li class=""><a href="/google-apps/calendar/caldav" data-title="CalDAV Developer&#39;s Guide"><span>CalDAV Developer&#39;s Guide</span></a></li></ul><hr/><ul><li class=""><a href="https://groups.google.com/forum/embed/?place=forum/google-calendar-api&amp;showsearch=true" data-title="Discussions"><span>Discussions</span></a></li><li class=""><a href="http://code.google.com/a/google.com/p/apps-api-issues/issues/list?q=label:API-Calendar" data-title="Issue Tracker"><span>Issue Tracker</span></a></li></ul><hr/><ul><li class=""><a href="/google-apps/calendar/terms" data-title="Terms of Service"><span>Terms of Service</span></a></li></ul></nav>
+
+
+
+      </div>
+      
+
+      <div id="gc-content"
+           
+           
+           >
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title" >Google Calendar API Version 3.0 Migration Guide</h1>
+  
+  <div itemprop="articleBody">
+  
+  <h2>Contents</h2>
+  <nav class="inline-toc">
+  <ol>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#resources">Migrating resources</a>
+      <ol>
+        <li><a href="#events">Migrating event resources</a></li>
+        <li><a href="#calendars">Migrating calendar resources</a></li>
+        <li><a href="#settings">Migrating setting resources</a></li>
+        <li><a href="#acl">Migrating access control rule resources</a></li>
+      </ol>
+    </li>
+  </ol>
+  </nav>
+  
+  <h2 id="intro">Introduction</h2>
+  <p>This document is intended for developers that are already familiar with <a href="/google-apps/calendar/v2/reference">v2</a> of the Google Calendar API and who want to migrate to v3.</p>
+  <p>This guide assumes that you are already familiar with the new concepts introduced by v3 and have read the <a href="get_started.html">Get Started</a> and <a href="/google-apps/calendar/v3/reference/">API Reference</a>.</p>
+
+  <h2 id="resources">Migrating resources</h2>
+
+  <p>v3 of the Google Calendar API is built on Google's new APIs infrastructure which makes it backward incompatible with older versions built on top of the <a href="/gdata/">Google Data Protocol</a>.</p>
+  <p>More information about v3 resources can be found in the <a href="/google-apps/calendar/v3/reference/">API Reference</a>.</p>
+
+  <h3 id="events">Migrating event resources</h3>
+  
+  <p>The <a href="/gdata/docs/2.0/elements#gdEventKind">event kind entry</a> from v2 has been moved to the <a href="/google-apps/calendar/v3/reference/events">event resource</a> in v3.</p>
+  <p>The following tables map the v2 event kind's sub-elements to their corresponding event resource attributes for the supported programming languages.</p>
+  
+ <div id="code-sample" class="ds-selector-tabs" data-ds-scope="code-sample">
+    <section>
+      <h3>Protocol</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li><pre class="prettyprint">&lt;atom:entry&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:author&gt;
+    &lt;atom:name&gt;displayName&lt;/atom:name&gt;
+    &lt;atom:email&gt;email&lt;/atom:email&gt;
+  &lt;/atom:author&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:id&gt;
+    http://www.google.com/calendar/feeds/calendarId/events/eventId
+  &lt;/atom:id&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:updated&gt;updatedDateTime&lt;/atom:updated&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:category scheme=&quot;http://schemas.google.com/g/2005#kind&quot;
+    term=&quot;http://schemas.google.com/g/2005#event&quot;/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:content&gt;<var>description</var>&lt;/atom:content&gt;</pre>
+        <li><pre class="prettyprint">  &lt;atom:link rel="<b>alternate</b>" type="text/html" href="<var>htmlLink</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:title&gt;<var>title</var>&lt;/atom:title&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdComments">gd:comments</a>&gt;
+    &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdFeedLink">gd:feedLink</a> href="<var>commentsFeedLink</var>"/&gt;
+  &lt;/<a href="/apis/gdata/docs/2.0/elements.html#gdComments">gd:comments</a>&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdEventStatus">gd:eventStatus</a> value="<var>eventStatus</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt!-- ... --&gt;
+  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdExtendedProperty">gd:extendedProperty</a> name="<var>name</var>" value="<var>value</var>"/&gt;
+  &lt!-- ... --&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdOriginalEvent">gd:originalEvent</a> href="<var>originalEventAtomId</var>"
+      id="<var>originalEventId</var>"&gt;
+    &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdWhen">gd:when</a> startTime="<var>originalStartTime</var>"/&gt;
+  &lt;/<a href="/apis/gdata/docs/2.0/elements.html#gdOriginalEvent">gd:originalEvent</a>&gt;</pre></li>
+      <li><pre class="prettyprint">  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdRecurrence">gd:recurrence</a>&gt;
+    DTSTART;<var>dtStart</var>
+    DTEND;<var>dtEnd</var>
+    <b><var>RRULE</var></b>
+  &lt;/<a href="/apis/gdata/docs/2.0/elements.html#gdRecurrence">gd:recurrence</a>&gt;</pre></li>
+      <li><pre class="prettyprint">  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdTransparency">gd:transparency</a>
+      value="http://schemas.google.com/g/2005#event.<var>transparency</var>"/&gt;</pre></li>
+      <li><pre class="prettyprint">  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdVisibility">gd:visibility</a>
+      value="http://schemas.google.com/g/2005#event.<var>visibility</var>"/&gt;</pre></li>
+      <li><pre class="prettyprint">  &lt;!-- All day event  --&gt;
+  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdWhen">gd:when</a> startTime="<var>startDate</var>" endTime="<var>endDate</var>"&gt;
+    &lt;gCal:displayTimezone
+        start="<var>startTimeZone</var>" end="<var>endTimeZone</var>"/&gt;
+  &lt;/<a href="/apis/gdata/docs/2.0/elements.html#gdWhen">gd:when</a>&gt;
+  &lt;!-- Event that takes place in a specific point in time  --&gt;
+  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdWhen">gd:when</a> startTime="<var>startTime</var>" endTime="<var>endTime</var>"&gt;
+    &lt;gCal:displayTimezone
+        start="<var>startTimeZone</var>" end="<var>endTimeZone</var>"/&gt;
+  &lt;/<a href="/apis/gdata/docs/2.0/elements.html#gdWhen">gd:when</a>&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;!-- &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdWhen">gd:when</a> startTime="<var>startTime</var>" endTime="<var>endTime</var>"&gt; --&gt;
+    &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdReminder">gd:reminder</a> method="<var>reminderMethod</var>"
+        minutes="<var>minutes</var>"/&gt;
+  &lt;!-- &lt;/<a href="/apis/gdata/docs/2.0/elements.html#gdWhen">gd:when</a>&gt; --&gt;</pre>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdWhere">gd:where</a> valueString="<var>location</var>" /&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdWho">gd:who</a> email="<var>attendeeEmail</var>"
+      rel="http://schemas.google.com/g/2005#event.attendee"
+      valueString="<var>displayName</var>"&gt;
+    &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdAttendeeStatus">gd:attendeeStatus</a>
+        value="http://schemas.google.com/g/2005#event.<var>attendeeStatus</var>"/&gt;
+    &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdAttendeeType">gd:attendeeType</a> value="<var>attendeeType</var>"/&gt;
+  &lt;/<a href="/apis/gdata/docs/2.0/elements.html#gdWho">gd:who</a>&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalsequence">gCal:sequence</a> value="<var>sequence</var>" /&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCaluid">gCal:uid</a> value="<var>uid</var>" /&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:link rel="http://schemas.google.com/gCal/2005/webContent"
+      href="<var>gadgetIcon</var>"
+      title="<var>gadgetTitle</var>"
+      type="<var>gadgetType</var>"&gt;
+    &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalwebContent">gCal:webContent</a> url="<var>gadgetURL</var>"
+        width="<var>gadgetWidth" height="<var>gadgetHeight</var>"&gt;
+      &lt;gCal:webContentGadgetPref name="<var>preferenceKey</var>"
+        value="<var>preferenceValue</var>" /&gt;
+    &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalwebContent">gCal:webContent</a>&gt;
+  &lt;/atom:link&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalguestsCanModify">gCal:guestsCanModify</a> value="<var>guestsCanModify</var>" /&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalguestsCanInviteOthers">gCal:guestsCanInviteOthers</a> value="<var>guestsCanInviteOthers</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalguestsCanSeeGuests">gCal:guestsCanSeeGuests</a> value="<var>guestsCanSeeGuests</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">&lt;/atom:entry&gt;</pre></li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li><pre class="prettyprint">{</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_creator">creator</a>": {
+    "<a href="reference.html#property_events_creator_displayName">displayName</a>": "displayName",
+    "<a href="reference.html#property_events_creator_email">email</a>": "email"
+  },</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_id">id</a>": "eventId",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_updated">updated</a>": "updatedDateTime",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_kind">kind</a>": "calendar#event",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_description">description</a>": "<var>description</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_htmlLink">htmlLink</a>": "<var>htmlLink</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_summary">summary</a>": "<var>title</var>",</pre></li>
+        <li><pre class="prettyprint">  # Comments have been deprecated</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_status">status</a>": "eventStatus",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_extendedProperties">extendedProperties</a>": {
+    "<a href="reference.html#property_events_extendedProperties_private">private</a>": {
+      "<a href="reference.html#property_events_extendedProperties_private_"><var>privateName</var></a>": <var>privateValue</var>,
+      # ...
+    },
+    "<a href="reference.html#property_events_extendedProperties_shared">shared</a>": {
+      "<a href="reference.html#property_events_extendedProperties_shared_"><var>sharedName</var></a>": <var>sharedValue</var>,
+      # ...
+    }
+  }</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_recurringEventId">recurringEventId</a>": <var>originalEventId</var>,
+  "<a href="reference.html#property_events_originalStartTime">originalStartTime</a>": <var>originalStartTime</var>,</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_recurrence">recurrence</a>": [
+    "<b><var>RRULE</var></b>",
+    # EXRULE, RDATE, EXDATE...
+  ],</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_transparency">transparency</a>": "<var>transparency</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_visibility">visibility</a>": "<var>visibility</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_start">start</a>": {
+    # Use date for all day event.
+    "<a href="reference.html#property_events_start_date">date</a>": "<var>startDate</var>",
+    # Use dateTime for a specific point in time.
+    "<a href="reference.html#property_events_start_dateTime">dateTime</a>": "<var>startTime</var>",
+    "<a href="reference.html#property_events_start_timeZone">timeZone</a>": "<var>startTimeZone</var>"
+  },
+  "<a href="reference.html#property_events_end">end</a>": {
+    # Use date for all day event.
+    "<a href="reference.html#property_events_end_date">date</a>": "<var>endDate</var>",
+    # Use dateTime for a specific point in time.
+    "<a href="reference.html#property_events_end_dateTime">dateTime</a>": "<var>endTime</var>",
+    "<a href="reference.html#property_events_end_timeZone">timeZone</a>": "<var>endTimeZone</var>"
+  },</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_reminders">reminders</a>": {
+    "<a href="reference.html#property_events_reminders_useDefault">useDefault</a>": "<var>useDefault</var>",
+    "<a href="reference.html#property_events_reminders_overrides">overrides</a>": [{
+      "<a href="reference.html#property_events_reminders_overrides_method">method</a>": "<var>reminderMethod</var>",
+      "<a href="reference.html#property_events_reminders_overrides_minutes">minutes</a>": "<var>minutes</var>"
+    },
+    # ...
+  ]},</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_location">location</a>": "<var>location</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_attendees">attendees</a>": [
+    {
+      "<a href="reference.html#property_events_attendees_email"><var>email</var></a>": "<var>attendeeEmail</var>",
+      "<a href="reference.html#property_events_attendees_displayName">displayName</a>": "<var>displayName</var>",
+      "<a href="reference.html#property_events_attendees_resource">resource</a>": "<var>isResource</var>",
+      "<a href="reference.html#property_events_attendees_comment">comment</a>": "<var>attendeeComment</var>",
+      "<a href="reference.html#property_events_attendees_responseStatus">responseStatus</a>": "<var>atendeeStatus</var>",
+      "<a href="reference.html#property_events_attendees_optional">optional</a>": "<var>isOptional</var>",
+      "<a href="reference.html#property_events_attendees_additionalGuests">additionalGuests</a>": "<var>additionalGuests</var>",
+      "<a href="reference.html#property_events_attendees_self">self</a>": "<var>isSelf</var>",
+      "<a href="reference.html#property_events_attendees_organizer">organizer</a>": "<var>isOrganizer</var>",
+    },
+    # ...
+  ],</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_sequence">sequence</a>": "<var>sequence</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_iCalUID">iCalUID</a>": "<var>uid</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_gadget">gadget</a>": {
+    "<a href="reference.html#property_events_gadget_type">type</a>": "<var>gadgetType</var>",
+    "<a href="reference.html#property_events_gadget_title">title</a>": "<var>gadgetTitle</var>",
+    "<a href="reference.html#property_events_gadget_link">link</a>": "<var>gadgetURL</var>",
+    "<a href="reference.html#property_events_gadget_iconLink">iconLink</a>": "<var>gadgetIcon</var>",
+    "<a href="reference.html#property_events_gadget_width">width</a>": "<var>gadgetWidth</var>",
+    "<a href="reference.html#property_events_gadget_height">height</a>": "<var>gadgetHeight</var>",
+    "<a href="reference.html#property_events_gadget_display">display</a>": "<var>displayMode</var>",
+    "<a href="reference.html#property_events_gadget_preferences">preferences</a>": {
+      "<a href="reference.html#property_events_gadget_preferences_"><var>preferenceKey</var></a>": "<var>preferenceValue</var>",
+      # ...
+    }
+  },</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_guestsCanModify">guestsCanModify</a>": "<var>guestsCanModify</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_guestsCanInviteOthers">guestsCanInviteOthers</a>": "<var>guestsCanInviteOthers</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_events_guestsCanSeeOtherGuests">guestsCanSeeOtherGuests</a>": "<var>guestsCanSeeGuests</var>",</pre></li>
+        <li><pre class="prettyprint">}</pre></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+    <section>
+      <h3>Java</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new event.
+<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry">CalendarEventEntry</a> event = new <a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry">CalendarEventEntry</a>();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event author.
+String authorDisplayName = event.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getAuthors()">getAuthors</a>().get(0).<a href="/gdata/javadoc/com/google/gdata/data/Person#getName()">getName</a>();
+String email =
+event.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getAuthors()">getAuthors</a>().get(0).<a href="/gdata/javadoc/com/google/gdata/data/Person#getEmail()">getEmail</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event ID.
+String atomId = event.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getId()">getId</a>();
+String id = atomId.substring(atomId.lastIndexOf("/") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the published date and time.
+DateTime published = event.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getPublished()">getPublished</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the updated date and time.
+DateTime updated = event.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getUpdated()">getUpdated</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event kind.
+String kind = event.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getKind()">getKind</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event description.
+String description = event.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getPlainTextContent()">getPlainTextContent</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event link.
+String htmlLink = event.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getHtmlLink()">getHtmlLink</a>().<a href="/gdata/javadoc/com/google/gdata/data/Link#getHref()">getHref</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event title.
+String title = event.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getTitle()">getTitle</a>().<a href="/gdata/javadoc/com/google/gdata/data/TextConstruct#getPlainText()">getPlainText</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event status.
+String eventStatus = event.<a href="/gdata/javadoc/com/google/gdata/data/extensions/BaseEventEntry#getStatus()">getStatus</a>().<a href="/gdata/javadoc/com/google/gdata/data/ValueConstruct#getValue()">getValue</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event properties.
+for (<a href="/gdata/javadoc/com/google/gdata/data/extensions/ExtendedProperty">ExtendedProperty</a> property :
+         event.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry#getExtendedProperty()">getExtendedProperty</a>()) {
+  String name = property.<a href="/gdata/javadoc/com/google/gdata/data/extensions/ExtendedProperty#getName()">getName</a>();
+  String value = property.<a href="/gdata/javadoc/com/google/gdata/data/extensions/ExtendedProperty#getValue()">getValue</a>();
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ID of the recurring event and the original
+// start time of the current instance.
+String originalEventId = event.<a href="/gdata/javadoc/com/google/gdata/data/extensions/BaseEventEntry#getOriginalEvent()">getOriginalEvent</a>().<a href="/gdata/javadoc/com/google/gdata/data/extensions/OriginalEvent#getOriginalId()">getOriginalId</a>();
+DateTime originalStartTime =
+     event.<a href="/gdata/javadoc/com/google/gdata/data/extensions/BaseEventEntry#getOriginalEvent()">getOriginalEvent</a>().<a href="/gdata/javadoc/com/google/gdata/data/extensions/OriginalEvent#getOriginalStartTime()">getOriginalStartTime</a>()
+         .<a href="/gdata/javadoc/com/google/gdata/data/extensions/When#getStartTime()">getStartTime</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event recurrence.
+// The recurrence element contains various values that
+// are not used in Calendar v3 such as <b>DTSTART</b>
+// and <b>DTEND</b>
+String recurrence = event.<a href="/gdata/javadoc/com/google/gdata/data/extensions/BaseEventEntry#getRecurrence()">getRecurrence</a>().<a href="/gdata/javadoc/com/google/gdata/data/extensions/Recurrence#getValue()">getValue</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event transparency.
+String v2transparency = event.<a href="/gdata/javadoc/com/google/gdata/data/extensions/BaseEventEntry#getTransparency()">getTransparency</a>().<a href="/gdata/javadoc/com/google/gdata/data/ValueConstruct#getValue()">getValue</a>();
+String transparency =
+    v2transparency.substring(
+        v2transparency.lastIndexOf(".") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event visibility.
+String v2visibility = event.<a href="/gdata/javadoc/com/google/gdata/data/extensions/BaseEventEntry#getVisibility()">getVisibility</a>().<a href="/gdata/javadoc/com/google/gdata/data/ValueConstruct#getValue()">getValue</a>();
+String visibility =
+    v2visibility.substring(v2visibility.lastIndexOf(".") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event start and end times.
+<a href="/gdata/javadoc/com/google/gdata/data/extensions/When">When</a> when = event.<a href="/gdata/javadoc/com/google/gdata/data/extensions/BaseEventEntry#getTimes()">getTimes</a>().get(0);
+DateTime start = when.<a href="/gdata/javadoc/com/google/gdata/data/extensions/When#getStartTime()">getStartTime</a>();
+DateTime end = when.<a href="/gdata/javadoc/com/google/gdata/data/extensions/When#getEndTime()">getEndTime</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event reminders.
+for (<a href="/gdata/javadoc/com/google/gdata/data/extensions/Reminder">Reminder</a> reminder : event.<a href="/gdata/javadoc/com/google/gdata/data/extensions/BaseEventEntry#getReminders()">getReminders</a>()) {
+  String reminderMethod = reminder.<a href="/gdata/javadoc/com/google/gdata/data/extensions/Reminder#getMethod()">getMethod</a>();
+  int minutes = reminder.<a href="/gdata/javadoc/com/google/gdata/data/extensions/Reminder#getMinutes()">getMinutes</a>();
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event location.
+String location = event.<a href="/gdata/javadoc/com/google/gdata/data/extensions/BaseEventEntry#getLocations()">getLocations</a>().get(0).getValueString();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event attendees.
+for (<a href="/gdata/javadoc/com/google/gdata/data/calendar/EventWho">EventWho</a> attendee : event.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry#getParticipants()">getParticipants</a>()) {
+  String displayName = attendee.<a href="/gdata/javadoc/com/google/gdata/data/extensions/Who#getValueString()">getValueString</a>();
+  String attendeeEmail = attendee.<a href="/gdata/javadoc/com/google/gdata/data/extensions/Who#getEmail()">getEmail</a>();
+  String v2status = attendee.<a href="/gdata/javadoc/com/google/gdata/data/extensions/Who#getAttendeeStatus()">getAttendeeStatus</a>();
+  String attendeeStatus =
+      v2status.substring(v2status.getLastIndexOf(".") + 1);
+  String attendeeType = attendee.<a href="/gdata/javadoc/com/google/gdata/data/extensions/Who#getAttendeeType()">getAttendeeType</a>();
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event sequence.
+int sequence = event.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry#getSequence()">getSequence</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event iCal UID.
+String uid = event.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry#getIcalUID()">getIcalUID</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve an event gadget.
+<a href="/gdata/javadoc/com/google/gdata/data/calendar/WebContent">WebContent</a> gadget = event.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry#getWebContent()">getWebContent</a>();
+
+String gadgetIcon = gadget.<a href="/gdata/javadoc/com/google/gdata/data/calendar/WebContent#getIcon()">getIcon</a>();
+String gadgetTitle = gadget.<a href="/gdata/javadoc/com/google/gdata/data/calendar/WebContent#getTitle()">getTitle</a>();
+String gadgetType = gadget.<a href="/gdata/javadoc/com/google/gdata/data/calendar/WebContent#getType()">getType</a>();
+String gadgetURL = gadget.<a href="/gdata/javadoc/com/google/gdata/data/calendar/WebContent#getUrl()">getUrl</a>();
+String gadgetWidth = gadget.<a href="/gdata/javadoc/com/google/gdata/data/calendar/WebContent#getWidth()">getWidth</a>();
+String gadgetHeight = gadget.<a href="/gdata/javadoc/com/google/gdata/data/calendar/WebContent#getHeight()">getHeight</a>();
+
+for (Map.Entry&lt;String, String&gt; gadgetPreference :
+         gadget.<a href="/gdata/javadoc/com/google/gdata/data/calendar/WebContent#getGadgetPrefs()">getGadgetPrefs</a>()) {
+  String preferenceKey = gadgetPreference.getKey();
+  String preferenceValue = gadgetPreference.getValue();
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not guests can modify the event.
+boolean guestsCanModify = event.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry#isGuestsCanModify()">isGuestsCanModify</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not guests can invite others.
+boolean guestsCanInviteOthers = event.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry#isGuestsCanInviteOthers()">isGuestsCanInviteOthers</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not guests can see others.
+boolean guestsCanSeeGuests = event.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEventEntry#isGuestsCanSeeGuests()">isGuestsCanSeeGuests</a>();
+</pre>
+        </li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+
+        <li>
+<pre class="prettyprint">
+// Create a new event.
+Event event = new Event();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event author.
+String authorDisplayName =
+    event.getCreator().getDisplayName();
+String email = event.getCreator().getEmail();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event ID.
+String id = event.getId();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event published date and time.
+DateTime published = event.getPublished();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event updated date and time.
+DateTime updated = event.getUpdated();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event kind.
+String kind = event.getKind();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event description.
+String description = event.getDescription();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event link.
+String htmlLink = event.getHtmlLink();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event title.
+String title = event.getSummary();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event status.
+String eventStatus = event.getStatus();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event properties.
+for (Map.Entry&lt;String, String&gt; sharedProperty :
+         event.getExtendedProperties.getShared()) {
+  String sharedName = sharedProperty.getKey();
+  String sharedValue = sharedProperty.getValue();
+}
+for (Map.Entry&lt;String, String&gt; privateProperty :
+         event.getExtendedProperties
+             .getCalendarPrivate()) {
+  String privateName = privateProperty.getKey();
+  String privateValue = privateProperty.getValue();
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ID of the recurring event and the
+// original start time of the current instance.
+String originalEventId = event.getRecurringEventId();
+String originalStartTime = event.getOriginalStartTime();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event recurrence.
+// The recurrence element contains a list of strings
+// representing an <a href="http://www.ietf.org/rfc/rfc2445">RFC 2445</a> <b>RRULE</b>, <b>EXRULE</b>, <b>RDATE</b>
+// or <b>EXDATE</b> rule.
+List<String> recurrence = event.getRecurrence();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event transparency.
+String transparency = event.getTransparency();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event visibility.
+String visibility = event.getVisibility();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event start and end times.
+EventDateTime start = event.getStart();
+EventDateTime end = event.getEnd();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event reminders.
+for (EventReminder reminder : event.getReminders()) {
+  String reminderMethod = reminder.getMethod();
+  int minutes = reminder.getMinutes();
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event location.
+String location = event.getLocation();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event attendees.
+for (EventAttendee attendee : event.getAttendees()) {
+  String attendeeEmail = attendee.geEmail();
+  String displayName = attendee.getDisplayName();
+  String attendeeStatus = attendee.getResponseStatus();
+  boolean isSelf = attendee.getSelf();
+  boolean isOrganizer = attendee.getOrganizer();
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event sequence.
+int sequence = event.getSequence();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event iCal UID.
+String uid = event.getICalUID();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve an event gadget.
+EventGadget gadget = event.getGadget();
+
+String gadgetIcon = gadget.getIcon();
+String gadgetTitle = gadget.getTitle();
+String gadgetType = gadget.getType();
+String gadgetURL = gadget.getLink();
+String gadgetWidth = gadget.getWidth();
+String gadgetHeight = gadget.getHeight();
+
+for (Map.Entry&lt;String, String&gt; gadgetPreference :
+         gadget.getPreferences()) {
+  String preferenceKey = gadgetPreference.getKey();
+  String preferenceValue = gadgetPreference.getValue();
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not guests can modify the event.
+boolean guestsCanModify = event.getGuestsCanModify();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not guests can invite others.
+boolean guestsCanInviteOthers =
+    event.getGuestsCanInviteOthers();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not guests can see others.
+boolean guestsCanSeeGuests =
+    event.getGuestsCanSeeOtherGuests();
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+    <section>
+      <h3>Python</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint lang-python">
+# Create a new event.
+event = gdata.calendar.data.CalendarEventEntry();
+# ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event author.
+author_display_name = event.author[0].name
+email = event.author[0].email
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event ID.
+atom_id = event.id.text
+id = atom_id.split('/')[-1]
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the published date and time.
+published = event.published.text
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the updated date and time.
+updated = event.updated.text
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event kind.
+kind = event.kind.text
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event description
+description = event.content.text
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event link.
+html_link = event.find_alternate_link()
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event title.
+title = event.title.text
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event status.
+event_status = event.event_status.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event properties.
+for property in event.extended_property:
+  name = property.name
+  value = property.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the ID of the recurring event and the original
+# start time of the current instance.
+original_event_id = event.original_event.id
+original_start_time = event.original_event.when.start
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event recurrence.
+# The recurrence element contains various values that
+# are not used in Calendar v3 such as <b>DTSTART</b>
+# and <b>DTEND</b>
+recurrence = event.recurrence.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event transparency.
+v2transparency = event.transparency.value
+transparency =
+    v2transparency.split('.')[-1]
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event visibility.
+v2visibility = event.visibility.value
+visibility = v2visibility.split('.')[-1]
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event start and end times.
+when = event.when[0]
+start = when.start
+end = when.end
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event reminders.
+for reminder in event.when[0].reminder:
+  reminder_method = reminder.method
+  minutes = reminder.minutes
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event location.
+location = event.where[0].value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event attendees.
+for attendee in event.who:
+  display_name = attendee.value
+  attendee_email = attendee.email
+  v2status = attendee.attendee_status
+  attendee_status = v2status.split('.')[-1]
+  attendee_type = attendee.attendee_type
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event sequence.
+sequence = event.sequence.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event iCal UID.
+uid = event.uid.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve an event gadget.
+gadget = event.get_link(
+    gdata.calendar.data.WEB_CONTENT_LINK_REL)
+gadget_icon = gadget.href
+gadget_title = gadget.title
+gadget_type = gadget.type
+gadget_url = gadget.web_content.url
+gadget_width = gadget.web_content.width
+gadget_height = gadget.web_content.height
+for gadget_preference in (
+    gadget.web_content.web_content_gadget_pref):
+  preference_key = gadget_preference.name
+  preference_value = gadget_preference.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve whether or not guests can modify the event.
+guests_can_modify = event.guests_can_modify.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve whether or not guests can invite others.
+guests_can_invite_others = event.guests_can_invite_others.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve whether or not guests can see others.
+guests_can_see_guests = event.guests_can_see_guests.value
+</pre>
+        </li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint lang-python">
+# Create a new event.
+event = {}
+# ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event author.
+author_display_name = event['creator']['displayName']
+email = event['creator']['email']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event ID.
+id = event['id']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event published date and time.
+published = event['published']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event updated date and time.
+updated = event['updated']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event kind.
+kind = event['kind']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event description.
+description = event['description']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event link.
+htmlLink = event['htmlLink']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event title.
+title = event['summary']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event status.
+event_status = event['status']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event properties.
+for shared_property in (
+    event['extendedProperties']['shared'].iteritems()):
+  shared_name = shared_property[0]
+  shared_value = shared_property[1]
+for private_property in (
+    event['extendedProperties']['private'].iteritems()):
+  private_name = private_property[0]
+  private_value = private_property[1]
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the ID of the recurring event and the original
+# start time of the current instance.
+original_event_id = event['recurringEventId']
+original_start_time = event['originalStartTime']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event recurrence.
+# The recurrence element contains a list of string
+# representing an <a href="http:#www.ietf.org/rfc/rfc2445">RFC 2445</a> <b>RRULE</b>, <b>EXRULE</b>, <b>RDATE</b>
+# or <b>EXDATE</b> rule.
+recurrence = event['recurrence']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event transparency.
+transparency = event['transparency']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event visibility.
+visibility = event['visibility']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event start and end times.
+start = event['start']
+end = event['end']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event reminders.
+for reminder in event['reminders']:
+  reminder_method = reminder['method']
+  minutes = reminder['minutes']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event location.
+location = event['location']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event attendees.
+for attendee : event['attendees']:
+  attendee_email = attendee['email']
+  display_name = attendee['displayName']
+  attendee_status = attendee['responseStatus']
+  is_self = attendee['self']
+  is_organizer = attendee['organizer']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event sequence.
+sequence = event['sequence']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve the event iCal UID.
+uid = event['iCalUID']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve an event gadget.
+gadget = event['gadget']
+gadget_icon = gadget['icon']
+gadget_title = gadget['title']
+gadget_type = gadget['type']
+gadget_url = gadget['link']
+gadget_width = gadget['width']
+gadget_height = gadget['height']
+for gadget_preference in gadget['preferences'].iteritems():
+  preference_key = gadget_preference[0]
+  preference_value = gadget_preference[1]
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve whether or not guests can modify the event.
+guests_can_modify = event['guestsCanModify']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve whether or not guests can invite others.
+guests_can_invite_others = event['guestsCanInviteOthers']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint lang-python">
+# Retrieve whether or not guests can see others.
+guests_can_see_guests = event['guestsCanSeeOtherGuests']
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+    <section>
+      <h3>.NET</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new event.
+EventEntry event = new EventEntry();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event author.
+String authorDisplayName = event.Author[0].Name;
+String email = event.Authors[0].Email;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event ID.
+String atomId = event.Id.AbsoluteUri;
+String id = atomId.Substring(id.LastIndexOf("/") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the published date and time.
+DateTime published = event.Published;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the updated date and time.
+DateTime updated = event.Updated;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event description.
+String description = event.Content.Content;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event link.
+String htmlLink = event.AlternateUri.Content;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event title.
+String title = event.Title.Text;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event status.
+String eventStatus = event.Status.Value;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event properties.
+foreach (ExtendedProperty property in
+             event.ExtensionElements) {
+  String name = property.Name;
+  String value = property.Value;
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ID of the recurring event and the original
+// start time of the current instance.
+String originalEventId = event.OriginalEvent.IdOriginal;
+DateTime originalStartTime =
+     event.OriginalEvent.OriginalStartTime.StartTime;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event recurrence.
+// The recurrence element contains various values that
+// are not used in Calendar v3 such as <b>DTSTART</b>
+// and <b>DTEND</b>
+String recurrence = event.Recurrence.Value;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event transparency.
+String v2transparency = event.EventTransparency.Value;
+String transparency =
+    v2transparency.Substring(
+        v2transparency.LastIndexOf(".") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event visibility.
+String v2visibility = event.EventVisibility.Value;
+String visibility =
+    v2visibility.Substring(v2visibility.LastIndexOf(".") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event start and end times.
+When when = event.Times[0];
+DateTime start = event.StartTime;
+DateTime end = event.EndTime;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event reminders.
+foreach (Reminder reminder in event.Reminders) {
+  String reminderMethod = reminder.Method;
+  int minutes = reminder.Minutes;
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event location.
+String location = event.Locations[0].ValueString;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event attendees.
+foreach (Who attendee in event.Participants) {
+  String displayName = attendee.ValueString;
+  String attendeeEmail = attendee.Email;
+  String v2status = attendee.Attendee_Status;
+  String attendeeStatus =
+      v2status.Substring(v2status.getLastIndexOf(".") + 1);
+  String attendeeType = attendee.Attendee_Type;
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event sequence.
+int sequence = event.Sequence.Value;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event iCal UID.
+String uid = event.Uid.Value;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve an event gadget.
+WebContentLink gadget = event.WebContentLink;
+
+String gadgetIcon = gadget.Icon;
+String gadgetTitle = gadget.Title;
+String gadgetType = gadget.Type;
+String gadgetURL = gadget.Url;
+String gadgetWidth = gadget.Width;
+String gadgetHeight = gadget.Height;
+
+foreach (KeyValuePair&lt;String, String&gt; gadgetPreference in
+         gadget.GadgetPreferences) {
+  String preferenceKey = gadgetPreference.Key;
+  String preferenceValue = gadgetPreference.Value;
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// The gContact:guestsCanModify element was not
+// available in the GData client library.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// The gContact:guestsCanInviteOthers element was not
+// available in the GData client library.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// The gContact:guestsCanSeeGuests element was not
+// available in the GData client library.
+</pre>
+        </li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new event.
+Event event = new Event();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event author.
+String authorDisplayName = event.Creator.DisplayName;
+String email = event.Creator.Email;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event ID.
+String id = event.Id;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the published date and time.
+DateTime published = event.Published;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the updated date and time.
+DateTime updated = event.Updated;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event description.
+String description = event.Description;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event link.
+String htmlLink = event.HtmlLink;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event summary.
+String title = event.Summary;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event status.
+String eventStatus = event.Status;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event properties.
+foreach (KeyValuePair&lt;String, String&gt; sharedProperty in
+         event.getExtendedProperties.Shared) {
+  String sharedName = sharedProperty.Key;
+  String sharedValue = sharedProperty.Value;
+}
+foreach (KeyValuePair&lt;String, String&gt; privateProperty in
+         event.getExtendedProperties
+             .CalendarPrivate) {
+  String privateName = privateProperty.Key;
+  String privateValue = privateProperty.Value;
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ID of the recurring event and the original
+// start time of the current instance.
+String originalEventId = event.RecurringEventId;
+String originalStartTime = event.OriginalStartTime;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event recurrence.
+// The recurrence element contains a list of string
+// representing an <a href="http://www.ietf.org/rfc/rfc2445">RFC 2445</a> <b>RRULE</b>, <b>EXRULE</b>, <b>RDATE</b>
+// or <b>EXDATE</b> rule.
+IList<String> recurrence = event.Recurrence;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event transparency.
+String transparency = event.Transparency;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event visibility.
+String visibility = event.Visibility;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event start and end times.
+EventDateTime start = event.Start;
+EventDateTime end = event.End;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event reminders.
+foreach (EventReminder reminder in event.Reminders) {
+  String reminderMethod = reminder.Method;
+  int minutes = reminder.Minutes;
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event location.
+String location = event.Location;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event attendees.
+foreach (EventAttendee attendee in event.Attendees) {
+  String attendeeEmail = attendee.Email;
+  String displayName = attendee.DisplayName;
+  String attendeeStatus = attendee.ResponseStatus;
+  bool isSelf = attendee.Self;
+  bool isOrganizer = attendee.Organizer;
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event sequence.
+int sequence = event.Sequence;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the event iCal UID.
+String uid = event.ICalUID;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve an event gadget.
+EventGadget gadget = event.Gadget;
+
+String gadgetIcon = gadget.Icon;
+String gadgetTitle = gadget.Title;
+String gadgetType = gadget.Type;
+String gadgetURL = gadget.Link;
+String gadgetWidth = gadget.Width;
+String gadgetHeight = gadget.Height;
+
+foreach (KeyValuePair&lt;String, String&gt; gadgetPreference in
+         gadget.Preferences) {
+  String preferenceKey = gadgetPreference.Key;
+  String preferenceValue = gadgetPreference.Value;
+}
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not guests can modify the event.
+bool guestsCanModify = event.GuestsCanModify;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not guests can invite others.
+bool guestsCanInviteOthers =
+    event.GuestsCanInviteOthers;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not guests can see others.
+bool guestsCanSeeGuests =
+    event.GuestsCanSeeOtherGuests;
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+  </div>
+  
+  <h3 id="calendars">Migrating calendar resources</h3>
+  <p>The v2 calendar entry has been split into two separate resources in v3:</p>
+  <ul>
+    <li><strong>Calendar Entry</strong> &mdash; Holds information about the calendar entry that is shared among other users (summary, description, etc).</li>
+    <li><strong>CalendarList Entry</strong> &mdash; Holds information about the calendar for a specific user (color, overriden summary, description, etc).</li>
+  </ul>
+
+  <p>The following tables map the calendar entry sub-elements to their corresponding calendar resource attributes when available.</p>
+
+ <div id="code-sample" class="ds-selector-tabs" data-ds-scope="code-sample">
+    <section>
+      <h3>Protocol</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li><pre class="prettyprint">&lt;atom:entry gd:etag="<var>calendarEtag</var>"
+       gd:kind="calendar#calendar"&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:id&gt;
+    http://www.google.com/calendar/feeds/default/calendars/<var>calendarId</var>
+  &lt;/atom:id&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:published&gt;<var>published</var>&lt;/atom:published&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:updated&gt;<var>updated</var>&lt;/atom:updated&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:title type="text"&gt;<var>title</var>&lt;/atom:title&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;summary type="text"&gt;<var>description</var>&lt;/summary&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:author&gt;
+    &lt;atom:name&gt;<var>authorDisplayName</var>&lt;/atom:name&gt;
+    &lt;atom:email&gt;<var>authorEmail</var>&lt;/atom:email&gt;
+  &lt;/atom:author&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/gdata/docs/2.0/elements.html#gdWhere">gd:where</a> valueString="<var>location</var>"&gt;&lt;/<a href="/apis/gdata/docs/2.0/elements.html#gdWhere">gd:where</a>&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCaltimezone">gCal:timezone</a> value="<var>timeZone</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalaccesslevel">gCal:accesslevel</a> value="<var>accessLevel</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalcolor">gCal:color</a> value="<var>color</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalhidden">gCal:hidden</a> value="<var>isHidden</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCalselected">gCal:selected</a> value="<var>isSelected</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gCaltimesCleaned">gCal:timesCleaned</a> value="<var>timesCleaned</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">&lt;/atom:entry&gt;</pre></li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li><pre class="prettyprint">{
+  "<a href="reference.html#property_calendars_etag">etag</a>": "<var>calendarEtag</var>",
+  "<a href="reference.html#property_calendars_kind">kind</a>": "calendar#calendar",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_calendars_id">id</a>": "<var>calendarId</var>",</pre></li>
+        <li><pre class="prettyprint"># * Published date and time are not available in v3.</pre></li>
+        <li><pre class="prettyprint"># * Updated date and time are not available in v3.</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_calendars_summary">summary</a>": "<var>title</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_calendars_description">description</a>": "<var>description</var>",</pre></li>
+        <li><pre class="prettyprint"># * Calendar's author is not available in v3.</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_calendars_location">location</a>": "<var>location</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_calendars_timeZone">timeZone</a>": "<var>timeZone</var>",</pre></li>
+        <li>
+<pre class="prettyprint">
+# * The Access Level information has been moved
+#   to the CalendarListEntry resource.
+</pre></li>
+        <li>
+<pre class="prettyprint">
+# * Color has been moved to the CalendarListEntry
+#   resource.
+</pre></li>
+        <li>
+<pre class="prettyprint">
+# * Whether or not this calendar is hidden has been
+#   moved to the CalendarListEntry resource.
+</pre></li>
+        <li>
+<pre class="prettyprint">
+# * Whether or not this calendar is selected has been
+#   moved to the CalendarListEntry resource.
+</pre></li>
+        <li>
+<pre class="prettyprint">
+# * The number of times the calendar has been cleaned
+#   is not available in Calendar v3.
+</pre></li>
+        <li><pre class="prettyprint">}</pre></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+    <section>
+      <h3>Java</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new calendar.
+<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEntry">CalendarEntry</a> calendar = new <a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEntry">CalendarEntry</a>();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar Etag.
+String etag = calendar.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getEtag()">getEtag</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar kind.
+String kind = calendar.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getKind()">getKind</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar ID.
+String atomId = calendar.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getId()">getId</a>();
+String id = atomId.substring(atomId.lastIndexOf("/") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the published date and time.
+DateTime published = calendar.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getPublished()">getPublished</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the updated date and time.
+DateTime updated = calendar.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getUpdated()">getUpdated</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar title.
+String title = calendar.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getTitle()">getTitle</a>().<a href="/gdata/javadoc/com/google/gdata/data/TextConstruct#getPlainText()">getPlainText</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar description.
+String description = calendar.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getSummary()">getSummary</a>().<a href="/gdata/javadoc/com/google/gdata/data/TextConstruct#getPlainText()">getPlainText</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar author.
+Author author = calendar.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getAuthors()">getAuthors</a>().get(0);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar location.
+String location = calendar.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEntry#getLocations()">getLocations</a>().get(0).<a href="/gdata/javadoc/com/google/gdata/data/extensions/Where#getValueString()">getValueString</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar time zone.
+String timeZone = calendar.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEntry#getTimeZone()">getTimeZone</a>().<a href="/gdata/javadoc/com/google/gdata/data/ValueConstruct#getValue()">getValue</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar access level.
+String accessLevel = calendar.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEntry#getAccessLevel()">getAccessLevel</a>().<a href="/gdata/javadoc/com/google/gdata/data/ValueConstruct#getValue()">getValue</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar color.
+String color = calendar.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEntry#getColor()">getColor</a>().<a href="/gdata/javadoc/com/google/gdata/data/ValueConstruct#getValue()">getValue</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not the calendar is hidden.
+String isHidden = calendar.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEntry#getHidden()">getHidden</a>().<a href="/gdata/javadoc/com/google/gdata/data/ValueConstruct#getValue()">getValue</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not the calendar is selected.
+String isSelected = calendar.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEntry#getSelected()">getSelected</a>().<a href="/gdata/javadoc/com/google/gdata/data/ValueConstruct#getValue()">getValue</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the number of times the calendar has been cleaned.
+int timesCleaned = calendar.<a href="/gdata/javadoc/com/google/gdata/data/calendar/CalendarEntry#getTimesCleaned()">getTimesCleaned</a>().<a href="/gdata/javadoc/com/google/gdata/data/calendar/TimesCleanedProperty#getValue()">getValue</a>();
+</pre>
+        </li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new calendar.
+Calendar calendar = new Calendar();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar Etag.
+String etag = calendar.getEtag();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar kind.
+String kind = calendar.getKind();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar ID.
+String id = calendar.getId();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Published date and time are not available in v3.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Updated date and time are not available in v3.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar title.
+String title = calendar.getSummary();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar description.
+String description = calendar.getDescription();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Calendar's author is not available in v3.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar location.
+String location = calendar.getLocation();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar time zone.
+String timeZone = calendar.getTimeZone();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Access Level information has been moved to the
+// CalendarListEntry resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Color has been moved to the CalendarListEntry
+// resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Whether or not this calendar is hidden has been
+// moved to the CalendarListEntry resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Whether or not this calendar is selected has been
+// moved to the CalendarListEntry resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// The number of times the calendar has been cleaned
+// is not available in Calendar v3.
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+    <section>
+      <h3>Python</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+# Create a new calendar.
+calendar = gdata.calendar.data.CalendarEntry()
+# ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar Etag.
+etag = calendar.etag
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar kind.
+kind = calendar.kind
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar ID.
+atomId = calendar.id.text
+id = atomId.split('/')[-1]
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the published date and time.
+published = calendar.published.text
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the updated date and time.
+updated = calendar.updated.text
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar title.
+title = calendar.title.text
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar description.
+description = calendar.summary.text
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar author.
+author = calendar.author[0]
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar location.
+location = calendar.where[0].value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar time zone.
+timeZone = calendar.timezone.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar access level.
+accessLevel = calendar.accesslevel.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar color.
+color = calendar.color.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve whether or not the calendar is hidden.
+isHidden = calendar.hidden.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve whether or not the calendar is selected.
+isSelected = calendar.selected.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the number of times the calendar has been cleaned.
+timesCleaned = calendar.times_cleaned.value
+</pre>
+        </li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+# Create a new calendar.
+calendar = {}
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar Etag.
+etag = calendar['etag']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar kind.
+kind = calendar['kind']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar ID.
+id = calendar['id']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Published date and time are not available in v3.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Updated date and time are not available in v3.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar title.
+title = calendar['summary']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar description.
+description = calendar['description']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Calendar's author is not available in v3.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar location.
+location = calendar['location']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the calendar time zone.
+timeZone = calendar['timeZone']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# The Access Level information has been moved
+# to the CalendarListEntry resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Color has been moved to the CalendarListEntry
+# resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Whether or not this calendar is hidden has been
+# moved to the CalendarListEntry resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Whether or not this calendar is selected has been
+# moved to the CalendarListEntry resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# The number of times the calendar has been cleaned
+# is not available in Calendar v3.
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+    <section>
+      <h3>.NET</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new calendar.
+CalendarEntry calendar = new Calendar();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar Etag.
+String etag = calendar.Etag;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar ID.
+String atomId = calendar.Id.AbsoluteUri;
+String id = atomId.SubString(atomId.LastIndexOf("/") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the published date and time.
+DateTime published = calendar.Published;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the updated date and time.
+DateTime updated = calendar.Updated;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar title.
+String title = calendar.Title.Text;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar description.
+String description = calendar.Summary.Text;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar author.
+Author author = calendar.Authors[0];
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar location.
+String location = calendar.Location.ValueString;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar time zone.
+String timeZone = calendar.TimeZone;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar access level.
+String accessLevel = calendar.AccessLevel;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar color.
+String color = calendar.Color;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not the calendar is hidden.
+bool isHidden = calendar.Hidden;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve whether or not the calendar is selected.
+bool isSelected = calendar.Selected;
+</pre>
+        </li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new calendar.
+Calendar calendar = new Calendar();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar Etag.
+String etag = calendar.Etag;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar ID.
+String id = calendar.Id;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Published date and time are not available in v3.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Updated date and time are not available in v3.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar title.
+String title = calendar.Summary;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar description.
+String description = calendar.Description;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Calendar's author is not available in v3.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar location.
+String location = calendar.Location;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the calendar time zone.
+String timeZone = calendar.TimeZone;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Access Level information has been moved to the
+// CalendarListEntry resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Color has been moved to the CalendarListEntry resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Whether or not this calendar is hidden has been moved
+// to the CalendarListEntry resource.
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Whether or not this calendar is selected has been moved
+// to the CalendarListEntry resource.
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+  </div>
+
+  <h3 id="acl">Migrating ACL resources</h3>
+  <p>v3 doesn't introduce big changes to an Access Control Rule entry other than using JSON as the data representation format.</p>
+  <p>The following tables map v2 Access Control Rule entry's sub-elements to their corresponding Access Control Rule resource attributes.</p>
+
+ <div id="code-sample" class="ds-selector-tabs" data-ds-scope="code-sample">
+    <section>
+      <h3>Protocol</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li><pre class="prettyprint">&lt;atom:entry gd:etag="<var>etag</var>"
+    gd:kind="calendar#acl"&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;atom:id&gt;http://www.google.com/calendar/feeds/<var>calendarId</var>/acl/<var>aclId</var>&lt;/atom:id&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gAclrole">gAcl:role</a> value="http://schemas.google.com/gCal/2005#<var>role</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">  &lt;<a href="/apis/calendar/data/2.0/reference.html#gAclscope">gAcl:scope</a> type="<var>scopeType</var>" value="<var>scopeValue</var>"/&gt;</pre></li>
+        <li><pre class="prettyprint">&lt;/entry&gt;</pre></li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li><pre class="prettyprint">{
+  "<a href="reference.html#property_acl_kind">kind</a>": "calendar#aclRule",
+  "<a href="reference.html#property_acl_etag">etag</a>": "<var>etag</var>"</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_acl_id">id</a>": "<var>aclId</var>",</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_acl_role">role</a>": "<var>role</var>"</pre></li>
+        <li><pre class="prettyprint">  "<a href="reference.html#property_acl_scope">scope</a>": {
+    "<a href="reference.html#property_acl_scope_type">type</a>": "<var>scopeType</var>",
+    "<a href="reference.html#property_acl_scope_value">value</a>": "<var>scopeValue</var>"
+  },</pre></li>
+        <li><pre class="prettyprint">}</pre></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+    <section>
+      <h3>Java</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new ACL entry.
+<a href="/gdata/javadoc/com/google/gdata/data/acl/AclEntry">AclEntry</a> acl = new <a href="/gdata/javadoc/com/google/gdata/data/acl/AclEntry">AclEntry</a>();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry Etag.
+String etag = acl.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getEtag()">getEtag</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry kind.
+String kind = acl.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getKind()">getKind</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry ID.
+String atomId = acl.<a href="/gdata/javadoc/com/google/gdata/data/BaseEntry#getId()">getId</a>();
+String id = atomId.substring(atomid.lastIndexOf("/") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry role.
+String role = acl.<a href="/gdata/javadoc/com/google/gdata/data/acl/AclEntry#getRole()">getRole</a>().<a href="/gdata/javadoc/com/google/gdata/data/acl/AclScope#getValue()">getValue</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry scope type.
+<a href="/gdata/javadoc/com/google/gdata/data/acl/AclScope.Type">AclScope.Type</a> scopeType = acl.<a href="/gdata/javadoc/com/google/gdata/data/acl/AclEntry#getScope()">getScope</a>().<a href="/gdata/javadoc/com/google/gdata/data/acl/AclScope#getType()">getType</a>();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry scope value.
+String scopeValue = acl.<a href="/gdata/javadoc/com/google/gdata/data/acl/AclEntry#getScope()">getScope</a>().<a href="/gdata/javadoc/com/google/gdata/data/acl/AclScope#getValue()">getValue</a>();
+</pre>
+        </li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new ACL entry.
+AclRule acl = new AclRule();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry Etag.
+String etag = acl.getEtag();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry kind.
+String kind = acl.getKind();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry ID.
+String id = acl.getId();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry role.
+String role = acl.getRole();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry scope type.
+String scopeType = acl.getScope().getType();
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry scope value.
+String scopeValue = acl.getScope().getValue();
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+    <section>
+      <h3>Python</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+# Create a new ACL entry.
+acl = gdata.calendar.data.CalendarAclEntry()
+# ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry Etag.
+etag = acl.etag
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry kind.
+kind = acl.kind
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry ID.
+atom_id = acl.id.text
+id = atom_id.split('/')[-1]
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry role.
+role = acl.role.value
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry scope type.
+scope_type = acl.scope.type
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry scope value.
+scope_value = acl.scope.value
+</pre>
+        </li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+# Create a new ACL entry.
+acl = {}
+# ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry Etag.
+etag = acl['etag']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry kind.
+kind = acl['kind']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry ID.
+id = acl['id']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry role.
+role = acl['role']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry scope type.
+scope_type = acl['scope']['type']
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+# Retrieve the ACL entry scope value.
+scope_value = acl['scope']['value']
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+    <section>
+      <h3>.NET</h3>
+      <table class="code-compare">
+  <tr>
+    <th>v2</th>
+    <th>v3</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new ACL entry.
+AclEntry acl = new AclEntry();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry Etag.
+String etag = acl.Etag;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry ID.
+String atomId = acl.Id.AbsoluteUri;
+String id = atomId.SubString(atomId.LastIndexOf("/") + 1);
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry role.
+String role = acl.Role;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry scope type.
+String scopeType = acl.Scope.Type;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry scope value.
+String scopeValue = acl.Scope.Value;
+</pre>
+        </li>
+      </ul>
+    </td>
+    <td style="vertical-align: top;">
+      <ul class="code-compare">
+        <li>
+<pre class="prettyprint">
+// Create a new ACL entry.
+AclRule acl = new AclRule();
+// ...
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry Etag.
+String etag = acl.Etag;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry ID.
+String id = acl.Id;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry role.
+String role = acl.Role;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry scope type.
+String scopeType = acl.Scope.Type;
+</pre>
+        </li>
+        <li>
+<pre class="prettyprint">
+// Retrieve the ACL entry scope value.
+String scopeValue = acl.Scope.Value;
+</pre>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+    </section>
+  </div>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+
+
+<div itemprop="datePublished" content="2012-12-20T13:07:20.614720" id="gc-content-last-updated">Last updated December 20, 2012.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+      
+      <footer id="gc-footer">
+        <div id="gc-copyright">
+          <a href="/">
+            <img id="developers-logo-footer" src="/_static/images/developers-logo-footer.png" alt="Google Developers logo" style="vertical-align: center; float: left"/>
+          </a>
+          <ul>
+            <li><a href="http://www.google.com/">Google</a></li>
+            <li><a href="/readme/terms">Terms of Service</a></li>
+            <li><a href="http://www.google.com/intl/en/privacy/">Privacy Policy</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a class="google-feedback" data-p="81425" data-b="Documentation"  data-v="devsite-20130430-rc10.default" href="">Report a bug</a></li>
+          </ul>
+        </div>
+        
+        <div id="gc-language">
+          <ul>
+            <li>
+              <form id="setlang" action="/i18n/setlang/" method="post">
+                <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='46a277638ae61c9df837b5648d00049c' /></div>
+                <select id="footer_language" name="language">
+                  
+                  
+                  <option
+                     value="ar"
+                     >
+                    العربيّة
+                  </option>
+                  
+                  <option
+                     value="bg"
+                     >
+                    български
+                  </option>
+                  
+                  <option
+                     value="ca"
+                     >
+                    català
+                  </option>
+                  
+                  <option
+                     value="zh-cn"
+                     >
+                    简体中文
+                  </option>
+                  
+                  <option
+                     value="zh-tw"
+                     >
+                    繁體中文
+                  </option>
+                  
+                  <option
+                     value="hr"
+                     >
+                    Hrvatski
+                  </option>
+                  
+                  <option
+                     value="cs"
+                     >
+                    česky
+                  </option>
+                  
+                  <option
+                     value="da"
+                     >
+                    Dansk
+                  </option>
+                  
+                  <option
+                     value="nl"
+                     >
+                    Nederlands
+                  </option>
+                  
+                  <option
+                     value="en"
+                      selected="selected" >
+                    English
+                  </option>
+                  
+                  <option
+                     value="fa"
+                     >
+                    فارسی
+                  </option>
+                  
+                  <option
+                     value="fi"
+                     >
+                    suomi
+                  </option>
+                  
+                  <option
+                     value="fr"
+                     >
+                    Français
+                  </option>
+                  
+                  <option
+                     value="de"
+                     >
+                    Deutsch
+                  </option>
+                  
+                  <option
+                     value="el"
+                     >
+                    Ελληνικά
+                  </option>
+                  
+                  <option
+                     value="he"
+                     >
+                    עברית
+                  </option>
+                  
+                  <option
+                     value="hi"
+                     >
+                    Hindi
+                  </option>
+                  
+                  <option
+                     value="hu"
+                     >
+                    Magyar
+                  </option>
+                  
+                  <option
+                     value="id"
+                     >
+                    Bahasa Indonesia
+                  </option>
+                  
+                  <option
+                     value="it"
+                     >
+                    italiano
+                  </option>
+                  
+                  <option
+                     value="ja"
+                     >
+                    日本語
+                  </option>
+                  
+                  <option
+                     value="ko"
+                     >
+                    한국어
+                  </option>
+                  
+                  <option
+                     value="lv"
+                     >
+                    latviešu
+                  </option>
+                  
+                  <option
+                     value="lt"
+                     >
+                    Lithuanian
+                  </option>
+                  
+                  <option
+                     value="nb"
+                     >
+                    Norsk (bokmål)
+                  </option>
+                  
+                  <option
+                     value="nn"
+                     >
+                    Norsk (nynorsk)
+                  </option>
+                  
+                  <option
+                     value="pl"
+                     >
+                    polski
+                  </option>
+                  
+                  <option
+                     value="pt-br"
+                     >
+                    Português Brasileiro
+                  </option>
+                  
+                  <option
+                     value="pt"
+                     >
+                    Português
+                  </option>
+                  
+                  <option
+                     value="ro"
+                     >
+                    Română
+                  </option>
+                  
+                  <option
+                     value="ru"
+                     >
+                    Русский
+                  </option>
+                  
+                  <option
+                     value="sr"
+                     >
+                    српски
+                  </option>
+                  
+                  <option
+                     value="sk"
+                     >
+                    slovenský
+                  </option>
+                  
+                  <option
+                     value="sl"
+                     >
+                    Slovenščina
+                  </option>
+                  
+                  <option
+                     value="es"
+                     >
+                    español
+                  </option>
+                  
+                  <option
+                     value="sv"
+                     >
+                    Svenska
+                  </option>
+                  
+                  <option
+                     value="th"
+                     >
+                    Thai
+                  </option>
+                  
+                  <option
+                     value="tr"
+                     >
+                    Türkçe
+                  </option>
+                  
+                  <option
+                     value="uk"
+                     >
+                    Українська
+                  </option>
+                  
+                  <option
+                     value="vi"
+                     >
+                    Vietnamese
+                  </option>
+                  
+                </select>
+              </form>
+            </li>
+          </ul>
+        </div>
+        
+      </footer>
+      
+      
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href='http://www.google.com/+'>Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script src="/_static/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+      
+    </script>
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    <script>
+      
+      google.load('visualization', '1', {packages: ['table']});
+    </script>
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+    // Render any carousels on the page
+    $('.carousel').carousel();
+    // Render any feed widgets on the page
+    
+    $('.feed').rss();
+    $('.feed-plain').rss();
+    // Render any OSS widgets on the page.
+    $('.oss').oss();
+    });
+</script>
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+</html>

@@ -1,0 +1,837 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <!--[if lt IE 9]>
+            <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="index, follow, all" />
+        <meta name="Author" content="Extreme Sensio" />
+        <meta name="Language" content="en"/>
+        <meta name="Copyright" content="Sensio Labs" />
+        <meta name="Publisher" content="Sensio Labs" />
+        <meta name="Description" content="Symfony - Open-Source PHP web framework" />
+        <meta name="Keywords" content="symfony2, symfony, project, framework, php, php5, open-source, components, symphony, symfony framework, symfony tutorial" />
+
+        <link rel="search" type="application/opensearchdescription+xml" href="http://symfony.com/opensearch/documentation.xml" title="Symfony2 documentation" />
+
+        <title>The YAML Format (current) - Symfony</title>
+
+                        <link rel="stylesheet" href="/css/compiled/all.css?v=3" />
+                 <link href="https://connect.sensiolabs.com/css/sln.css" rel="stylesheet" type="text/css" media="all" />
+
+                
+                
+                    <script type="text/javascript" src="/js/all.js?v=3"></script>
+        
+                
+        <!--[if lt IE 9]>
+          <script src="/js/common/html5.js" type="text/javascript"></script>
+        <![endif]-->
+
+        <!--[if IE 6]>
+            <script src="/js/common/DD_belatedPNG_0.0.7a-min.js" type="text/javascript"></script>
+            <script src="/js/common/ExtendDD_belatedPNG_0.0.7a.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                DD_belatedPNG.fix('.png_fix');
+            </script>
+        <![endif]-->
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-89393-6']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    </head>
+
+    <body>
+        <div id="content_wrapper" class="">
+            <div id="sln"></div>
+
+            <div class="content">
+                
+
+    
+<div class="header">
+    <div class="content_header clear_fix">
+        <div class="illustration_logo_header">
+                            <a href="/"><img src="/images/common/logo/logo_symfony_header.png" alt="Symfony" class="png_fix" /></a>
+                    </div>
+        <div class="box_download clear_fix">
+            <div class="legend_download">
+                <img src="/images/en/a_sensiolabs_product.png" alt="a SensioLabs product" class="png_fix" />
+            </div>
+            <div class="download_button_wrapper">
+                <a href="/download" class="download_button">    <span class="border_l png_fix">
+        <span class="border_r png_fix">
+            <span class="btn_bg png_fix">
+                DOWNLOAD NOW
+            </span>
+        </span>
+    </span>
+</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main_menu clear_fix" id="main_menu_id">
+    <ul class="clear_fix">
+        <li class="first what_is_symfony"><a href="/what-is-symfony">What is Symfony?</a></li>
+        <li class="get_started">
+            <a href="/get_started">Get started</a>
+                    </li>
+        <li class="learn selected"><a href="/doc/current/index.html">Documentation</a></li>
+        <li class="community"><a href="/community">Community</a></li>
+        <li class="services"><a href="/services">Services</a></li>
+        <li class="blog">
+            <a href="/blog/">News</a>
+            <div class="box_dropdown_wrapper">
+    <div class="border_l">
+        <div class="middle_border_l">
+            <div class="border_r">
+                <div class="middle_border_r">
+                    <div class="content_wrapper">
+                        <div class="box_content">
+                                <div class="inner_drop_box_two_columns clear_fix">
+        <div class="inner_drop_box_two_columns_column_01">
+            <h2 class="dropdown_title">
+                <div class="button"><a href="http://twitter.com/symfony" title="twitter account"><img style="width: 35px; margin-top: -10px" src="/images/common/picto/twitter.png" alt="Twitter" /></a></div>
+                <div class="button"><a href="http://feeds.feedburner.com/symfony/blog" title="blog feed"><img src="/images/common/picto/rss.gif" alt="feed" /></a></div>
+                <a href="/blog/">Latest News</a>
+            </h2>
+
+            <div class="box_article post">
+                    <div class="gravatar"><a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15"><img width="57" height="57" src="https://connect.sensiolabs.com/api/images/4aed4f5d-e0cb-4320-902f-885fddaa7d15.png?format=57x57" alt="Fabien Potencier"></a></div>
+                <h3 class="title_05"><a href="/blog/symfony-2-3-schedule-update">Symfony 2.3 schedule update</a></h3>
+                <div class="complementaries_informations">
+    by
+            <a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15">Fabien Potencier</a>
+            – April 30, 2013
+        </div>
+            </div>
+
+                <div class="box_hr"><hr /></div>
+
+
+            <div class="box_article">
+                <h2 class="title_05"><a href="/blog/a-week-of-symfony-330-22-28-april-2013">What happened last week in Symfony?</a></h2>
+                <p>This week, it was announced that the Symfony 2.3 Standard Edition will only include MIT/BSD licensed libraries and bundles (<a href="https://github.com/symfony/symfony-standard/pull/535">view pull request</a>). In addition, Symfony 2.3 <a href="http://twitter.com/fabpot/status/327525715903905793">was declared nearly completed</a>, with just a few important PR remaining before the first beta version. Lastly, a new version of <a href="http://desktop.sensiolabs.org/">SensioLabs Desktop</a> was released.</p>
+            </div>
+        </div>
+        <div class="inner_drop_box_two_columns_column_02">
+            <h2 class="dropdown_title">
+                <div class="button"><a href="http://twitter.com/symfony" title="twitter account"><img style="width: 35px; margin-top: -10px" src="/images/common/picto/twitter.png" alt="Twitter" /></a></div>
+                <div class="button"><a href="http://feeds.feedburner.com/symfony/events" title="events rss"><img src="/images/common/picto/rss.gif" alt="RSS" /></a></div>
+                <a href="/events/">Upcoming Events</a>
+            </h2>
+
+            <div class="box_article">
+                <p>The Symfony Community organizes events all over the world on a regular basis. Here are the next ones.</p>
+                                                            <h2 class="title_05">
+                            <img src="/images/flags/de.png?v=3" />
+                                                            <a href="http://www.meetup.com/sfugmd/events/113619892/">Germany, Gera &mdash; Symfony User Group Mitteldeutschland Treffen</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            on May 08, 2013, from 19:00 to 20:30
+                                                    </div>
+                                            <h2 class="title_05">
+                            <img src="/images/flags/de.png?v=3" />
+                                                            <a href="http://www.meetup.com/sfugcgn/events/104715432/">Germany, Köln &mdash; Treffen der Symfony User Group Cologne</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            on May 08, 2013, from 19:30 to 21:00
+                                                    </div>
+                                            <h2 class="title_05">
+                            <img src="/images/flags/fr.png?v=3" />
+                                                            <a href="http://sfpotparismai2013.eventbrite.fr/">France, Paris &mdash; sfPot Paris Mai - Formulaire et Tests</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            on May 14, 2013, from 19:30 to 21:00
+                                                    </div>
+                                            <h2 class="title_05">
+                            <img src="/images/flags/us.png?v=3" />
+                                                            <a href="http://portland2013.live.symfony.com/">United States, Portland &mdash; SymfonyLive Portland 2013</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            from May 20, 2013 to May 24, 2013
+                                                    </div>
+                                                </div>
+        </div>
+    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="corner_l">
+            <div class="corner_r">
+                <div class="border"></div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+        <li class="last about"><a href="/about">About</a></li>
+    </ul>
+</div>
+
+                                    <div class="main_content">
+                                                    <div class="box_columns clear_fix">
+                                                                                                            <div class="column_01">
+                                                                                            <div class="submenu">
+                                                    <ul class="list_submenu">    <li class="first"><a href="/doc/current/book/index.html">The Book</a></li>
+<li><a href="/doc/current/cookbook/index.html">The Cookbook</a></li>
+<li class="selected"><a href="/doc/current/components/index.html">The Components</a></li>
+<li><a href="/doc/current/reference/index.html">Reference</a></li>
+<li><a href="/doc/current/glossary.html">Glossary</a></li>
+<li><a href="/doc/current/genindex.html">Index</a></li>
+<li><a href="/doc/current/bundles/index.html">Bundles</a></li>
+<li><a href="/doc/master/cmf/index.html">Symfony CMF</a></li>
+<li><a href="/doc/master/contributing/code/security.html#security-advisories">Security Advisories</a></li>
+<li><a href="/legacy/doc">Docs for symfony 1.x</a></li>
+<li><a href="/doc/current/contributing/index.html">Contributing</a></li>
+<li><a href="/talks">Talks</a></li>
+<li><a href="http://trainings.sensiolabs.com/">Trainings</a></li>
+<li class="last"><a href="http://books.sensiolabs.com">Books</a></li>
+</ul>
+                                                </div>
+                                                                        <div class="toc">
+                <h2 class="title_05">Table of Contents</h2>
+                <div class="toc-content">
+                    <ul>
+<li><a class="reference internal" href="#">The YAML Format</a><ul>
+<li><a class="reference internal" href="#scalars">Scalars</a><ul>
+<li><a class="reference internal" href="#strings">Strings</a></li>
+<li><a class="reference internal" href="#numbers">Numbers</a></li>
+<li><a class="reference internal" href="#nulls">Nulls</a></li>
+<li><a class="reference internal" href="#booleans">Booleans</a></li>
+<li><a class="reference internal" href="#dates">Dates</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#collections">Collections</a></li>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            
+    <div class="feedback">
+    <h2 class="title_05">Questions &amp; Feedback</h2>
+    <p>
+      <em>Found a typo or an error?</em><br />
+      <em>Want to improve this document?</em> <a href="https://github.com/symfony/symfony-docs/edit/2.2/components/yaml/yaml_format.rst">Edit</a> it.
+    </p>
+    <p>
+      <em>Need support or have a technical question?</em><br />
+      Post to the <a href="http://groups.google.com/group/symfony2">user mailing-list</a>.
+     </p>
+</div>
+    <div id="license">
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        <img alt="Creative Commons License" src="http://symfony.com/images/license.png" />
+    </a>
+    <div>
+        This <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/MovingImage" rel="dc:type">work</span> is licensed under a
+        <br />
+        Creative Commons
+        <br />
+        Attribution-Share Alike 3.0
+        <br />
+        Unported <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">License</a>.
+    </div>
+</div>
+                                                                                                    
+<div class="ads">
+        <div class="box_hr"><hr /></div>
+
+
+            <div class="ad" id="ad_trainings_1">
+            <h3><a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">Master Symfony2 fundamentals</a></h3>
+            <div>Be trained by SensioLabs experts (2 to 6 day sessions -- French or English).</div>
+            <div><cite>trainings.sensiolabs.com</cite></div>
+        </div>
+            <div class="ad" id="ad_servergrove_1">
+            <h3><a href="http://symfony.com/servergrove">Symfony hosting done right</a></h3>
+            <div>ServerGrove, outstanding support at the right price for your Symfony hosting needs.</div>
+            <div><cite>servergrove.com</cite></div>
+        </div>
+            <div class="ad" id="ad_support_1">
+            <h3><a href="http://sensiolabs.com/en/support/sensiolabs_support.html">Discover the SensioLabs Support</a></h3>
+            <div>Access to the SensioLabs Competency Center for an exclusive and tailor-made support on Symfony</div>
+            <div><cite>sensiolabs.com</cite></div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+                    $("#ad_trainings_1").click(function () { _gaq.push(['_trackEvent', 'Ads', 'Ads', 'trainings_1']); });
+                    $("#ad_servergrove_1").click(function () { _gaq.push(['_trackEvent', 'Ads', 'Ads', 'servergrove_1']); });
+                    $("#ad_support_1").click(function () { _gaq.push(['_trackEvent', 'Ads', 'Ads', 'support_1']); });
+            });
+</script>
+                                                                                                                                                    <div class="ads">
+                                                        <a href="https://connect.sensiolabs.com/"><img src="/images/sensiolabs_connect.png?v=3" /></a>
+                                                    </div>
+                                                                                                                                    </div>
+                                                                        <div class="column_02">
+                                                                                    <div class="breadcrumb">
+                                                <a href="/">Home</a> &raquo;
+                                                            <a href="/doc/current/index.html">Documentation</a> &raquo;
+    
+            <a href="../index.html" >The Components</a> &raquo;
+            <a href="index.html" accesskey="U">Yaml</a> &raquo;
+    
+    The YAML Format
+                                            </div>
+
+                                                                                                <div class="box_title">
+                                                        <div class="box_version_wrapper">
+        <div class="version_wrapper">
+            <div class="version">
+                2.2 version
+                <span class="arrow">
+                    <img src="/images/common/picto/down_arrow_white.png" alt="" />
+                </span>
+            </div>
+            <div class="other_version">
+                                    <ul>
+                                                                                    <li>
+                                    <a href="/doc/2.0/components/yaml/yaml_format.html">2.0 version</a>
+                                </li>
+                                                                                                                <li>
+                                    <a href="/doc/2.1/components/yaml/yaml_format.html">2.1 version</a>
+                                </li>
+                                                                                                                                                                    <li>
+                                    <a href="/doc/master/components/yaml/yaml_format.html">master version</a>
+                                </li>
+                                                                        </ul>
+                                                                            <hr />
+                                        <ul>
+                                                                                    <li>
+                                    <a href="/it/doc/current/components/yaml/yaml_format.html">Italian</a>
+                                </li>
+                                                                        </ul>
+                            </div>
+        </div>
+    </div>
+                                                    <h1 class="title_01">The YAML Format</h1>
+                                                </div>
+                                            
+        
+                                                
+    <div class="box_article doc_page">
+        <div class="section" id="the-yaml-format">
+<span id="index-0"></span><h1>The YAML Format<a class="headerlink" href="#the-yaml-format" title="Permalink to this headline">¶</a></h1>
+<p>According to the official <a class="reference external" href="http://yaml.org/">YAML</a> website, YAML is &quot;a human friendly data
+serialization standard for all programming languages&quot;.</p>
+<p>Even if the YAML format can describe complex nested data structure, this
+chapter only describes the minimum set of features needed to use YAML as a
+configuration file format.</p>
+<p>YAML is a simple language that describes data. As PHP, it has a syntax for
+simple types like strings, booleans, floats, or integers. But unlike PHP, it
+makes a difference between arrays (sequences) and hashes (mappings).</p>
+<div class="section" id="scalars">
+<h2>Scalars<a class="headerlink" href="#scalars" title="Permalink to this headline">¶</a></h2>
+<p>The syntax for scalars is similar to the PHP syntax.</p>
+<div class="section" id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="l-Scalar-Plain">A string in YAML</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="s">&#39;A</span><span class="nv"> </span><span class="s">singled-quoted</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">YAML&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p>In a single quoted string, a single quote <tt class="docutils literal"><code>'</code></tt> must be doubled:</p>
+<div class="literal-block"><div class="last highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="s">&#39;A</span><span class="nv"> </span><span class="s">single</span><span class="nv"> </span><span class="s">quote</span><span class="nv"> </span><span class="se">&#39;&#39;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">single-quoted</span><span class="nv"> </span><span class="s">string&#39;</span>
+</pre></div>
+</td></tr></table></div></div>
+</div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="s">&quot;A</span><span class="nv"> </span><span class="s">double-quoted</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">YAML\n&quot;</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Quoted styles are useful when a string starts or ends with one or more
+relevant spaces.</p>
+<div class="admonition-wrapper">
+<div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+<p class="last">The double-quoted style provides a way to express arbitrary strings, by
+using <tt class="docutils literal"><code>\</code></tt> escape sequences. It is very useful when you need to embed a
+<tt class="docutils literal"><code>\n</code></tt> or a unicode character in a string.</p>
+</div></div>
+<p>When a string contains line breaks, you can use the literal style, indicated
+by the pipe (<tt class="docutils literal"><code>|</code></tt>), to indicate that the string will span several lines. In
+literals, newlines are preserved:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="p-Indicator">|</span>
+  <span class="no">\/ /| |\/| |</span>
+  <span class="no">/ / | |  | |__</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Alternatively, strings can be written with the folded style, denoted by <tt class="docutils literal"><code>&gt;</code></tt>,
+where each line break is replaced by a space:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="p-Indicator">&gt;</span>
+  <span class="no">This is a very long sentence</span>
+  <span class="no">that spans several lines in the YAML</span>
+  <span class="no">but which will be rendered as a string</span>
+  <span class="no">without carriage returns.</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Notice the two spaces before each line in the previous examples. They
+won't appear in the resulting PHP strings.</p>
+</div></div>
+</div>
+<div class="section" id="numbers">
+<h3>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># an integer</span>
+<span class="l-Scalar-Plain">12</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># an octal</span>
+<span class="l-Scalar-Plain">014</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># an hexadecimal</span>
+<span class="l-Scalar-Plain">0xC</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># a float</span>
+<span class="l-Scalar-Plain">13.4</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># an exponential number</span>
+<span class="l-Scalar-Plain">1.2e+34</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># infinity</span>
+<span class="l-Scalar-Plain">.inf</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="nulls">
+<h3>Nulls<a class="headerlink" href="#nulls" title="Permalink to this headline">¶</a></h3>
+<p>Nulls in YAML can be expressed with <tt class="docutils literal"><code>null</code></tt> or <tt class="docutils literal"><code>~</code></tt>.</p>
+</div>
+<div class="section" id="booleans">
+<h3>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">¶</a></h3>
+<p>Booleans in YAML are expressed with <tt class="docutils literal"><code>true</code></tt> and <tt class="docutils literal"><code>false</code></tt>.</p>
+</div>
+<div class="section" id="dates">
+<h3>Dates<a class="headerlink" href="#dates" title="Permalink to this headline">¶</a></h3>
+<p>YAML uses the ISO-8601 standard to express dates:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="l-Scalar-Plain">2001-12-14t21:59:43.10-05:00</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># simple date</span>
+<span class="l-Scalar-Plain">2002-12-14</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="collections">
+<h2>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h2>
+<p>A YAML file is rarely used to describe a simple scalar. Most of the time, it
+describes a collection. A collection can be a sequence or a mapping of
+elements. Both sequences and mappings are converted to PHP arrays.</p>
+<p>Sequences use a dash followed by a space:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">PHP</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">Perl</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">Python</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>The previous YAML file is equivalent to the following PHP code:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">array</span><span class="p">(</span><span class="s1">&#39;PHP&#39;</span><span class="p">,</span> <span class="s1">&#39;Perl&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Mappings use a colon followed by a space (<tt class="docutils literal"><code>:</code></tt> ) to mark each key/value pair:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="l-Scalar-Plain">PHP</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">5.2</span>
+<span class="l-Scalar-Plain">MySQL</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">5.1</span>
+<span class="l-Scalar-Plain">Apache</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.2.20</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>which is equivalent to this PHP code:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">array</span><span class="p">(</span><span class="s1">&#39;PHP&#39;</span> <span class="o">=&gt;</span> <span class="mf">5.2</span><span class="p">,</span> <span class="s1">&#39;MySQL&#39;</span> <span class="o">=&gt;</span> <span class="mf">5.1</span><span class="p">,</span> <span class="s1">&#39;Apache&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2.2.20&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">In a mapping, a key can be any valid scalar.</p>
+</div></div>
+<p>The number of spaces between the colon and the value does not matter:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="l-Scalar-Plain">PHP</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">5.2</span>
+<span class="l-Scalar-Plain">MySQL</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">5.1</span>
+<span class="l-Scalar-Plain">Apache</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.2.20</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>YAML uses indentation with one or more spaces to describe nested collections:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="s">&quot;symfony</span><span class="nv"> </span><span class="s">1.0&quot;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">PHP</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">5.0</span>
+  <span class="l-Scalar-Plain">Propel</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1.2</span>
+<span class="s">&quot;symfony</span><span class="nv"> </span><span class="s">1.2&quot;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">PHP</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">5.2</span>
+  <span class="l-Scalar-Plain">Propel</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1.3</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>The following YAML is equivalent to the following PHP code:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">array</span><span class="p">(</span>
+  <span class="s1">&#39;symfony 1.0&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;PHP&#39;</span>    <span class="o">=&gt;</span> <span class="mf">5.0</span><span class="p">,</span>
+    <span class="s1">&#39;Propel&#39;</span> <span class="o">=&gt;</span> <span class="mf">1.2</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">&#39;symfony 1.2&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;PHP&#39;</span>    <span class="o">=&gt;</span> <span class="mf">5.2</span><span class="p">,</span>
+    <span class="s1">&#39;Propel&#39;</span> <span class="o">=&gt;</span> <span class="mf">1.3</span><span class="p">,</span>
+  <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>There is one important thing you need to remember when using indentation in a
+YAML file: <em>Indentation must be done with one or more spaces, but never with
+tabulations</em>.</p>
+<p>You can nest sequences and mappings as you like:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="s">&#39;Chapter</span><span class="nv"> </span><span class="s">1&#39;</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">Introduction</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">Event Types</span>
+<span class="s">&#39;Chapter</span><span class="nv"> </span><span class="s">2&#39;</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">Introduction</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">Helpers</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>YAML can also use flow styles for collections, using explicit indicators
+rather than indentation to denote scope.</p>
+<p>A sequence can be written as a comma separated list within square brackets
+(<tt class="docutils literal"><code>[]</code></tt>):</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="p-Indicator">[</span><span class="nv">PHP</span><span class="p-Indicator">,</span> <span class="nv">Perl</span><span class="p-Indicator">,</span> <span class="nv">Python</span><span class="p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>A mapping can be written as a comma separated list of key/values within curly
+braces (<tt class="docutils literal"><code>{}</code></tt>):</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="p-Indicator">{</span> <span class="nv">PHP</span><span class="p-Indicator">:</span> <span class="nv">5.2</span><span class="p-Indicator">,</span> <span class="nv">MySQL</span><span class="p-Indicator">:</span> <span class="nv">5.1</span><span class="p-Indicator">,</span> <span class="nv">Apache</span><span class="p-Indicator">:</span> <span class="nv">2.2.20</span> <span class="p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>You can mix and match styles to achieve a better readability:</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="s">&#39;Chapter</span><span class="nv"> </span><span class="s">1&#39;</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">Introduction</span><span class="p-Indicator">,</span> <span class="nv">Event Types</span><span class="p-Indicator">]</span>
+<span class="s">&#39;Chapter</span><span class="nv"> </span><span class="s">2&#39;</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">Introduction</span><span class="p-Indicator">,</span> <span class="nv">Helpers</span><span class="p-Indicator">]</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="s">&quot;symfony</span><span class="nv"> </span><span class="s">1.0&quot;</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">PHP</span><span class="p-Indicator">:</span> <span class="nv">5.0</span><span class="p-Indicator">,</span> <span class="nv">Propel</span><span class="p-Indicator">:</span> <span class="nv">1.2</span> <span class="p-Indicator">}</span>
+<span class="s">&quot;symfony</span><span class="nv"> </span><span class="s">1.2&quot;</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">PHP</span><span class="p-Indicator">:</span> <span class="nv">5.2</span><span class="p-Indicator">,</span> <span class="nv">Propel</span><span class="p-Indicator">:</span> <span class="nv">1.3</span> <span class="p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>Comments can be added in YAML by prefixing them with a hash mark (<tt class="docutils literal"><code>#</code></tt>):</p>
+<div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># Comment on a line</span>
+<span class="s">&quot;symfony</span><span class="nv"> </span><span class="s">1.0&quot;</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">PHP</span><span class="p-Indicator">:</span> <span class="nv">5.0</span><span class="p-Indicator">,</span> <span class="nv">Propel</span><span class="p-Indicator">:</span> <span class="nv">1.2</span> <span class="p-Indicator">}</span> <span class="c1"># Comment at the end of a line</span>
+<span class="s">&quot;symfony</span><span class="nv"> </span><span class="s">1.2&quot;</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">PHP</span><span class="p-Indicator">:</span> <span class="nv">5.2</span><span class="p-Indicator">,</span> <span class="nv">Propel</span><span class="p-Indicator">:</span> <span class="nv">1.3</span> <span class="p-Indicator">}</span>
+</pre></div>
+</td></tr></table></div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Comments are simply ignored by the YAML parser and do not need to be
+indented according to the current level of nesting in a collection.</p>
+</div></div>
+</div>
+</div>
+
+    </div>
+
+            <div class="navigation">
+                            <a accesskey="P" title="The YAML Component" href="introduction.html">
+                    &laquo;&nbsp;The YAML Component
+                </a>
+                        <span class="separator">|</span>                            <a accesskey="N" title="Reference Documents" href="../../reference/index.html">
+                    Reference Documents&nbsp;&raquo;
+                </a>
+                    </div>
+
+            <div class="box_hr"><hr /></div>
+
+                                                                                </div>
+                                                            </div>
+                        
+                        
+                                                    <div class="box_relative_content">
+    <div class="relative_content_box_columns clear_fix">
+        <div class="column_01">
+            <h2 class="title_05">NEWS FROM THE BLOG</h2>
+
+<ul class="event_list">
+            <li>
+            <h3>
+                <a href="/blog/symfony-2-3-schedule-update">
+                    Symfony 2.3 schedule update<br />
+                    <span class="place_date">April 30, 2013</span>
+                </a>
+            </h3>
+        </li>
+            <li>
+            <h3>
+                <a href="/blog/a-week-of-symfony-330-22-28-april-2013">
+                    A week of symfony #330 (22-&gt;28 April 2013)<br />
+                    <span class="place_date">April 28, 2013</span>
+                </a>
+            </h3>
+        </li>
+            <li>
+            <h3>
+                <a href="/blog/new-in-symfony-2-3-new-validators">
+                    New in Symfony 2.3: New validators<br />
+                    <span class="place_date">April 25, 2013</span>
+                </a>
+            </h3>
+        </li>
+    </ul>
+
+<div class="link_01">
+    <a href="/blog/" class="png_fix">Visit Symfony's blog</a>
+</div>
+        </div>
+
+        <div class="column_02">
+                        <h2 class="title_05">IN THE NEWS</h2>
+
+
+<div class="upcoming_event clear_fix">
+    <div>
+        <a href="http://portland2013.live.symfony.com/" target="_blank">
+            <img style="width: 100px" src="http://live.symfony.com/bundles/sensiosymfonylive/images/landing/sfl_portland.png" class="png_fix" alt="The Symfony Live Conference Portland 2013" />
+        </a>
+    </div>
+
+    <div style="margin-top: 13px">
+        <h3 style="font-size: 13px; font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif">Announcing the next Symfony Live Conference 2013 in Portland</h3>
+        <div style="margin-top: 5px">
+            <a href="http://portland2013.live.symfony.com/registration/" class="non_extensible_button button_01">    <span class="border_l png_fix">
+        <span class="border_r png_fix">
+            <span class="btn_bg png_fix">
+                REGISTER TODAY
+            </span>
+        </span>
+    </span>
+</a>
+        </div>
+    </div>
+</div>
+
+                    </div>
+
+        <div class="column_03">
+            <h2 class="title_05">UPCOMING TRAINING SESSIONS</h2>
+
+<ul class="event_list">
+        <li>
+        <a href="http://trainings.sensiolabs.com/en/training/symfony-certification">
+            Symfony2 Framework Certification
+            <br />
+            <span class="place_date">Cologne - 2013-04-26</span>
+        </a>
+    </li>
+        <li>
+        <a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">
+            Getting Started with Symfony2
+            <br />
+            <span class="place_date">Paris - 2013-05-13</span>
+        </a>
+    </li>
+        <li>
+        <a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">
+            Getting Started with Symfony2
+            <br />
+            <span class="place_date">Cologne - 2013-05-13</span>
+        </a>
+    </li>
+    </ul>
+
+<div class="link_01">
+    <a href="http://trainings.sensiolabs.com/" class="png_fix">View all sessions</a>
+</div>
+        </div>
+    </div>
+</div>
+                        
+                    </div>
+                            </div>
+
+            
+<div class="footer">
+    <div class="content">
+        <h2 class="title_02">
+            <img src="/images/common/logo/logo_sf.png" alt="sf - Symfony" class="illustration_logo_footer png_fix"/> is a trademark of Fabien Potencier. All rights reserved.
+        </h2>
+
+        <div class="box_menu_footer clear_fix">
+            <div class="menu_footer first">
+                <h3 class="title_03"><a href="/what-is-symfony">What is Symfony?</a></h3>
+                <ul class="list_menu_footer">
+                    <li class="first"><a href="/symfony-at-a-glance">Symfony at a Glance</a></li>
+<li><a href="/symfony-in-five-minutes">Symfony in 5 Minutes</a></li>
+<li><a href="/elevator-pitches">Elevator Pitches</a></li>
+<li><a href="/blog/category/case-studies">Case Studies</a></li>
+<li><a href="/doc/current/contributing/community/releases.html">Versioning Policy</a></li>
+<li><a href="/doc/current/contributing/community/releases.html#long-term-support-releases">Long Term Support</a></li>
+<li><a href="/doc/current/contributing/code/security.html">Security Policy</a></li>
+<li class="last"><a href="/doc/current/contributing/code/license.html">License</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/get_started">Get Started</a></h3>
+                <ul class="list_menu_footer">
+                    <li class="first"><a href="/download">Download Symfony</a></li>
+<li><a href="/distributions">Symfony Distributions</a></li>
+<li class="selected"><a href="/components">Symfony Components</a></li>
+<li><a href="/doc/current/quick_tour/the_big_picture.html">Quick Tour</a></li>
+<li class="last"><a href="/legacy">symfony1 Legacy</a></li>
+                </ul>
+
+                <h3 class="title_03"><a href="/doc/current/index.html">Learn Symfony</a></h3>
+                <ul class="list_menu_footer">
+                    <li class="first"><a href="/doc/current/book/index.html">The Book</a></li>
+<li><a href="/doc/current/cookbook/index.html">The Cookbook</a></li>
+<li class="selected"><a href="/doc/current/components/index.html">The Components</a></li>
+<li><a href="/doc/current/reference/index.html">Reference</a></li>
+<li><a href="/doc/current/glossary.html">Glossary</a></li>
+<li><a href="/doc/current/genindex.html">Index</a></li>
+<li><a href="/doc/current/bundles/index.html">Bundles</a></li>
+<li><a href="/doc/master/cmf/index.html">Symfony CMF</a></li>
+<li><a href="/doc/master/contributing/code/security.html#security-advisories">Security Advisories</a></li>
+<li><a href="/legacy/doc">Docs for symfony 1.x</a></li>
+<li><a href="/doc/current/contributing/index.html">Contributing</a></li>
+<li><a href="/talks">Talks</a></li>
+<li><a href="http://trainings.sensiolabs.com/">Trainings</a></li>
+<li class="last"><a href="http://books.sensiolabs.com">Books</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/marketplace">Marketplace</a></h3>
+                <ul class="list_menu_footer">
+                </ul>
+
+                <h3 class="title_03"><a href="/community">Community</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="https://connect.sensiolabs.com/">SensioLabs Connect</a></li>
+<li><a href="/irc">IRC channel</a></li>
+<li><a href="/mailing-lists">Mailing lists</a></li>
+
+<li><a href="http://forum.symfony-project.org/">Forum</a></li>
+<li><a href="/doc/current/contributing/index.html">How to be involved</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/services">Services</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="/services/list">Our services</a></li>
+<li><a href="/services/guide#before">Starting a new project</a></li>
+<li><a href="/services/guide#during">Struggling with your project</a></li>
+<li><a href="http://sensiolabs.com/en/support/sensiolabs_support.html">Support</a></li>
+<li><a href="/services/request">Contact us</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/blog/">Blog</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="/events/"><em>Community Events</em></a></li>
+
+    <li><a href="/blog/category/a-week-of-symfony">A week of symfony</a></li>
+    <li><a href="/blog/category/call-the-expert">Call the expert</a></li>
+    <li><a href="/blog/category/case-studies">Case studies</a></li>
+    <li><a href="/blog/category/community">Community</a></li>
+    <li><a href="/blog/category/documentation">Documentation</a></li>
+    <li><a href="/blog/category/living-on-the-edge">Living on the edge</a></li>
+    <li><a href="/blog/category/plugins">Plugins</a></li>
+    <li><a href="/blog/category/releases">Releases</a></li>
+    <li><a href="/blog/category/security-advisories">Security Advisories</a></li>
+    <li><a href="/blog/category/tutorials">Tutorials</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/about">About</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="http://www.sensiolabs.com/">Sensio Labs</a></li>
+<li><a href="/contributors">Contributors</a></li>
+<li><a href="/trademark">Trademark &amp; Logo Policy</a></li>
+<li><a href="/logo">Logo</a></li>
+<li><a href="http://sensiolabs.com/recrutement/rejoignez_nous.html">Jobs</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+
+        <script type="text/javascript">
+            (function(w, d, s) {
+                function go() {
+                    var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+                        if (d.getElementById(id)) {return;}
+                        js = d.createElement(s); js.src = url; js.id = id;
+                        fjs.parentNode.insertBefore(js, fjs);
+                    };
+                    load('https://connect.sensiolabs.com/sln.js?customize_url=http://symfony.com/sln_customiser.js', 'sln_bar');
+                }
+                if (w.addEventListener) { w.addEventListener("load", go, false); }
+                else if (w.attachEvent) { w.attachEvent("onload",go); }
+            } (window, document, 'script'));
+        </script>
+                    </body>
+</html>

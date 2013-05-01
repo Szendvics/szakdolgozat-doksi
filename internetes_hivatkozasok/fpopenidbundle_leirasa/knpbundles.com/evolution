@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Symfony ecosystem evolution | KnpBundles</title>
+    <meta name="description" content="evolution.description">
+    
+    <link rel="shortcut icon" href="/favicon.png?v1" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v1">
+
+    <link rel="alternate" href="/latest?format=atom" title="ATOM" type="application/atom+xml">
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient {
+            filter: none;
+        }
+    </style>
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/5d82e50.css?v1" type="text/css" media="screen">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body class="simple-background">
+
+<header id="page-header">
+    <section>
+        <h1 id="logo"><a href="/"><img src="/bundles/knpbundles/images/logo.gif?v1" alt="KnpBundles"></a></h1>
+
+        <nav>
+                <ul>
+                <li class="first">        <a href="/">Bundles</a>        
+    </li>
+
+        <li>        <a href="/developer">Developers</a>        
+    </li>
+
+        <li>        <a href="/organization">Organizations</a>        
+    </li>
+
+        <li class="current">        <a href="/evolution">Evolution</a>        
+    </li>
+
+        <li class="last">        <a href="/add">Register a bundle</a>        
+    </li>
+
+
+    </ul>
+
+        </nav>
+
+        <div id="auth">
+    <ul id="auth-menu">
+        <li class="login"><img src="/bundles/knpbundles/images/icon_person.gif?v1" alt="Log out">Login via</li>
+        <li>
+            <ul>
+                <li><a href="/connect/github">GitHub</a></li>
+                <li><a href="/connect/sensio">SensioConnect</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+        <form method="get" action="/search" id="search-box">
+            <label for="search-query">Search:</label>
+            <input type="text" id="search-query" name="q" value="" placeholder="Search..."><input type="submit" id="search-btn" value="&nbsp;">
+        </form>
+    </section>
+</header>
+
+<div id="content-wrapper" class="clearfix">
+    <div id="content-center">
+                <div id="content-header">
+            <div id="promo">
+    <figure>
+        <img src="/bundles/knpbundles/images/icon_heart.png?v1" alt="">
+    </figure>
+
+    <section onclick="_gaq.push(['_trackEvent', 'banner']);">
+        <span>Developed with love by KnpLabs</span>
+
+        <a href="http://knplabs.com/" onclick="_gaq.push(['_trackEvent', 'banner']);">Hire us for your project!</a>
+    </section>
+</div>
+
+            <div id="intro">
+    <h1>Our recent statistics</h1>
+</div>
+        </div>
+        
+        <div id="content-holder" class="content-full">
+    
+    <div class="content-box">
+    <hgroup>
+        <h2>Evolution of the Symfony ecosystem</h2>
+        <h4><p>The activity level shows the number of bundle updates (maintenance and upgrade) and new bundles<br>
+entering the ecosystem.</p>
+</h4>
+    </hgroup>
+
+    <section class="graph">
+        
+<div id="chart1"></div>
+
+<script type="text/javascript" src="/bundles/knpbundles/js/highcharts.js?v1"></script>
+
+<script type="text/javascript">
+    $(function () {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'chart1',
+                                marginTop: 35,
+                                type: 'area'
+            },
+                        title: {
+                text: null
+            },
+            colors: [
+                                '#f08561'
+                            ],
+            legend: {
+                                align: 'right',
+                floating: true,
+                verticalAlign: 'top',
+                borderWidth: 0,
+                symbolPadding: 8,
+                symbolWidth: 40,
+                itemStyle: {
+                    color: '#949494',
+                    fontSize: '13px'
+                },
+                x: -30,
+                y: -10
+            },
+            tooltip: {
+                backgroundColor: {
+                    linearGradient: [0, 0, 0, 60],
+                    stops: [
+                        [0, '#FFFFFF'],
+                        [1, '#f3f3f3']
+                    ]
+                },
+                borderWidth: 1,
+                borderColor: '#d0d0d0',
+                style: {
+                    padding: '5px 10px'
+                },
+                useHTML: true,
+                                headerFormat: '',
+                pointFormat: '<center style="font-size: 12px">{point.y}<br><strong style="font-size: 11px;color: {series.color}">{series.name}</strong></center>'
+                            },
+            xAxis: {
+                type: 'datetime',
+                tickLength: 0,
+                tickPixelInterval: 35,
+                labels: {
+                                        x: -35,
+                    y: 50,
+                    rotation: -30,
+                    style: {
+                        color: '#6d6d6d'
+                    },
+                    step: 1,
+                    align: 'left',
+                    formatter: function() {
+                        return Highcharts.dateFormat('%Y-%m-%e', this.value);
+                    }
+                }            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                                        style: {
+                        color: '#6d6d6d',
+                        fontSize: '12px'
+                    }
+                },
+                gridLineDashStyle: 'dash',
+                gridLineColor: '#cccccc'
+            },
+            plotOptions: {
+                series: {
+                    lineWidth: 2,
+                    fillOpacity: 0.3,
+                    shadow: false,
+                    marker: {
+                        symbol: 'circle',
+                        fillColor: '#FFFFFF',
+                        lineWidth: 2,
+                        lineColor: null,
+                        radius: 4,
+                        states: {
+                            hover: {
+                                enabled: false
+                            }
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'Bundles updated',
+                data: [
+                    [Date.UTC(2013, 2, 13), 58],
+                    [Date.UTC(2013, 2, 14), 72],
+                    [Date.UTC(2013, 2, 15), 75],
+                    [Date.UTC(2013, 2, 16), 68],
+                    [Date.UTC(2013, 2, 17), 37],
+                    [Date.UTC(2013, 2, 18), 66],
+                    [Date.UTC(2013, 2, 19), 67],
+                    [Date.UTC(2013, 2, 20), 59],
+                    [Date.UTC(2013, 2, 21), 73],
+                    [Date.UTC(2013, 2, 22), 69],
+                    [Date.UTC(2013, 2, 23), 56],
+                    [Date.UTC(2013, 2, 24), 40],
+                    [Date.UTC(2013, 2, 25), 63],
+                    [Date.UTC(2013, 2, 26), 58],
+                    [Date.UTC(2013, 2, 27), 84],
+                    [Date.UTC(2013, 2, 28), 55],
+                    [Date.UTC(2013, 2, 29), 49],
+                    [Date.UTC(2013, 2, 30), 39],
+                    [Date.UTC(2013, 2, 31), 38],
+                    [Date.UTC(2013, 3, 01), 52],
+                    [Date.UTC(2013, 3, 02), 45],
+                    [Date.UTC(2013, 3, 03), 131],
+                    [Date.UTC(2013, 3, 04), 61],
+                    [Date.UTC(2013, 3, 05), 71],
+                    [Date.UTC(2013, 3, 06), 59],
+                    [Date.UTC(2013, 3, 07), 43],
+                    [Date.UTC(2013, 3, 08), 65],
+                    [Date.UTC(2013, 3, 09), 70],
+                    [Date.UTC(2013, 3, 10), 112],
+                    [Date.UTC(2013, 3, 11), 91],
+                    [Date.UTC(2013, 3, 12), 52],
+                    [Date.UTC(2013, 3, 13), 26],
+                    [Date.UTC(2013, 3, 14), 26],
+                    [Date.UTC(2013, 3, 15), 86],
+                    [Date.UTC(2013, 3, 16), 74],
+                    [Date.UTC(2013, 3, 17), 59],
+                    [Date.UTC(2013, 3, 18), 64],
+                    [Date.UTC(2013, 3, 19), 84],
+                    [Date.UTC(2013, 3, 20), 44],
+                    [Date.UTC(2013, 3, 21), 43],
+                    [Date.UTC(2013, 3, 22), 67],
+                    [Date.UTC(2013, 3, 23), 69],
+                    [Date.UTC(2013, 3, 24), 71],
+                    [Date.UTC(2013, 3, 25), 61],
+                    [Date.UTC(2013, 3, 26), 59],
+                    [Date.UTC(2013, 3, 27), 47],
+                    [Date.UTC(2013, 3, 28), 39],
+                    [Date.UTC(2013, 3, 29), 75],
+                    [Date.UTC(2013, 3, 30), 49],
+                    [Date.UTC(2013, 4, 01), 37]
+                    ]
+            }]
+        });
+    });
+</script>
+    </section>
+
+    <hr />
+
+    <hgroup>
+        <h2>Recent bundles, developers and organizations</h2>
+        <h4><p>The activity level shows the number of new bundles, developers and organizations entering the ecosystem.</p>
+</h4>
+    </hgroup>
+
+    <section class="graph">
+        
+<div id="chart2"></div>
+
+<script type="text/javascript" src="/bundles/knpbundles/js/highcharts.js?v1"></script>
+
+<script type="text/javascript">
+    $(function () {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'chart2',
+                                marginTop: 35,
+                                type: 'area'
+            },
+                        title: {
+                text: null
+            },
+            colors: [
+                                '#9dc1cf',
+                '#f08561'
+                            ],
+            legend: {
+                                align: 'right',
+                floating: true,
+                verticalAlign: 'top',
+                borderWidth: 0,
+                symbolPadding: 8,
+                symbolWidth: 40,
+                itemStyle: {
+                    color: '#949494',
+                    fontSize: '13px'
+                },
+                x: -30,
+                y: -10
+            },
+            tooltip: {
+                backgroundColor: {
+                    linearGradient: [0, 0, 0, 60],
+                    stops: [
+                        [0, '#FFFFFF'],
+                        [1, '#f3f3f3']
+                    ]
+                },
+                borderWidth: 1,
+                borderColor: '#d0d0d0',
+                style: {
+                    padding: '5px 10px'
+                },
+                useHTML: true,
+                                headerFormat: '',
+                pointFormat: '<center style="font-size: 12px">{point.y}<br><strong style="font-size: 11px;color: {series.color}">{series.name}</strong></center>'
+                            },
+            xAxis: {
+                type: 'datetime',
+                tickLength: 0,
+                tickPixelInterval: 35,
+                labels: {
+                                        x: -35,
+                    y: 50,
+                    rotation: -30,
+                    style: {
+                        color: '#6d6d6d'
+                    },
+                    step: 1,
+                    align: 'left',
+                    formatter: function() {
+                        return Highcharts.dateFormat('%Y-%m-%e', this.value);
+                    }
+                }            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                                        style: {
+                        color: '#6d6d6d',
+                        fontSize: '12px'
+                    }
+                },
+                gridLineDashStyle: 'dash',
+                gridLineColor: '#cccccc'
+            },
+            plotOptions: {
+                series: {
+                    lineWidth: 2,
+                    fillOpacity: 0.3,
+                    shadow: false,
+                    marker: {
+                        symbol: 'circle',
+                        fillColor: '#FFFFFF',
+                        lineWidth: 2,
+                        lineColor: null,
+                        radius: 4,
+                        states: {
+                            hover: {
+                                enabled: false
+                            }
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'New bundles',
+                data: [
+                    [Date.UTC(2013, 2, 12), 3],
+                    [Date.UTC(2013, 2, 13), 1],
+                    [Date.UTC(2013, 2, 14), 1],
+                    [Date.UTC(2013, 2, 16), 3],
+                    [Date.UTC(2013, 2, 18), 3],
+                    [Date.UTC(2013, 2, 19), 2],
+                    [Date.UTC(2013, 2, 21), 2],
+                    [Date.UTC(2013, 2, 22), 3],
+                    [Date.UTC(2013, 2, 24), 1],
+                    [Date.UTC(2013, 2, 27), 2],
+                    [Date.UTC(2013, 2, 28), 3],
+                    [Date.UTC(2013, 2, 29), 3],
+                    [Date.UTC(2013, 2, 30), 1],
+                    [Date.UTC(2013, 3, 02), 1],
+                    [Date.UTC(2013, 3, 03), 1],
+                    [Date.UTC(2013, 3, 04), 2],
+                    [Date.UTC(2013, 3, 08), 1],
+                    [Date.UTC(2013, 3, 10), 1],
+                    [Date.UTC(2013, 3, 11), 1],
+                    [Date.UTC(2013, 3, 12), 1],
+                    [Date.UTC(2013, 3, 13), 1],
+                    [Date.UTC(2013, 3, 14), 2],
+                    [Date.UTC(2013, 3, 15), 2],
+                    [Date.UTC(2013, 3, 17), 1],
+                    [Date.UTC(2013, 3, 18), 1],
+                    [Date.UTC(2013, 3, 22), 4],
+                    [Date.UTC(2013, 3, 23), 1],
+                    [Date.UTC(2013, 3, 25), 1],
+                    [Date.UTC(2013, 3, 26), 2],
+                    [Date.UTC(2013, 3, 29), 2]
+                    ]
+            },{
+                name: 'New developers',
+                data: [
+                    [Date.UTC(2013, 2, 12), 2],
+                    [Date.UTC(2013, 2, 13), 2],
+                    [Date.UTC(2013, 2, 14), 5],
+                    [Date.UTC(2013, 2, 15), 3],
+                    [Date.UTC(2013, 2, 16), 8],
+                    [Date.UTC(2013, 2, 17), 6],
+                    [Date.UTC(2013, 2, 18), 7],
+                    [Date.UTC(2013, 2, 19), 2],
+                    [Date.UTC(2013, 2, 20), 4],
+                    [Date.UTC(2013, 2, 21), 5],
+                    [Date.UTC(2013, 2, 22), 8],
+                    [Date.UTC(2013, 2, 23), 7],
+                    [Date.UTC(2013, 2, 24), 3],
+                    [Date.UTC(2013, 2, 25), 3],
+                    [Date.UTC(2013, 2, 26), 6],
+                    [Date.UTC(2013, 2, 27), 5],
+                    [Date.UTC(2013, 2, 28), 2],
+                    [Date.UTC(2013, 2, 29), 3],
+                    [Date.UTC(2013, 2, 30), 1],
+                    [Date.UTC(2013, 2, 31), 4],
+                    [Date.UTC(2013, 3, 01), 6],
+                    [Date.UTC(2013, 3, 02), 9],
+                    [Date.UTC(2013, 3, 03), 6],
+                    [Date.UTC(2013, 3, 04), 3],
+                    [Date.UTC(2013, 3, 05), 6],
+                    [Date.UTC(2013, 3, 06), 3],
+                    [Date.UTC(2013, 3, 07), 3],
+                    [Date.UTC(2013, 3, 08), 6],
+                    [Date.UTC(2013, 3, 09), 12],
+                    [Date.UTC(2013, 3, 10), 3],
+                    [Date.UTC(2013, 3, 11), 3],
+                    [Date.UTC(2013, 3, 12), 3],
+                    [Date.UTC(2013, 3, 13), 4],
+                    [Date.UTC(2013, 3, 14), 5],
+                    [Date.UTC(2013, 3, 15), 4],
+                    [Date.UTC(2013, 3, 16), 5],
+                    [Date.UTC(2013, 3, 17), 3],
+                    [Date.UTC(2013, 3, 18), 5],
+                    [Date.UTC(2013, 3, 19), 2],
+                    [Date.UTC(2013, 3, 20), 3],
+                    [Date.UTC(2013, 3, 21), 1],
+                    [Date.UTC(2013, 3, 22), 4],
+                    [Date.UTC(2013, 3, 23), 3],
+                    [Date.UTC(2013, 3, 24), 3],
+                    [Date.UTC(2013, 3, 25), 4],
+                    [Date.UTC(2013, 3, 26), 3],
+                    [Date.UTC(2013, 3, 27), 4],
+                    [Date.UTC(2013, 3, 28), 2],
+                    [Date.UTC(2013, 3, 29), 14],
+                    [Date.UTC(2013, 3, 30), 2],
+                    [Date.UTC(2013, 4, 01), 1]
+                    ]
+            },{
+                name: 'New organizations',
+                data: [
+                    [Date.UTC(2013, 2, 12), 1],
+                    [Date.UTC(2013, 2, 17), 1],
+                    [Date.UTC(2013, 2, 18), 1],
+                    [Date.UTC(2013, 2, 25), 1],
+                    [Date.UTC(2013, 2, 29), 1],
+                    [Date.UTC(2013, 2, 30), 1],
+                    [Date.UTC(2013, 3, 09), 1],
+                    [Date.UTC(2013, 3, 11), 1],
+                    [Date.UTC(2013, 3, 23), 1],
+                    [Date.UTC(2013, 3, 24), 1],
+                    [Date.UTC(2013, 3, 29), 2]
+                    ]
+            }]
+        });
+    });
+</script>
+    </section>
+
+    <section class="graph">
+        <ul id="total-stats">
+            <li>
+                <div>
+                    <img src="/bundles/knpbundles/images/icon_big_bundle.png?v1" alt="">
+                    <span>1989</span><br>Bundles
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="/bundles/knpbundles/images/icon_big_dev.png?v1" alt="">
+                    <span>4779</span><br>Developers
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="/bundles/knpbundles/images/icon_big_org.png?v1" alt="">
+                    <span>377</span><br>Organizations
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>
+</div>
+    </div>
+</div>
+
+<footer id="page-footer">
+    <section>
+        <section id="copyrights">
+            <h2><a href="http://knplabs.com/" hreflang="en"><img src="/bundles/knpbundles/images/knp_logo.png?v1" alt="KnpBundles"></a></h2>
+            <p>Copyright &copy; 2012 <a href="http://knplabs.com/" hreflang="en"><strong>KnpBundles.com</strong></a><br>All rights reserved</p>
+
+            <ul>
+                <li><a href="http://knplabs.com/" hreflang="en">KnpLabs World</a></li>
+                <li><a href="http://knplabs.fr/" hreflang="fr">KnpLabs France</a></li>
+            </ul>
+        </section>
+
+        <nav>
+            <dl>
+                <dt><a href="/">KnpBundles</a></dt>
+                <dd>
+                    <ul>
+                        <li><a href="https://github.com/knplabs/knpbundles">Show the code on Github</a></li>
+                        <li><a href="/api">API</a></li>
+                        <li><a href="/about/faq-scoring">Scoring FAQ</a></li>
+                        <li><a href="/symfony2bundles">Symfony2bundles</a></li>
+                        <li><a href="https://github.com/KnpLabs/KnpBundles/issues/new">Report an issue</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt><a href="http://knplabs.com/" hreflang="en">KnpLabs</a></dt>
+                <dd>
+                    <ul>
+                        <li><a href="http://knplabs.com/training/symfony2" hreflang="en">Symfony training</a> (World)</li>
+                        <li><a href="http://knplabs.fr/formation/symfony2" hreflang="fr">Formation Symfony</a> (France)</li>
+                        <li><a href="http://knpuniversity.com/">Symfony tutorial</a> screencast</li>
+
+                        <li><a href="http://twitter.com/knplabs">KnpLabs on Twitter</a></li>
+                        <li><a href="http://behat.org/">Behat: BDD framework for PHP</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </nav>
+    </section>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7062980-9']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+<script type="text/javascript" src="/js/a75f41a.js?v1"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

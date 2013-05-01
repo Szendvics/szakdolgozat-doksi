@@ -1,0 +1,1925 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  <head>
+    <meta charset="utf-8" />
+    <script src="/_static/js/script_head.js"></script>
+    <link rel="stylesheet" type="text/css" href="/_static/css/screen.css" />
+    <link rel="shortcut icon" href="/_static/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/_static/images/apple-touch-icon.png">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script id="jqueryui" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="//www.google.com/jsapi?key=AIzaSyCZfHRnq7tigC-COeQRmoa9Cxr0vbrK6xw"></script>
+
+    <script type="text/javascript" src="//www.gstatic.com/feedback/api.js"></script>
+    <script type="text/javascript" src="/jsi18n/"></script>
+    <!--[if lt IE 9]>
+    <script src="/_static/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <title>Google Developers Live</title>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="//developers.google.com/live/feed/rss" />
+  <meta name="description" content="GDL is a place for developers around the world to connect face to face with Google employees, peers, and other industry luminaries." />
+  <meta http-equiv="refresh" content="1800" />
+
+
+    
+    
+
+  </head>
+  <body class="events">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="/">
+    <img src="/_static/images/developers-logo.svg" alt="Google"/>
+  </a>
+<script>
+if (!Modernizr || !Modernizr.svg) {
+  $('#gc-logo img').attr({src:'/_static/images/developers-logo.png'});
+}
+</script>
+
+  <div class="gc-social">
+    
+    <span class='signed-out'>
+      <a href="/setup?state=%2Flive%2F" id="loginLink" class="button">Sign in</a>
+    </span>
+    
+  </div>
+
+  <form class="gc-search" action="/search/results" method="GET">
+    <div class="searchbox">
+      
+      
+      <input type="text" name="q" class="q" id="q" value="" placeholder='Search' autocomplete="off" />
+    </div>
+    <button class="button button-blue">
+      <img src="/_static/images/search.png" alt="Search"/>
+    </button>
+    
+  </form>
+
+</header>
+
+
+<script>
+  var a=!1,h=window.devsite||{};window.devsite=h;var _gaq=_gaq||[];WebFontConfig={google:{families:["Open+Sans"]}};h.location=window.location;h.reloadWindow=function(){h.location.reload()};h.openWindow=window.open;h.devsite=h.devsite||{};h.devsite.dialogConfig={autoOpen:a,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:a,draggable:a,zIndex:9999};h.KD_FADE_LONG=218;h.KD_FADE_SHORT=130;h.progress=h.progress||{};h.progress.INTERVAL_TIME_MS=460;h.progress.MAX_LOOP=100;h.progress.RIGHT_MARGIN=6;h.progress.TOP_MARGIN=-15;
+h.progress.kennedyProgressDot=function(c){var b=c.parent().find(".progress");b.remove();h.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';h.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';b=
+$("<div></div>").prop("id","loader").prop("class","yellow").html(h.progress.spinnerHtml);b.find(".red").html(h.progress.circleInnerHtml);b.find(".blue").html(h.progress.circleInnerHtml);b.find(".green").html(h.progress.circleInnerHtml);b.find(".yellow").html(h.progress.circleInnerHtml);b.css({position:"absolute",right:h.progress.RIGHT_MARGIN+"px",top:h.progress.TOP_MARGIN+"px"});c.parent().append(b);c=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=b;this.loopCount=
+0;this.shouldStop=a};c.prototype.start=function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},h.progress.INTERVAL_TIME_MS)};c.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),
+b.remove()):(this.colorIndex=(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>h.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};c.prototype.stop=function(){this.shouldStop=!0};var e=new c;return c={start:function(){$.fx.off||e.start()},clear:function(){b.remove()},error:function(){e.stop()}}};h.progress=h.progress||{};
+h.progress.progressDot=function(c){function b(){d+=1;100>d&&f.animate({opacity:"toggle"},h.KD_FADE_LONG,b)}var e=6,f=c.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":e+"px",border:e+"px solid #3D9400",right:e+"px",top:c.parent().height()/2-e+"px",width:0,height:0});c.parent().append(f);var d=0;return c={start:function(){$.fx.off||b()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:e+"px solid #DD4B39"})}}};h.location=window.location;h.setTimeout=function(){return window.setTimeout.apply(window,arguments)};h.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};h.localInit=function(){h.search.init()};h.search={KEY_ESC:27,fadeTime:h.KD_FADE_SHORT,keyDelay:300};
+h.search.init=function(){h.search.initResultHandlers();var c=$(".gc-search");c.submit(function(){if(window.devsite.geo){var b=window.devsite.geo.lat+","+window.devsite.geo.lon,b=$('<input type="hidden" name="l"/>').val(b);c.append(b)}});var b=$("#q");b.unbind("keyup click");b.bind("keyup click",function(b){h.search.timeout&&h.clearTimeout(h.search.timeout);$(this).val()&&b.keyCode!=h.search.KEY_ESC?h.search.timeout=h.setTimeout(function(){h.search.updateResults()},h.search.keyDelay):h.search.removeAutocomplete()});
+var b=$(".searchbox").children(".button"),e=$("#restrict input");(e.is(":checked")||0==e.length&&0!=b.length)&&h.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?h.search.grow($("#restrict input").val()):h.search.shrink();h.search.updateResults();$("#q").focus()})};
+h.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var c={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",c,function(b){b&&(h.location.href=b)});return a})};h.search.fadeOutIfExists=function(c,b,e){c&&c.length?c.fadeOut(b,e):e()};h.search.removeAutocomplete=function(){var c=$(".search-autocomplete");c.remove();h.search.lastQ=null};
+h.search.grow=function(c){var b=$("#q"),e=$(".searchbox"),f=$(".gc-search").children("button"),d=e.children(".button");if(c){var d=b.val(),g=$(".results").data("query-match");g&&b.val(d.substr(g.length+1));d=$("<span></span>");d.addClass("button button-blue mini");d.text($("#restrict").find("span").text());d.data("query-match",g);e.prepend(d);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:c});$(".gc-search").append(g)}d.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+c=d.outerWidth(!0);var l=e.outerWidth(!0)+c;e.css("width",l+"px");b.css("width",g+"px");b=f.offset();b.left+=c+10;f.offset(b);f=function(){h.search.shrink();$("#q").focus()};d.click(f)};
+h.search.shrink=function(){var c=$("#q"),b=$(".searchbox"),e=b.children("input"),f=b.children(".button"),d=f.data("query-match");d&&e.val($.trim(d)+" "+e.val());e=$(".gc-search").children("button");$("#restrict input").prop("checked",a);$("#search_project").remove();d=f.outerWidth(!0);f.remove();f=e.offset();f.left-=d+10;b.css("width","");c.css("width","100%");e.offset(f)};
+h.search.updateResults=function(){var c=$(".searchbox"),b=$("#q"),e=$("#search_project"),f={q:$.trim(b.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);e&&e.val()&&(f.p=escape(e.val()));if(!h.search.lastQ||!(h.search.lastQ.q==f.q&&h.search.lastQ.p==f.p)){h.search.lastQ=f;h.search.xhr&&h.search.xhr.abort();var d=$(".search-results");f.n=d.data("n")||4;var g=h.progress.kennedyProgressDot(b);g.start();h.search.xhr=$.get("/search/results",f,function(e){g.clear();
+e&&($("#what-q").text(f.q),d=$(".search-results"),h.search.fadeOutIfExists(d,h.search.fadeTime,function(){d.empty();if($.trim(e).length){if(!d.length){d=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(d);var g=c.offset();d.css({position:"absolute",top:g.top+c.outerHeight()+3,left:g.left})}d.append(e);var g=$("#search-next"),k=d.children(".results").data("c");g.length?k?(g.attr("href","/search/results?c="+encodeURIComponent(k)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(c){!$.contains(d.get(0),c.target)&&(!d.is(c.target)&&!b.is(c.target))&&d.hasClass("search-autocomplete")&&(h.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});h.search.initResultHandlers();d.fadeIn(h.search.fadeTime)}}))});h.search.xhr.error(function(){g.error()})}};
+
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      window.devsite.search.init();
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" >
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1" />
+      
+
+      
+
+      <div id="gc-topnav">
+        <div>
+
+          
+          
+
+          <ul>
+
+            
+            
+
+            
+            
+            
+            
+            <li class=""><a href="/">Home</a></li>
+            
+            <li class=""><a href="/products/">Products</a></li>
+            
+            <li class=""><a href="/events/">Conferences</a></li>
+            
+            <li class=""><a href="/showcase/">Showcase</a></li>
+            
+            <li class="active"><a href="/live/">Live</a></li>
+            
+            <li class=""><a href="/groups/">Groups</a></li>
+            
+
+            
+            
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+
+      
+
+      
+        
+      <div id="gc-main">
+        
+        
+  <div id="gc-content">
+    <div id="title-container">
+      
+    
+    
+    <h1>
+      
+        
+        Welcome to Google Developers Live
+      
+    </h1>
+
+
+    <p class="product-info">
+    
+      
+      Google Developers Live harnesses the power of live presentations, the Q &amp; A of a developer forum and the global reach of the internet to bring you live, streaming content for developers on many of Google's platforms, including Android, Chrome, Cloud, Maps, YouTube and more.
+      <a href="/live/about">Learn more</a>
+      
+    
+    </p>
+
+
+    </div>
+    
+  <div class="carousel-header">
+    
+      <h2>Check out our upcoming shows</h2>
+    
+    <button class="kd-button" id="carousel-next">
+      <img src="/_static/images/page-right.png" />
+    </button>
+    <button class="kd-button" id="carousel-prev">
+      <img src="/_static/images/page-left.png" />
+    </button>
+    
+
+
+<div id="gdl-product-filter-container">
+  <select id="gdl-product-filter" style="display: none">
+    <option value="">All Categories</option>
+    
+      <option value="ads" >
+        Ads
+      </option>
+    
+      <option value="android" >
+        Android
+      </option>
+    
+      <option value="chrome" >
+        Chrome
+      </option>
+    
+      <option value="cloud" >
+        Cloud
+      </option>
+    
+      <option value="commerce" >
+        Commerce
+      </option>
+    
+      <option value="drive" >
+        Drive
+      </option>
+    
+      <option value="io" >
+        Google I/O
+      </option>
+    
+      <option value="tv" >
+        Google TV
+      </option>
+    
+      <option value="+" >
+        Google+
+      </option>
+    
+      <option value="maps" >
+        Maps
+      </option>
+    
+      <option value="primetime" >
+        Primetime
+      </option>
+    
+      <option value="youtube" >
+        YouTube
+      </option>
+    
+  </select>
+  
+  <span id="gdl-product-filter-facade" class="kd-button kd-menubutton kd-select">
+    <div style="display: inline-block; ">
+      <div class="label" style="float: left; ">
+        
+          All Categories
+        
+      </div>
+      <div class="kd-disclosureindicator"></div>
+    </div>
+  </span>
+</div>
+
+  </div>
+  <section id="events-carousel" class="carousel buttons-on-top"
+           data-clickAll="true"
+           data-itemsPerPage="6"
+           data-anchorClass="events-carousel-anchor"
+           data-articleClass="event"
+           data-prevButtonId="carousel-prev"
+           data-nextButtonId="carousel-next" style="height: 200px;">
+    
+
+
+
+
+
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="01 May 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/1 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      YouTube Developers Live: VidIQ
+      <img src="/_static/images/event-icon-youtube.png" />
+    </summary>
+    <a class="button" href="/live/shows/38132276-7001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="02 May 2013 18:00:00.0 -0300" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/2 6:00 p.m.
+            ART
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+       Maps API, enfocando las oportunidades regionales 
+      <img src="/_static/images/event-icon-general.png" />
+    </summary>
+    <a class="button" href="/live/shows/462230581/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="06 May 2013 12:00:00.0 -0500" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/6 12:00 p.m.
+            CDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Top Geek
+      <img src="/_static/images/event-icon-general.png" />
+    </summary>
+    <a class="button" href="/live/shows/349802944-3001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="07 May 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/7 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Maps Developers Live
+      <img src="/_static/images/event-icon-maps.png" />
+    </summary>
+    <a class="button" href="/live/shows/240588492-3002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="07 May 2013 11:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/7 11:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Drive SDK Office Hours
+      <img src="/_static/images/event-icon-drive.png" />
+    </summary>
+    <a class="button" href="/live/shows/31119462-10001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="08 May 2013 14:00:00.0 +0300" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/8 2:00 p.m.
+            IDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      GDL Israel - Weekly Chrome/HTML5 and startups review
+      <img src="/_static/images/event-icon-general.png" />
+    </summary>
+    <a class="button" href="/live/shows/11532699-12002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="08 May 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/8 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      YouTube Developers Live
+      <img src="/_static/images/event-icon-youtube.png" />
+    </summary>
+    <a class="button" href="/live/shows/38132276-2002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="08 May 2013 13:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/8 1:00 p.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Chrome Apps Office Hours
+      <img src="/_static/images/event-icon-chrome.png" />
+    </summary>
+    <a class="button" href="/live/shows/215743157-3001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="13 May 2013 12:00:00.0 -0500" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/13 12:00 p.m.
+            CDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Top Geek
+      <img src="/_static/images/event-icon-general.png" />
+    </summary>
+    <a class="button" href="/live/shows/349802944-4001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="14 May 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/14 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Maps Developers Live
+      <img src="/_static/images/event-icon-maps.png" />
+    </summary>
+    <a class="button" href="/live/shows/240588492-1002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="14 May 2013 11:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/14 11:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Drive SDK Office Hours
+      <img src="/_static/images/event-icon-drive.png" />
+    </summary>
+    <a class="button" href="/live/shows/31119462-2003/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="15 May 2013 14:00:00.0 +0300" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/15 2:00 p.m.
+            IDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      GDL Israel - Weekly Chrome/HTML5 and startups review
+      <img src="/_static/images/event-icon-general.png" />
+    </summary>
+    <a class="button" href="/live/shows/11532699-7002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="15 May 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/15 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      YouTube Developers Live
+      <img src="/_static/images/event-icon-youtube.png" />
+    </summary>
+    <a class="button" href="/live/shows/38132276-4/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="15 May 2013 13:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/15 1:00 p.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Chrome Apps Office Hours
+      <img src="/_static/images/event-icon-chrome.png" />
+    </summary>
+    <a class="button" href="/live/shows/215743157-1002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="21 May 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/21 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Maps Developers Live
+      <img src="/_static/images/event-icon-maps.png" />
+    </summary>
+    <a class="button" href="/live/shows/240588492-5001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="21 May 2013 11:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/21 11:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Drive SDK Office Hours
+      <img src="/_static/images/event-icon-drive.png" />
+    </summary>
+    <a class="button" href="/live/shows/31119462-3002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="22 May 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/22 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      YouTube Developers Live
+      <img src="/_static/images/event-icon-youtube.png" />
+    </summary>
+    <a class="button" href="/live/shows/38132276-6002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="22 May 2013 13:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/22 1:00 p.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Chrome Apps Office Hours
+      <img src="/_static/images/event-icon-chrome.png" />
+    </summary>
+    <a class="button" href="/live/shows/215743157-4001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="28 May 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/28 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Maps Developers Live
+      <img src="/_static/images/event-icon-maps.png" />
+    </summary>
+    <a class="button" href="/live/shows/240588492-6001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="28 May 2013 11:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/28 11:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Drive SDK Office Hours
+      <img src="/_static/images/event-icon-drive.png" />
+    </summary>
+    <a class="button" href="/live/shows/31119462-5003/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="29 May 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/29 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      YouTube Developers Live
+      <img src="/_static/images/event-icon-youtube.png" />
+    </summary>
+    <a class="button" href="/live/shows/38132276-8001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="29 May 2013 13:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            5/29 1:00 p.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Chrome Apps Office Hours
+      <img src="/_static/images/event-icon-chrome.png" />
+    </summary>
+    <a class="button" href="/live/shows/215743157-5001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="04 Jun 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/4 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Maps Developers Live
+      <img src="/_static/images/event-icon-maps.png" />
+    </summary>
+    <a class="button" href="/live/shows/240588492-5002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="04 Jun 2013 11:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/4 11:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Drive SDK Office Hours
+      <img src="/_static/images/event-icon-drive.png" />
+    </summary>
+    <a class="button" href="/live/shows/31119462-11001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="05 Jun 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/5 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      YouTube Developers Live
+      <img src="/_static/images/event-icon-youtube.png" />
+    </summary>
+    <a class="button" href="/live/shows/38132276-4002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="05 Jun 2013 13:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/5 1:00 p.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Chrome Apps Office Hours
+      <img src="/_static/images/event-icon-chrome.png" />
+    </summary>
+    <a class="button" href="/live/shows/215743157-6001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="11 Jun 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/11 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Maps Developers Live
+      <img src="/_static/images/event-icon-maps.png" />
+    </summary>
+    <a class="button" href="/live/shows/240588492-7001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="11 Jun 2013 11:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/11 11:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Drive SDK Office Hours
+      <img src="/_static/images/event-icon-drive.png" />
+    </summary>
+    <a class="button" href="/live/shows/31119462-12001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="12 Jun 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/12 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      YouTube Developers Live
+      <img src="/_static/images/event-icon-youtube.png" />
+    </summary>
+    <a class="button" href="/live/shows/38132276-9001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="12 Jun 2013 13:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/12 1:00 p.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Chrome Apps Office Hours
+      <img src="/_static/images/event-icon-chrome.png" />
+    </summary>
+    <a class="button" href="/live/shows/215743157-7001/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="18 Jun 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/18 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Maps Developers Live
+      <img src="/_static/images/event-icon-maps.png" />
+    </summary>
+    <a class="button" href="/live/shows/240588492-6002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="18 Jun 2013 11:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/18 11:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Drive SDK Office Hours
+      <img src="/_static/images/event-icon-drive.png" />
+    </summary>
+    <a class="button" href="/live/shows/31119462-6002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="19 Jun 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/19 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      YouTube Developers Live
+      <img src="/_static/images/event-icon-youtube.png" />
+    </summary>
+    <a class="button" href="/live/shows/38132276-7002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="19 Jun 2013 13:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/19 1:00 p.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Chrome Apps Office Hours
+      <img src="/_static/images/event-icon-chrome.png" />
+    </summary>
+    <a class="button" href="/live/shows/215743157-6002/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="25 Jun 2013 10:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/25 10:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Maps Developers Live
+      <img src="/_static/images/event-icon-maps.png" />
+    </summary>
+    <a class="button" href="/live/shows/240588492-5003/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+  
+  <article>
+    <header class="future">
+      
+        <span class="native-timezone"
+              data-datetime="25 Jun 2013 11:00:00.0 -0700" 
+>
+        </span>
+        
+          <div class="event-timezone">
+            6/25 11:00 a.m.
+            PDT
+            </span>
+          </div>
+        
+      
+    </header>
+    <summary>
+      Google Drive SDK Office Hours
+      <img src="/_static/images/event-icon-drive.png" />
+    </summary>
+    <a class="button" href="/live/shows/31119462-3/">
+      
+        
+        Get involved
+        <img src="/_static/images/icon-arrow.png" class="icon-arrow"/>
+      
+    </a>
+  </article>
+
+
+<div id="default-article-template" style="display:none;">
+  <article>
+    <header class="default-filler"></header>
+    <summary class="default-filler">
+      <img src="/_static/images/event-icon-general-bw.png" >
+    </summary>
+  </article>
+</div>
+
+  </section>
+
+  
+  <section id="previous-shows">
+    <h2>
+      
+      Recently aired
+      
+      <a class="more" href="./browse">(View all)</a></h2>
+    <ol>
+      
+
+<li>
+  <a href="/live/shows/11532699-10002/">
+    <img class="video-thumbnail" src="//i.ytimg.com/vi/E-Amnsymu3k/mqdefault.jpg" />
+    GDL Israel - Weekly Chrome/HTML5 and... AngularJS!
+  </a>
+  May 1, 2013, 2:00 p.m.
+</li>
+<li>
+  <a href="/live/shows/461319695/">
+    <img class="video-thumbnail" src="//i.ytimg.com/vi/bpj9MVNGEl0/mqdefault.jpg" />
+    Google+ Developers Live: Google+ Platform Insights
+  </a>
+  April 30, 2013, 2:30 p.m.
+</li>
+<li>
+  <a href="/live/shows/31119462-8002/">
+    <img class="video-thumbnail" src="//i.ytimg.com/vi/QzWbLQorSlY/mqdefault.jpg" />
+    Google Drive SDK: New Undo feature for the Realtime API
+  </a>
+  April 30, 2013, 11:00 a.m.
+</li>
+<li>
+  <a href="/live/shows/240588492-4001/">
+    <img class="video-thumbnail" src="//i.ytimg.com/vi/AdV7bCWuDYg/mqdefault.jpg" />
+    Maps Shortcuts: Directions and the Google Maps iOS SDK
+  </a>
+  April 30, 2013, 10:00 a.m.
+</li>
+
+    </ol>
+    
+  </section>
+  
+
+  
+  <section>
+    <h2>
+    
+      Full calendar of shows
+    
+    </h2>
+    <div id="events-calendar"></div>
+  </section>
+
+  </div>
+  <div id="create-dialog" class="hidden"></div>
+  <div id="dialog-shield" class="hidden"></div>
+
+        
+      </div>
+        
+      
+
+      
+      
+      <footer id="gc-footer">
+        <div id="gc-copyright">
+          <a href="/">
+            <img id="developers-logo-footer" src="/_static/images/developers-logo-footer.png" alt="Google Developers logo" style="vertical-align: center; float: left"/>
+          </a>
+          <ul>
+            <li><a href="http://www.google.com/">Google</a></li>
+            <li><a href="/readme/terms">Terms of Service</a></li>
+            <li><a href="http://www.google.com/intl/en/privacy/">Privacy Policy</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a class="google-feedback" data-p="81425" data-b="Events"  data-v="devsite-20130430-rc10.default" href="">Report a bug</a></li>
+          </ul>
+        </div>
+        
+        <div id="gc-language">
+          <ul>
+            <li>
+              <form id="setlang" action="/i18n/setlang/" method="post">
+                <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='46a277638ae61c9df837b5648d00049c' /></div>
+                <select id="footer_language" name="language">
+                  
+                  
+                  <option
+                     value="ar"
+                     >
+                    العربيّة
+                  </option>
+                  
+                  <option
+                     value="bg"
+                     >
+                    български
+                  </option>
+                  
+                  <option
+                     value="ca"
+                     >
+                    català
+                  </option>
+                  
+                  <option
+                     value="zh-cn"
+                     >
+                    简体中文
+                  </option>
+                  
+                  <option
+                     value="zh-tw"
+                     >
+                    繁體中文
+                  </option>
+                  
+                  <option
+                     value="hr"
+                     >
+                    Hrvatski
+                  </option>
+                  
+                  <option
+                     value="cs"
+                     >
+                    česky
+                  </option>
+                  
+                  <option
+                     value="da"
+                     >
+                    Dansk
+                  </option>
+                  
+                  <option
+                     value="nl"
+                     >
+                    Nederlands
+                  </option>
+                  
+                  <option
+                     value="en"
+                      selected="selected" >
+                    English
+                  </option>
+                  
+                  <option
+                     value="fa"
+                     >
+                    فارسی
+                  </option>
+                  
+                  <option
+                     value="fi"
+                     >
+                    suomi
+                  </option>
+                  
+                  <option
+                     value="fr"
+                     >
+                    Français
+                  </option>
+                  
+                  <option
+                     value="de"
+                     >
+                    Deutsch
+                  </option>
+                  
+                  <option
+                     value="el"
+                     >
+                    Ελληνικά
+                  </option>
+                  
+                  <option
+                     value="he"
+                     >
+                    עברית
+                  </option>
+                  
+                  <option
+                     value="hi"
+                     >
+                    Hindi
+                  </option>
+                  
+                  <option
+                     value="hu"
+                     >
+                    Magyar
+                  </option>
+                  
+                  <option
+                     value="id"
+                     >
+                    Bahasa Indonesia
+                  </option>
+                  
+                  <option
+                     value="it"
+                     >
+                    italiano
+                  </option>
+                  
+                  <option
+                     value="ja"
+                     >
+                    日本語
+                  </option>
+                  
+                  <option
+                     value="ko"
+                     >
+                    한국어
+                  </option>
+                  
+                  <option
+                     value="lv"
+                     >
+                    latviešu
+                  </option>
+                  
+                  <option
+                     value="lt"
+                     >
+                    Lithuanian
+                  </option>
+                  
+                  <option
+                     value="nb"
+                     >
+                    Norsk (bokmål)
+                  </option>
+                  
+                  <option
+                     value="nn"
+                     >
+                    Norsk (nynorsk)
+                  </option>
+                  
+                  <option
+                     value="pl"
+                     >
+                    polski
+                  </option>
+                  
+                  <option
+                     value="pt-br"
+                     >
+                    Português Brasileiro
+                  </option>
+                  
+                  <option
+                     value="pt"
+                     >
+                    Português
+                  </option>
+                  
+                  <option
+                     value="ro"
+                     >
+                    Română
+                  </option>
+                  
+                  <option
+                     value="ru"
+                     >
+                    Русский
+                  </option>
+                  
+                  <option
+                     value="sr"
+                     >
+                    српски
+                  </option>
+                  
+                  <option
+                     value="sk"
+                     >
+                    slovenský
+                  </option>
+                  
+                  <option
+                     value="sl"
+                     >
+                    Slovenščina
+                  </option>
+                  
+                  <option
+                     value="es"
+                     >
+                    español
+                  </option>
+                  
+                  <option
+                     value="sv"
+                     >
+                    Svenska
+                  </option>
+                  
+                  <option
+                     value="th"
+                     >
+                    Thai
+                  </option>
+                  
+                  <option
+                     value="tr"
+                     >
+                    Türkçe
+                  </option>
+                  
+                  <option
+                     value="uk"
+                     >
+                    Українська
+                  </option>
+                  
+                  <option
+                     value="vi"
+                     >
+                    Vietnamese
+                  </option>
+                  
+                </select>
+              </form>
+            </li>
+          </ul>
+        </div>
+        
+      </footer>
+      
+      
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href='http://www.google.com/+'>Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script src="/_static/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+      var c=!0,k=null,m=!1,p,r=window.devsite||{};window.devsite=r;var _gaq=_gaq||[];WebFontConfig={google:{families:["Open+Sans"]}};r.location=window.location;r.reloadWindow=function(){r.location.reload()};r.openWindow=window.open;r.devsite=r.devsite||{};r.devsite.dialogConfig={autoOpen:m,modal:c,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:m,draggable:m,zIndex:9999};r.KD_FADE_LONG=218;r.KD_FADE_SHORT=130;r.chips=r.chips||{};r.chips.AddChip=function(a,b,d,e,f,g){var h=$("<li></li>"),l=$("<a></a>");l.addClass("button button-blue mini");e&&l.addClass("left");l.text(a);f||(f=function(a,b){b.length&&b.val(a.children("a.left").text());a.remove()});l.click(function(){f(h,b)});h.append(l);e&&(a=$("<a><span>x</span></a>"),a.addClass("button button-blue small right mini"),h.append(a),g||(g=function(a){a.remove()}),a.click(function(){g(h,b)}));d.append(h);return h};r.events=r.events||{};r.events.agenda=r.events.agenda||{};r.events.tracks=r.events.tracks||{};r.events.sessions=r.events.sessions||{};window.gettext=function(a){return a};
+r.events.ExtractYouTubeVideoId=function(a){a=$.trim(a);if(/^[\w-]+$/.test(a))return a;a=$("<a>",{href:a}).get(0);var b=k;if(/^(www\.)?youtube\.com$/i.test(a.host)){if(0===a.pathname.toLowerCase().lastIndexOf("/embed",0))return(b=a.pathname.match(/^\/embed\/([\w-]+)/i))?b[1]:k;if(0===a.pathname.toLowerCase().lastIndexOf("/watch",0))return(b=a.search.match(/(?:\\?|\\&)v=([\w-]+)/i))?b[1]:k}else if(/^youtu\.be$/i.test(a.host)&&/^\/[\w-]+$/.test(a.pathname))return a.pathname.substring(1);return k};
+r.events.DatePicker=function(a,b){var d={dateFormat:"yy-mm-dd",nextText:">",prevText:"<",showOtherMonths:c,selectOtherMonths:c,defaultDate:0};if(b)for(var e in b)d[e]=b[e];a.datepicker(d)};r.events.Dialog=function(a){a.hasClass("hidden")?(a.removeClass("hidden"),$("#dialog-shield").removeClass("hidden"),$("#ytplayer").addClass("hidden"),$("body").css({"pointer-events":"none"})):(a.addClass("hidden"),$("#dialog-shield").addClass("hidden"),$("#ytplayer").removeClass("hidden"),$("body").css({"pointer-events":"auto"}))};
+r.events.parseDateTime=function(a,b){if(a){try{var d=$.datepicker.parseDate("yy-mm-dd",a)}catch(e){return}if(!b)return d;var f=b.match(/^(1[0-2]|0?[1-9]):([0-5][0-9]) (AM|PM)$/);if(f&&4===f.length){var g=parseInt(f[1],10),h=parseInt(f[2],10),f=f[3].toUpperCase(),g=g%12;d.setHours("PM"===f?g+12:g);d.setMinutes(h);return d}}};
+r.events.AddLocationChip_=function(a,b){var d=$("#id_location");d.hide();var e=function(a,b){b.show();a.remove()},d=r.chips.AddChip(d.val(),d,$(".chosen-locations"),c,e,function(a,b){b.val("");e(a,b)});d.data("reference",a);d.data("latLng",b)};r.events.SetTimezoneFromLocation=function(a){var b="/events/timezone";a={lat:a.lat(),"long":a.lng()};$.get(b,a,function(a){var b=$("#id_timezone_name");""===b.val()&&b.val(a.id).change()})};
+r.events.updateRegistrationEndTime=function(){$("#id_registration_end_date_string").val($("#id_date_string").val());$("#id_registration_end_time_string").val($("#id_time_string").val())};
+r.events.checkForRegistrationSystem=function(){var a=$("#id_event_type").val()?$("#id_event_type").val():"event",b=$("input[type=radio][name=reg-system]:checked").val();"devsite"==b?($("#devsite-fields").show(),$("#thirdparty-fields").hide(),a="conference"):"thirdparty"==b?($("#devsite-fields").hide(),$("#thirdparty-fields").show(),a="event"):"none"==b&&($("#devsite-fields").hide(),$("#thirdparty-fields").hide(),$("#id_registration_link").val(""),"conference"==a&&(a="event"));$("#create-form").attr("class",
+a);$("#id_event_type").val(a);"conference"==a?($("#id_recurrences").prop("disabled",c),$("#id_recurrence_type").prop("disabled",c),r.events.updateRegistrationEndTime()):($("#id_recurrences").prop("disabled",m),$("#id_recurrence_type").prop("disabled",m))};
+r.events.InitEventPage=function(){$("#id_title").focus();var a=$("#id_date_string"),b=$("#id_time_string"),d=$("#id_end_date_string"),e=$("#id_end_time_string"),f=$("#id_registration_date_string"),g=$("#id_registration_time_string"),h=$("#id_registration_end_date_string"),l=$("#id_registration_end_time_string");r.events.DatePicker(a);r.events.DatePicker(d);r.events.DatePicker(f);r.events.DatePicker(h);r.events.bindTimeSynchronization(f,h,g,l);r.events.bindTimeSynchronization(a,d,b,e);r.events.bindDateSynchronization(a,
+d,b,e);a=$("#general-tab-content").data("publicid");if(("conference"==$("#id_event_type").val()||"event"==$("#id_event_type").val())&&a)$("#id_registration_link").val()?($("#devsite-fields").hide(),$("#thirdparty-fields").show()):$("#devsite-fields")&&($("#devsite-fields").show(),$("#thirdparty-fields").hide());$('input[name="reg-system"]').change(r.events.checkForRegistrationSystem);$("#id_recurrences").change(function(){var a=parseInt($("#id_recurrences").val());a?($("#id_youtube_link").val(""),
+$("#id_youtube_link").prop("disabled",c),$("#id_key_name").val(""),$("#id_key_name").prop("disabled",c),$("#id_gplus_event_link").val(""),$("#id_gplus_event_link").prop("disabled",c)):($("#id_youtube_link").prop("disabled",m),$("#id_key_name").prop("disabled",m),$("#id_gplus_event_link").prop("disabled",m))});$(document).click(function(){$(".field-help").hide()});$(".help-anchor").click(function(a){a.stopPropagation();$(".field-help").hide();$(this).nextAll(".field-help").show()});$("#confirm-buttons .delete-event").each(function(a,
+b){$(b).click(function(){var a=$(b).data("delete");a&&(a=r.events.EditTypeEnum[a]);r.events.DeleteEvent($(b).data("publicid"),a)})});$("#id_all_day").change(function(){$("#id_time_string").toggleClass("disabled");$("#id_end_time_string").toggleClass("disabled")});$("input:checkbox[name=toggle-registration-system]").change(function(){var a=$(this).is(":checked")?"conference":"event";$("#create-form").attr("class",a);$("#id_event_type").val(a);var b=$("#event-recurrence-container"),d=$("#id_recurrences");
+"conference"==a?(d.val("0").attr("selected","selected"),d.trigger("change"),b.addClass("disabled").children().addClass("disabled"),b.prop("disabled",c),b.children().prop("disabled",c),r.events.updateRegistrationEndTime()):(b.removeClass("disabled").children().removeClass("disabled"),b.prop("disabled",m),b.children().prop("disabled",m))});$("#id_auto_accept_registrants").change(function(){$(this).is(":checked")?$("#id_auto_accept_quota").removeClass("disabled"):$("#id_auto_accept_quota").addClass("disabled")});
+$("#confirm-buttons .edit-event").each(function(a,b){$(b).click(function(){$("#confirm-edit").data("edit-type",$(b).data("edit"));$("#confirm-edit").data("confirmed",c);$("#edit-button").click();r.events.Dialog($("#confirm-edit"))})});var a=$("#id_location")[0],n=new google.maps.places.Autocomplete(a);google.maps.event.addListener(n,"place_changed",function(){var a=n.getPlace();if(a.reference){var b=a.geometry.location.lat()+","+a.geometry.location.lng();r.events.AddLocationChip_(a.reference,b)}""===
+$("#id_timezone_name").val()&&a&&r.events.SetTimezoneFromLocation(a.geometry.location)});a=$("#id_location_reference");a.length&&r.events.AddLocationChip_(a.data("reference"),a.data("latLng"));var q=$();$("#id_icon_url option").each(function(a,b){var d={src:b.value,id:"icon_"+a,"class":"icon_url_preview",style:$(this).is(":selected")?"display:inline":"display:none"};q=q.add($("<img />",d))});$("#id_icon_url_wrapper").after(q);$("#id_product").change(function(){var a=$(this).find("option:selected").text();
+$("#id_icon_url");var b=$("#id_icon_url").find("option").filter(function(){return $(this).text().trim()===a.trim()}).val(),b=b||"/_static/images/event-icon-general.png";$("#id_icon_url").val(b).change()});$("#id_icon_url").change(function(){$(".icon_url_preview").hide();$("#icon_"+$(this)[0].selectedIndex).css("display","inline")});r.events.autocompleteWidget=new r.tag.AutocompleteWidget("field-tags-input",c,$("#id_old_tags").text());$("#field-tags-input").addClass("hidden");$("#field-tags-input").siblings(".tags-loading").removeClass("hidden");
+$("#field-tags-input").bind("field-tags-input-tags-loaded",function(a){r.events.tags_=a.tags;$("#field-tags-input").removeClass("hidden");$("#field-tags-input").siblings(".tags-loading").addClass("hidden")});$("#field-tags-input").siblings(".tags-error").attr("id","error-message-tags")};
+r.events.bindDateSynchronization=function(a,b,d,e){a.bind("focusin",function(){$(this).data("start-date",a.val())});a.change(function(){var f=$(this).data("start-date"),g=r.events.parseDateTime(f,d.val()),f=r.events.parseDateTime(a.val(),d.val()),h=r.events.parseDateTime(b.val(),e.val());if(g&&f&&h){var l=h.getTime()-f.getTime(),g=h.getTime()-g.getTime();0<g&&g!==l&&(f=new Date(f.getTime()+g),b.val($.fullCalendar.formatDate(f,"yyyy-MM-dd")),e.val($.fullCalendar.formatDate(f,"hh:mm TT")))}$(this).data("start-date",
+a.val())})};
+r.events.bindTimeSynchronization=function(a,b,d,e){b=0===b.length?a:b;d.bind("focusin",function(){$(this).data("prev-time",d.val())});a.data("prev-start-date",a.val());d.bind("focusout",function(){var f=$(this).data("prev-time");$(this).data("prev-time",void 0);if(f===d.val())return c;var g=r.events.parseDateTime(a.val(),f),f=r.events.parseDateTime(a.val(),d.val()),h=r.events.parseDateTime(b.val(),e.val());if(g&&f&&h){var l=h.getTime()-f.getTime(),g=h.getTime()-g.getTime();if(0<g&&g!==l||""===$.trim(e.val()))h=
+new Date(f.getTime()+g),b.val($.fullCalendar.formatDate(h,"yyyy-MM-dd")),e.val($.fullCalendar.formatDate(h,"hh:mm TT"))}})};r.events.ToggleZippy=function(){$(".events .kd-disclosureindicator").toggleClass("down");$(".events .kd-zippy").toggleClass("expanded")};
+r.events.ToggleRegistrationForm=function(a,b,d){var e=function(){a.show();r.location.hash=a.attr("id");$("#register-btn").addClass("disabled")};b?a.contents().length?e():(b="/events/register/registerform/"+d+"/",a.empty(),a.removeClass(),a.load(b,function(){a.addClass("reg-form-border register");e()})):(a.hide(),r.location.hash="",$("#register-btn").removeClass("disabled"))};r.events.CreateEvent=function(a){a="/events/createevent?event_type="+encodeURIComponent(a);r.devsite.navigateTo(a)};
+r.events.EditTypeEnum={FOLLOWING:"following",ALL:"all"};r.events.DeleteEvent=function(a,b){var d={};b&&(d[b]=c);$.post("/events/delete/"+a+"/",d,function(){0===r.location.pathname.lastIndexOf("/live/",0)?r.devsite.navigateTo("/live/"):r.devsite.navigateTo("/events/")})};
+r.events.InitHandler=function(){var a=$("#date"),b=$("#time"),d=$("#end_date"),e=$("#end_time");r.events.DatePicker(a);r.events.DatePicker(d);r.events.bindTimeSynchronization(a,d,b,e);r.events.bindDateSynchronization(a,d,b,e);$("#gdl-product-filter-facade").hide();$.browser.msie||!$("#gdl-product-filter").kdSelect?$("#gdl-product-filter").css("display","inline"):$("#gdl-product-filter").css("display","inline").kdSelect();$("#addOrganizer").submit(r.events.AddOrganizer);$("#confirm-buttons .delete-event").each(function(a,
+b){$(b).click(function(){var a=$(b).data("delete");a&&(a=r.events.EditTypeEnum[a]);r.events.DeleteEvent($(b).data("publicid"),a)})});$("#gdl-product-filter").change(function(){var a=["/live"],b=$(this).find("option:selected").val();b&&a.push(b);b=/\/browse$/;b.test(r.location.pathname)?a.push("browse"):a.push("");r.devsite.navigateTo(a.join("/"))});$("button.create-event").click(function(){r.events.CreateEvent("event")});$("button.create-live-event").click(function(){r.events.CreateEvent("youtube")});
+$("#add-new-organizer").click(r.events.AddOrganizer);$("#location_select").change(function(){var a=$(this).find(":selected").val();$("#location").attr("value",a)});var f=$("#my-events-tab"),g=$("#cal-events-tab"),h=$("#my-events-calendar"),l=$("#events-calendar"),n="my-events-calendar",q="events-calendar",s={events:{url:"/events/calendar/fc",cache:m}},t={eventSources:[{url:"/events/calendar/fc",data:{attending:"1"},cache:m},{url:"/events/calendar/fc",data:{organizing:"1"},cache:m}]};f.click(function(){f.addClass("selected-tab");
+g.removeClass("selected-tab");h.show();l.hide();h.html()||r.events.renderCalender(t,n)});g.click(function(){g.addClass("selected-tab");f.removeClass("selected-tab");h.hide();l.show();l.html()||r.events.renderCalender(s,q)});$(".add-calendar").click(function(){if($(this).data("event")){var a=$(this).data("event");_gaq.push(["_trackEvent","Events","add to calendar",a])}});$("form.manage-session #youtube_link").focusout(function(){var a=$(this);if($.trim(a.val())){var b=r.events.ExtractYouTubeVideoId(a.val());
+b?a.val(b).next("p.error").hide():a.next("p.error").text("Invalid YouTube URL / ID").show()}});$("form").submit(function(){var f=[a.val(),b.val()].join(" "),g=d.val()?d.val():a.val(),g=[g,e.val()].join(" ");$("#date_time").val(f);$("#end_date_time").val(g);f=$(this).find("button[type=submit]");f.addClass("disabled");f.prop("disabled",c);return c})};
+r.events.disableFormFields=function(a){a=$("form."+a).find("input, textarea, button, select, a");a.each(function(){$(this).prop("disabled",c);$(this).addClass("disabled")});$(".profiles-container").addClass("disabled")};r.events.agenda.InitDeleteButtons=function(){$("form.delete").submit(function(){r.events.ConfirmDeleteAgenda(this);var a=$(this).find("button[type=submit]");a.removeClass("disabled");a.prop("disabled",m);return m})};r.events.renderCalender=function(a,b){r.calendar.Calendar("#"+b,a)};
+r.events.EditEvent=function(a){a="/events/editevent/"+a+"/";r.devsite.navigateTo(a)};r.events.StartHangoutDialog=function(a,b){a.load("/events/starthangoutdialog/"+b+"/",function(){r.events.Dialog(a)})};
+r.events.Rsvp=function(a,b){var d="/events/rsvp/"+a+"/";"None"!=b?$.post(d,k,function(d){d.success?($("#not-attending-message-"+a).addClass("hidden"),$("#attending-message-"+a).removeClass("hidden"),$("#"+a+"-"+b).removeClass("hidden"),$(".attendees").removeClass("hidden")):r.devsite.showError("There was an error RSVP'ing")}):(d=r.devsite.returnURL+"?state="+d,r.location.href=d)};
+r.events.UnRsvp=function(a,b){var d="/events/unrsvp/"+a+"/";$.post(d,k,function(d){d.success&&($("#not-attending-message-"+a).removeClass("hidden"),$("#attending-message-"+a).addClass("hidden"),$("#"+a+"-"+b).addClass("hidden"),0==$(".attendees ul :visible").length&&$(".attendees").addClass("hidden"))})};
+r.events.ValidateFormFields=function(){var a=/^([01]?\d|2[0-3])(:[0-5]?\d)?( *(AM|PM))?$/i,b=/^(https?:\/\/)?plus.google.com\/events\/\w+$/;$(".error-message").hide();var d=$('#create-form input[type="text"], select, textarea');d.parent().removeClass("formerror");var e=c,d=$(".chosen-locations").children("li"),d={title:$("#id_title").val(),location:d.children("a.left").text()||$("#id_location").val()};$.each(d,function(a,b){"undefined"!==typeof b&&0==$.trim(b).length&&($("#field-"+a).addClass("formerror"),
+$("#error-message-"+a).text("This field is required.").show(),e=m)});$("#id_timezone_name").val()||($("#id_timezone_name").parent().addClass("formerror"),$("#error-message-tz").show(),e=m);for(var f=$("#id_end_time_string, #id_end_date_string"),d=0,g=f.length;d<g;d++){var h=f.eq(d),l=$.trim(h.val());l||(h=h.attr("id"),$("#"+h.replace(/^id_/,"field-")).addClass("formerror"),$("#"+h.replace(/^id_/,"error-message-no-")).show(),e=m)}f=$('input[id*="time_string"]');d=0;for(g=f.length;d<g;d++)if(h=f.eq(d),
+(l=$.trim(h.val()))&&!a.test(l))h=h.attr("id"),$("#"+h.replace(/^id_/,"field-")).addClass("formerror"),$("#"+h.replace(/^id_/,"error-message-")).show(),e=m;if((a=$.trim($("#id_gplus_event_link").val()))&&!b.test(a))$("#field-gplus_event_link").addClass("formerror"),$("#error-message-gplus_event_link").show(),e=m;return e};
+r.events.CreateEditEvent=function(a){if(!r.events.ValidateFormFields())return $(".error-message").each(function(){if("none"!=$(this).css("display")){var a=$(this).parents("section").prop("id");"general-tab-content"==a?$("#general-tab-header").trigger("click"):"admin-tab-content"==a&&$("#admin-tab-header").trigger("click")}}),m;$("#create-button, #edit-button").addClass("disabled");var b=$("#confirm-edit");if(b.length&&!b.data("confirmed"))return r.events.Dialog($("#confirm-edit")),m;var d=m,b="/events/createedit",
+e=[];if(r.events.autocompleteWidget&&(e=r.events.autocompleteWidget.GetTagKeys(),!e))return m;var e=e.join(","),f=$(".chosen-locations").children("li"),g=r.events.now_(),e={title:$("#id_title").val(),location:f.children("a.left").text()||$("#id_location").val(),location_reference:f.data("reference"),location_latlng:f.data("latLng"),gplus_event_link:$("#id_gplus_event_link").val(),plot_map:$("#id_plot_map").is(":checked"),recurrence_type:$("#id_recurrence_type").val(),recurrences:$("#id_recurrences").val(),
+date_string:$("#id_date_string").val(),time_string:$("#id_time_string").val(),end_date_string:$("#id_end_date_string").val(),end_time_string:$("#id_end_time_string").val(),icon_url:$("#id_icon_url").val(),product:$("#id_product").val(),link:$("#id_link").val(),hangout_link:$("#id_hangout_link").val(),youtube_link:$("#id_youtube_link").val(),is_recorded:$("#id_is_recorded").is(":checked"),moderator_link:$("#id_moderator_link").val(),description:$("#id_description").val(),tags_string:e,event_type:$("#id_event_type").val(),
+timezone_offset:-60*g.getTimezoneOffset(),visibility:$("input:radio[name=visibility]:checked").val(),timezone_name:$("#id_timezone_name").val(),group:$("#id_group").val(),studio:$("#id_studio").val(),producer:$("#id_producer").val(),site:$("#id_site").val(),all_day:$("#id_all_day").is(":checked"),key_name:$("#id_key_name").val(),is_io:$("#id_is_io").is(":checked"),registration_link:$("#id_registration_link").val(),details_page:$("#id_details_page").val(),default_email_sender:$("#id_default_email_sender").val(),
+postback_rsvp:$("#id_postback_rsvp").val(),postback_unrsvp:$("#id_postback_unrsvp").val(),postback_agenda_change:$("#id_postback_agenda_change").val()};"conference"==e.event_type&&$.extend(e,{registration_date_string:$("#id_registration_date_string").val(),registration_time_string:$("#id_registration_time_string").val(),registration_end_date_string:$("#id_registration_end_date_string").val(),registration_end_time_string:$("#id_registration_end_time_string").val(),invitation_only:$("#id_invitation_only").is(":checked")});
+a?(d=c,e.event_key=a,f=$("#confirm-edit").data("edit-type"),e[f]=c):e.event_key="None";var h="title location date_string time_string end_date_string end_time_string icon_url link hangout_link youtube_link is_recorded moderator_link registration_link details_page timezone_name description tags group registration_date_string registration_time_string registration_end_date_string registration_end_time_string studio producer site all_day key_name gplus_event_link auto_accept_quota".split(" ");$.post(b,
+e,function(b){if(b.success)d?r.devsite.navigateTo("/events/manage/"+a+"/"):r.devsite.navigateTo("/events/"+b.key+"/");else if(b.errors){b=b.errors;for(var e in b)if(-1!=h.indexOf(e)){var f=b[e];$("#field-"+e).addClass("formerror");$("#error-message-"+e).text(f[0]);$("#error-message-"+e).show()}}else r.devsite.navigateTo("/events/")})};
+r.events.AddOrganizer=function(){var a=$("#add-organizer-error, #non-googler, #no-profile");a.hide();var a="/events/addOrganizer",b={key:$("#addOrganizer").find('input[name="key"]').val(),email:$("#addOrganizer").find('input[name="email"]').val()};$.post(a,b,function(a){a.success?r.reloadWindow():a.error&&($("#add-organizer-error").show(),$("#"+a.error).show())});return m};
+r.events.RevokeOrganizer=function(a){a=$(a.srcElement);var b=$(a.parents("form"));a="/events/revokeOrganizer";var d={key:b.find('input[name="key"]').val(),organizer_id:b.find('input[name="organizer_id"]').val()};$.post(a,d,function(a){a.success?r.reloadWindow():a.error&&b.find("#revoke-organizer-error").show()})};r.events.EventMap=function(a){this.maps_api=window.google&&google.maps;a&&(this.maps_api=a);this.markers=[];this.infowindow=new this.maps_api.InfoWindow({content:""})};p=r.events.EventMap.prototype;
+p.CreateMapUpcoming=function(a){this.InitializeMap_();this.PlotMarkers_(a)};p.CreateMapDetails=function(a){var b=this;this.GetLocation_(a,k,function(d,e,f){b.InitializeCenteredMap_(d,e);f||(f={location:a});b.PlotLocation_(d,f,m,c)})};p.InitializeMap_=function(){var a=$("#map_canvas"),b=new this.maps_api.LatLng(20,5),b={zoom:2,center:b,mapTypeId:google.maps.MapTypeId.ROADMAP};this.map=new this.maps_api.Map(a.get(0),b)};
+p.InitializeCenteredMap_=function(a,b){var d=$("#map_canvas");if(void 0!=a){var e={zoom:8,center:a,mapTypeId:google.maps.MapTypeId.ROADMAP};this.map=new this.maps_api.Map(d.get(0),e);this.map.fitBounds(b);d.removeClass("hidden");return c}d.addClass("hidden");return m};p.PlotMarkers_=function(a){for(var b=this,d=0;d<a.length;d++)"True"==String(a[d].plot_map)&&this.GetLocation_(a[d].location,a[d],function(a,d,g){b.PlotLocation_(a,g,c,m)})};
+p.GetLocation_=function(a,b,d){var e,f,g=new this.maps_api.Geocoder;g.geocode({address:a},function(a,g){g==google.maps.GeocoderStatus.OK&&(e=a[0].geometry.location,f=a[0].geometry.viewport);d(e,f,b)})};
+p.PlotLocation_=function(a,b,d,e){var f,g=this;if(void 0!=a){f=new this.maps_api.Marker({map:this.map,position:a});if(b){a=b.location.replace(/\r\n|\n/g,"<br/>");var h=d?'<a href="/events/'+b.key+'/">'+b.title+"</a><br>":"",l='<div id="window-content">'+(d?h+b.date+"<br/>":"")+a+"</div>";e&&(d=$("#event-directions"),d.children("#event-directions-url").attr("href","https://maps.google.com/maps?daddr="+encodeURI(b.location)),l+=d.html());this.maps_api.event.addListener(f,"click",function(){g.infowindow.setContent(l);
+g.infowindow.open(this.map,f)});g=this;e&&setTimeout(function(){g.maps_api.event.trigger(f,"click")},750)}this.markers.push(f)}};r.events.ConferenceImport=function(a){var b=r.location.pathname,b=b.substring(0,b.lastIndexOf("/"))+"/import-rpc";a?(b+="?job_key_id="+encodeURIComponent(a),$.get(b,r.events.ConferenceImportResponse)):($("#import_status").text(""),$.post(b,{},r.events.ConferenceImportResponse))};
+r.events.ConferenceImportCancel=function(){var a=r.location.pathname,a=a.substring(0,a.lastIndexOf("/"))+"/import-rpc?cancel=1";$.post(a,{},function(a){a&&(a.error?($("#import_error").text(a.error),$("#import_status").text("Error")):($("#import_error").text(""),$("#import_status").text("Canceled")))})};
+r.events.ConferenceImportResponse=function(a){if(a)if(a.error)$("#import_error").text(a.error),$("#import_status").text("Error");else if(a.complete)$("#import_error").text(""),$("#sessions").text(a.total_sessions),$("#deleted").text(a.deleted_sessions),$("#import_status").text("Done");else if(a.job_key_id){r.location.hash=a.job_key_id;$("#import_error").text("");var b=$("#import_status");b.text().length?b.text(b.text()+"."):b.text("Working...");setTimeout(function(){r.events.ConferenceImport(a.job_key_id)},
+1E3)}};r.events.agenda.EventSourceFrom_=function(a){return a={url:$(a).data("feedurl"),color:$(a).data("color")}};
+r.events.agenda.renderCalendar_=function(a,b,d,e){var f=d.find(".filters"),g=d.find("div.calendar"),h=d.find('input[type="checkbox"]'),l=[{url:"calendar",color:"#999",editable:m}],n=e?r.events.agenda.MoveSession_(a,c):k;a=e?r.events.agenda.AddSession_(a,c):k;f.find("input").each(function(){l.push(r.events.agenda.EventSourceFrom_(this))});b={eventSources:l,year:b.getFullYear(),month:b.getMonth(),date:b.getDate(),selectable:e,selectHelper:e,select:a,editable:e,eventClick:r.events.agenda.NavigateWithRedirectUrl_,
+eventDrop:n,eventResize:n};b=$.extend($.extend({},r.calendar.agendaDefaults),b);g.fullCalendar(b);h.change(function(){if($(this).is(":checked"))g.fullCalendar("addEventSource",r.events.agenda.EventSourceFrom_(this));else{var a=$(this).data("feedurl");g.fullCalendar("removeEventSource",a)}});d.find("button.select-all").click(function(){h.attr("checked","checked");h.change()});d.find("button.remove-all").click(function(){h.removeAttr("checked");h.change()})};
+r.events.agenda.init=function(a,b,d){$(".agenda").each(function(){var e=$(this);r.events.agenda.renderCalendar_(a,b,e,d)});$(".kd-tabbed-horz").delegate("article","fadeInComplete",function(){$(this).find("div.calendar").fullCalendar("render")})};r.events.agenda.NavigateWithRedirectUrl_=function(a){r.location.href=[a.url,"?redirect_url=",r.location.pathname].join("");return m};r.events.now_=function(){return new Date};
+r.events.agenda.AddSession_=function(a,b){var d=r.events.now_(),e=d.getTimezoneOffset();return function(f,g,h){h||(f={date_time:f.valueOf(),end_date_time:g.valueOf(),redirect_url:r.location.pathname},b&&(f.client_timezone_offset=e,f.client_now=d.valueOf()),g=$(".filters input.filter"),g.is(":checked")&&(f.location=g.filter(":checked").val()),f=$.param(f),r.location.href=["/events/manage/",a,"/sessions/create/?",f].join(""))}};
+r.events.agenda.MoveSession_=function(a,b){var d=r.events.now_(),e=d.getTimezoneOffset();return function(f,g,h,l,n){g=["/events/manage/",a,"/sessions/",f.id,"/"].join("");$(".kd-butterbar").removeClass("shown");h={date_time:f.start.valueOf(),end_date_time:f.end.valueOf(),filter:["date_time","end_date_time"]};b&&(h.client_timezone_offset=e,h.client_now=d.valueOf());$.ajax(g,{type:"POST",data:h,success:function(){r.events.agenda.MoveSessionSuccess_(f.title);r.events.agenda.refetchEvents_()},error:function(){r.events.agenda.MoveSessionFailure_(f.title);
+n()},traditional:c})}};r.events.agenda.refetchEvents_=function(){$(".calendar:hidden").each(function(){var a=$(this),b=a.fullCalendar("getView");b.start&&b.end&&a.fullCalendar("refetchEvents")})};r.events.agenda.MoveSessionSuccess_=function(a){var b=gettext("was successfully updated. "),b=['"',a,'" ',b].join("");$(".kd-butterbar .message").text(b);$(".kd-butterbar").addClass("shown")};
+r.events.agenda.MoveSessionFailure_=function(a){var b=gettext("There was a problem updating"),b=[b,' "',a,'". '].join("");$(".kd-butterbar .message").text(b);$(".kd-butterbar").addClass("shown")};r.events.sessions.InitDaySelector=function(){$("#day-selector").change(function(){$(this).siblings("#date").val($(this).val());$(this).siblings("#end_date").val($(this).val())})};
+r.events.sessions.InitLocationSelector=function(){$("#new-location-link").click(function(a){a.preventDefault();$("#existing-location-container").hide();$("#cancel-new-location").show();$("#new-location-container").fadeIn(r.KD_FADE_SHORT).find("input").focus()});$("#cancel-new-location").click(function(a){a.preventDefault();$("#existing-location-container").fadeIn(r.KD_FADE_SHORT);$("#new-location").val("");$("#new-location-container").hide()})};
+r.events.tracks.AddSession_=function(){var a=$(this).val();if(a){var b=$(this).find(":selected").text(),d=$("<li></li>").append($("#remove-button-container").html());d.append(b);d.data("sessionid",a).data("sessiontitle",b);b=$("<input></input>").attr("type","hidden");b.attr("name","sessions").attr("value",a);d.append(b);$("#added-sessions").append(d);d.find("a.remove").click(r.events.tracks.RemoveSession_);$(this).find(":selected").remove()}};
+r.events.tracks.RemoveSession_=function(){var a=$(this).parent(),b=a.data("sessionid"),d=a.data("sessiontitle"),b=$("<option></option>").attr("value",b);b.text(d);a.remove();$("#remaining-sessions").append(b)};r.events.tracks.InitSessionSelector=function(){$("a.remove").click(r.events.tracks.RemoveSession_);$("#remaining-sessions").change(r.events.tracks.AddSession_)};
+r.events.initSpeakerVisibilityButton=function(a){var b=a.attr("data-profileid");a.click(function(d){d.preventDefault();a.addClass("disabled").text("One moment...");$.post("/profile/"+b+"/visibilities/speaker",k,function(){r.location.reload()})})};
+r.events.initLinkAccountControl=function(a){var b=a.find("input"),d=a.find("button"),e=d.text();a.click(function(){if(b.val()){d.addClass("disabled");d.text("One moment...");var a="/team/profile/update/?val="+b.val();$.post(a,k,function(a){a.success?r.location.reload():(a.association?alert("Sorry, that profile is already linked to an account."):alert("Oh no! I could not find a Google Developers profile with that Google+ ID."),d.removeClass("disabled"),d.text(e))})}})};
+r.events.onPresentersComplete=function(a){var b=a.find("tr"),d=a.find("tr:has(.alert)"),e=[],f=[];b.each(function(){var a=$(this),b=a.data("name")+" <"+a.data("email")+">";e.push(b);a.find(".alert").length&&f.push(b)});$("#loading").hide();$(".bad-presenter-count").html(d.length);$(".presenter-count").html(b.length);var g=$("#organizer-actions");g.fadeIn(r.KD_FADE_SHORT);g.find(".all").show();d.length?(g.addClass("caution"),g.find(".bad").show()):(g.addClass("special"),g.find(".good").show());g.find("textarea").click(function(){$(this).select()});
+g.find("button.email").click(function(){var a=$(this),a=a.hasClass("bad")?f:e;g.find(".emails").show(400);g.find("textarea").val(a.join(", "));return m});g.find("a.hide").click(function(){$(this).parent().hide(400);return m});$("a.sort").click(function(){b.detach();b.sort(function(a,b){return $(a).data("name").localeCompare($(b).data("name"))});b.appendTo(a);$(this).fadeOut(r.KD_FADE_LONG);return m})};
+r.events.initManagePresentersControls=function(){$("td.edit-presenter-info").hover(function(){$(this).find(".edit").fadeIn(r.KD_FADE_SHORT)},function(){$(this).find(".edit").fadeOut(r.KD_FADE_LONG)});$("td.edit-presenter-info").click(function(){$(this).find(".edit").fadeIn(r.KD_FADE_SHORT)});$("a.edit").click(function(){var a=$(this).data("for");$("section.edit-presenter-info").hide();$("#"+a).fadeIn(r.KD_FADE_SHORT);return m});$("section.edit-presenter-info").each(function(){var a=$(this);a.find(".cancel").click(function(){a.fadeOut(r.KD_FADE_LONG);
+return m});a.find('input[type="submit"]').click(function(){$(this).addClass("disabled").val("One moment...")})})};
+r.events.InitProfileWidget=function(a){var b=a.find(".error"),d=a.find(".profiles"),e=a.find("#profile-query"),f=a.attr("class"),g=a.find("#event-id").val();a.find(".profile-info").each(function(){r.events.AddProfileChip_(d,f,$(this).data("displayname"),$(this).attr("data-plusid"))});a.find(".profiles-container").click(function(){e.focus()});a.find("button").click(function(a){a.preventDefault();(a=e.val())&&$.get("/events/manage/"+g+"/profilesearch",{q:a},function(a){a.success?(e.val(""),r.events.AddProfileChip_(d,
+f,a.profile.displayName,a.profile.id),b.hide()):(b.text(a.reason),b.hide().fadeIn(r.KD_FADE_LONG))})})};r.events.GetPlusUrl_=function(a){return["https://plus.google.com/",a,"/"].join("")};r.events.AddProfileChip_=function(a,b,d,e){a=r.chips.AddChip(d,void 0,a,c,function(){r.open(r.events.GetPlusUrl_(e))});d=$("<input></input>").val(e);d.attr("name",b).attr("type","hidden");$(a).append(d)};
+r.events.ConfirmDeleteAgenda=function(a){var b=$("#confirm-agenda-action"),d=b.find("button");b.dialog($.extend({buttons:[{text:d.eq(0).html(),"class":"button button-blue",click:function(){$(this).dialog("close");a.submit()}},{text:d.eq(1).html(),"class":"button",click:function(){$(this).dialog("close")}}]},r.devsite.dialogConfig));b.dialog("open")};r.countdown=r.countdown||{};r.countdown.options={dangerTime:0,dangerClass:"danger-timer",stoppedClass:"stopped-timer",timerSelector:"#countdown-timer"};r.countdown.Timer=function(a,b,d){this.timeLeft_=a;this.timeoutCallback_=b;this.options_=jQuery.extend({},r.countdown.options,d);var e=this;this.timer_=window.setInterval(function(){e.tick_()},1E3);this.tick_();this.options_.dangerTime&&this.timeLeft_<=this.options_.dangerTime&&this.addDangerStyle_();$(this.options_.timerSelector).html(r.countdown.Timer.formatTime_(this.timeLeft_))};
+r.countdown.Timer.prototype.stop=function(){window.clearInterval(this.timer_);$(this.options_.timerSelector).removeClass(this.options_.dangerClass);$(this.options_.timerSelector).addClass(this.options_.stoppedClass)};r.countdown.Timer.prototype.start=function(){this.timer_&&window.clearInterval(this.timer_);var a=this;this.timer_=window.setInterval(function(){a.tick_()},1E3);this.tick_()};r.countdown.Timer.prototype.addDangerStyle_=function(){$(this.options_.timerSelector).addClass(this.options_.dangerClass)};
+r.countdown.Timer.prototype.tick_=function(){0<this.timeLeft_?(this.timeLeft_-=1,$(this.options_.timerSelector).html(r.countdown.Timer.formatTime_(this.timeLeft_))):(window.clearInterval(this.timer_),this.timeoutCallback_());this.timeLeft_==this.options_.dangerTime&&this.addDangerStyle_()};r.countdown.Timer.formatTime_=function(a){var b=Math.floor(a/60);a%=60;return r.countdown.Timer.pad_(b)+":"+r.countdown.Timer.pad_(a)};r.countdown.Timer.pad_=function(a){return 10>a?"0"+a:String(a)};r.location=r.location||window.location;r.registration=r.registration||{};r.registration.waitListKey="";r.registration.claimTimer={};r.registration.enableRedeemToken=function(){$("#legal-text-confirmation").is(":checked")?$("#redeem-token-btn").removeClass("disabled"):$("#redeem-token-btn").addClass("disabled")};r.registration.clearFilters=function(){$("#filter-value").val("");$("#search-form").submit()};
+r.registration.UpdateStatus=function(a,b){var d=$("#reg_"+a),e=$("#"+d.val()+"_total"),f=Number(e.text())-1;e.text(f);e=$("#"+d.val()+"_delta");f=Number(e.text())-1;e.text((0<f?"+":"")+f);r.registration.decorateDelta(e);e=$("#"+b+"_total");f=Number(e.text())+1;e.text(f);e=$("#"+b+"_delta");f=Number(e.text())+1;e.text((0<f?"+":"")+f);r.registration.decorateDelta(e);d.val(b)};
+r.registration.decorateDelta=function(a){var b=Number(a.text());0<b?a.attr("class","delta-positive"):0>b?a.attr("class","delta-negative"):a.attr("class","")};r.registration.setStatusCheck=function(a,b,d){r.registration.waitListKey=b;a.setTimeout(r.registration.checkWaitListStatus,25E3+1E4*Math.random(),a,d)};
+r.registration.checkWaitListStatus=function(a,b){var d="/events/register/noticket/"+r.registration.waitListKey+"/";b&&(d="/events/io/register?tryagain=1");var e="/events/register/waitlist/status/"+r.registration.waitListKey+"/";$.get(e,function(e){var g=e.status;"waiting"==g?a.setTimeout(r.registration.checkWaitListStatus,25E3+1E4*Math.random(),a,b):r.location.href="fulfilled"==g?e.redirect_url:d}).error(function(){r.location.href=d})};
+r.registration.validate=function(a){for(var b=m,d=m,e=$("#opt_in_check"),f=$(".registration-form").find('input[type="text"], select').filter(":visible"),g=0,h=f.length;g<h;g++){var l=f.eq(g).attr("id"),b=r.registration.validateElement(l,a);!b&&!d&&(d=l)}e.length&&(!e.is(":checked")&&!d)&&(b=m,d=e.attr("id"));d?$("#"+d).focus():($("#external_plus_id")&&(a=$("#external_plus_id").val(),$("#external_plus_id").val("https://plus.google.com/"+a)),$("#reg_form").submit());return b};
+r.registration.renderStateInput=function(a){var b=$("#country").val();"US"==b?($("#state-label").attr("for","state"),$("#state").show(),$("#state_world").hide(),$("#state_world").val(""),r.registration.clearError("state_world"),a&&$("#state-header").addClass("required")):($("#state-label").attr("for","state_world"),$("#state_world").show(),$("#state").hide(),$("#state").val(0),r.registration.clearError("state"),a&&$("#state-header").removeClass("required"))};
+r.registration.validateElement=function(a,b){var d=/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i,e=/^[0-9]{21}$/,f=/^[\u0000-\u00FF]+$/,g=["company","first_name","last_name"],h=$("#"+a).parent().siblings().eq(0).hasClass("required");if(!h&&-1==g.indexOf(a))return c;r.registration.clearError(a);var l=$.trim($("#"+a).val()),n=!l,q=m;switch(a){case "email":q=!n&&d.test(l);break;case "state":q=b?!("US"==$("#country").val()&&n):!n;break;case "external_plus_id":q=!n&&e.test(l)&&l!=$("#plus_id").val();break;
+default:q=h?!n:c}d=k;q&&-1!=g.indexOf(a)&&(f=f.test(l),d=a+"-invalid-chars",!n&&!f&&(l=l.replace(/[\u0000-\u00FF]/g,""),$("#"+d+" span").html(l),q=m));return!q?(r.registration.showError(a,d),m):c};
+r.registration.attachCheckBoxHandler=function(a){a=a||$('input[type="checkbox"]');$.browser.msie||a.addClass("kd-checkbox");a.click(function(){"required"==$(this).attr("name")?$(this).is(":checked")&&$(this).siblings().attr("checked",c):"visible"==$(this).attr("name")&&($(this).is(":checked")||$(this).siblings().attr("checked",m))})};
+r.registration.validateCustomFieldLabel=function(a,b){r.registration.clearError(a);var d=$.trim($("#"+a).val());if(!d||d==$.trim(b))return r.registration.showError(a),m;for(var e=$(".registration-form td:first-child label"),d=d.toLowerCase(),f=0,g=e.length;f<g;f++)if(d==e.eq(f).text().toLowerCase())return r.registration.showError(a,a+"-duplicate"),m;return c};
+r.registration.updateCustomField=function(a,b){var d=$("#"+a).siblings("label").text();if(r.registration.validateCustomFieldLabel(a,d)){var e=$.trim($("#"+a).val()),d={field_id:a,field_title:e},f="/events/register/customizeform/updatefield/"+b+"/";$.post(f,d,function(b){b.success?($("#"+a).siblings("label").html(e),r.registration.toggleCustomLabelEdit(a,m)):r.registration.showError(a,a+"-server-error")})}return m};
+r.registration.addCustomField=function(a){var b=$("#default-field-text").text();r.registration.validateCustomFieldLabel("title-custom-field",b)&&(b=$.trim($("#title-custom-field").val()),a="/events/register/customizeform/addfield/"+a+"/",$.post(a,{custom_field:b},function(a){$(a).insertBefore($("#custom-field-input"));a=$("#custom-field-input").prev().find('input[type="checkbox"]');r.registration.attachCheckBoxHandler(a);r.registration.toggleCustomFieldInput(m)}))};
+r.registration.initCustomizationForm=function(a){r.registration.attachCheckBoxHandler();$("#show-field-input").click(function(){r.registration.toggleCustomFieldInput(c)});$("#cancel-field-add").click(function(){r.registration.toggleCustomFieldInput(m)});$("#add-custom-field").click(function(b){b.preventDefault();r.registration.addCustomField(a)})};
+r.registration.toggleCustomLabelEdit=function(a,b){b?($("#"+a+"-wrapper").addClass("visible"),$("#"+a).val($("#"+a).siblings("label").html())):($("#"+a+"-wrapper").removeClass("visible"),r.registration.clearError(a));return m};r.registration.toggleCustomFieldInput=function(a){a?(r.registration.clearError("title-custom-field"),$("#title-custom-field").val($("#default-field-text").text()),$("#custom-field-input").show(),$("#show-field-input").addClass("disabled")):($("#custom-field-input").hide(),$("#show-field-input").removeClass("disabled"))};
+r.registration.showError=function(a,b){var d=b||a+"-error";$("#"+d).show();$("#"+a).addClass("error-field")};r.registration.clearError=function(a){$("#"+a).removeClass("error-field");a=$("div[id^="+a+"-], span[id^="+a+"-]");a=a.filter(".error-text");a.hide()};r.registration.confirm=function(a,b,d){a="/events/register/confirm/"+a+"/";$.post(a,k,function(a){a.success&&b&&b();!a.success&&d&&d()})};
+r.registration.confirmDeregister=function(){var a=$("#confirm-deregister"),b=a.find("button");a.dialog($.extend({buttons:[{text:b.eq(0).html(),"class":"button button-blue",click:function(){$(this).dialog("close");$("#deregister-form").submit()}},{text:b.eq(1).html(),"class":"button",click:function(){$(this).dialog("close")}}]},r.devsite.dialogConfig));a.dialog("open")};
+r.registration.initClaimTimer=function(a,b,d){var e="";b?e="/events/io/register?timeout=1":(e="/events/register/timeout/",d&&(e+=d+"/"));r.registration.claimTimer=new r.countdown.Timer(a,function(){r.location.href=e},{dangerTime:60})};
+r.registration.claimTicket=function(a,b){var d=function(){r.location.href="/events/register/form/"+a+"/"};b&&(d=function(){r.registration.InappTransaction(a)});var e=function(){r.registration.showConfirmError_()};r.registration.claimTimer.stop();r.registration.confirm(a,d,e)};r.registration.showConfirmError_=function(){var a=$("#confirm-error");a.dialog(r.devsite.dialogConfig);a.dialog("open")};
+r.registration.emailCsvReport=function(a,b,d){d=d||"generate-csv-report";var e=$("#"+d),f=e.val();e.addClass("disabled");e.val("Generating...");a="/events/register/csv/"+a+"/";b=b?{report:b}:k;$.post(a,b,function(a){a.success&&r.registration.showMailConfirmation(a.email,e,f)})};
+r.registration.showMailConfirmation=function(a,b,d){b.removeClass("disabled");b.val(d);b=$("#mail-confirm");b.find("#csv-email").html(a);a=b.find("button");b.dialog($.extend({buttons:[{text:a.eq(0).html(),"class":"button button-blue",click:function(){$(this).dialog("close")}}]},r.devsite.dialogConfig));b.dialog("open")};
+r.registration.uploadCsvReport=function(a,b,d,e){if("False"==b)d=r.location.href,a="/events/register/driveoauth/oauth?callback=",r.location.href=a+d;else{b=e||"generate-csv-report";var f=$("#"+b),g=f.val();f.addClass("disabled");f.val("Generating...");a="/events/register/csv/"+a+"/";d=d?{report:d}:k;$.post(a,d,function(a){a.success&&r.registration.showUploadConfirmation(a.filename,f,g)})}};
+r.registration.showUploadConfirmation=function(a,b,d){b.removeClass("disabled");b.val(d);b=$("#mail-confirm");b.find("#csv-name").html(a);a=b.find("button");b.dialog($.extend({buttons:[{text:a.eq(0).html(),"class":"button button-blue",click:function(){$(this).dialog("close")}}]},r.devsite.dialogConfig));b.dialog("open")};
+r.registration.adminInit=function(){$(".show-details").click(function(){$(this).parents(".reg-row").nextUntil(".reg-row",".reg-details").toggleClass("hide-details");return m});var a=$("#oauth-response").data("error-message");"message"==a&&$("#generate-csv-report").click()};
+r.registration.getPaymentDetails=function(a){var b=function(a){return a.replace(/[^\w ]+/g,"").replace(/ +/g,"-").toLowerCase()};$("#payments-"+b(a)).closest(".payment-details").toggleClass("hide-details");if(!$("#payments-"+b(a)).children().length){var d="/events/register/manage/payments/"+a+"/";$.get(d,function(d){if(d.success){d=d.payments;for(var f=0,g=d.length;f<g;f++)for(var h in d[f]){var l=$("<div />").attr("class","reg-field");l.append($("<div />").attr("class","reg-key").text(h));l.append($("<div />").attr("class",
+"reg-value").text(d[f][h]));$("#payments-"+b(a)).append(l)}}})}return m};r.registration.countRegistrations=function(a,b,d){var e="/events/register/manage/"+a+"/count?page=50";b&&(b.qk&&b.qo&&b.qv)&&(e=e+"&qk="+b.qk+"&qo="+b.qo+"&qv="+b.qv);d&&(e+="&c="+d);$.get(e,function(d){if("ok"==d.result&&d.cursor){for(var e in d.counts){var h=parseInt(d.counts[e]),l=$("#"+e+"_total"),n=parseInt(l.html());l.html(n+h)}r.registration.countRegistrations(a,b,d.cursor)}else $("#count_status").html(d.statusmsg)})};
+r.registration.adminTask=function(a,b){$.post("/events/register/manage/admin/"+a+"/",{admintask:b},function(){r.location.href="/events/register/manage/"+a+"/"})};r.registration.filterResults=function(a,b){var d=$("#onlyunpaid").is(":checked")?"1":"0",e=$("#onlyinvalid").is(":checked")?"1":"0";r.location.href="/events/register/manage/"+a+"/?sort="+b+"&unpaid="+d+"&invalid="+e};
+r.registration.TicketInAppTransaction=function(a,b){$("#sandbar").addClass("hidden");$("#gc-topnav").addClass("hidden");$("body").prepend('<div id="top-timer"/>');$("#countdown-warning").appendTo("#top-timer");var d="/events/register/token/"+a+"/"+b+"/",e=function(){r.registration.claimTimer.stop();$("#wait-page-content").addClass("hidden");$("#payment-verification").removeClass("hidden");$("#sandbar").removeClass("hidden");$("#gc-topnav").removeClass("hidden");$("#top-timer").remove();r.registration.ConfirmAndNavigate(a,
+0)};$.post(d,k,function(a){a.success?goog.payments.inapp.buy({jwt:a.jwt,success:e,failure:r.registration.InappFailure}):r.devsite.showError("There was an error Initiating payment.")})};r.registration.ConfirmAndNavigate=function(a,b){var d=function(){r.location.href="/events/register/form/"+a+"/"},e=function(){5>b&&window.setTimeout(r.registration.ConfirmAndNavigate,1E3*Math.pow(2,b+2),a,b+1)};r.registration.confirm(a,d,e)};
+r.registration.VipcodeInAppTransaction=function(a){var b=function(){r.location.href="/events/register/form/"+a+"/"};r.registration.InappTransaction(a,b)};r.registration.InappTransaction=function(a,b,d){a="/events/register/token/"+a+"/";$.post(a,k,function(a){a.success?goog.payments.inapp.buy({jwt:a.jwt,success:b||r.registration.InappSuccess,failure:d||r.registration.InappFailure}):r.devsite.showError("There was an error Initiating payment.")})};
+r.registration.InappSuccess=function(a){var b=a.response.orderId;a=a.request;a=a.sellerData.split(",");a[1].split(":");r.devsite.showError("Payment Successful. Order Reference Number: "+b);r.reloadWindow()};
+r.registration.InappFailure=function(a){var b=$("#payment-error"),d=b.find("button");b.dialog($.extend({buttons:[{text:d.eq(0).html(),"class":"button button-blue",click:function(){$(this).dialog("close");r.registration.claimTimer.start()}}]},r.devsite.dialogConfig));b.dialog("option","width",450);d=a.response;a=a.request;var e="",f="",g="";d&&(e=d.errorType);a&&(f=a.sellerData,g=a.price);d={error_type:e,seller_data:f,price:g};$.post("/events/register/cancelpayment",d).always(function(){b.dialog("open")})};
+r.registration.addDeveloperAppsWidgetControl=function(){var a={},b=$("#developer_apps_current").val();b&&(a.defaultValues=b.split(","));new r.customInputs.MultipleInputWidget($("#developer_apps_container"),"developer_apps",a)};
+r.registration.initRegistrationFormIo=function(){$.browser.msie||($("input[type=checkbox]").each(function(){$(this).addClass("kd-checkbox")}),$("input[type=radio]").each(function(){$(this).addClass("kd-radio")}));$(".product-table").find("td").click(function(){$(this).find("input").prop("checked",c)});$("#update-registration-details").click(function(a){a.preventDefault();a=$(this);$("#reg_form").fadeIn(130);a.replaceWith(a.text())});var a=$(".registration-form").find('input[type="text"], select').filter(":visible");
+a.blur(function(){return r.registration.validateElement(this.id,c)});$("#country").change(function(){r.registration.renderStateInput(c)});$("#country").change();r.registration.addDeveloperAppsWidgetControl();$("#done").click(function(){return r.registration.validate(c)})};
+r.registration.initManageTodos=function(a){var b=$("#start_date"),d=$("#end_date");r.registration.datePicker_(b);r.registration.datePicker_(d);$('[name="start-todo"]').each(function(){var b=$(this).attr("data-todoId");$(this).click(function(){r.registration.sendUpdateTimestampRequest_("start_time",b,a,$(this))})});$('[name="end-todo"]').each(function(){var b=$(this).attr("data-todoId");$(this).click(function(){r.registration.sendUpdateTimestampRequest_("end_time",b,a,$(this))})})};
+r.registration.sendUpdateTimestampRequest_=function(a,b,d,e){b="/events/register/manage/"+d+"/todos/updatetimestamp/"+b;$.post(b,{time_field:a},function(b){b.success&&(e.siblings("span").html(b.result.time),e.addClass("disabled"),"start_time"==a&&(b=e.parent().siblings("td").find('button[name="end-todo"]'),b.removeClass("disabled")))})};r.registration.datePicker_=function(a){a.datepicker({dateFormat:"yy-mm-dd",nextText:">",prevText:"<",showOtherMonths:c,selectOtherMonths:c,defaultDate:0})};
+r.registration.initManagePickersBoard=function(){$("#start-board").click(function(){$("#board-form").submit()});$("#board-form").find("input:radio").click(r.registration.managePickerBoardPreview);$("#counter-select").change(r.registration.managePickerBoardPreview)};
+r.registration.managePickerBoardPreview=function(){$.get(".",$("#board-form").serialize(),function(a){var b=$("#preview-table");b.find(".attendee-row").remove();for(var d in a.attendees){var e=$('<tr class="attendee-row">');e.append($("<td>").text(a.attendees[d].checkin_time));e.append($("<td>").text(a.attendees[d].type_code));e.append($("<td>").text([a.attendees[d].first_name," ",a.attendees[d].last_name].join("")));e.append($("<td>").text(a.attendees[d].shirt_size));b.append(e)}})};
+
+    </script>
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    <script>
+      
+      google.load('visualization', '1', {packages: ['table']});
+    </script>
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+    
+<script type="text/javascript">
+$(document).ready(function(e) {
+    devsite.events.InitHandler();
+
+    // Render any carousels on the page
+    $('#events-carousel').carousel();
+
+    var config = {
+        events: {
+            url: '/events/calendar/fc',
+            cache: false,
+            data: {
+                
+                'calendar': 'gdl'
+            }
+        },
+        viewDisplay: devsite.calendar.DisableBeforeJune2012,
+    };
+    devsite.calendar.Calendar('#events-calendar', config);
+});
+</script>
+
+
+  </body>
+
+  
+</html>

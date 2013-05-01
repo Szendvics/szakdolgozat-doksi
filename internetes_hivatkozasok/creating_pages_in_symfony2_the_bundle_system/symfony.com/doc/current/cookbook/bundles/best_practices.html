@@ -1,0 +1,887 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <!--[if lt IE 9]>
+            <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="index, follow, all" />
+        <meta name="Author" content="Extreme Sensio" />
+        <meta name="Language" content="en"/>
+        <meta name="Copyright" content="Sensio Labs" />
+        <meta name="Publisher" content="Sensio Labs" />
+        <meta name="Description" content="Symfony - Open-Source PHP web framework" />
+        <meta name="Keywords" content="symfony2, symfony, project, framework, php, php5, open-source, components, symphony, symfony framework, symfony tutorial" />
+
+        <link rel="search" type="application/opensearchdescription+xml" href="http://symfony.com/opensearch/documentation.xml" title="Symfony2 documentation" />
+
+        <title>How to use Best Practices for Structuring Bundles (current) - Symfony</title>
+
+                        <link rel="stylesheet" href="/css/compiled/all.css?v=3" />
+                 <link href="https://connect.sensiolabs.com/css/sln.css" rel="stylesheet" type="text/css" media="all" />
+
+                
+                
+                    <script type="text/javascript" src="/js/all.js?v=3"></script>
+        
+                
+        <!--[if lt IE 9]>
+          <script src="/js/common/html5.js" type="text/javascript"></script>
+        <![endif]-->
+
+        <!--[if IE 6]>
+            <script src="/js/common/DD_belatedPNG_0.0.7a-min.js" type="text/javascript"></script>
+            <script src="/js/common/ExtendDD_belatedPNG_0.0.7a.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                DD_belatedPNG.fix('.png_fix');
+            </script>
+        <![endif]-->
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-89393-6']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    </head>
+
+    <body>
+        <div id="content_wrapper" class="">
+            <div id="sln"></div>
+
+            <div class="content">
+                
+
+    
+<div class="header">
+    <div class="content_header clear_fix">
+        <div class="illustration_logo_header">
+                            <a href="/"><img src="/images/common/logo/logo_symfony_header.png" alt="Symfony" class="png_fix" /></a>
+                    </div>
+        <div class="box_download clear_fix">
+            <div class="legend_download">
+                <img src="/images/en/a_sensiolabs_product.png" alt="a SensioLabs product" class="png_fix" />
+            </div>
+            <div class="download_button_wrapper">
+                <a href="/download" class="download_button">    <span class="border_l png_fix">
+        <span class="border_r png_fix">
+            <span class="btn_bg png_fix">
+                DOWNLOAD NOW
+            </span>
+        </span>
+    </span>
+</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main_menu clear_fix" id="main_menu_id">
+    <ul class="clear_fix">
+        <li class="first what_is_symfony"><a href="/what-is-symfony">What is Symfony?</a></li>
+        <li class="get_started">
+            <a href="/get_started">Get started</a>
+                    </li>
+        <li class="learn selected"><a href="/doc/current/index.html">Documentation</a></li>
+        <li class="community"><a href="/community">Community</a></li>
+        <li class="services"><a href="/services">Services</a></li>
+        <li class="blog">
+            <a href="/blog/">News</a>
+            <div class="box_dropdown_wrapper">
+    <div class="border_l">
+        <div class="middle_border_l">
+            <div class="border_r">
+                <div class="middle_border_r">
+                    <div class="content_wrapper">
+                        <div class="box_content">
+                                <div class="inner_drop_box_two_columns clear_fix">
+        <div class="inner_drop_box_two_columns_column_01">
+            <h2 class="dropdown_title">
+                <div class="button"><a href="http://twitter.com/symfony" title="twitter account"><img style="width: 35px; margin-top: -10px" src="/images/common/picto/twitter.png" alt="Twitter" /></a></div>
+                <div class="button"><a href="http://feeds.feedburner.com/symfony/blog" title="blog feed"><img src="/images/common/picto/rss.gif" alt="feed" /></a></div>
+                <a href="/blog/">Latest News</a>
+            </h2>
+
+            <div class="box_article post">
+                    <div class="gravatar"><a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15"><img width="57" height="57" src="https://connect.sensiolabs.com/api/images/4aed4f5d-e0cb-4320-902f-885fddaa7d15.png?format=57x57" alt="Fabien Potencier"></a></div>
+                <h3 class="title_05"><a href="/blog/symfony-2-3-schedule-update">Symfony 2.3 schedule update</a></h3>
+                <div class="complementaries_informations">
+    by
+            <a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15">Fabien Potencier</a>
+            – April 30, 2013
+        </div>
+            </div>
+
+                <div class="box_hr"><hr /></div>
+
+
+            <div class="box_article">
+                <h2 class="title_05"><a href="/blog/a-week-of-symfony-330-22-28-april-2013">What happened last week in Symfony?</a></h2>
+                <p>This week, it was announced that the Symfony 2.3 Standard Edition will only include MIT/BSD licensed libraries and bundles (<a href="https://github.com/symfony/symfony-standard/pull/535">view pull request</a>). In addition, Symfony 2.3 <a href="http://twitter.com/fabpot/status/327525715903905793">was declared nearly completed</a>, with just a few important PR remaining before the first beta version. Lastly, a new version of <a href="http://desktop.sensiolabs.org/">SensioLabs Desktop</a> was released.</p>
+            </div>
+        </div>
+        <div class="inner_drop_box_two_columns_column_02">
+            <h2 class="dropdown_title">
+                <div class="button"><a href="http://twitter.com/symfony" title="twitter account"><img style="width: 35px; margin-top: -10px" src="/images/common/picto/twitter.png" alt="Twitter" /></a></div>
+                <div class="button"><a href="http://feeds.feedburner.com/symfony/events" title="events rss"><img src="/images/common/picto/rss.gif" alt="RSS" /></a></div>
+                <a href="/events/">Upcoming Events</a>
+            </h2>
+
+            <div class="box_article">
+                <p>The Symfony Community organizes events all over the world on a regular basis. Here are the next ones.</p>
+                                                            <h2 class="title_05">
+                            <img src="/images/flags/de.png?v=3" />
+                                                            <a href="http://www.meetup.com/sfugmd/events/113619892/">Germany, Gera &mdash; Symfony User Group Mitteldeutschland Treffen</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            on May 08, 2013, from 19:00 to 20:30
+                                                    </div>
+                                            <h2 class="title_05">
+                            <img src="/images/flags/de.png?v=3" />
+                                                            <a href="http://www.meetup.com/sfugcgn/events/104715432/">Germany, Köln &mdash; Treffen der Symfony User Group Cologne</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            on May 08, 2013, from 19:30 to 21:00
+                                                    </div>
+                                            <h2 class="title_05">
+                            <img src="/images/flags/fr.png?v=3" />
+                                                            <a href="http://sfpotparismai2013.eventbrite.fr/">France, Paris &mdash; sfPot Paris Mai - Formulaire et Tests</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            on May 14, 2013, from 19:30 to 21:00
+                                                    </div>
+                                            <h2 class="title_05">
+                            <img src="/images/flags/us.png?v=3" />
+                                                            <a href="http://portland2013.live.symfony.com/">United States, Portland &mdash; SymfonyLive Portland 2013</a>
+                                                    </h2>
+                        <div class="event_detail">
+                                                            from May 20, 2013 to May 24, 2013
+                                                    </div>
+                                                </div>
+        </div>
+    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="corner_l">
+            <div class="corner_r">
+                <div class="border"></div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+        <li class="last about"><a href="/about">About</a></li>
+    </ul>
+</div>
+
+                                    <div class="main_content">
+                                                    <div class="box_columns clear_fix">
+                                                                                                            <div class="column_01">
+                                                                                            <div class="submenu">
+                                                    <ul class="list_submenu">    <li class="first"><a href="/doc/current/book/index.html">The Book</a></li>
+<li class="selected"><a href="/doc/current/cookbook/index.html">The Cookbook</a></li>
+<li><a href="/doc/current/components/index.html">The Components</a></li>
+<li><a href="/doc/current/reference/index.html">Reference</a></li>
+<li><a href="/doc/current/glossary.html">Glossary</a></li>
+<li><a href="/doc/current/genindex.html">Index</a></li>
+<li><a href="/doc/current/bundles/index.html">Bundles</a></li>
+<li><a href="/doc/master/cmf/index.html">Symfony CMF</a></li>
+<li><a href="/doc/master/contributing/code/security.html#security-advisories">Security Advisories</a></li>
+<li><a href="/legacy/doc">Docs for symfony 1.x</a></li>
+<li><a href="/doc/current/contributing/index.html">Contributing</a></li>
+<li><a href="/talks">Talks</a></li>
+<li><a href="http://trainings.sensiolabs.com/">Trainings</a></li>
+<li class="last"><a href="http://books.sensiolabs.com">Books</a></li>
+</ul>
+                                                </div>
+                                                                        <div class="toc">
+                <h2 class="title_05">Table of Contents</h2>
+                <div class="toc-content">
+                    <ul>
+<li><a class="reference internal" href="#">How to use Best Practices for Structuring Bundles</a><ul>
+<li><a class="reference internal" href="#bundle-name">Bundle Name</a></li>
+<li><a class="reference internal" href="#directory-structure">Directory Structure</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#vendors">Vendors</a></li>
+<li><a class="reference internal" href="#tests">Tests</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#controllers">Controllers</a></li>
+<li><a class="reference internal" href="#routing">Routing</a></li>
+<li><a class="reference internal" href="#templates">Templates</a></li>
+<li><a class="reference internal" href="#translation-files">Translation Files</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#learn-more-from-the-cookbook">Learn more from the Cookbook</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+            
+    <div class="feedback">
+    <h2 class="title_05">Questions &amp; Feedback</h2>
+    <p>
+      <em>Found a typo or an error?</em><br />
+      <em>Want to improve this document?</em> <a href="https://github.com/symfony/symfony-docs/edit/2.2/cookbook/bundles/best_practices.rst">Edit</a> it.
+    </p>
+    <p>
+      <em>Need support or have a technical question?</em><br />
+      Post to the <a href="http://groups.google.com/group/symfony2">user mailing-list</a>.
+     </p>
+</div>
+    <div id="license">
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        <img alt="Creative Commons License" src="http://symfony.com/images/license.png" />
+    </a>
+    <div>
+        This <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/MovingImage" rel="dc:type">work</span> is licensed under a
+        <br />
+        Creative Commons
+        <br />
+        Attribution-Share Alike 3.0
+        <br />
+        Unported <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">License</a>.
+    </div>
+</div>
+                                                                                                    
+<div class="ads">
+        <div class="box_hr"><hr /></div>
+
+
+            <div class="ad" id="ad_trainings_1">
+            <h3><a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">Master Symfony2 fundamentals</a></h3>
+            <div>Be trained by SensioLabs experts (2 to 6 day sessions -- French or English).</div>
+            <div><cite>trainings.sensiolabs.com</cite></div>
+        </div>
+            <div class="ad" id="ad_servergrove_1">
+            <h3><a href="http://symfony.com/servergrove">Symfony hosting done right</a></h3>
+            <div>ServerGrove, outstanding support at the right price for your Symfony hosting needs.</div>
+            <div><cite>servergrove.com</cite></div>
+        </div>
+            <div class="ad" id="ad_support_1">
+            <h3><a href="http://sensiolabs.com/en/support/sensiolabs_support.html">Discover the SensioLabs Support</a></h3>
+            <div>Access to the SensioLabs Competency Center for an exclusive and tailor-made support on Symfony</div>
+            <div><cite>sensiolabs.com</cite></div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+                    $("#ad_trainings_1").click(function () { _gaq.push(['_trackEvent', 'Ads', 'Ads', 'trainings_1']); });
+                    $("#ad_servergrove_1").click(function () { _gaq.push(['_trackEvent', 'Ads', 'Ads', 'servergrove_1']); });
+                    $("#ad_support_1").click(function () { _gaq.push(['_trackEvent', 'Ads', 'Ads', 'support_1']); });
+            });
+</script>
+                                                                                                                                                    <div class="ads">
+                                                        <a href="https://connect.sensiolabs.com/"><img src="/images/sensiolabs_connect.png?v=3" /></a>
+                                                    </div>
+                                                                                                                                    </div>
+                                                                        <div class="column_02">
+                                                                                    <div class="breadcrumb">
+                                                <a href="/">Home</a> &raquo;
+                                                            <a href="/doc/current/index.html">Documentation</a> &raquo;
+    
+            <a href="../index.html" >The Cookbook</a> &raquo;
+            <a href="index.html" accesskey="U">Bundles</a> &raquo;
+    
+    How to use Best Practices for Structuring Bundles
+                                            </div>
+
+                                                                                                <div class="box_title">
+                                                        <div class="box_version_wrapper">
+        <div class="version_wrapper">
+            <div class="version">
+                2.2 version
+                <span class="arrow">
+                    <img src="/images/common/picto/down_arrow_white.png" alt="" />
+                </span>
+            </div>
+            <div class="other_version">
+                                    <ul>
+                                                                                    <li>
+                                    <a href="/doc/2.0/cookbook/bundles/best_practices.html">2.0 version</a>
+                                </li>
+                                                                                                                <li>
+                                    <a href="/doc/2.1/cookbook/bundles/best_practices.html">2.1 version</a>
+                                </li>
+                                                                                                                                                                    <li>
+                                    <a href="/doc/master/cookbook/bundles/best_practices.html">master version</a>
+                                </li>
+                                                                        </ul>
+                                                                            <hr />
+                                        <ul>
+                                                                                    <li>
+                                    <a href="/fr/doc/current/cookbook/bundles/best_practices.html">French</a>
+                                </li>
+                                                                                                                <li>
+                                    <a href="/it/doc/current/cookbook/bundles/best_practices.html">Italian</a>
+                                </li>
+                                                                        </ul>
+                            </div>
+        </div>
+    </div>
+                                                    <h1 class="title_01">How to use Best Practices for Structuring Bundles</h1>
+                                                </div>
+                                            
+        
+                                                
+    <div class="box_article doc_page">
+        <div class="section" id="how-to-use-best-practices-for-structuring-bundles">
+<span id="index-0"></span><h1>How to use Best Practices for Structuring Bundles<a class="headerlink" href="#how-to-use-best-practices-for-structuring-bundles" title="Permalink to this headline">¶</a></h1>
+<p>A bundle is a directory that has a well-defined structure and can host anything
+from classes to controllers and web resources. Even if bundles are very
+flexible, you should follow some best practices if you want to distribute them.</p>
+<div class="section" id="bundle-name">
+<span id="bundles-naming-conventions"></span><span id="index-1"></span><h2>Bundle Name<a class="headerlink" href="#bundle-name" title="Permalink to this headline">¶</a></h2>
+<p>A bundle is also a PHP namespace. The namespace must follow the technical
+interoperability <a class="reference external" href="http://symfony.com/PSR0">standards</a> for PHP 5.3 namespaces and class names: it
+starts with a vendor segment, followed by zero or more category segments, and
+it ends with the namespace short name, which must end with a <tt class="docutils literal"><code>Bundle</code></tt>
+suffix.</p>
+<p>A namespace becomes a bundle as soon as you add a bundle class to it. The
+bundle class name must follow these simple rules:</p>
+<ul class="simple">
+<li>Use only alphanumeric characters and underscores;</li>
+<li>Use a CamelCased name;</li>
+<li>Use a descriptive and short name (no more than 2 words);</li>
+<li>Prefix the name with the concatenation of the vendor (and optionally the
+category namespaces);</li>
+<li>Suffix the name with <tt class="docutils literal"><code>Bundle</code></tt>.</li>
+</ul>
+<p>Here are some valid bundle namespaces and class names:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="57%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Namespace</th>
+<th class="head">Bundle Class Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><code>Acme\Bundle\BlogBundle</code></tt></td>
+<td><tt class="docutils literal"><code>AcmeBlogBundle</code></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><code>Acme\Bundle\Social\BlogBundle</code></tt></td>
+<td><tt class="docutils literal"><code>AcmeSocialBlogBundle</code></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><code>Acme\BlogBundle</code></tt></td>
+<td><tt class="docutils literal"><code>AcmeBlogBundle</code></tt></td>
+</tr>
+</tbody>
+</table>
+<p>By convention, the <tt class="docutils literal"><code>getName()</code></tt> method of the bundle class should return the
+class name.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you share your bundle publicly, you must use the bundle class name as
+the name of the repository (<tt class="docutils literal"><code>AcmeBlogBundle</code></tt> and not <tt class="docutils literal"><code>BlogBundle</code></tt>
+for instance).</p>
+</div></div>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">Symfony2 core Bundles do not prefix the Bundle class with <tt class="docutils literal"><code>Symfony</code></tt>
+and always add a <tt class="docutils literal"><code>Bundle</code></tt> subnamespace; for example:
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/2.2/Symfony/Bundle/FrameworkBundle/FrameworkBundle.html" title="Symfony\Bundle\FrameworkBundle\FrameworkBundle">FrameworkBundle</a></code></tt>.</p>
+</div></div>
+<p>Each bundle has an alias, which is the lower-cased short version of the bundle
+name using underscores (<tt class="docutils literal"><code>acme_hello</code></tt> for <tt class="docutils literal"><code>AcmeHelloBundle</code></tt>, or
+<tt class="docutils literal"><code>acme_social_blog</code></tt> for <tt class="docutils literal"><code>Acme\Social\BlogBundle</code></tt> for instance). This alias
+is used to enforce uniqueness within a bundle (see below for some usage
+examples).</p>
+</div>
+<div class="section" id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>The basic directory structure of a <tt class="docutils literal"><code>HelloBundle</code></tt> bundle must read as
+follows:</p>
+<div class="literal-block"><div class="highlight-text"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre>XXX/...
+    HelloBundle/
+        HelloBundle.php
+        Controller/
+        Resources/
+            meta/
+                LICENSE
+            config/
+            doc/
+                index.rst
+            translations/
+            views/
+            public/
+        Tests/
+</pre></div>
+</td></tr></table></div></div>
+<p>The <tt class="docutils literal"><code>XXX</code></tt> directory(ies) reflects the namespace structure of the bundle.</p>
+<p>The following files are mandatory:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><code>HelloBundle.php</code></tt>;</li>
+<li><tt class="docutils literal"><code>Resources/meta/LICENSE</code></tt>: The full license for the code;</li>
+<li><tt class="docutils literal"><code>Resources/doc/index.rst</code></tt>: The root file for the Bundle documentation.</li>
+</ul>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">These conventions ensure that automated tools can rely on this default
+structure to work.</p>
+</div></div>
+<p>The depth of sub-directories should be kept to the minimal for most used
+classes and files (2 levels at a maximum). More levels can be defined for
+non-strategic, less-used files.</p>
+<p>The bundle directory is read-only. If you need to write temporary files, store
+them under the <tt class="docutils literal"><code>cache/</code></tt> or <tt class="docutils literal"><code>log/</code></tt> directory of the host application. Tools
+can generate files in the bundle directory structure, but only if the generated
+files are going to be part of the repository.</p>
+<p>The following classes and files have specific emplacements:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="51%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Directory</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Commands</td>
+<td><tt class="docutils literal"><code>Command/</code></tt></td>
+</tr>
+<tr class="row-odd"><td>Controllers</td>
+<td><tt class="docutils literal"><code>Controller/</code></tt></td>
+</tr>
+<tr class="row-even"><td>Service Container Extensions</td>
+<td><tt class="docutils literal"><code>DependencyInjection/</code></tt></td>
+</tr>
+<tr class="row-odd"><td>Event Listeners</td>
+<td><tt class="docutils literal"><code>EventListener/</code></tt></td>
+</tr>
+<tr class="row-even"><td>Configuration</td>
+<td><tt class="docutils literal"><code>Resources/config/</code></tt></td>
+</tr>
+<tr class="row-odd"><td>Web Resources</td>
+<td><tt class="docutils literal"><code>Resources/public/</code></tt></td>
+</tr>
+<tr class="row-even"><td>Translation files</td>
+<td><tt class="docutils literal"><code>Resources/translations/</code></tt></td>
+</tr>
+<tr class="row-odd"><td>Templates</td>
+<td><tt class="docutils literal"><code>Resources/views/</code></tt></td>
+</tr>
+<tr class="row-even"><td>Unit and Functional Tests</td>
+<td><tt class="docutils literal"><code>Tests/</code></tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<p>The bundle directory structure is used as the namespace hierarchy. For
+instance, a <tt class="docutils literal"><code>HelloController</code></tt> controller is stored in
+<tt class="docutils literal"><code>Bundle/HelloBundle/Controller/HelloController.php</code></tt> and the fully qualified
+class name is <tt class="docutils literal"><code>Bundle\HelloBundle\Controller\HelloController</code></tt>.</p>
+<p>All classes and files must follow the Symfony2 coding <a class="reference internal" href="../../contributing/code/standards.html"><em>standards</em></a>.</p>
+<p>Some classes should be seen as facades and should be as short as possible, like
+Commands, Helpers, Listeners, and Controllers.</p>
+<p>Classes that connect to the Event Dispatcher should be suffixed with
+<tt class="docutils literal"><code>Listener</code></tt>.</p>
+<p>Exceptions classes should be stored in an <tt class="docutils literal"><code>Exception</code></tt> sub-namespace.</p>
+</div>
+<div class="section" id="vendors">
+<h2>Vendors<a class="headerlink" href="#vendors" title="Permalink to this headline">¶</a></h2>
+<p>A bundle must not embed third-party PHP libraries. It should rely on the
+standard Symfony2 autoloading instead.</p>
+<p>A bundle should not embed third-party libraries written in JavaScript, CSS, or
+any other language.</p>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>A bundle should come with a test suite written with PHPUnit and stored under
+the <tt class="docutils literal"><code>Tests/</code></tt> directory. Tests should follow the following principles:</p>
+<ul class="simple">
+<li>The test suite must be executable with a simple <tt class="docutils literal"><code>phpunit</code></tt> command run from
+a sample application;</li>
+<li>The functional tests should only be used to test the response output and
+some profiling information if you have some;</li>
+<li>The tests should cover at least 95% of the code base.</li>
+</ul>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">A test suite must not contain <tt class="docutils literal"><code>AllTests.php</code></tt> scripts, but must rely on the
+existence of a <tt class="docutils literal"><code>phpunit.xml.dist</code></tt> file.</p>
+</div></div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>All classes and functions must come with full PHPDoc.</p>
+<p>Extensive documentation should also be provided in the <a class="reference internal" href="../../contributing/documentation/format.html"><em>reStructuredText</em></a> format, under the <tt class="docutils literal"><code>Resources/doc/</code></tt>
+directory; the <tt class="docutils literal"><code>Resources/doc/index.rst</code></tt> file is the only mandatory file and
+must be the entry point for the documentation.</p>
+</div>
+<div class="section" id="controllers">
+<h2>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h2>
+<p>As a best practice, controllers in a bundle that's meant to be distributed
+to others must not extend the
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/2.2/Symfony/Bundle/FrameworkBundle/Controller/Controller.html" title="Symfony\Bundle\FrameworkBundle\Controller\Controller">Controller</a></code></tt> base class.
+They can implement
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/2.2/Symfony/Component/DependencyInjection/ContainerAwareInterface.html" title="Symfony\Component\DependencyInjection\ContainerAwareInterface">ContainerAwareInterface</a></code></tt> or
+extend <tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/2.2/Symfony/Component/DependencyInjection/ContainerAware.html" title="Symfony\Component\DependencyInjection\ContainerAware">ContainerAware</a></code></tt>
+instead.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you have a look at
+<tt class="docutils literal"><code><a class="reference external" href="http://api.symfony.com/2.2/Symfony/Bundle/FrameworkBundle/Controller/Controller.html" title="Symfony\Bundle\FrameworkBundle\Controller\Controller">Controller</a></code></tt> methods,
+you will see that they are only nice shortcuts to ease the learning curve.</p>
+</div></div>
+</div>
+<div class="section" id="routing">
+<h2>Routing<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h2>
+<p>If the bundle provides routes, they must be prefixed with the bundle alias.
+For an AcmeBlogBundle for instance, all routes must be prefixed with
+<tt class="docutils literal"><code>acme_blog_</code></tt>.</p>
+</div>
+<div class="section" id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<p>If a bundle provides templates, they must use Twig. A bundle must not provide
+a main layout, except if it provides a full working application.</p>
+</div>
+<div class="section" id="translation-files">
+<h2>Translation Files<a class="headerlink" href="#translation-files" title="Permalink to this headline">¶</a></h2>
+<p>If a bundle provides message translations, they must be defined in the XLIFF
+format; the domain should be named after the bundle name (<tt class="docutils literal"><code>bundle.hello</code></tt>).</p>
+<p>A bundle must not override existing messages from another bundle.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>To provide more flexibility, a bundle can provide configurable settings by
+using the Symfony2 built-in mechanisms.</p>
+<p>For simple configuration settings, rely on the default <tt class="docutils literal"><code>parameters</code></tt> entry of
+the Symfony2 configuration. Symfony2 parameters are simple key/value pairs; a
+value being any valid PHP value. Each parameter name should start with the
+bundle alias, though this is just a best-practice suggestion. The rest of the
+parameter name will use a period (<tt class="docutils literal"><code>.</code></tt>) to separate different parts (e.g.
+<tt class="docutils literal"><code>acme_hello.email.from</code></tt>).</p>
+<p>The end user can provide values in any configuration file:</p>
+<div class="configuration-block">
+<ul class="simple">
+<li><em>YAML</em><div class="literal-block"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">parameters</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">acme_hello.email.from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fabien@example.com</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>XML</em><div class="literal-block"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">&lt;!-- app/config/config.xml --&gt;</span>
+<span class="nt">&lt;parameters&gt;</span>
+    <span class="nt">&lt;parameter</span> <span class="na">key=</span><span class="s">&quot;acme_hello.email.from&quot;</span><span class="nt">&gt;</span>fabien@example.com<span class="nt">&lt;/parameter&gt;</span>
+<span class="nt">&lt;/parameters&gt;</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>PHP</em><div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1">// app/config/config.php</span>
+<span class="nv">$container</span><span class="o">-&gt;</span><span class="na">setParameter</span><span class="p">(</span><span class="s1">&#39;acme_hello.email.from&#39;</span><span class="p">,</span> <span class="s1">&#39;fabien@example.com&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+<li><em>INI</em><div class="literal-block"><div class="highlight-ini"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">; app/config/config.ini</span>
+<span class="k">[parameters]</span>
+<span class="na">acme_hello.email.from</span> <span class="o">=</span> <span class="s">fabien@example.com</span>
+</pre></div>
+</td></tr></table></div></div>
+</li>
+</ul>
+</div>
+<p>Retrieve the configuration parameters in your code from the container:</p>
+<div class="literal-block"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$container</span><span class="o">-&gt;</span><span class="na">getParameter</span><span class="p">(</span><span class="s1">&#39;acme_hello.email.from&#39;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Even if this mechanism is simple enough, you are highly encouraged to use the
+semantic configuration described in the cookbook.</p>
+<div class="admonition-wrapper">
+<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+<p class="last">If you are defining services, they should also be prefixed with the bundle
+alias.</p>
+</div></div>
+</div>
+<div class="section" id="learn-more-from-the-cookbook">
+<h2>Learn more from the Cookbook<a class="headerlink" href="#learn-more-from-the-cookbook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="extension.html"><em>How to expose a Semantic Configuration for a Bundle</em></a></li>
+</ul>
+</div>
+</div>
+
+    </div>
+
+            <div class="navigation">
+                            <a accesskey="P" title="How to install 3rd party Bundles" href="installation.html">
+                    &laquo;&nbsp;How to install 3rd party Bundles
+                </a>
+                        <span class="separator">|</span>                            <a accesskey="N" title="How to use Bundle Inheritance to Override parts of a Bundle" href="inheritance.html">
+                    How to use Bundle Inheritance to Override parts of a Bundle&nbsp;&raquo;
+                </a>
+                    </div>
+
+            <div class="box_hr"><hr /></div>
+
+                                                                                </div>
+                                                            </div>
+                        
+                        
+                                                    <div class="box_relative_content">
+    <div class="relative_content_box_columns clear_fix">
+        <div class="column_01">
+            <h2 class="title_05">NEWS FROM THE BLOG</h2>
+
+<ul class="event_list">
+            <li>
+            <h3>
+                <a href="/blog/symfony-2-3-schedule-update">
+                    Symfony 2.3 schedule update<br />
+                    <span class="place_date">April 30, 2013</span>
+                </a>
+            </h3>
+        </li>
+            <li>
+            <h3>
+                <a href="/blog/a-week-of-symfony-330-22-28-april-2013">
+                    A week of symfony #330 (22-&gt;28 April 2013)<br />
+                    <span class="place_date">April 28, 2013</span>
+                </a>
+            </h3>
+        </li>
+            <li>
+            <h3>
+                <a href="/blog/new-in-symfony-2-3-new-validators">
+                    New in Symfony 2.3: New validators<br />
+                    <span class="place_date">April 25, 2013</span>
+                </a>
+            </h3>
+        </li>
+    </ul>
+
+<div class="link_01">
+    <a href="/blog/" class="png_fix">Visit Symfony's blog</a>
+</div>
+        </div>
+
+        <div class="column_02">
+                        <h2 class="title_05">IN THE NEWS</h2>
+
+
+<div class="upcoming_event clear_fix">
+    <div>
+        <a href="http://portland2013.live.symfony.com/" target="_blank">
+            <img style="width: 100px" src="http://live.symfony.com/bundles/sensiosymfonylive/images/landing/sfl_portland.png" class="png_fix" alt="The Symfony Live Conference Portland 2013" />
+        </a>
+    </div>
+
+    <div style="margin-top: 13px">
+        <h3 style="font-size: 13px; font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif">Announcing the next Symfony Live Conference 2013 in Portland</h3>
+        <div style="margin-top: 5px">
+            <a href="http://portland2013.live.symfony.com/registration/" class="non_extensible_button button_01">    <span class="border_l png_fix">
+        <span class="border_r png_fix">
+            <span class="btn_bg png_fix">
+                REGISTER TODAY
+            </span>
+        </span>
+    </span>
+</a>
+        </div>
+    </div>
+</div>
+
+                    </div>
+
+        <div class="column_03">
+            <h2 class="title_05">UPCOMING TRAINING SESSIONS</h2>
+
+<ul class="event_list">
+        <li>
+        <a href="http://trainings.sensiolabs.com/en/training/symfony-certification">
+            Symfony2 Framework Certification
+            <br />
+            <span class="place_date">Cologne - 2013-04-26</span>
+        </a>
+    </li>
+        <li>
+        <a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">
+            Getting Started with Symfony2
+            <br />
+            <span class="place_date">Paris - 2013-05-13</span>
+        </a>
+    </li>
+        <li>
+        <a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">
+            Getting Started with Symfony2
+            <br />
+            <span class="place_date">Cologne - 2013-05-13</span>
+        </a>
+    </li>
+    </ul>
+
+<div class="link_01">
+    <a href="http://trainings.sensiolabs.com/" class="png_fix">View all sessions</a>
+</div>
+        </div>
+    </div>
+</div>
+                        
+                    </div>
+                            </div>
+
+            
+<div class="footer">
+    <div class="content">
+        <h2 class="title_02">
+            <img src="/images/common/logo/logo_sf.png" alt="sf - Symfony" class="illustration_logo_footer png_fix"/> is a trademark of Fabien Potencier. All rights reserved.
+        </h2>
+
+        <div class="box_menu_footer clear_fix">
+            <div class="menu_footer first">
+                <h3 class="title_03"><a href="/what-is-symfony">What is Symfony?</a></h3>
+                <ul class="list_menu_footer">
+                    <li class="first"><a href="/symfony-at-a-glance">Symfony at a Glance</a></li>
+<li><a href="/symfony-in-five-minutes">Symfony in 5 Minutes</a></li>
+<li><a href="/elevator-pitches">Elevator Pitches</a></li>
+<li><a href="/blog/category/case-studies">Case Studies</a></li>
+<li><a href="/doc/current/contributing/community/releases.html">Versioning Policy</a></li>
+<li><a href="/doc/current/contributing/community/releases.html#long-term-support-releases">Long Term Support</a></li>
+<li><a href="/doc/current/contributing/code/security.html">Security Policy</a></li>
+<li class="last"><a href="/doc/current/contributing/code/license.html">License</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/get_started">Get Started</a></h3>
+                <ul class="list_menu_footer">
+                    <li class="first"><a href="/download">Download Symfony</a></li>
+<li><a href="/distributions">Symfony Distributions</a></li>
+<li><a href="/components">Symfony Components</a></li>
+<li><a href="/doc/current/quick_tour/the_big_picture.html">Quick Tour</a></li>
+<li class="last"><a href="/legacy">symfony1 Legacy</a></li>
+                </ul>
+
+                <h3 class="title_03"><a href="/doc/current/index.html">Learn Symfony</a></h3>
+                <ul class="list_menu_footer">
+                    <li class="first"><a href="/doc/current/book/index.html">The Book</a></li>
+<li class="selected"><a href="/doc/current/cookbook/index.html">The Cookbook</a></li>
+<li><a href="/doc/current/components/index.html">The Components</a></li>
+<li><a href="/doc/current/reference/index.html">Reference</a></li>
+<li><a href="/doc/current/glossary.html">Glossary</a></li>
+<li><a href="/doc/current/genindex.html">Index</a></li>
+<li><a href="/doc/current/bundles/index.html">Bundles</a></li>
+<li><a href="/doc/master/cmf/index.html">Symfony CMF</a></li>
+<li><a href="/doc/master/contributing/code/security.html#security-advisories">Security Advisories</a></li>
+<li><a href="/legacy/doc">Docs for symfony 1.x</a></li>
+<li><a href="/doc/current/contributing/index.html">Contributing</a></li>
+<li><a href="/talks">Talks</a></li>
+<li><a href="http://trainings.sensiolabs.com/">Trainings</a></li>
+<li class="last"><a href="http://books.sensiolabs.com">Books</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/marketplace">Marketplace</a></h3>
+                <ul class="list_menu_footer">
+                </ul>
+
+                <h3 class="title_03"><a href="/community">Community</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="https://connect.sensiolabs.com/">SensioLabs Connect</a></li>
+<li><a href="/irc">IRC channel</a></li>
+<li><a href="/mailing-lists">Mailing lists</a></li>
+
+<li><a href="http://forum.symfony-project.org/">Forum</a></li>
+<li><a href="/doc/current/contributing/index.html">How to be involved</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/services">Services</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="/services/list">Our services</a></li>
+<li><a href="/services/guide#before">Starting a new project</a></li>
+<li><a href="/services/guide#during">Struggling with your project</a></li>
+<li><a href="http://sensiolabs.com/en/support/sensiolabs_support.html">Support</a></li>
+<li><a href="/services/request">Contact us</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/blog/">Blog</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="/events/"><em>Community Events</em></a></li>
+
+    <li><a href="/blog/category/a-week-of-symfony">A week of symfony</a></li>
+    <li><a href="/blog/category/call-the-expert">Call the expert</a></li>
+    <li><a href="/blog/category/case-studies">Case studies</a></li>
+    <li><a href="/blog/category/community">Community</a></li>
+    <li><a href="/blog/category/documentation">Documentation</a></li>
+    <li><a href="/blog/category/living-on-the-edge">Living on the edge</a></li>
+    <li><a href="/blog/category/plugins">Plugins</a></li>
+    <li><a href="/blog/category/releases">Releases</a></li>
+    <li><a href="/blog/category/security-advisories">Security Advisories</a></li>
+    <li><a href="/blog/category/tutorials">Tutorials</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_footer">
+                <h3 class="title_03"><a href="/about">About</a></h3>
+                <ul class="list_menu_footer">
+                    <li><a href="http://www.sensiolabs.com/">Sensio Labs</a></li>
+<li><a href="/contributors">Contributors</a></li>
+<li><a href="/trademark">Trademark &amp; Logo Policy</a></li>
+<li><a href="/logo">Logo</a></li>
+<li><a href="http://sensiolabs.com/recrutement/rejoignez_nous.html">Jobs</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+
+        <script type="text/javascript">
+            (function(w, d, s) {
+                function go() {
+                    var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+                        if (d.getElementById(id)) {return;}
+                        js = d.createElement(s); js.src = url; js.id = id;
+                        fjs.parentNode.insertBefore(js, fjs);
+                    };
+                    load('https://connect.sensiolabs.com/sln.js?customize_url=http://symfony.com/sln_customiser.js', 'sln_bar');
+                }
+                if (w.addEventListener) { w.addEventListener("load", go, false); }
+                else if (w.attachEvent) { w.attachEvent("onload",go); }
+            } (window, document, 'script'));
+        </script>
+                    </body>
+</html>

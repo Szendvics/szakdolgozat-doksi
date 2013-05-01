@@ -1,0 +1,452 @@
+
+ 
+
+
+
+ 
+
+
+
+ 
+ 
+ <!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="https://ssl.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <link rel="canonical" href="http://code.google.com/p/google-api-php-client/wiki/Samples" />
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"assetHostPath":"https://ssl.gstatic.com/codesite/ph","relativeBaseUrl":"","projectName":"google-api-php-client","assetVersionPath":"https://ssl.gstatic.com/codesite/ph/5872825996519583439","profileUrl":null,"domainName":null,"token":null,"loggedInUserEmail":null,"projectHomeUrl":"/p/google-api-php-client"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ _gaq.push(
+ ['projectTracker._setAccount', 'UA-18058-13'],
+ ['projectTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>Samples - 
+ google-api-php-client -
+ 
+ Libraries and samples - 
+ Google APIs Client Library for PHP - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/5872825996519583439/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/5872825996519583439/css/ph_detail.css" >
+ 
+ 
+ 
+ <link type="application/atom+xml" rel="alternate" href="/feeds/p/google-api-php-client/svnchanges/basic?path=/wiki/Samples.wiki">
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="https://ssl.gstatic.com/codesite/ph/5872825996519583439/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(https://ssl.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ #maincol {
+ padding-top: 0;
+ padding-bottom: 0;
+ }
+
+ 
+ </style>
+</head>
+<body class="t6">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=https%3A%2F%2Fcode.google.com%2Fp%2Fgoogle-api-php-client%2Fwiki%2FSamples&amp;followup=https%3A%2F%2Fcode.google.com%2Fp%2Fgoogle-api-php-client%2Fwiki%2FSamples" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/google-api-php-client">
+ <a href="/p/google-api-php-client/">
+ 
+ <img src="https://ssl.gstatic.com/codesite/ph/images/search-48.gif" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/google-api-php-client/"><span itemprop="name">google-api-php-client</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/google-api-php-client/"><span itemprop="description">Google APIs Client Library for PHP</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/google-api-php-client/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ <a href="/p/google-api-php-client/downloads/list" class="tab ">Downloads</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/google-api-php-client/w/list" class="tab active">Wiki</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/google-api-php-client/issues/list"
+ class="tab ">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/google-api-php-client/source/checkout"
+ class="tab ">Source</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class=gtbc></div>
+</div>
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList"> 
+ <span>Search</span>
+ <form action="/p/google-api-php-client/w/list" method="GET" style="display:inline">
+ <select id="can" name="can" >
+ <option disabled="disabled">Search within:</option>
+ 
+ <option value="1" >&nbsp;All wiki pages</option>
+ <option value="3" >&nbsp;Featured pages</option>
+ <option value="2" selected="selected">&nbsp;Current pages</option>
+ 
+ 
+ <option value="4" >&nbsp;Deprecated pages</option>
+ 
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q" value=""
+ autocomplete="off" ></span>
+ 
+ 
+ 
+ <input type="submit" value="Search" >
+ </form>
+ </span>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+</div>
+</div>
+
+ </td>
+ 
+ 
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+ 
+ style="padding:0 3px 3px 0; margin:0"
+ 
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+<style type="text/css">
+ #wikimaincol { padding-top: 6px; padding-left:1em}
+ #sidebarcontainer {
+ padding: 1.5em 2px 2px 2px;
+ min-width: 15em;
+ max-width: 20em;
+ overflow:hidden;
+}
+ .sidebartop ul { margin:0 0 0 .5em; padding-left:0 !important; list-style:none}
+ .sidebartop ul ul { margin-left:1em; padding-left:0; list-style:none; display:none}
+ .sidebartop li { margin:0 0 2px 0; padding:1px; padding-left:14px; cursor:pointer}
+ .sidebartop li a { padding:2px}
+ .sidebartop li { background: url(https://ssl.gstatic.com/codesite/ph/images/plus.gif) no-repeat 1px 3px}
+ .sidebartop li.treeopen { background: url(https://ssl.gstatic.com/codesite/ph/images/minus.gif) no-repeat 1px 3px}
+ .sidebartop li.treeleaf { background:none}
+ .currentpagelink { 
+ font-weight: bold;
+ text-decoration: none;
+ color: black !important; 
+ background: #c3d9ff;
+ }
+ .sidebartop ul.treeleafcontainer { display:block;}
+ .sidebarcontent { 
+ vertical-align:top;
+ padding-right: 3px;
+ border-right: 2px solid #ccc;
+ }
+</style>
+
+
+
+ <style type="text/css">
+ .delcom { background: #e8e8e8 }
+ .commentcontent {
+ margin: 2em;
+ padding: 0px 10px;
+ width: 66em;
+ }
+ .artifactcomment {
+ border-top: 3px solid #c3d9ff;
+ }
+ #commentform {
+ border-top: 3px solid #c3d9ff;
+ }
+ </style>
+
+<div id="wikipage">
+<table>
+ <tr>
+ 
+ 
+ <td class="sidebarcontent">
+ <div class="vt expand" id="wikisidebar">
+ <div>
+ 
+ <div style="float:right;">
+ <a class="ifExpand" style="font-size:130%; color:blue; text-decoration:none"
+ href="#" onclick="_DW_toggleSidebar(this); return false;"
+ title="Hide sidebar"><b>&lsaquo;&lsaquo;</b></a>
+ </div>
+ <div class="ifCollapse" style="padding:0 2px">
+ <a style="font-size:130%; color:blue; text-decoration:none"
+ href="#" onclick="_DW_toggleSidebar(this); return false;"
+ title="Show sidebar"><b>&rsaquo;&rsaquo;</b></a>
+ </div>
+ 
+ 
+ <div id="sidebarcontainer" class="sidebartop ifExpand">
+ <h2><a name="Documentation"></a>Documentation<a href="#Documentation" class="section_anchor"></a></h2><ul><li><a href="/p/google-api-php-client/wiki/GettingStarted">Getting Started</a> </li><li><a href="/p/google-api-php-client/wiki/UsingTheLibrary">Using the library</a> </li><li><a href="/p/google-api-php-client/wiki/OAuth2">OAuth 2.0 support</a> </li><li><a href="/p/google-api-php-client/wiki/Samples">Included examples</a> </li><li><a href="/p/google-api-php-client/wiki/AdvancedConfiguration">Advanced configuration &amp; customization</a> </li><li><a href="/p/google-api-php-client/wiki/BecomingAContributor">Contributing</a> </li></ul><p>If you&#x27;d like to see more examples or want more information about how to use the library, please file a feature request in <a href="http://code.google.com/p/google-api-php-client/issues/list" rel="nofollow">our issue tracker</a> explaining what you&#x27;d like to see. </p><p><g:plusone size="medium" source="google:projecthosting"></g:plusone> </p>
+ </div>
+ </div>
+</div>
+
+ </td>
+ 
+ <td style="vertical-align:top; padding-left:5px">
+ 
+ <div id="wikiheader">
+ 
+ <span style="font-size:120%;font-weight:bold">Samples</span>
+ &nbsp;
+ <div> 
+ 
+ <i>Libraries and samples</i>
+ 
+ 
+ <br/>
+ 
+ <a class="label" style="padding-top: 2px"
+ href="/p/google-api-php-client/w/list?q=label:Featured"
+ title="Listed on project home page"
+ >Featured</a>
+ 
+ 
+ 
+ <div id="wikiauthor" style="float:right">
+ Updated <span title="Tue Mar 12 12:42:30 2013">
+ Mar 12, 2013</span>
+ 
+ by 
+
+ <a class="userlink"
+ href="/u/102206255324090806743/">i...@google.com</a
+>
+ 
+ </div>
+ </div>
+ </div>
+ 
+ <div id="wikicontent">
+ <div class="vt" id="wikimaincol">
+ <p><table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <a href="http://code.google.com/p/google-api-php-client/source/browse/#svn%2Ftrunk%2Fexamples" rel="nofollow">Browse All Samples</a> | <a href="http://code.google.com/p/google-api-php-client/issues/entry?template=Request%20a%20Sample" rel="nofollow">Request a New Sample</a> </td></tr> </table></p><p>This is an index of the Google APIs supported by the Google API PHP Client. You can also visit the <tt>contrib</tt> directory to see if an API is supported. </p><p>We provide samples for many Google APIs based on demand from developers like you. If you don&#x27;t find a sample you want, feel free to <a href="http://code.google.com/p/google-api-php-client/issues/entry?template=Request%20a%20Sample" rel="nofollow">request a new sample</a>.    In addition to providing links to available libraries and samples, the following list includes links to the documentation for each API, and the documentation provides links to the Help Forum. </p><p><ul><li><a href="#Setup_Instructions">Setup Instructions</a></li><li><a href="#Google_APIs">Google APIs</a></li><ul><li><a href="#Google+_API">Google+ API</a></li><li><a href="#Ad_Exchange_Buyer_API">Ad Exchange Buyer API</a></li><li><a href="#Google_Translate_API">Google Translate API</a></li><li><a href="#AdSense_Management_API"> AdSense Management API</a></li><li><a href="#BigQuery_API"> BigQuery API</a></li><li><a href="#Books_API">Books API</a></li><li><a href="#Calendar_API">Calendar API</a></li><li><a href="#Compute_Engine_API">Compute Engine API</a></li><li><a href="#CustomSearch_API"> CustomSearch API</a></li><li><a href="#Drive_API">Drive API</a></li><li><a href="#Enterprise_License_Manager_API">Enterprise License Manager API</a></li><li><a href="#Google_Analytics_API">Google Analytics API</a></li><li><a href="#Google_Latitude_API">Google Latitude API</a></li><li><a href="#Google_Site_Verification_API">Google Site Verification API</a></li><li><a href="#Moderator_API">Moderator API</a></li><li><a href="#Prediction_API">Prediction API</a></li><li><a href="#Search_API_for_Shopping">Search API for Shopping</a></li><li><a href="#TaskQueue_API"> TaskQueue API</a></li><li><a href="#Tasks_API">Tasks API</a></li><li><a href="#URL_Shortener_API">URL Shortener API</a></li><li><a href="#YouTube_Data_API"> YouTube Data API</a></li><li><a href="#chromewebstore">chromewebstore</a></li><li><a href="#groupssettings">groupssettings</a></li><li><a href="#oauth2">oauth2</a></li><li><a href="#webfonts">webfonts</a></li></ul></ul> </p><h1><a name="Setup_Instructions"></a>Setup Instructions<a href="#Setup_Instructions" class="section_anchor"></a></h1><p>Follow the general <a href="http://code.google.com/p/google-api-php-client/" rel="nofollow">setup</a> instructions for the Google APIs Client Library for PHP. </p><h1><a name="Google_APIs"></a>Google APIs<a href="#Google_APIs" class="section_anchor"></a></h1><hr/><h2><a name="Google+_API"></a><img src="http://www.google.com/images/icons/product/gplus-16.png" /> Google+ API<a href="#Google+_API" class="section_anchor"></a></h2><p>The Google+ API enables developers to build on top of the Google+ platform. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="http://developers.google.com/+/api/" rel="nofollow">Google+ API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=plus&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-plus-php-starter/" rel="nofollow">Google+ PHP Starter</a> </li></ul></p><hr/><h2><a name="Ad_Exchange_Buyer_API"></a><img src="http://www.google.com/images/icons/product/doubleclick-16.gif" /> Ad Exchange Buyer API<a href="#Ad_Exchange_Buyer_API" class="section_anchor"></a></h2><p>Lets you manage your Ad Exchange Buyer account. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="https://developers.google.com/ad-exchange/buyer-rest" rel="nofollow">Ad Exchange Buyer API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=adexchangebuyer&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/trunk/examples/adexchangebuyer" rel="nofollow">Ad Exchange Buyer API PHP Sample</a> </li></ul></p><hr/><h2><a name="Google_Translate_API"></a><img src="http://www.google.com/images/icons/product/translate-16.png" /> Google Translate API<a href="#Google_Translate_API" class="section_anchor"></a></h2><p>Lets you translate text from one language to another. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v2</strong> | <a href="http://code.google.com/apis/language/translate/v2/using_rest.html" rel="nofollow">Google Translate API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=translate&amp;_v=v2" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/trunk/examples/translate/simple.php" rel="nofollow">Google Translate PHP Sample</a> </li></ul></p><hr/><h2><a name="AdSense_Management_API"></a><img src="http://www.google.com/images/icons/product/adsense-16.png" /> AdSense Management API<a href="#AdSense_Management_API" class="section_anchor"></a></h2><p>Gives AdSense publishers access to their inventory and the ability to generate reports <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1.1</strong> | <a href="https://code.google.com/apis/adsense/management/" rel="nofollow">AdSense Management API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=adsense&amp;_v=v1.1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/#svn%2Ftrunk%2Fexamples%2Fadsense" rel="nofollow">PHP Adsense Sample</a> </li></ul></p><hr/><h2><a name="BigQuery_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> BigQuery API<a href="#BigQuery_API" class="section_anchor"></a></h2><p>A data platform for customers to create, manage, share and query data. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v2</strong> | <a href="https://code.google.com/apis/bigquery/docs/v2/" rel="nofollow">BigQuery API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=bigquery&amp;_v=v2" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><hr/><h2><a name="Books_API"></a><img src="http://www.google.com/images/icons/product/ebooks-16.png" /> Books API<a href="#Books_API" class="section_anchor"></a></h2><p>Lets you search for books and manage your Google Books library. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="https://code.google.com/apis/books/docs/v1/getting_started.html" rel="nofollow">Books API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=books&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/#svn%2Ftrunk%2Fexamples%2Fbooks" rel="nofollow">Books PHP Sample</a> </li></ul></p><hr/><h2><a name="Calendar_API"></a><img src="http://www.google.com/images/icons/product/calendar-16.png" /> Calendar API<a href="#Calendar_API" class="section_anchor"></a></h2><p>Lets you manipulate events and other calendar data. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v3</strong> | <a href="http://code.google.com/apis/calendar/v3/using.html" rel="nofollow">Calendar API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=calendar&amp;_v=v3" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/trunk/examples/calendar/simple.php" rel="nofollow">Calendar PHP Sample</a> </li></ul></p><hr/><h2><a name="Compute_Engine_API"></a><img src="http://www.google.com/images/icons/product/compute_engine-16.png" /> Compute Engine API<a href="#Compute_Engine_API" class="section_anchor"></a></h2><p>API for the Google Compute Engine service. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> v1beta12 | <a href="https://developers.google.com/compute/docs/reference/v1beta12" rel="nofollow">Compute Engine API Documentation</a> | Client Library Developer&#x27;s Guide | <a href="https://developers.google.com/apis-explorer/#p/compute/v1beta12/" rel="nofollow">APIs Explorer</a> | <a href="https://code.google.com/apis/console/?api=compute" rel="nofollow">APIs Console</a> </td></tr> </table></p><hr/><h2><a name="CustomSearch_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> CustomSearch API<a href="#CustomSearch_API" class="section_anchor"></a></h2><p>Lets you search over a website or collection of websites <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="http://code.google.com/apis/customsearch/v1/using_rest.html" rel="nofollow">CustomSearch API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=customsearch&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/trunk/examples/customSearch/index.php" rel="nofollow">Custom Search PHP Sample</a> </li></ul></p><hr/><h2><a name="Drive_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> Drive API<a href="#Drive_API" class="section_anchor"></a></h2><p>The API to interact with Drive <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="https://developers.google.com/drive/" rel="nofollow">Drive API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=drive&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="https://developers.google.com/drive/examples/php" rel="nofollow">Google Drive PHP Sample</a> </li></ul></p><hr/><h2><a name="Enterprise_License_Manager_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> Enterprise License Manager API<a href="#Enterprise_License_Manager_API" class="section_anchor"></a></h2><p>Licensing API to view and manage license for your domain. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="https://developers.google.com/google-apps/licensing/" rel="nofollow">Enterprise License Manager API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=licensing&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><hr/><h2><a name="Google_Analytics_API"></a><img src="http://www.google.com/images/icons/product/analytics-16.png" /> Google Analytics API<a href="#Google_Analytics_API" class="section_anchor"></a></h2><p>View and manage your Google Analytics data  <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v3</strong> | <a href="http://code.google.com/apis/analytics" rel="nofollow">Google Analytics API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=analytics&amp;_v=v3" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/trunk/examples/analytics/simple.php" rel="nofollow">Analytics PHP Sample</a> </li></ul></p><hr/><h2><a name="Google_Latitude_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> Google Latitude API<a href="#Google_Latitude_API" class="section_anchor"></a></h2><p>Lets you read and update your current location and work with your location history <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="http://code.google.com/apis/latitude/v1/using_rest.html" rel="nofollow">Google Latitude API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=latitude&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/trunk/examples/latitude/index.php" rel="nofollow">Latitude PHP Sample</a> </li></ul></p><hr/><h2><a name="Google_Site_Verification_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> Google Site Verification API<a href="#Google_Site_Verification_API" class="section_anchor"></a></h2><p>Lets you programatically verify ownership of websites or domains with Google. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="http://code.google.com/apis/siteverification/" rel="nofollow">Google Site Verification API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=siteVerification&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><hr/><h2><a name="Moderator_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> Moderator API<a href="#Moderator_API" class="section_anchor"></a></h2><p>Moderator API <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="http://code.google.com/apis/moderator/v1/using_rest.html" rel="nofollow">Moderator API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=moderator&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><hr/><h2><a name="Prediction_API"></a><img src="http://www.google.com/images/icons/feature/predictionapi-16.png" /> Prediction API<a href="#Prediction_API" class="section_anchor"></a></h2><p>Lets you access a cloud hosted machine learning service that makes it easy to build smart apps <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1.5</strong> | <a href="http://code.google.com/apis/predict/docs/developer-guide.html" rel="nofollow">Prediction API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=prediction&amp;_v=v1.5" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/#svn%2Ftrunk%2Fexamples%2Fprediction" rel="nofollow">PHP Prediction Sample</a> </li></ul></p><hr/><h2><a name="Search_API_for_Shopping"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> Search API for Shopping<a href="#Search_API_for_Shopping" class="section_anchor"></a></h2><p>Lets you search over product data <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="http://code.google.com/apis/shopping/search/v1/getting_started.html" rel="nofollow">Search API for Shopping Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=shopping&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/trunk/examples/shopping/simple.php" rel="nofollow">Google Shopping PHP Sample</a> </li></ul></p><hr/><h2><a name="TaskQueue_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> TaskQueue API<a href="#TaskQueue_API" class="section_anchor"></a></h2><p>Lets you access a Google App Engine Pull Task Queue over REST. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1beta1</strong> | <a href="http://code.google.com/appengine/docs/python/taskqueue/rest.html" rel="nofollow">TaskQueue API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=taskqueue&amp;_v=v1beta1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><hr/><h2><a name="Tasks_API"></a><img src="http://www.google.com/images/icons/product/tasks-16.png" /> Tasks API<a href="#Tasks_API" class="section_anchor"></a></h2><p>Lets you manage your tasks and task lists. <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="http://code.google.com/apis/tasks/v1/using.html" rel="nofollow">Tasks API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=tasks&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/#svn%2Ftrunk%2Fexamples%2Ftasks" rel="nofollow">PHP Tasks Sample</a> </li></ul></p><hr/><h2><a name="URL_Shortener_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> URL Shortener API<a href="#URL_Shortener_API" class="section_anchor"></a></h2><p>Lets you create, inspect, and manage goo.gl short URLs <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="http://code.google.com/apis/urlshortener/v1/getting_started.html" rel="nofollow">URL Shortener API Documentation</a> |  <a href="https://code.google.com/apis/explorer/#_s=urlshortener&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/trunk/examples/urlshortener/index.php" rel="nofollow">PHP URL Shortener Sample</a> </li></ul></p><hr/><h2><a name="YouTube_Data_API"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> YouTube Data API<a href="#YouTube_Data_API" class="section_anchor"></a></h2><p>YouTube Data API <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v3</strong> | <a href="https://code.google.com/apis/explorer/#_s=youtube&amp;_v=v3" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="https://code.google.com/p/google-api-php-client/source/browse/trunk/examples/youtube/search.php" rel="nofollow">Search Sample</a> </li><li><a href="https://code.google.com/p/google-api-php-client/source/browse/trunk/examples/youtube/my_uploads.php" rel="nofollow">My Uploads Sample</a> </li></ul></p><hr/><h2><a name="chromewebstore"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> chromewebstore<a href="#chromewebstore" class="section_anchor"></a></h2><p>Chrome Web Store Authorization API <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="https://code.google.com/apis/explorer/#_s=chromewebstore&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><hr/><h2><a name="groupssettings"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> groupssettings<a href="#groupssettings" class="section_anchor"></a></h2><p>Groups Settings API <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="https://code.google.com/apis/explorer/#_s=groupssettings&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><hr/><h2><a name="oauth2"></a><img src="http://www.google.com/images/icons/product/search-16.gif" /> oauth2<a href="#oauth2" class="section_anchor"></a></h2><p>OAuth2 API <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v2</strong> | <a href="https://code.google.com/apis/explorer/#_s=oauth2&amp;_v=v2" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="http://code.google.com/p/google-api-php-client/source/browse/trunk/examples/userinfo/index.php" rel="nofollow">PHP UserInfo Sample</a> </li></ul></p><hr/><h2><a name="webfonts"></a><img src="http://www.google.com/images/icons/feature/font_api-16.png" /> webfonts<a href="#webfonts" class="section_anchor"></a></h2><p>WebFonts API <table class="wikitable"><tr><td style="border: 1px solid #ccc; padding: 5px;"> <strong>v1</strong> | <a href="https://code.google.com/apis/explorer/#_s=webfonts&amp;_v=v1" rel="nofollow">APIs Explorer</a> </td></tr> </table></p><p><strong>Samples</strong> <ul><li><a href="https://google-api-php-client.googlecode.com/svn/trunk/examples/webfonts/simple.php" rel="nofollow">PHP WebFonts Sample</a> </li></ul></p>
+ </div>
+ </div>
+ </td><tr>
+</table>
+ </div>
+
+
+ 
+ 
+ 
+ <form name="delcom" action="../w/delComment.do" method="POST">
+ <input type="hidden" name="sequence_num" value="" >
+ <input type="hidden" name="create_time" value="" >
+ <input type="hidden" name="mode" value="" >
+ <input type="hidden" name="pagename" value="Samples" >
+ <input type="hidden" name="token" value="" >
+ </form>
+
+
+ <script src="https://ssl.gstatic.com/codesite/ph/5872825996519583439/js/prettify/prettify.js"></script>
+ <script type="text/javascript">
+ prettyPrint();
+ </script>
+
+<script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/5872825996519583439/js/dit_scripts.js"></script>
+
+
+
+  
+ 
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/5872825996519583439/js/ph_core.js"></script>
+ 
+ <script type="text/javascript" src="https://ssl.gstatic.com/codesite/ph/5872825996519583439/js/ph_dwiki.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+
+
