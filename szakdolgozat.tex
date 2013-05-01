@@ -1116,9 +1116,111 @@ A fejlesztés során elkészítettem egy olyan kimenetet, amely nagyon hasonló 
 \end{figure}
 
 \subsection{Általános modul}
-\todo[inline]{Kell ez vajon?}
 
-% Olyan dolgok, amelyek több modulhoz nyúlnak, mint pl. a kezdőoldal
+Van egy maréknyi oldal, amely több modul szolgáltatásaival is dolgozik, de valójában egyikbe sem illik; a legfontosabb ilyen a bejelentkezettek kezdőoldala, ahol üléseket, jegyzőkönyveket listázok különböző szűrési feltételek alapján. Ezeket egy külön, {\tt SzakdolgozatBundle} nevű modulba gyűjtöttem össze. A következőkben bemutatom, hogy az említett kezdőlapon milyen listák találhatóak.
+
+A fontossága miatt első azokat az üléseket listázza, amelyek még nem kezdődtek el, és vagy nyilvánosak, vagy a felhasználó hirdeti, vagy pedig meghívott. Ezek szűrésére a Doctrine {\tt QueryBuilder} osztályát használtam a {\tt kovetkezoUleseim} függvényben, mely az ülés entitáshoz kapsolódó repositoryban található:
+
+\begin{lstlisting}
+public function kovetkezoUleseim($felhasznalo)
+{
+    $qb = $this->createQueryBuilder("u");
+
+    return $qb
+        ->select("u")
+        ->innerJoin("u.meghivottak", "m")
+        ->where("u.datum >= ?1")
+        ->andWhere(
+            $qb->expr()->orX(
+                $qb->expr()->eq("u.nyilvanos", "1"),
+                $qb->expr()->eq("u.felhasznalo", "?2"),
+                $qb->expr()->eq("m", "?3")
+            )
+        )
+        ->orderBy("u.datum", "ASC")
+        ->setParameter(1, new \DateTime())
+        ->setParameter(2, $felhasznalo)
+        ->setParameter(3, $felhasznalo)
+        ->getQuery()
+        ->getResult()
+        ;
+}
+\end{lstlisting}
+
+Sajnos a {\tt QueryBuilder} nem teszi lehetővé, hogy reláció alapján szűrjek, ezért kellett ahhoz a cselhez folyamodnom, hogy összekapcsolom az üléseket a meghívottjaikkal, és az így kapott plusz mezők között szűröm a felhasználót.
+
+A második táblázatban találhatóak azok a jegyzőkönyvek, amelyeket a felhasználó hozott létre, és még nincsenek lezárva. Ez a következőképpen van szűrve:
+
+\begin{lstlisting}
+public function lezaratlanJegyzokonyveim($felhasznalo)
+{
+    $qb = $this->createQueryBuilder("j");
+
+    return $qb
+        ->select("j")
+        ->where($qb->expr()->isNull("j.lezarva"))
+        ->andWhere($qb->expr()->eq("j.jegyzokonyviro", "?1"))
+        ->setParameter(1, $felhasznalo)
+        ->getQuery()
+        ->getResult()
+        ;
+}
+\end{lstlisting}
+
+A harmadik táblázatban vannak azok a jegyzőkönyvek, melyek már le vannak zárva, a felhasználó az egyik hitelesítőjük, és még nem hitelesítette őket. A szűrést végző függvény:
+
+\begin{lstlisting}
+public function hitelesitesreVaroJegyzokonyveim($felhasznalo)
+{
+    $qb = $this->createQueryBuilder("j");
+
+    return $qb
+        ->select("j")
+        ->where($qb->expr()->isNotNull("j.lezarva"))
+        ->andWhere(
+            $qb->expr()->orX(
+                $qb->expr()->andX(
+                    $qb->expr()->isNull("j.hitelesitve_1"),
+                    $qb->expr()->eq("j.hitelesito_1", "?1")
+                ),
+                $qb->expr()->andX(
+                    $qb->expr()->isNull("j.hitelesitve_2"),
+                    $qb->expr()->eq("j.hitelesito_2", "?2")
+                )
+            )
+        )
+        ->setParameter("1", $felhasznalo)
+        ->setParameter("2", $felhasznalo)
+        ->getQuery()
+        ->getResult()
+        ;
+}
+\end{lstlisting}
+
+A negyedik táblázat azokat az üléseket listázza, amelyek a közelmúltban történtek, és nyilvánosak, a felhasználó hirdette őket, vagy meghívott volt; valamint még nem készült hozzájuk jegyzőkönyv. Az ebben a táblázatban található linkkel lehet ezt lérehozni, a rendszer automatikusan elvégzi az összekapcsolást.
+
+Az üléseket kigyűjtő függvény csak a szűrésekben tér el az előzőtől:
+
+\begin{lstlisting}
+->where("u.datum <= ?1")
+->andWhere("u.datum >= ?2")
+->andWhere(
+    $qb->expr()->orX(
+        $qb->expr()->eq("u.nyilvanos", "1"),
+        $qb->expr()->eq("u.felhasznalo", "?3"),
+        $qb->expr()->eq("m", "?4")
+    )
+)
+->orderBy("u.datum", "ASC")
+->setParameter(1, new \DateTime())
+->setParameter(2, $mult)
+->setParameter(3, $felhasznalo)
+->setParameter(4, $felhasznalo)
+\end{lstlisting}
+
+A {\tt \$mult} változó egy olyan {\tt DateTime} objektum, amely a három héttel ezelőtti dátumot tartalmazza.
+
+A kódrészleteken jól látható, milyen egyszerűen lehet megvalósítani összetett lekérdezéseket is a Doctrine segítségével.
 
 \section{Az elkészült munka értékelése}
 
@@ -1126,7 +1228,7 @@ A fejlesztés során elkészítettem egy olyan kimenetet, amely nagyon hasonló 
 
 \section{Továbbfejlesztési lehetőségek}
 
-Van néhány olyan feladat, amiket nem tartalmaz a vállalt témám, de a jövőben szeretném megvalósítani.
+Van néhány olyan feladat, amiket nem tartalmaz a vállalt témám, de a jövőben szeretném megvalósítani. Néhány ilyet már jeleztem korábban, azokon túl az alábbiak a legfontosabbak.
 
 Az első ilyen a keretrendszer frissítése. A fejlesztést a 2.1-es verzióban kezdtem, és annak során adták ki a 2.2-es verziót számos olyan változtatással, amelyek visszafelé nem kompatibilisek. Ezeket szeretném tanulmányozni, és a programom úgy módosítani, hogy ne okozzanak gondot. Ezen túl május végére várható a 2.3-as verzió, amely az első LTS, azaz hosszútávon támogatott változat lesz \textendash{} ez itt három évet jelent.
 
