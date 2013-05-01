@@ -14,7 +14,7 @@
     ,breaklines = true
     ,prebreak   = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}
     ,extendedchars = true
-    ,literate={á}{{\'a}}1 {ó}{{\'o}}1 {é}{{\'e}}1 {í}{{\'i}}1
+    ,literate={á}{{\'a}}1 {ó}{{\'o}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ő}{{\~o}}1 {ö}{{\"o}}1 {ű}{{\'u}}1
 }
 
 \title{Ülésszervezést és jegyzőkönyv-írást támogató keretrendszer készítése}
@@ -984,7 +984,33 @@ Amikor a szerkesztés űrlapot elküldi a felhasználó, három tömböt kapok: 
 
 Szerveroldalon a jegyzőkönyvnek, illetve az elemtípusoknak létrehoztam egy-egy űrlapot a Symfony2 Form komponensében, az azoknak megfelelő mezőkkel illetve validálási szabályokkal. A feldolgozás első lépése az, hogy az adatbázisban található adatokkal és elemekkel létrehozok egy form objektumot a jegyzőkönyvnek és egy-egy darabot az elemeinek.
 
-A következő lépés a létrehozott objektumokhoz az oda tartozó, felhasználótól kapott értékek hozzárendelése. Ennek során figyelem, van-e olyan elem, amelyik érvénytelen értékeket tartalmaz.
+Az elemekhez tartozó form, illetve a feldogozáshoz szükséges egyéb adatok létrehozását az egyes entitásokra bíztam. A {\tt NapirendiPont} osztályban ez a függvény így néz ki:
+
+\begin{lstlisting}
+public function szerkesztesAdatok(FormFactory $factory)
+{
+    return array(
+        "id"    =>  $this->getId(),
+        "tipus" =>  "napirendipont",
+        "form"  =>  $factory->create(new NapirendiPontType(), $this),
+    );
+}
+\end{lstlisting}
+
+Ha a kérés GET, akkor innen rögtön a template megjelenítésére ugrom, hisz már megvan mindenem, amire szükségem van hozzá.
+
+A tényleges mentést végző folyamat első lépése az egyes form objektumokhoz az oda tartozó, felhasználótól kapott értékek hozzárendelése. Ennek során az egyes objektumok el tudják dönteni, tartalmaznak-e érvénytelen adatot. A hozzárendelést végző és az elemek érvényességére figyelő kód látható a következő kódrészletben:
+
+\begin{lstlisting}
+foreach ($request_elemek as $k => $request_elem) {
+    $form = $this->felhasznaloiAdatokbolForm($k, $request_elem);
+    $form->bind($request_elem);
+
+    $minden_elem_valid &= $form->isValid();
+}
+\end{lstlisting}
+
+Ahol a {\tt \$minden\_elem\_valid} változó kezdeti értéke igaz, végső értéke pedig az összes form validitásának logikai {\it és} kapcsolata.
 
 Ezután ha az űrlap alapadatai helyesek, és az összes elemet tartalmazó form is helyes, kezdem a kapott adatok adatbázisba tárolását. A jegyzőkönyv már mentve van, itt csak frissíteni kell annak értékeit. Az elemek tömb kulcsának jelentése van:
 
@@ -993,13 +1019,53 @@ Ezután ha az űrlap alapadatai helyesek, és az összes elemet tartalmazó form
     \item ha negatív, akkor új elemről van szó, és az adatbázisba beillesztenünk kell
 \end{itemize}
 
-A feldolgozást e jelentéseknek megfelelően végzem. A folyamat során figyelek arra is, hogy az elemek sorrendjét helyesen mentsem mind új, mint módosított elemeknél.
+A feldolgozást e jelentéseknek megfelelően végzem. A folyamat során figyelek arra is, hogy az elemek sorrendjét helyesen mentsem mind új, mint módosított elemeknél. Az entitások perzisztálását végző ciklus lényegi része a következő:
 
-A feldolgozás utolsó lépése a törölt elemek adatbázisból eltávolítása. Kliensoldalról egy tömbben megkaptam azok azonosítóit, egyszerűen végigiterálok ezeken, és törlöm őket.
+\begin{lstlisting}
+foreach ($elemek as $elem) {
+    switch ($elem["tipus"]) {
+        case "felszolalas":
+            $obj = $elem["id"] < 0
+                ? new JegyzokonyvFelszolalas()
+                : $this->getDoctrine()->getRepository("SzakdolgozatJegyzokonyvBundle:JegyzokonyvFelszolalas")->find($elem["id"]);
+            break;
+        // a többi típust helyszűke miatt nem mutatom
+    }
+
+    $data = $elem["form"]->getData();
+    if (is_array($data)) $obj->fromArray($data);
+    $obj->setPozicio($pozicio++);
+
+    $obj->setJegyzokonyv($jegyzokonyv);
+    $em->persist($obj);
+    $jegyzokonyv->addElemek($obj);
+}
+\end{lstlisting}
+
+Először szükségem van egy entitásra, amely vagy üres, vagy a már adatbázisba mentett rekordot reprezentálja. A {\tt fromArray} függvénnyel hozzárendelem a felhasználótól kapott értékeket, majd beállítom a pozícióját. Végül mindkét irányban beállítom az elem-jegyzőkönyv kapcsolatot, és a Doctrine Entity Managerének jelzem, hogy az objektumot tárolni kell a következő tranzakcióban.
+
+A felhasználótól kapott adatok feldolgozásának utolsó előtti lépése a korábban már adatbázisba mentett, de most törölt elemek eltávolítása. Ezeket egy tömbben kapom meg, melynek minden eleme egy azonosító. A törlést végző függvény látható alant, amelyben természetesen ellenőrzöm, a törölni kívánt elem az épp szerkesztett jegyzőkönyvhöz tartozik-e:
+
+\begin{lstlisting}
+protected function toroltElemekTorlese(Jegyzokonyv $jegyzokonyv, array $toroltelemek)
+{
+    $repo = $this->getDoctrine()->getRepository("SzakdolgozatJegyzokonyvBundle:JegyzokonyvElem");
+
+    foreach ($torolt_elemek as $torolt_elem_id) {
+        $elem = $repo->find($torolt_elem_id);
+
+        if ($elem->getJegyzokonyv() != $jegyzokonyv) {
+            throw new \InvalidArgumentException("Nem a szerkesztett jegyzőkönyvbe tartozó elemet próbáltál törölni");
+        }
+
+        $em->remove($elem);
+    }
+}
+\end{lstlisting}
 
 Sikeres mentés után a felhasználót továbbirányítom a jegyzőkönyvek listájára. Ha a mentés során valahol hibás adattal találkozom, akkor a felhasználó visszakapja a szerkesztés űrlapot az általa megadott adatokkal, jelezve azt, melyik hibás és miért.
 
-Ez az algoritmus közel 200 sor hosszú. A továbbfejlesztés során ezt szeretném szétbontani lépésenként külön függvényekbe, amiket egyenként tudok egységtesztelni, hogy a későbbiek során garantáltan ne kerülhessen beléjük hiba.
+Az algoritmust már elkezdtem szétbontani kisebb, egyenként jobban karbantartható és egységtesztelhető függvényekre. A controllerem még így is közel száz sor hosszú, ezt a további fejlesztés során szeretném a töredékére csökkenteni.
 
 \subsubsection*{PDF exportálás}
 
