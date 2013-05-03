@@ -7,7 +7,13 @@
 \usepackage{graphicx}
 \usepackage{todonotes}
 \usepackage[section,numbib,nottoc]{tocbibind}
+\usepackage{hyperref}
 \usepackage{formai_kovetelmenyek}
+
+\hypersetup{
+    pdfauthor={Fási Gábor},
+    pdftitle={Ülésszervezést és jegyzőkönyv-írást támogató keretrendszer készítése}
+}
 
 \lstset{
      basicstyle = \ttfamily\footnotesize
@@ -81,7 +87,7 @@ Ide jön az eredeti vagy a fénymásolt feladatkiírás.
 \section*{Nyilatkozat}
 \end{center}
 
-Alulírott Fási Gábor diplomázó hallgató, kijelentem, hogy a szakdolgozatot a Pannon Egyetem Villamosmérnöki és Információs Rendszerek tanszékén készítettem Mérnök informatikus BSc szak (BSc in Computer Engineering
+Alulírott Fási Gábor diplomázó hallgató kijelentem, hogy a szakdolgozatot a Pannon Egyetem Villamosmérnöki és Információs Rendszerek tanszékén készítettem Mérnök informatikus BSc szak (BSc in Computer Engineering
 ) megszerzése érdekében.
 
 Kijelentem, hogy a szakdolgozatban lévő érdemi rész saját munkám eredménye, az érdemi részen kívül csak a hivatkozott forrásokat (szakirodalom, eszközök, stb.) használtam fel.
@@ -117,10 +123,10 @@ Kijelentem, hogy a szakdolgozat védésre bocsátását engedélyezem.\\
 Köszönöm a családomnak a sok türelmet és segítséget amit kaptam, nélkülük ez a szakdolgozat nem készült volna el.
 \\
 \\
-Köszönöm a témavezetőmnek, Dulai Tibornak az iránymutatást, amit kaptam az elmúlt egy év során.
+Köszönöm témavezetőmnek, Dulai Tibornak az iránymutatást, amit kaptam az elmúlt egy év során.
 \\
 \\
-Végül de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bíztatást.
+Végül, de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bíztatást.
 
 \newpage
 
@@ -128,19 +134,13 @@ Végül de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bíz
 \section*{\textbf{\Large \MakeUppercase{Tartalmi összefoglaló}}}
 \end{center}
 
-%Az összefoglalónak tartalmaznia kell (rövid, velős és összefüggő megfogalmazásban) a következőket:
-%téma megnevezése,
-%megoldott feladat megfogalmazása,
-%megoldási mód,
-%elért eredmények,
-%kulcsszavak (4-6 darab)
-%terjedelme nem lehet több 1 A4-es oldalnál.
+Ezen szakdolgozat témája egy olyan, böngészőn keresztül használható rendszer fejlesztése, amely egy adott szervezeten belül hatékonyan tudja segíteni ülések szervezését és azok jegyzőkönyveinek elkészítését.
 
-\todo[inline]{Tartalmi összefoglaló}
+A fejlesztést az egyik legelterjedtebb weben használatos nyelven, php-ban végeztem a Symfony2 keretrendszer használatával. A kész rendszer képes a Google Naptárban eseményt létrehozni az üléseknek, valamint a jegyzőkönyvek pdf formátumú exportálására, a papíralapú iktatást elősegítendő. Három fő és egy segédmodulra bontottam, mindegy jól meghatározott feladatkörrel rendelkezik.
 
 \vspace{2cm}
 
-{\bf Kulcsszavak:} {\it web, jegyzőkönyv, ülés, PHP, Symfony, MySQL, Bootstrap, Google Calendar }
+{\bf Kulcsszavak:} {\it web, jegyzőkönyv, ülés, PHP, Symfony2, Doctrine, MySQL, Bootstrap, Google Naptár}
 \newpage
 
 \newpage
@@ -149,15 +149,17 @@ Végül de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bíz
 \section*{\textbf{\Large \MakeUppercase{Abstract}}}
 \end{center}
 
-\todo[inline]{Abstract}
+The topic of this thesis was to create a system, that is available via a browser and can aid an organisation in organising meeting and creating reports of their events.
+
+Development was based on one of the most widespread language for creating web-based systems, php; using the Symfony2 Framework. The completed system is able to create and event in Google's Calendar and to export the reports in the pdf format. It was separated into three modules with clear separation of concerns.
 
 \vspace{2cm}
 
-{\bf Keywords:} {\it zing }
+{\bf Keywords:} {\it web, report, meeting, PHP, Symfony2, Doctrine, MySQL, Bootstrap, Google Calendar}
 \newpage
 %--------------%------------------------------------------------------------------
 \pagenumbering{gobble} %ne legyen oldalszamozas a tartalomjegyzek oldalon
-\listoftodos
+%\listoftodos
 
 \renewcommand{\thefigure}{\arabic{figure}}
 
@@ -180,7 +182,7 @@ A rendszer fő haszonélvezője a Pannon Egyetem Hallgatói Önkormányzata lesz
 
 \section{Hasonló célú hazai és külföldi rendszerek}
 
-Számos jegyzőkönyvvezető rendszer érhető el már magyar nyelven is, de ezek többsége másfélére specializálódott, mint az én rendszerem; például mérési-, verseny vagy vizsgajegyzőkönyv-készítésre.
+Számos jegyzőkönyvvezető rendszer érhető el már magyar nyelven is, de ezek többsége más típusúra specializálódott, mint az én rendszerem; például mérési-, verseny vagy vizsgajegyzőkönyv-készítésre.
 
 Három darab ülésjegyzőkönyv-készítő funkcionalitással bíró rendszert találtam, melyek magyar készítésűek:
 
@@ -202,7 +204,7 @@ Három darab ülésjegyzőkönyv-készítő funkcionalitással bíró rendszert 
 
 A fenti rendszerek mindegyike fizetős, valamint a mögöttes technológia is \textendash{} az operációs rendszer (Windows) és a futtatókörnyezet (ASP, ASP.NET) egyaránt komoly beruházást igényel a bevezetéskor.
 
-\todo[inline]{Külföldi rendszerek?}
+Kutatásom során igyekeztem külföldi rendszereket is találni, elsősorban angol nyelven; azonban az angol {\it report}, illetve {\it proceedings} szavak nagyon általános jelentése miatt feldolgozhatatlan mennyiségű találatot kaptam. Azon alkalmazások, amelyekre sikerült rátalálnom, a magyar rendszerekhez hasonlóan nem ülés-, hanem egyéb speciális jegyzőkönyvek készítésére voltak csak alkalmasak.
 
 \section{A rendszer tervezése}
 
@@ -262,7 +264,7 @@ A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyi
 
 A rendszerem fejlesztése a 2.1-es verzióban történt. A készítés utolsó hónapjaiban adták ki a 2.2-es verziót számos visszafelé nem kompatibilis változtatással, ezért nem frissítettem rá \textendash{} a 2.1-es változat 2013 közepéig élvez hivatalos támogatást, így a rendszer további fejlesztése során mindenképpen megfontolandó a 2.2-re átállás.
 
-A Symfony remekül együtt tud működni a Doctrine ORM-el\cite{website:doctrine,book:doctrine_orm}, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk. Szintén jó a támogatása az adatbázis-migrációkkal kapcsolatban, ha változik az adataink szerkezete, ezt nem kézzel kell lekövetnünk az éles szerveren, egyetlen, a terminálban kiadott paranccsal a Doctrine ezt megteszi nekünk.
+A Symfony remekül együtt tud működni a Doctrine ORM-el\cite{book:doctrine_orm,website:doctrine}, ezzel lehetővé téve, hogy az alkalmazásunk számára észrevétlenül lecseréljük az adatbázis-szerverünk valamely más típusúra. A tábláink szerkezetét egységes módon kell megadnunk, és az illesztőfüggő kódot a Doctrine legenerálja nekünk. Szintén jó a támogatása az adatbázis-migrációkkal kapcsolatban, ha változik az adataink szerkezete, ezt nem kézzel kell lekövetnünk az éles szerveren, egyetlen, a terminálban kiadott paranccsal a Doctrine ezt megteszi nekünk.
 
 \subsubsection{Bootstrap}
 
@@ -296,7 +298,7 @@ Választásom egy olyan könyvtárra esett, mely HTML bemenet alapján generálj
 
 \subsection{Felületterv}
 
-A következőkben bemutatom a rendszer három várhatóan leggyakrabban látogatott képernyőjét. Az elrendezése mindegyiknek ugyanaz: felül egy menüsáv, ahol a bejelentkezett felhasználó jogosultsági szintjétől függően látszanak a menüpontok.
+A következőkben bemutatom a rendszer három, várhatóan leggyakrabban látogatott képernyőjét. Az elrendezése mindegyiknek ugyanaz: felül egy menüsáv, ahol a bejelentkezett felhasználó jogosultsági szintjétől függően látszanak a menüpontok.
 
 \subsubsection{Kezdőlap}
 
@@ -377,7 +379,7 @@ Egy jegyzőkönyv létrehozása az ülés hirdetésétől kezdve a következő l
     Ha valamelyik hitelesítő hibát talál, erről értesítést tud küldeni a jegyzőkönyv írójának. Ekkor a jegyzőkönyv lezárása is feloldódik, hogy az ismét szerkeszteni tudja.
 
   \item \emph{Jegyzőkönyv elkészülte}\\
-    Mikor mindkét hitelesítő jelezte, hogy a jegyzőkönyv helyes, erről az Ellenőrző Bizottság a beállított e-mail címre értesítést kap, továbbá ha az jegyzőkönyv nyilvános, az publikálásra kerül a rendszer egy bárki számára elérhető oldalán.
+    Mikor mindkét hitelesítő jelezte, hogy a jegyzőkönyv helyes, erről az Ellenőrző Bizottság a beállított e-mail címre értesítést kap, továbbá ha a jegyzőkönyv nyilvános, az publikálásra kerül a rendszer egy bárki számára elérhető oldalán.
 
 \end{enumerate}
 
@@ -387,12 +389,11 @@ A folyamat úgy van kitalálva, hogy két felhasználóra oszlanak a fő feladat
 
 \subsection{Tesztelési terv}
 
-A Symfony2 remekül támogatatja az egység- és funkcionális tesztek írását. Ezt lehetőségeimhez mérten igyekszem kihasználni megelőzve azt, hogy a fejlesztés későbbi részeiben valami már működő funkcionalitást elrontsak.
+A Symfony2 remekül támogatatja az egység- és funkcionális tesztek írását. Ezt lehetőségeimhez mérten igyekszem kihasználni, megelőzve azt, hogy a fejlesztés későbbi részeiben valami már működő funkcionalitást elrontsak.
 
-\todo[inline]{Tesztelésről részletesebben}
 Szintén hasznát fogom venni a Travis-CI szolgáltatásnak, melynek lényege az, hogy minden verziókövetőbe történő commit után automatikusan lefuttatja a teszteket akár több PHP verzión, illetve adatbázis-szerveren.
 
-Emellett amint a rendszer eléri a megfelelő fejlettségi szintet, telepítésre kerül egy alkalmas szerverre, hogy valós felhasználók is elkezdhessék annak próbálgatását és visszajelzéseket küldhessenek.
+Emellett amint a rendszer eléri a megfelelő fejlettségi szintet, telepítésre kerül egy alkalmas szerverre, hogy valós felhasználók is elkezdhessék annak kipróbálását és visszajelzéseket küldhessenek.
 
 \section{Fejlesztési napló}
 
@@ -603,15 +604,13 @@ A {\tt create\_user\_if\_not\_exists} beállítás neve megtévesztő, ugyanis n
 
 A providerként megadott szolgáltatás egy adott interfészt kell megvalósítson, ami egyetlen függvényt tartalmaz. Bemeneti paramétere a szolgáltatótól kapott adatok tömbje, és a végén vissza kell adnia azt a {\tt Felhasznalo} példányt, akit ezek azonosítanak. Ha nincs az adatok közt email cím, vagy ilyennel rendelkező felhasználónk nincs, akkor a függvénynek exceptiont kell dobnia.
 
-\todo[inline]{szekvenciadiagram?}
-
 Sikeres bejelentkezés után a felhasználó munkamenetébe mentem annak jogait, később ennek függvényében láthat menüpontokat, illetve linkeket. Ezek természetesen szerveroldalon is ellenőrizve vannak, tehát ha egy Adminisztrátor joggal nem rendelkező felhasználó meglátogatja a {\tt /felhasznalo/uj} címet, akkor csak egy hibaoldalt kap.
 
 \subsubsection*{Felhasználók listázása}
 
 A modul funkcióinak fele elkészült, már csak lehetővé kell tennünk, hogy az adminisztrátorok szabadon tudjanak felhasználókat létrehozni, módosítani.
 
-Symfony2-ben a routingot yaml fájlok segítségével tudjuk testreszabni. Külön ilyen létezik alkalmazás- és modulszinten. A moduléban így írtam le a felhasználókat listázó (index) actiont:
+Symfony2-ben a routingot yaml fájlok segítségével tudjuk testreszabni; külön {\tt routing.yml} létezik alkalmazás- és modulszinten. A moduléban így írtam le a felhasználókat listázó (index) actiont:
 
 \begin{lstlisting}
 szakdolgozat_felhasznalo_felhasznalo_index:
@@ -1133,7 +1132,7 @@ A fejlesztés során elkészítettem egy olyan kimenetet, amely nagyon hasonló 
 
 Van egy maréknyi oldal, amely több modul szolgáltatásaival is dolgozik, de valójában egyikbe sem illik; a legfontosabb ilyen a bejelentkezettek kezdőoldala, ahol üléseket, jegyzőkönyveket listázok különböző szűrési feltételek alapján. Ezeket egy külön, {\tt SzakdolgozatBundle} nevű modulba gyűjtöttem össze. A következőkben bemutatom, hogy az említett kezdőlapon milyen listák találhatóak.
 
-A fontossága miatt első azokat az üléseket listázza, amelyek még nem kezdődtek el, és vagy nyilvánosak, vagy a felhasználó hirdeti, vagy pedig meghívott. Ezek szűrésére a Doctrine {\tt QueryBuilder} osztályát használtam a {\tt kovetkezoUleseim} függvényben, mely az ülés entitáshoz kapsolódó repositoryban található:
+A fontossága miatt az első azokat az üléseket listázza, amelyek még nem kezdődtek el, és vagy nyilvánosak, vagy a felhasználó hirdeti, vagy pedig meghívott. Ezek szűrésére a Doctrine {\tt QueryBuilder} osztályát használtam az {\tt UlesRepository} osztály {\tt kovetkezoUleseim} függvényben, mely az ülés entitáshoz kapcsolódó repositoryban található:
 
 \begin{lstlisting}
 public function kovetkezoUleseim($felhasznalo)
@@ -1237,6 +1236,14 @@ A {\tt \$mult} változó egy olyan {\tt DateTime} objektum, amely a három hétt
 A kódrészleteken jól látható, milyen egyszerűen lehet megvalósítani összetett lekérdezéseket is a Doctrine segítségével.
 
 \section{Az elkészült munka értékelése}
+
+Dolgozatom témája egy olyan összetett rendszer elkészítése volt, melyben önmagában is számos nehéz pont található, de a legnagyobb kihívást a külső rendszerekkel való kommunikáció jelentette; mint a Google Naptár események kezelése, PDF exportálás és az OpenID authentikáció. Ezeket részben készen elérhető komponensek segítségével, de jól sikerült megoldanom.
+
+Rendszerem készítése során számos új technológia használatát sajátítottam el, és ezek segítségével olyan alkalmazást sikerült készítenem, amely megfelel a felhasználók igényeinek, emellett a kódja is könnyen karbantartható, továbbfejleszthető; ezekre különös figyelmet fordítottam, hisz a munka nem ér véget a szakdolgozatom leadásával.
+
+Bár a kezdeti lépések a számomra idegen környezet, keretrendszer miatt nehezek voltak, számos olyan megoldását tettem magamévá, amelyek a későbbiekben nagyon megkönnyítették a dolgomat; a két legfontosabb ilyen az adatbázis-entitásokat kezelő Doctrine, valamint a Symfony2 Form komponens használatának elsajátítása volt.
+
+A tervezés, fejlesztés során folyamatosan egyeztettem a Hallgatói Önkormányzat Ellenőrző Bizottságával az igényeikkel kapcsolatban, ennek megfelelően fejlődött a rendszer; amit április közepe óta egy tucat felhasználó tesztel. Számos remek visszajelzést kaptam már tőlük; a kezdőlap az ő kéréseik alapján készült el, valamint ők vetették fel a több jegyzőkönyv-típus kezelésének lehetőségét is. Összességében arra számíhatok, hogy megelégedéssel fogják használni.
 
 % ide jöhetnek a felhasználói visszajelzések is
 
