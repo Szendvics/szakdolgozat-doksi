@@ -23,6 +23,8 @@
     ,literate={á}{{\'a}}1 {ó}{{\'o}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ő}{{\~o}}1 {ö}{{\"o}}1 {ű}{{\'u}}1
 }
 
+\hyphenation{Google}
+
 \title{Ülésszervezést és jegyzőkönyv-írást támogató keretrendszer készítése}
 \author{Fási Gábor}
 \date{}
@@ -120,10 +122,10 @@ Kijelentem, hogy a szakdolgozat védésre bocsátását engedélyezem.\\
 \section*{Köszönetnyilvánítás}
 \end{center}
 
-Köszönöm a családomnak a sok türelmet és segítséget amit kaptam, nélkülük ez a szakdolgozat nem készült volna el.
+Köszönöm a családomnak a sok türelmet és segítséget, amit kaptam, nélkülük ez a szakdolgozat nem készült volna el.
 \\
 \\
-Köszönöm témavezetőmnek, Dulai Tibornak az iránymutatást, amit kaptam az elmúlt egy év során.
+Köszönöm témavezetőmnek, Dulai Tibornak az elmúlt egy év során adott iránymutatását.
 \\
 \\
 Végül, de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bíztatást.
@@ -136,7 +138,7 @@ Végül, de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bí
 
 Ezen szakdolgozat témája egy olyan, böngészőn keresztül használható rendszer fejlesztése, amely egy adott szervezeten belül hatékonyan tudja segíteni ülések szervezését és azok jegyzőkönyveinek elkészítését.
 
-A fejlesztést az egyik legelterjedtebb weben használatos nyelven, php-ban végeztem a Symfony2 keretrendszer használatával. A kész rendszer képes a Google Naptárban eseményt létrehozni az üléseknek, valamint a jegyzőkönyvek pdf formátumú exportálására, a papíralapú iktatást elősegítendő. Három fő és egy segédmodulra bontottam, mindegy jól meghatározott feladatkörrel rendelkezik.
+A fejlesztést az egyik legelterjedtebb weben használatos nyelven, php-ban végeztem a Symfony2 keretrendszer használatával. A kész rendszer képes a Google Naptárban eseményt létrehozni az üléseknek, valamint a jegyzőkönyvek pdf formátumú exportálására, a papíralapú iktatást elősegítendő. Három fő- és egy segédmodulra bontottam, mindegy jól meghatározott feladatkörrel rendelkezik.
 
 \vspace{2cm}
 
@@ -238,7 +240,7 @@ A rendszer a hirdetett üléseknek létrehoz egy bejegyzést a Google Naptár al
 
 A lezajlott ülésekhez készíthető jegyzőkönyv, de természetesen ülés nélkül is lehet jegyzőkönyvet létrehozni (korábbi ülések, vagy ha a szervezés valamely oknál fogva a rendszeren kívül történt).
 
-A jegyzőkönyvek rendelkeznek ugyanazokkal az alapadatokkal, mint az ülések, valamint tetszőleges számú bejegyzéssel, melyekből három típust különböztetünk meg: napirendi pont, felszólalás valamint szavazás. Mind más adatokkal rendelkezik, a rendszernek kezelnie kell ezt, valamint a bejegyzések egymás közti sorrendjét.
+A jegyzőkönyvek rendelkeznek ugyanazokkal az alapadatokkal, mint az ülések, valamint tetszőleges számú bejegyzéssel, melyekből három típust különböztetünk meg: napirendi pont, felszólalás valamint szavazás. Mind más adatokkal rendelkezik, a rendszernek kezelnie kell ezt és a bejegyzések egymás közti sorrendjét.
 
 A papír alapú iktatást elősegítendő lehetőség van az elkészült jegyzőkönyvek pdf formátumú exportálására.
 
@@ -337,7 +339,7 @@ Néhány mondatban szót ejtek a rendszer által kezelt jogosultságokról, ille
 %csillagozva nem kap számozást, és a tartalomjegyzékbe sem kerül be
 \subsubsection*{Felhasználó}
 
-Az alapszintű jogosultság, hozzáfér a rendszerhez, képes jegyzőkönyveket létrehozni (üléshez párosítva is, illetve önmagában, a rendszeren kívül szervezett ülésekről) és megírni, illetve azon ülések részleteihez és feltöltött anyagaihoz hozzáférni, ahol meghívottként szerepel.
+Az alapszintű jogosultság, hozzáfér a rendszerhez, képes jegyzőkönyveket létrehozni (üléshez párosítva is, illetve önmagában, a rendszeren kívül szervezett ülésekről) és megírni, valamint azon ülések részleteihez és feltöltött anyagaihoz hozzáférni, ahol meghívottként szerepel.
 
 Nem kell külön kiosztani, megkapja mindenki, aki a rendszerhez hozzáféréssel rendelkezik.
 
@@ -385,7 +387,7 @@ Egy jegyzőkönyv létrehozása az ülés hirdetésétől kezdve a következő l
 
 Ha a jegyzőkönyv elkészülte után bármilyen okból szükség van erre, a jegyzőkönyvet egy adminisztrátor vissza tudja helyezni szerkeszthető állapotba. Ekkor az írója ismét módosíthat rajta, és a teljes lezárási-hitelesítési folyamatot meg kell ismételni.
 
-A folyamat úgy van kitalálva, hogy két felhasználóra oszlanak a fő feladatok: az ülés hirdetőjére és a jegyzőkönyv írójára. Természetesen a két személy lehet ugyanaz, ha az ülés hirdetője a jegyzőkönyvíró szerepét önmagának osztja ki.
+A folyamatban két felhasználóra oszlanak a fő feladatok: az ülés hirdetőjére és a jegyzőkönyv írójára. Természetesen a két személy lehet ugyanaz, ha az ülés hirdetője a jegyzőkönyvíró szerepét önmagának osztja ki.
 
 \subsection{Tesztelési terv}
 
@@ -610,7 +612,7 @@ Sikeres bejelentkezés után a felhasználó munkamenetébe mentem annak jogait,
 
 A modul funkcióinak fele elkészült, már csak lehetővé kell tennünk, hogy az adminisztrátorok szabadon tudjanak felhasználókat létrehozni, módosítani.
 
-Symfony2-ben a routingot yaml fájlok segítségével tudjuk testreszabni; külön {\tt routing.yml} létezik alkalmazás- és modulszinten. A moduléban így írtam le a felhasználókat listázó (index) actiont:
+Symfony2-ben a routingot yaml fájlok segítségével tudjuk testreszabni; külön {\tt routing.yml} létezik alkalmazás- és modulszinten. A modul fájljában így írtam le a felhasználókat listázó (index) actiont:
 
 \begin{lstlisting}
 szakdolgozat_felhasznalo_felhasznalo_index:
@@ -685,7 +687,7 @@ Utolsó lépésként a megfelelő template fájlban végig kell iterálnunk a ka
 {% endfor %}
 \end{lstlisting}
 
-ebben a kódrészletben két példát is láthatunk a {\tt for} ciklusra: a külső a felhasználókon megy végig, a belső pedig azok jogain, végeredménye a jogok vesszővel elválasztott névsora lesz. A kimenete látható a \ref{fig:felhasznalo_lista}. ábrán.
+Ebben a kódrészletben két példát is láthatunk a {\tt for} ciklusra: a külső a felhasználókon megy végig, a belső pedig azok jogain, végeredménye a jogok vesszővel elválasztott névsora lesz. A kimenete látható a \ref{fig:felhasznalo_lista}. ábrán.
 
 A táblázat utolsó cellája egy olyan link lesz, amelyet meglátogatva az a felhasználó szerkeszthető. A következő szakaszban ezt részletezem.
 
@@ -963,7 +965,7 @@ E modul feladatai közé tartozik az új jegyzőkönyv létrehozása, ami utána
 
 \subsubsection*{Új jegyzőkönyv létrehozása}
 
-A jegyzőkönyvek menüpont mindenki által látható, és a felhasználó által látható jegyzőkönyvek listájára mutat. A táblázat alján található gomb az egyik lehetőség az új jegyzőkönyv létrehozására \textendash{} ekkor az nem kapcsolódik üléshez.
+A jegyzőkönyvek menüpont mindenki által látható és a felhasználó által látható jegyzőkönyvek listájára mutat. A táblázat alján található gomb az egyik lehetőség az új jegyzőkönyv létrehozására \textendash{} ekkor az nem kapcsolódik üléshez.
 
 A másik lehetőség a felhasználó kezdőlapján található {\it Üléseim} táblázat, amibe pontosan akkor kerül a {\it Jegyzőkönyv létrehozása} link, ha ahhoz az üléshez még nem kapcsolódik jegyzőkönyv.
 
@@ -1243,7 +1245,7 @@ Rendszerem készítése során számos új technológia használatát sajátíto
 
 Bár a kezdeti lépések a számomra idegen környezet, keretrendszer miatt nehezek voltak, számos olyan megoldását tettem magamévá, amelyek a későbbiekben nagyon megkönnyítették a dolgomat; a két legfontosabb ilyen az adatbázis-entitásokat kezelő Doctrine, valamint a Symfony2 Form komponens használatának elsajátítása volt.
 
-A tervezés, fejlesztés során folyamatosan egyeztettem a Hallgatói Önkormányzat Ellenőrző Bizottságával az igényeikkel kapcsolatban, ennek megfelelően fejlődött a rendszer; amit április közepe óta egy tucat felhasználó tesztel. Számos remek visszajelzést kaptam már tőlük; a kezdőlap az ő kéréseik alapján készült el, valamint ők vetették fel a több jegyzőkönyv-típus kezelésének lehetőségét is. Összességében arra számíhatok, hogy megelégedéssel fogják használni.
+A tervezés, fejlesztés során folyamatosan egyeztettem a Hallgatói Önkormányzat Ellenőrző Bizottságával az igényeikkel kapcsolatban, ennek megfelelően fejlődött a rendszer; amit április közepe óta egy tucat felhasználó tesztel. Számos remek visszajelzést kaptam már tőlük; a kezdőlap az ő kéréseik alapján készült el, valamint ők vetették fel a több jegyzőkönyvtípus kezelésének lehetőségét is. Összességében arra számíhatok, hogy megelégedéssel fogják használni.
 
 % ide jöhetnek a felhasználói visszajelzések is
 
