@@ -30,8 +30,8 @@
 \date{}
 
 %fattyú- és árvasorok büntetése, ha nagyobb, akkor jobban próbálja elkerülni
-\widowpenalty=300
-\clubpenalty=300
+\widowpenalty=400
+\clubpenalty=400
 
 \graphicspath{{./kepek/}}
 
@@ -460,7 +460,7 @@ Egy bundle egy adott funkcióhoz szükséges összes file gyűjteménye. Ez lehe
 
 \subsection*{A Dependency Injection Container}
 
-Erre a komponensre nyugodt szívvel lehet mondani, hogy a keretrendszer lelke, az, ami összefogja az egészet. Viszonylag kisméretű (kb. 10k LOC), de óriási lehetőségek rejlenek benne.
+Erre a komponensre nyugodt szívvel lehet mondani, hogy a keretrendszer lelke, az, ami összefogja az egészet. Viszonylag kisméretű (kb. 10~000 sornyi kód), de óriási lehetőségek rejlenek benne.
 
 Ennek a komponensnek segítségével egy helyen tudjuk leírni, milyen szolgáltatásai vannak a bundle-ünknek, azokat milyen azonosítóval lehet elérni, illetve milyen paraméterek szükségesek a példányosításukhoz, helyes működésükhöz. Támogatottak a kötelező függőségek (konstruktoros paraméterátadás) és az opcionálisak is (setteres átadás). A definiált szolgáltatások egésze, vagy akár csak egy-egy paramétere módosítható az alkalmazás szintjén, vagy egy, a mienkre épülő bundle-ben. Paraméterként használhatóak skaláris értékek, de akár egy másik szolgáltatás is.
 
