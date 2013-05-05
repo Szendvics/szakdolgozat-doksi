@@ -138,7 +138,9 @@ Végül, de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bí
 
 E szakdolgozat témája egy olyan, böngészőn keresztül használható rendszer fejlesztése, amely egy adott szervezeten belül hatékonyan tudja segíteni ülések szervezését és azok jegyzőkönyveinek elkészítését.
 
-A fejlesztést az egyik legelterjedtebb weben használatos nyelven, php-ban végeztem a Symfony2 keretrendszer használatával. A kész rendszer képes a Google Naptárban eseményt létrehozni az üléseknek, valamint a jegyzőkönyvek pdf formátumú exportálására, a papíralapú iktatást elősegítendő. Három fő- és egy segédmodulra bontottam, mindegy jól meghatározott feladatkörrel rendelkezik.
+A fejlesztést az egyik legelterjedtebb weben használatos nyelven, PHP-ban végeztem a Symfony2 keretrendszer használatával; ezzel biztosítva azt, hogy az alkalmazás a későbbiekben más által is könnyen módosítható és karbantartható legyen.
+
+A kész rendszer képes a Google Naptárban eseményt létrehozni az üléseknek, hogy az összes meghívott résztvevő a saját napirendjében megtalálja; valamint a jegyzőkönyvek PDF formátumú exportálására, a papíralapú iktatást elősegítendő. Három fő- és egy segédmodulra bontottam, mindegy jól meghatározott feladatkörrel rendelkezik. A felülete könnyen átlátható és használható, a PDF kinézete egyszerűen testreszabható az üzemeltetők igényei alapján.
 
 \vspace{2cm}
 
@@ -153,7 +155,9 @@ A fejlesztést az egyik legelterjedtebb weben használatos nyelven, php-ban vég
 
 The topic of this thesis is to create a system, that is available via a browser and can aid an organisation in organising meetings and creating reports of their events.
 
-Development was based on one of the most widespread language for creating web-based systems, php; using the Symfony2 Framework. The completed system is able to create an event in Google's Calendar and to export the reports to pdf. It was separated into three modules with clear separation of concerns.
+Development was based on one of the most widespread languages for creating web-based systems, PHP, using the Symfony2 Framework; thus making sure the completed application can be modified and maintained by anybody.
+
+The completed system is able to create an event in Google's Calendar so all invitees can see it in their own; and to export the reports to pdf. It was separated into three modules with clear separation of concerns. Its interface is easy to use and the layout of the PDF can be completely customised.
 
 \vspace{2cm}
 
@@ -234,7 +238,7 @@ A felhasználók authentikációjára és authorizációjára a Symfony2 Securit
 
 Az ülések rendelkeznek fix számú adattal, mint a rövid leírásuk, időpontjuk és a helyszínük. Megfelelő jogosultsággal rendelkező felhasználók képesek a fenti adatok megadása után ülést hirdetni, meghívottakat megadni. Opcionális adat még az ülés hosszú leírása, itt lehet például megadni a tervezett napirendi pontokat; valamint lehetőség van dokumentumok feltöltésére, ha valami anyagot előzetesen tanulmányozni kell a résztvevőknek.
 
-A rendszer a hirdetett üléseknek létrehoz egy bejegyzést a Google Naptár alkalmazásában, melyre meghívja a résztvevőket, így az bekerül az ő naptárukba is, valamint erről értesítő levelet kapnak.
+A rendszer a hirdetett üléseknek létrehoz egy bejegyzést a Google Naptár alkalmazásában, amelyre meghívja a résztvevőket, így az bekerül az ő naptárukba is, valamint erről értesítő levelet kapnak.
 
 \subsubsection{Jegyzőkönyvírás}
 
@@ -242,7 +246,7 @@ A lezajlott ülésekhez készíthető jegyzőkönyv, de természetesen ülés n�
 
 A jegyzőkönyvek rendelkeznek ugyanazokkal az alapadatokkal, mint az ülések, valamint tetszőleges számú bejegyzéssel, melyekből három típust különböztetünk meg: napirendi pont, felszólalás valamint szavazás. Mind más adatokkal rendelkezik, a rendszernek kezelnie kell ezt és a bejegyzések egymás közti sorrendjét.
 
-A papír alapú iktatást elősegítendő lehetőség van az elkészült jegyzőkönyvek pdf formátumú exportálására.
+A papír alapú iktatást elősegítendő lehetőség van az elkészült jegyzőkönyvek PDF formátumú exportálására.
 
 Szintén e modul feladata a nyilvános ülések kész jegyzőkönyveinek publikálása, bárki számára elérhetővé tétele.
 
@@ -254,15 +258,15 @@ A választott követelményeimnek megfelelő webszerverekből az egyetem már mo
 
 \subsubsection{PHP}
 
-A php ma az egyik legelterjedtebb programozási nyelv, melyet weboldalak készítésére használnak. Rengeteg kezdőknek szóló leírás van róla, minden webfejlesztő ismeri legalább az alapjait. Bőségesen áll rendelkezésre akár ingyenes tárhely is, ahová felrakhatjuk az elkészült programunkat.
+A PHP ma az egyik legelterjedtebb programozási nyelv, melyet weboldalak készítésére használnak. Rengeteg kezdőknek szóló leírás van róla, minden webfejlesztő ismeri legalább az alapjait. Bőségesen áll rendelkezésre akár ingyenes tárhely is, ahová felrakhatjuk az elkészült programunkat.
 
 A 2008-ban megjelent 5.3-as verzióval a nyelvbe bekerült a névterek támogatása, valamint a garbage collector algoritmusa is sokat javult, jelentős teljesítmény\-növe\-kedést eredményezve. A feladatom minimum követelménye az 5.3.7-es verzió, ebben javítottak egy, a bcrypt modulban levő hibát, mely hibás (viszonylag könnyen törhető) jelszókódolást eredményezett.
 
 \subsubsection{Symfony2}
 
-A Symfony az egyik nagy keretrendszer a php világában. Első verziója 2005-ben jelent meg\cite{book:gentle_introduction}, csak ragasztó volt egy maréknyi könyvtár közt, azok együttes használatát segítendő. Folyamatosan fejlődött, olyan nagy oldalak hasz\-nálták, mint a Yahoo!\cite{website:symfony_yahoo} és a Dailymotion\cite{website:symfony_dailymotion}. Az 1.4-es ága 2009-ben jelent meg, és egészen 2012 novemberéig rendelkezett támogatással.
+A Symfony az egyik nagy keretrendszer a PHP világában. Első verziója 2005-ben jelent meg\cite{book:gentle_introduction}, csak ragasztó volt egy maréknyi könyvtár közt, azok együttes használatát segítendő. Folyamatosan fejlődött, olyan nagy oldalak hasz\-nálták, mint a Yahoo!\cite{website:symfony_yahoo} és a Dailymotion\cite{website:symfony_dailymotion}. Az 1.4-es ága 2009-ben jelent meg, és egészen 2012 novemberéig rendelkezett támogatással.
 
-A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyik első nagy keretrendszer volt, mely a php5.3 új lehetőségeit kihasználva lett az alapoktól újraírva. Fejlődése a közösség bevonásával történt, több, mint 250 önkéntes segített be. Mostanra 600 feletti a fejlesztésben részt vevők száma.
+A Symfony2 hosszas fejlesztést követően jelent meg 2011 júliusában. Az egyik első nagy keretrendszer volt, mely a PHP 5.3 új lehetőségeit kihasználva lett az alapoktól újraírva. Fejlődése a közösség bevonásával történt, több, mint 250 önkéntes segített be. Mostanra 600 feletti a fejlesztésben részt vevők száma.
 
 A rendszerem fejlesztése a 2.1-es verzióban történt. A készítés utolsó hónapjaiban adták ki a 2.2-es verziót számos visszafelé nem kompatibilis változtatással, ezért nem frissítettem rá \textendash{} a 2.1-es változat 2013 közepéig élvez hivatalos támogatást, így a rendszer további fejlesztése során mindenképpen megfontolandó a 2.2-re átállás.
 
@@ -288,13 +292,13 @@ A Symfony2 Security komponense nagyon finom jogosultság-szabályoztást tesz le
 
 \subsubsection{Google Naptár együttműködés}
 
-Az API, amivel eseményeket lehet létrehozni és arra meghívottakat hozzáadni\cite{website:gcal_event_api} nincs túlbonyolítva, és a Google ad php-hoz hivatalos klienskönyvtárat\cite{website:google_api_client}. Ennek segítségével hoztam létre egy Symfony2 szolgáltatást, mellyel a rendszer bármely részéről könnyen tudok a Naptárral kapcsolatba lépni.
+Az API, amivel eseményeket lehet létrehozni és arra meghívottakat hozzáadni\cite{website:gcal_event_api} nincs túlbonyolítva, és a Google ad PHP-hoz hivatalos klienskönyvtárat\cite{website:google_api_client}. Ennek segítségével hoztam létre egy Symfony2 szolgáltatást, mellyel a rendszer bármely részéről könnyen tudok a Naptárral kapcsolatba lépni.
 
 A rendszer a meghirdetett ülésekről létrehoz egy-egy naptárbejegyzést, és az ülés meghívottjait ott is felveszi a meghívottak közé \textendash{} így ez bekerül az ő naptárukba is.
 
 \subsubsection{PDF exportálás}
 
-Webes rendszerek esetén gyakran előforduló kérés, hogy valamely generált dokumentumot lehessen pdf-ben is letölteni; így nem meglepő, hogy számos Symfony2 Bundle foglalkozik ezzel a feladattal.
+Webes rendszerek esetén gyakran előforduló kérés, hogy valamely generált dokumentumot lehessen PDF-ben is letölteni; így nem meglepő, hogy számos Symfony2 Bundle foglalkozik ezzel a feladattal.
 
 Választásom egy olyan könyvtárra esett, mely HTML bemenet alapján generálja a PDF kimenetet, így a későbbiekben a nyomtatott jegyzőkönyv kinézete, az elemek sorrendje, formátuma könnyen módosítható a felhasználók igényei szerint.
 
@@ -409,7 +413,7 @@ A rendszer moduljainak fejlesztési sorrendje azok egymásra épülései miatt a
     Elkészült az üléshirdetési folyamat meghívással, egyelőre a Google Calendar integráció nélkül. Működik a dokumentumfeltöltés, valamint az ülések listázása több szempontból, mint például a saját üléseim, vagy azok, amelyekre meghívtak.
     
   \item \emph{Jegyzőkönyvek}\\
-    Megvalósításra került a jegyzőkönyvek készítésére szolgáló modul. Lehet újat létrehozni csak úgy, illetve üléshez kapcsolva is. A pdf exportálás későbbre marad.\\
+    Megvalósításra került a jegyzőkönyvek készítésére szolgáló modul. Lehet újat létrehozni csak úgy, illetve üléshez kapcsolva is. A PDF exportálás későbbre marad.\\
     Ez a szakasz volt a legidőigényesebb.
     
   \item \emph{Tesztelés}\\
@@ -460,7 +464,7 @@ Erre a komponensre nyugodt szívvel lehet mondani, hogy a keretrendszer lelke, a
 
 Ennek a komponensnek segítségével egy helyen tudjuk leírni, milyen szolgáltatásai vannak a bundle-ünknek, azokat milyen azonosítóval lehet elérni, illetve milyen paraméterek szükségesek a példányosításukhoz, helyes működésükhöz. Támogatottak a kötelező függőségek (konstruktoros paraméterátadás) és az opcionálisak is (setteres átadás). A definiált szolgáltatások egésze, vagy akár csak egy-egy paramétere módosítható az alkalmazás szintjén, vagy egy, a mienkre épülő bundle-ben. Paraméterként használhatóak skaláris értékek, de akár egy másik szolgáltatás is.
 
-A szolgáltatások leírása szövegesen, yaml vagy xml formában történhet. Ezek értelmezése lassú folyamat, ami nem megengedhető éles környezetben. Ezen segítendő ezek csak a gyorsítótár ürítése utáni első kéréskor vannak parse-olva, a későbbiek egy php-re fordított és mentett, tehát nagyon gyors változatot használnak.
+A szolgáltatások leírása szövegesen, yaml vagy xml formában történhet. Ezek értelmezése lassú folyamat, ami nem megengedhető éles környezetben. Ezen segítendő ezek csak a gyorsítótár ürítése utáni első kéréskor vannak parse-olva, a későbbiek egy PHP-re fordított és mentett, tehát nagyon gyors változatot használnak.
 
 Példaként álljon itt egy szolgáltatás a \texttt{SzakdolgozatFelhasznaloBundle}-ből:
 
@@ -482,7 +486,7 @@ Az első lehetőség az XML file-ok használata. Nagy előnye, hogy széleskör�
 
 A második lehetőség a YAML formátum. Ez szintén egyszerű szöveges formátum, a hierarchia jelölésére szóközökkel való behúzást használ. Például a nem sokkal fentebbi, ParamConverter szolgáltatást regisztráló kódrészlet yaml formátumban van. Előnye, hogy kevés benne a felesleges szöveg, azaz szemmel is könnyen és gyorsan értelmezhető. Hátránya, hogy időnként nem egyértelmű, és a parser hibaüzenetei is gyakran nagyon megtévesztőek.
 
-A harmadik lehetőség az annotációk használata. Más nyelvekben, például java-ban ez már régóta nyelvi szinten támogatott, php-ban ilyen nincs, segédkönyvtárak alkalmazása szükséges. A Symfonyban a Doctrine Common ezen része használatos, ez a \lstinline!/**!-al kezdődő kommenteket értelmezi DocBlock-ként. Előnye, hogy a kód és a konfigurációja egy helyen van, hátránya, hogy a nyelv szempontjából kommentben elrejtve, ami egyeseket zavarhat, illetve bizonyos opcode cache-ek ezeket kioptimalizálják, nem működő kódot eredményezve.
+A harmadik lehetőség az annotációk használata. Más nyelvekben, például java-ban ez már régóta nyelvi szinten támogatott, PHP-ban ilyen nincs, segédkönyvtárak alkalmazása szükséges. A Symfonyban a Doctrine Common ezen része használatos, ez a \lstinline!/**!-al kezdődő kommenteket értelmezi DocBlock-ként. Előnye, hogy a kód és a konfigurációja egy helyen van, hátránya, hogy a nyelv szempontjából kommentben elrejtve, ami egyeseket zavarhat, illetve bizonyos opcode cache-ek ezeket kioptimalizálják, nem működő kódot eredményezve.
 
 Kutatásom alapján az adatbázis-entitások leírására leginkább használt formátum az annotáció, minden másra a yaml, így a szakdolgozatom fejlesztése során is ezeket használtam.
 
@@ -1084,9 +1088,9 @@ Az algoritmust már elkezdtem szétbontani kisebb, egyenként jobban karbantarth
 
 \subsubsection*{PDF exportálás}
 
-Számos helyen a mai napig papíralapú iktatást használnak, többek között a Hallgatói Önkormányzat irodájában is. Ezt mindenképpen lehetővé kellett tennie rendszeremnek, így a jegyzőkönyveket lehet pdf formátumban exportálni.
+Számos helyen a mai napig papíralapú iktatást használnak, többek között a Hallgatói Önkormányzat irodájában is. Ezt mindenképpen lehetővé kellett tennie rendszeremnek, így a jegyzőkönyveket lehet PDF formátumban exportálni.
 
-Több php nyelvű könyvtár is elérhető, mely ezt teszi lehetővé; a választásom az mPDF-re esett az alábbi okokból:
+Több PHP nyelvű könyvtár is elérhető, mely ezt teszi lehetővé; a választásom az mPDF-re esett az alábbi okokból:
 
 \begin{itemize}
     \item ma is aktívan fejlesztik
@@ -1094,7 +1098,7 @@ Több php nyelvű könyvtár is elérhető, mely ezt teszi lehetővé; a válasz
     \item HTML bemenetből dolgozik
 \end{itemize}
 
-Ebből az utolsó a legfontosabb. Ezzel tudtam azt elérni, hogy a későbbiekben a pdf fájlok tetszés szerint testreszabhatóak legyenek anélkül, hogy a rendszer kódjához hozzá kelljen nyúlni. Csak két érték van beégetve: a papír mérete, valamint hogy álló helyzetű legyen.
+Ebből az utolsó a legfontosabb. Ezzel tudtam azt elérni, hogy a későbbiekben a PDF fájlok tetszés szerint testreszabhatóak legyenek anélkül, hogy a rendszer kódjához hozzá kelljen nyúlni. Csak két érték van beégetve: a papír mérete, valamint hogy álló helyzetű legyen.
 
 Az exportálást végző kódrészletet egy külön osztályba tettem, amelyet szolgáltatásként regisztráltam:
 
@@ -1323,7 +1327,7 @@ Az utolsó ilyen a jegyzőkönyvtípusok támogatása. Jelenleg csak egyet támo
     \bibitem{website:google_api_client}
         https://code.google.com/p/google-api-php-client/
         (letöltés dátuma 2013. május 1.)
-        {\em Google API php kliens}
+        {\em Google API PHP kliens}
 
     \bibitem{website:gcal_event_api}
         https://developers.google.com/google-apps/calendar/v3/reference/events
