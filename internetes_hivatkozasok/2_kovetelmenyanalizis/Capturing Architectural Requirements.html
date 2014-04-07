@@ -1,0 +1,993 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html class="dj_gecko dj_contentbox" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- base href="http://www.ibm.com/developerworks/rational/library/4706.html" --><script src="Capturing%20Architectural%20Requirements_files/Dialog.js" charset="utf-8" type="text/javascript"></script><script charset="utf-8" id="dojoIoScript1" src="Capturing%20Architectural%20Requirements_files/usen-utf8.js" type="text/javascript"></script><script charset="utf-8" id="dojoIoScript2" src="Capturing%20Architectural%20Requirements_files/a" type="text/javascript"></script><script charset="utf-8" id="dojoIoScript3" src="Capturing%20Architectural%20Requirements_files/profiling.js" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/move.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/TimedMoveable.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/_CssStateMixin.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/_FormMixin.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/_DialogMixin.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/DialogUnderlay.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/ContentPane.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/common.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/TooltipDialog.js" charset="utf-8" type="text/javascript"></script><script charset="utf-8" id="dojoIoScript4" src="Capturing%20Architectural%20Requirements_files/blackwhite_lists.asc" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/Mover.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/Moveable.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/_ContentPaneResizeMixin.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/html.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/loading.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/common_002.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/autoscroll.js" charset="utf-8" type="text/javascript"></script><script src="Capturing%20Architectural%20Requirements_files/_LayoutWidget.js" charset="utf-8" type="text/javascript"></script></head><body class="v17" id="ibm-com"><div style="background:#fff;border:1px solid #999;margin:-1px -1px 0;padding:0;"><div style="background:#ddd;border:1px solid #999;color:#000;font:13px arial,sans-serif;font-weight:normal;margin:12px;padding:8px;text-align:left">Ez a(z) <a href="http://www.ibm.com/developerworks/rational/library/4706.html" style="text-decoration:underline;color:#00c">http://www.ibm.com/developerworks/rational/library/4706.html</a>
+ Google által tárolt változata. Ez egy pillanatfelvétel, ahogyan az 
+oldal megjelent a következő időpontban: 2014. ápr. 3. 13:07:54 GMT. Az <a href="http://www.ibm.com/developerworks/rational/library/4706.html" style="text-decoration:underline;color:#00c">aktuális oldal</a> azóta meg is változhatott. <a href="http://support.google.com/websearch/bin/answer.py?hl=hu&amp;p=cached&amp;answer=1687222" style="text-decoration:underline;color:#00c">További információ</a><br>Tipp: ha szeretné gyorsabban megtalálni a keresett kifejezést ezen az oldalon, nyomja le a <b>Ctrl+F</b> vagy (Mac számítógépen) a <b>⌘-F</b> billentyűkombinációt, majd használja a keresősávot.<br><br><div style="float:right"><a href="http://webcache.googleusercontent.com/search?q=cache:62-x8ptbbnAJ:www.ibm.com/developerworks/rational/library/4706.html&amp;hl=hu&amp;strip=1" style="text-decoration:underline;color:#00c">Szöveges változat</a></div>
+<div>&nbsp;</div></div></div><div style="position:relative">
+
+
+	
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Capturing Architectural Requirements</title>
+<link rel="schema.DC" href="http://purl.org/DC/elements/1.0/">
+<link rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico">
+<meta name="DC.Rights" content="© Copyright&nbsp;IBM Corporation&nbsp;2005">
+<meta name="Keywords" content="software requirements, architecturally significant requirements, architecture, architectural requirement, FURPS, dddrca">
+<meta name="DC.Date" scheme="iso8601" content="2005-11-15">
+<meta name="Source" content="v17 delivery:developerWorks">
+<meta name="Security" content="Public">
+<meta name="Abstract" content="from The Rational Edge: This article suggests a systematic approach to capturing architectural requirements to ensure that these elusive, and yet extremely important, system specifications are not overlooked.">
+<meta name="Description" content="from The Rational Edge: This article suggests a systematic approach to capturing architectural requirements to ensure that these elusive, and yet extremely important, system specifications are not overlooked.">
+<meta name="IBM.Effective" scheme="W3CDTF" content="2005-11-15">
+<meta name="Owner" content="developerWorks Content/Raleigh/IBM">
+<meta name="DC.Language" scheme="rfc1766" content="en">
+<meta name="IBM.SpecialPurpose" content="SP001">
+<meta name="IBM.Country" content="ZZ">
+<meta name="Robots" content="index,follow">
+<meta name="DC.Type" scheme="IBM_ContentClassTaxonomy" content="CT316">
+<meta name="DC.Subject" scheme="IBM_SubjectTaxonomy" content="B7S000,SW700">
+<meta name="dW.ContentArea" content="13">
+<meta name="dW.Topic" content="61,271,550">
+<!-- META_INCLUDE -->
+<meta scheme="IBM_WTMCategory" name="IBM.WTMCategory" content="SOFDCRATZZ">
+
+<!-- SITE MON : START (DO NOT DELETE) -->
+<!-- developerWorks monitoring token -->
+<!-- SITE MON : END (DO NOT DELETE) -->
+<!-- HEADER_SCRIPTS_AND_CSS_INCLUDE -->
+<link href="Capturing%20Architectural%20Requirements_files/www.css" rel="stylesheet" title="www" type="text/css">
+<!-- Masthead/footer -->
+<link href="Capturing%20Architectural%20Requirements_files/dw-mf.css" rel="stylesheet" title="www" type="text/css">
+<link href="Capturing%20Architectural%20Requirements_files/dw-article-6.css" rel="stylesheet" title="www" type="text/css">
+<link href="Capturing%20Architectural%20Requirements_files/dw-common-features.css" rel="stylesheet" title="www" type="text/css">
+<script type="text/javascript" src="Capturing%20Architectural%20Requirements_files/www.js">//</script><script type="text/javascript" src="Capturing%20Architectural%20Requirements_files/eluminate.js"></script>
+<script type="text/javascript" src="Capturing%20Architectural%20Requirements_files/dw-www.js">//</script>
+
+<script type="text/javascript">
+//  ibmweb.config.set({ sbs: { enabled: false }});
+</script>
+
+<!-- A/B/Exp -->
+                
+        <script type="text/javascript">
+            dojo.addOnLoad(function(){
+                var artTop = dojo.query("div.ibm-col-1-1")[0];
+                var artChildren = dojo.query(artTop).children();
+                var edgy = false;
+                if (dojo.hasClass(artChildren[0], "ibm-inset")) edgy = true;
+                if ((artChildren[0].nodeName == "H2") && (dojo.hasClass(artChildren[1], "ibm-inset"))) edgy = true;                
+                if (dojo.hasClass(artChildren[0], "codesection")) edgy = true; 
+                if ((artChildren[0].nodeName == "H5") && (dojo.hasClass(artChildren[1], "codesection"))) edgy = true;
+                if ((artChildren[0].nodeName == "H5") && (artChildren[1].width >= 701)) edgy = true;
+                if (artChildren[1].width >= 701) edgy = true;
+                if (dojo.hasClass(artChildren[0], "ibm-data-table")) edgy = true; 
+                if ((artChildren[0].nodeName == "H5") && (dojo.hasClass(artChildren[1], "ibm-data-table"))) edgy = true;
+                if (!(edgy)) {
+                        var adModule = dojo.query("#dwc-exp-c")[0];
+                        dojo.place(adModule, artTop, 0);
+                        dojo.style(adModule, "display", "block");
+                }
+            });
+        </script>
+
+<!-- LEADSPACE_STYLES -->
+
+<!-- canonical url generation -->
+	<link rel="canonical" href="http://www.ibm.com/developerworks/rational/library/4706.html">
+
+
+
+
+
+
+	<div id="ibm-top" class="ibm-landing-page"><img src="Capturing%20Architectural%20Requirements_files/ibm_logo_print.png" id="ibm-print-masthead" alt="IBM Print" height="15" width="43">
+
+<!-- MASTHEAD_BEGIN -->
+<div id="ibm-masthead">
+
+    <!-- TOP ROW -->    
+	<div id="dw-masthead-top-row">
+		<ul id="ibm-mast-options-dw" role="toolbar">
+			<li role="presentation" id="dw-mast-top-4">
+				<a href="http://www.ibm.com/developerworks/"><img src="Capturing%20Architectural%20Requirements_files/dwn-dw-badge.png" alt="dW" aria-label="dW" height="22" width="43"></a>
+			</li>
+			<li role="presentation" id="dw-mast-top-0">
+				<div><a class="" href="http://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=loginpage&amp;lang=en&amp;d=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3A62-x8ptbbnAJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4706.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk" title="" role="button" tabindex="0">Sign in (or register)</a></div>
+			</li>
+			<li role="presentation" id="dw-mast-top-1">
+				<div><a href="#SELECTLANG" role="button">English</a></div>
+			</li>
+			<li role="presentation" id="dw-mast-top-3">
+				<a href="http://www.ibm.com/" role="button">IBM</a>
+			</li>
+			<li role="presentation" id="dw-mast-top-2" class="dw-mf-hide">
+				<a href="#">[userid]</a>
+			</li>
+		</ul>
+	</div>
+
+    <!-- TOP ROW SLIDER -->
+	<div id="ibm-my-menu-dw" style="display:none">
+        <!-- Sign-in -->
+		<div id="signin_div" class="dw-mast-columns" role="group">
+			<div class="dw-mast-col-1-1">
+				<div id="dw-mast-sso">
+					<div id="signin_error_mf" class="no-display"></div>
+					<div id="dw-mast-sso-form">
+						<form id="sForm_mf" action="" method="post" name="sForm_name_mf" onsubmit="return false;">
+							<div id="dw-mast-sso-id" class="dw-mast-sso-id-en">
+								<label for="ibmid_mf">IBM ID:</label>
+								<input id="ibmid_mf" name="ibmid_name_mf" maxlength="100" onkeypress="dwsi.siInst.handleEP(event,this.form,'mf');" type="text">
+							</div>
+							<div id="dw-mast-sso-pw" class="dw-mast-sso-pw-en">
+								<label for="pw_mf">Password:</label>
+								<input id="pw_mf" value="" name="pw_name_mf" maxlength="100" onkeypress="dwsi.siInst.handleEP(event,this.form,'mf');" type="password">
+							</div>
+							<div id="dw-mast-sso-target" class="dw-mast-sso-target-en">
+								<p class="dw-mf-perm-box">
+									<input id="perm_mf" name="perm_name_mf" type="checkbox"><label for="perm_mf"> Keep me signed in.</label>
+								</p>
+							</div>					
+							<div id="dw-mast-sso-terms">
+								<p class="dw-mast-sso-terms-en">By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+							</div>
+							<div>
+								<input class="dw-mf-submit-btn" name="ibm_submit_name_mf" value="Submit" onclick="dwsi.siInst.signin('mf');return false;" type="submit">
+							</div>
+						</form>
+					</div>
+					<div id="dw-mast-sso-update">
+						<div id="dw-mast-sso-update-id">
+							<ul>
+								<li><a href="#" onclick="(function () {window.location='/developerworks/dwwi/DWAuthRouter?m=reg&amp;lang=en&amp;d='+encodeURIComponent(location.href);})();">Need an IBM ID?</a></li>
+								<li><a href="http://www.ibm.com/developerworks/dwwi/jsp/WSHelp.jsp?lang=en_US">Forgot your IBM ID?</a></li>
+							</ul>
+						</div>
+						<div id="dw-mast-sso-update-pw">
+							<ul class="dw-mf-pwupdate">
+								<li><a href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=forgot&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(dwsi.siInst.getAuthUrl())+'%3Fm%3Dloginpage%26lang%3Den_US%26d%3D'+encodeURIComponent(location.href);})();">Forgot your password?</a></li>
+								<li><a href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=chpw&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(location.href);})();">Change your password</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="dw-mast-sso-text">
+						<p>The first time you sign into developerWorks, a profile is created for you.  <strong>Select
+ information in your profile (name, country/region, and company) is 
+displayed to the public and will accompany any content you post</strong>.  You may update your IBM account at any time.</p>
+						<p class="dw-mf-secure">All information submitted is secure.</p>
+					</div>
+				</div>
+				<div id="dw-mast-dname" class="dw-mf-hide">
+					<p>The first time you sign in to developerWorks, a profile is 
+created for you, so you need to choose a display name.  Your display 
+name accompanies the content you post on developerworks.</p><p><strong>Please choose a display name between 3-31 characters</strong>.  Your display name must be unique in the developerWorks community and should not be your email address for privacy reasons.</p>
+					<div id="signin_dname_error_mf" class="no-display"></div>
+					<div id="dw-mast-dname-form">
+						<form id="dForm_mf" action="" method="post" name="dForm_name_mf" onsubmit="return false;">
+							<div id="dw-mast-dname-mf">
+								<label for="dname_mf">Display name:</label>
+								<input id="dname_mf" name="dname_name_mf" maxlength="31" size="25" onkeypress="dwsi.siInst.handleEP(event,this.form,'mf');" type="text">
+							</div>
+							<div id="dw-mast-dname-terms">
+								<p>By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+							</div>
+							<div>
+								<input class="dw-mf-submit-btn" name="dname_submit_name_mf" value="Submit" onclick="dwsi.siInst.signin('mf');return false;" type="submit">
+							</div>
+						</form>								
+					</div>
+					<div id="dw-mast-dname-secure">
+						<p class="dw-mf-secure">All information submitted is secure.</p>
+					</div>
+				</div>
+				<div id="dw-mast-auth" class="dw-mf-hide">
+					<div>
+						<h2>developerWorks Community:</h2>
+						<ul>
+							<li><a id="dw-mast-top-0-0" href="http://www.ibm.com/developerworks/community/homepage/web/updates/?lang=en">My home</a></li>
+							<li><a href="http://www.ibm.com/developerworks/community/profiles/html/myProfileView.do?lang=en">My profile</a></li>
+							<li><a href="http://www.ibm.com/developerworks/community/groups/service/html/mycommunities?lang=en">My communities</a></li>
+							<li><a href="http://www.ibm.com/developerworks/community/news">Settings</a></li>
+						</ul>     
+					</div>
+					<div class="dw-mast-more">
+						<ul class="ibm-link-list">
+							<li><a class="dw-more-link" href="#" onclick="dwsi.siInst.signOut(); return false;"><strong>Sign out</strong></a></li>
+						</ul>
+					</div>
+				</div>								
+			</div>		
+		</div>
+        <!-- Language selector --> 
+		<div id="lang_div" class="dw-mast-columns" role="group">
+			<div class="dw-mast-col-2-1">
+				<h2>Select a language:</h2>
+				<ul>
+					<li><a id="dw-mast-top-1-0" href="http://www.ibm.com/developerworks/">English</a></li>
+					<li><a href="http://www.ibm.com/developerworks/cn/" lang="zh">中文</a></li>
+					<li><a href="http://www.ibm.com/developerworks/jp/" lang="ja">日本語</a></li>
+					<li><a href="http://www.ibm.com/developerworks/ru/" lang="ru">Русский</a></li>
+				</ul>
+			</div>
+			<div class="dw-mast-col-2-2">
+				<ul>
+					<li><a href="http://www.ibm.com/developerworks/br/" lang="pt">Português (Brasil)</a></li>
+					<li><a href="http://www.ibm.com/developerworks/ssa/" lang="es">Español</a></li>
+					<li><a href="http://www.ibm.com/developerworks/vn/" lang="vi">Việt</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="empty_div" class="dw-mast-columns" role="group"><!-- Authenticated --></div>		
+		<!-- IBM -->
+		<div id="ibmhome_div" class="dw-mast-columns" role="group">
+			<div class="dw-mast-col-2-1">
+				<ul>
+					<li><a id="dw-mast-top-3-0" href="http://www.ibm.com/">IBM home</a></li>
+					<li><a href="http://www.ibm.com/solutions/">Industries &amp; solutions</a></li>
+					<li><a href="http://www.ibm.com/technologyservices/">Services</a></li>
+					<li><a href="http://www.ibm.com/products/">Products</a></li>
+					<li><a href="http://www.ibm.com/support/">Support &amp; downloads</a></li>
+				</ul>
+			</div>
+			<div class="dw-mast-col-2-2 dw-mast-ibm">
+				<ul>
+					<li><a href="http://www.ibm.com/support/publications/us/library/index.shtml">Product information</a></li>
+					<li><a href="http://www.ibm.com/redbooks/">Redbooks</a></li>
+					<li><a href="http://www.ibm.com/software/">Software</a></li>
+					<li><a href="http://www.ibm.com/software/sw-services/">Software services</a></li>
+				</ul>
+			</div>	
+		</div>		
+	</div>
+		
+    <!-- BOTTOM ROW -->
+	<div id="ibm-universal-nav-dw" aria-label="Site map">
+		<ul id="ibm-unav-links-dw">
+			<li id="ibm-unav-home-dwlogo">
+				<a href="http://www.ibm.com/developerworks/"><img src="Capturing%20Architectural%20Requirements_files/dwn-dw-wordmark.png" alt="developerWorks®" height="28" width="225"></a>
+			</li>
+		</ul>
+		<ul id="ibm-menu-links-dw" role="toolbar" aria-label="Site map">
+			<li id="dw-mast-nav-0" role="presentation"><a href="http://www.ibm.com/developerworks/topics/" role="button" tabindex="0">Technical topics</a></li>
+			<li id="dw-mast-nav-1" role="presentation"><a href="http://www.ibm.com/developerworks/downloads/" role="button">Evaluation software</a></li>
+			<li id="dw-mast-nav-2" role="presentation"><a href="http://www.ibm.com/developerworks/community/index.html" role="button">Community</a></li>
+			<li id="dw-mast-nav-3" role="presentation"><a href="http://www.ibm.com/developerworks/events/" role="button">Events</a></li>
+		</ul>
+		<form id="ibm-search-form" action="//www.ibm.com/search/csass/search/" method="get" name="form1" aria-label="IBM developerWorks Search" role="search">
+			<p>
+				<label for="q"><span class="ibm-access">Search developerWorks</span></label>
+				<input id="q" name="q" value="Search developerWorks" maxlength="100" type="text">
+				<input name="sn" value="dw" type="hidden">
+				<input name="lang" value="en" type="hidden">
+				<input name="cc" value="US" type="hidden">
+				<input name="en" value="utf" type="hidden">
+				<input name="hpp" value="20" type="hidden">
+				<input name="dws" value="dw" type="hidden">
+				<input id="ibm-search" class="ibm-btn-search" value="Submit" type="submit">
+			</p>
+		</form>
+	</div>
+    
+	<!-- BOTTOM ROW SLIDER -->
+	<div id="ibm-common-menu-dw">
+		<!-- Technical topics category -->
+		<div id="techtops_div" class="dw-mast-columns" role="group">
+			<div class="dw-mast-col-5-1">
+				<h2><a href="http://www.ibm.com/developerworks/topics/">Technical topics</a></h2>
+				<ul role="menu">
+					<li role="menuitem"><a id="dw-mast-nav-0-0" href="http://www.ibm.com/developerworks/aix/">AIX and UNIX</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/bigdata/">Big data</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/analytics/">Business analytics</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/bpm/">Business process management</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/cloud/">Cloud computing</a></li>
+				</ul>     
+			</div>
+			<div class="dw-mast-col-5-2">
+				<ul role="menu">
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/commerce/">Commerce</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/devops/">DevOps</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/ibmi/">IBM i</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/data/">Information management</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/java/">Java technology</a></li>
+				</ul>
+			</div>
+			<div class="dw-mast-col-5-3">
+				<ul role="menu">
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/linux/">Linux</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/lotus/">Lotus (collaboration)</a></li> 
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/mobile/">Mobile development</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/opensource/">Open source</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/rational/">Rational</a></li>
+				</ul>
+			</div>
+			<div class="dw-mast-col-5-4">
+				<ul role="menu">
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/security/">Security</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/servicemanagement/">Tivoli (service management)</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/web/">Web development</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/websphere/">WebSphere</a></li>
+				</ul>
+			</div>
+			<div class="dw-mast-col-5-5">
+				<ul role="menu">
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/library/"><strong>Technical library</strong></a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/products/"><strong>Products A to Z</strong></a></li>
+				</ul>
+			</div>  
+		</div>
+		<!-- Evaluation software category -->
+		<div id="evalsoft_div" class="dw-mast-columns" role="group">
+			<div class="dw-mast-col-2-1">
+				<h2><a id="dw-mast-nav-1-0" href="http://www.ibm.com/developerworks/downloads/">Evaluation software</a></h2>
+				<ul role="menu">
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/downloads/#bd">Big data</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/downloads/#ba">Business analytics</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/downloads/#data">Information management</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/downloads/#lotus">Lotus (collaboration)</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/downloads/#rational">Rational</a></li>
+				</ul>            
+			</div>
+			<div class="dw-mast-col-2-2">
+				<ul role="menu">
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/downloads/#security">Security</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/downloads/#tivoli">Tivoli (service management)</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/downloads/#websphere">WebSphere</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/downloads/#more">More IBM products (Mobile, PureSystems...)</a></li>
+				</ul>            
+            </div>
+		</div>
+		<!-- Community category -->
+		<div id="comm_div" class="dw-mast-columns" role="group">
+			<div class="dw-mast-col-3-1">
+				<h2><a id="dw-mast-nav-2-0" href="http://www.ibm.com/developerworks/community/index.html">Community</a></h2>
+				<ul role="menu">
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/community/homepage/?lang=en">My home</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/community/profiles/?lang=en">Profiles</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/community/groups/?lang=en">Communities</a></li>
+				</ul>     
+			</div>
+			<div class="dw-mast-col-3-2">
+				<ul role="menu">
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/community/blogs/?lang=en">Blogs</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/community/forums/?lang=en">Forums</a></li>
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/community/wikis?lang=en">Wikis</a></li>
+				</ul>
+			</div>
+			<div class="dw-mast-col-3-3 dw-mast-col-3-3-en">
+				<ul role="menu">
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/community/activities/?lang=en">Activities</a></li>
+					<li role="menuitem"><a href="https://www.ibm.com/developerworks/community/podcasts/?lang=en">Podcasts</a></li>   
+					<li role="menuitem"><a href="http://www.ibm.com/developerworks/champion/">IBM Champion program</a></li>
+				</ul>
+			</div>		
+		</div>
+		<!-- Events category -->
+		<div id="evts_div" class="dw-mast-columns" role="group">
+			<div class="dw-mast-col-1-1">
+				<h2><a id="dw-mast-nav-3-0" href="http://www.ibm.com/developerworks/events/">Events</a></h2>
+					<ul role="menu">
+						<li role="menuitem"><a href="http://www.ibm.com/developerworks/find/webcasts/">Webcasts</a></li>
+						<li role="menuitem"><a href="http://www.ibm.com/developerworks/find/events/">Find events (webcasts, conferences...)</a></li>
+				</ul>            
+			</div>
+		</div>
+	</div>
+	
+</div>
+<div id="fdiv" class="ibm-access"></div><!-- MASTHEAD_END -->
+
+<!-- LAYOUT -->
+<!-- LEADSPACE_BEGIN --> 
+<div id="ibm-leadspace-head">
+	<!-- LEADSPACE_BODY_BEGIN --> 
+	<div id="ibm-leadspace-body">
+		<!-- Navigation_Trail_BEGIN -->
+      <ul id="ibm-navigation-trail"><li><a href="http://www.ibm.com/developerworks/">developerWorks</a></li><li><a href="http://www.ibm.com/developerworks/topics/">Technical topics</a></li><li><a href="http://www.ibm.com/developerworks/rational/">Rational</a></li><li><a href="http://www.ibm.com/developerworks/rational/library/">Technical library</a></li></ul>
+		<!-- END_Navigation_Trail -->
+			<!-- Title_Subtitle -->
+			<h1>Capturing Architectural Requirements</h1>
+	</div>
+	<!-- LEADSPACE_BODY_END --> 
+	<!-- SUMMARY_BEGIN -->
+	<div id="dw-summary-area" class="dw-summary-columns">
+		<div class="ibm-col-6-4">
+		<p>from The Rational Edge: This article suggests a systematic approach
+ to capturing architectural requirements to ensure that these elusive, 
+and yet extremely important, system specifications are not overlooked.</p>
+		<p class="ibm-no-print ibm-ind-link">
+
+			
+			<span id="nCmts"></span>
+		</p>
+		</div>
+		<div class="ibm-col-6-2 dw-toc-margin">
+			<p class="dw-summary-author"><a href="#authorN10017" class="ibm-popup-link" onclick="ibmweb.overlay.show('authorN10017',this);return false;">Peter Eeles</a>, Senior IT Architect, IBM</p>
+<div id="authorN10017" class="ibm-common-overlay"><div class="ibm-head"><p><a href="#close" class="ibm-common-overlay-close">Close [x]</a></p></div><div class="ibm-body"><div class="ibm-main"><div class="ibm-title"><!--this is where the h2 usually goes--></div><div class="ibm-container ibm-alternate"><div class="ibm-container-body">
+<p><!--.-->
+<img class="dw-summary-bio-image-x64" alt="Author Photo" name="Author photo" src="Capturing%20Architectural%20Requirements_files/eeles.html" hspace="3" vspace="3" width="64"></p><p>Peter
+ Eeles has over 15 years experience developing software solutions, and 
+has spent the majority of this time architecting and implementing 
+large-scale distributed systems, culminating in the writing of his first
+ book entitled <em>Building Business Objects</em> (John Wiley and Sons).
+  Peter works as a Process Consultant for IBM Rational (UK), and is the 
+Rational Architecture Practice representative for Northern Europe. In 
+his spare time, Peter enjoys bike racing and playing jazz guitar, 
+although not at the same time.</p><p></p><br><br></div></div></div></div><div class="ibm-footer"><!----></div></div>
+			<p class="dw-summary-date">15 November 2005</p>
+			
+				<p></p>
+
+			<div aria-hidden="true" class="ibm-container" id="dw-toc"><div class="ibm-container-body"><ul class="ibm-twisty"><li><a href="#toggle" class="ibm-twisty-trigger ibm-twisty-trigger-closed"><img src="Capturing%20Architectural%20Requirements_files/c.gif" alt="+"></a><span class="ibm-twisty-head">Table of contents</span><div style="display: none;" class="ibm-twisty-body"><ul style="font-size:0.8em" class="ibm-link-list">
+<li><a class="ibm-anchor-down-em-link" href="#N10046">What Is an Architectural Requirement?</a></li>
+<li><a class="ibm-anchor-down-em-link" href="#N10073">The FURPS+ System for Classifying Requirements</a></li>
+<li><a class="ibm-anchor-down-em-link" href="#N1011E">Realizing Requirements</a></li>
+<li><a class="ibm-anchor-down-em-link" href="#N101C4">An Approach for Gathering Architectural Requirements</a></li>
+<li><a class="ibm-anchor-down-em-link" href="#N102EB">Where to Go from Here </a></li>
+<li><a class="ibm-anchor-down-em-link" href="#N10304">Acknowledgments</a></li>
+<li><a class="ibm-anchor-down-em-link" href="#N1030C">Appendices</a></li>
+<li><a class="ibm-anchor-down-em-link" href="#N10324">Notes</a></li>
+<li><a class="ibm-anchor-down-em-link" href="#icomments">Comments</a></li></ul></div></li></ul></div></div>
+		</div>
+	</div>
+	<!-- SUMMARY_END -->
+</div>
+<!-- LEADSPACE_END -->
+
+<div id="ibm-pcon">
+
+<!-- BEGIN_IBM-CONTENT -->
+<div id="ibm-content">
+
+<!-- BEGIN_IBM-CONTENT-BODY -->
+<div id="ibm-content-body">
+
+<!-- BEGIN_IBM-CONTENT-MAIN -->
+<div id="ibm-content-main">
+
+<!-- 1_1_COLUMN_BEGIN -->
+<div class="ibm-columns">
+<div class="ibm-col-1-1"><div style="float: right; clear: none; margin: 0px 0px 6px 16px; display: block;" id="dwc-exp-c">
+                    <a href="http://bluemix.net/"><img alt="Codename: BlueMix. IBM's go-to-cloud platform. Join the beta." src="Capturing%20Architectural%20Requirements_files/f-bluemix-224x194.png" height="194" width="224"></a>
+                </div>
+
+<p><img alt="Illustration" src="Capturing%20Architectural%20Requirements_files/t_architecturalRequirements_Illustration.html" align="right" border="0" hspace="10" width="250"><em>Capturing requirements is difficult. Capturing architecturally significant requirements is </em>particularly <em>difficult.
+ This article discusses the root causes of this difficulty, and suggests
+ a systematic approach to capturing architectural requirements to ensure
+ that these elusive, and yet extremely important, system specifications 
+are not overlooked.</em></p><h2 id="N10046">What Is an Architectural Requirement?</h2><p>
+ Because this article focuses on an approach to gathering requirements 
+of particular significance to the architecture of a system<a href="#footnotes"><sup>1</sup></a>, let's start with the definition of an architectural requirement. </p><p>Rational Unified Process® (RUP®) gives the following definition for <em>any</em> requirement: </p><blockquote><em>
+ A requirement describes a condition or capability to which a system 
+must conform; either derived directly from user needs, or stated in a 
+contract, standard, specification, or other formally imposed document. </em></blockquote><p> An <em>architectural</em>
+ requirement, in turn, is any requirement that is architecturally 
+significant, whether this significance be implicit or explicit. Implicit
+ architectural requirements are those requirements that have particular 
+attributes. For example, any high-risk, high-priority, or low-stability 
+requirement could be considered to be architecturally significant. 
+However, this article will focus primarily on explicit requirements, 
+which are often technical in nature. The following are examples of 
+explicit architectural requirements: </p><ul class="ibm-bullet-list"><li>The product will be localized (support multiple human languages).</li><li>The persistence will be handled by a relational database.</li><li>The database will be Oracle 8i.</li><li>The system will run seven days a week, twenty-four hours per day.</li><li>An online help system is required.</li><li>All presentation logic will be written in Visual Basic.</li></ul><p>
+ As you may notice, these requirements are extremely mixed. Some are 
+functional, some non-functional; some are independent of technical 
+mechanisms, others are not. What we need is a systematic approach that 
+provides a framework for classifying architectural requirements, which 
+ensures that valuable statements such as those listed above are not 
+overlooked. </p><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-content" class="ibm-anchor-up-link">Back to top</a></p><h2 id="N10073">The FURPS+ System for Classifying Requirements</h2><p> One such classification system was devised by Robert Grady at Hewlett-Packard.<a href="#footnotes"><sup>2</sup></a> It goes by the acronym FURPS+ which represents: </p><ul class="ibm-bullet-list"><li>Functionality</li><li>Usability</li><li>Reliability</li><li>Performance</li><li>Supportability</li></ul><p>The "+" in FURPS+ also helps us to remember concerns such as:</p><ul class="ibm-bullet-list"><li>Design requirements</li><li>Implementation requirements</li><li>Interface requirements </li><li>Physical requirements</li></ul><p>Let's look at each category in detail.</p><h3 id="N10098">Functional Requirements</h3><p>
+ These requirements generally represent the main product features. In a 
+warehouse application, we might have requirements pertaining to order 
+processing or stock control, for example. However, functional 
+requirements are not always domain-specific. Providing printing 
+capability is a functional requirement of particular significance to 
+architecture, for example. </p><p>Table 1 lists additional functional requirements that might be considered. </p><h5 id="table1">Table 1: Architecturally Significant Functional Requirements </h5><table class="ibm-data-table" summary="Table 1: Architecturally Significant Functional Requirements" cellpadding="0" cellspacing="0" border="0"><thead xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><th scope="col">Function</th><th scope="col">Description</th></tr></thead><tbody xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><td>Auditing</td><td>Provide audit trails of system execution.</td></tr><tr><td>Licensing</td><td>Provide services for tracking, acquiring, installing, and monitoring license usage.</td></tr><tr><td>Localization</td><td>Provide facilities for supporting multiple human languages.</td></tr><tr><td>Mail </td><td>Provide services that allow applications to send and receive mail.</td></tr><tr><td>Online help</td><td>Provide online help capability.</td></tr><tr><td>Printing </td><td>Provide facilities for printing.</td></tr><tr><td>Reporting</td><td>Provide reporting facilities.</td></tr><tr><td>Security</td><td>Provide services to protect access to certain resources or information.</td></tr><tr><td>System management</td><td>Provide services that facilitate management of applications in a distributed environment.</td></tr><tr><td>Workflow</td><td>Provide support for moving documents and other work items, including review and approval cycles.</td></tr></tbody></table><h3 id="N100E8">Usability, Reliability, Performance, and Supportability Requirements</h3><p> The remaining "URPS" categories describe non-functional requirements that are generally architecturally significant. </p><ul class="ibm-bullet-list"><li><em>Usability</em> is concerned with characteristics such as aesthetics and consistency in the user interface.</li><li><em>Reliability</em>
+ is concerned with characteristics such as availability (the amount of 
+system "up time"), accuracy of system calculations, and the system's 
+ability to recover from failure.</li><li><em>Performance</em> is concerned with characteristics such as throughput, response time, recovery time, start-up time, and shutdown time.</li><li><em>Supportability</em>
+ is concerned with characteristics such as testability, adaptability, 
+maintainability, compatibility, configurability, installability, 
+scalability, and localizability.</li></ul><h3 id="N10101">Design, Implementation, Interface, and Physical Requirements</h3><p> The "+" in the FURPS+ acronym is used to identify additional categories that generally represent constraints. </p><ul class="ibm-bullet-list"><li>A <em>design requirement</em>,
+ often called a design constraint, specifies or constrains the options 
+for designing a system. For example, if you specify that a relational 
+database is required, that's a design constraint.</li><li>An <em>implementation requirement</em>
+ specifies or constrains the coding or construction of a system. 
+Examples might include required standards, implementation languages, and
+ resource limits.</li><li>An <em>interface requirement </em>specifies an
+ external item with which a system must interact, or constraints on 
+formats or other factors used within such an interaction.</li><li>A <em>physical requirement </em>specifies a physical constraint imposed on the hardware used to house the system Â— shape, size, or weight, for example.</li></ul><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-content" class="ibm-anchor-up-link">Back to top</a></p><h2 id="N1011E">Realizing Requirements</h2><p>
+ From the descriptions above, we can easily see that some functional 
+requirements, and most requirements in the other FURPS+ categories, are 
+architecturally significant. Now let's look at how we might classify the
+ seemingly unrelated architectural requirements we listed earlier. Using
+ the FURPS+ classification we can see that: </p><ul class="ibm-bullet-list"><li>"The product will be localized (support multiple human languages)" is a <em>supportability</em> requirement. </li><li>"The persistence will be handled by a relational database" is a <em>design</em> requirement.</li><li>"The database will be Oracle 8i" is an <em>implementation</em> requirement.</li><li>"The system will run seven days a week, twenty-four hours per day" is a <em>reliability</em> requirement.</li><li>"An online help system is required" is a <em>functional</em> requirement.</li><li>"All presentation logic will be written in Visual Basic" is an <em>implementation</em> requirement.</li></ul><p>
+ Knowing how such requirements are realized will help us ask the right 
+questions of our stakeholders. There is also value in understanding the 
+relationships between categories of requirement that, at first glance, 
+appear very disparate. Considering architectural mechanisms can assist 
+us on both counts. </p><h3 id="N10147">Architectural Mechanisms</h3><p> In simple terms, an architectural mechanism represents a common solution
+                to a frequently encountered problem. Architectural mechanisms are often
+                used to realize architectural requirements. Table 2 shows three categories
+                of architectural mechanisms</p><h5 id="table2">Table 2: Three categories of architectural mechanisms</h5><table class="ibm-data-table" summary="Table 2: Three categories of architectural mechanisms" cellpadding="0" cellspacing="0" border="0"><thead xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><th scope="col">Analysis Mechanism</th><th scope="col">Design Mechanism</th><th scope="col">Implementation Mechanism</th></tr></thead><tbody xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><th rowspan="3"><strong>Persistence</strong></th><td rowspan="2">RDBMS</td><td>Oracle</td></tr><tr><td>Ingres</td></tr><tr><td>OODBMS</td><td>ObjectStore</td></tr><tr><th rowspan="4"><strong>Communication</strong></th><td rowspan="2">Object request broker</td><td>Orbix</td></tr><tr><td>VisiBroker</td></tr><tr><td rowspan="2">Message queue</td><td>MSMQ</td></tr><tr><td>MQSeries</td></tr></tbody></table><p> An <em>analysis</em>
+ mechanism represents an implementation-independent solution. Table 2 
+shows two analysis mechanisms: persistence and communication. For more 
+examples of analysis mechanisms, see the <a href="http://www.ibm.com/developerworks/rational/library/4707.html">Analysis Mechanism Summary in Appendix A</a>. </p><p> A <em>design</em>
+ mechanism is a refinement of an analysis mechanism. It assumes some 
+details of the implementation environment but is not tied to a specific 
+implementation. In our example, the communication analysis mechanism may
+ be realized as a design mechanism such as an object request broker or a
+ message queue. </p><p> Finally, an <em>implementation</em> mechanism is
+ a refinement of a design mechanism, and specifies the exact 
+implementation of the mechanism. In our example, an object request 
+broker may be implemented using either Orbix or VisiBroker. </p><p> 
+Figure 1 summarizes the relationship between requirements and 
+mechanisms, showing refinements of the FURPS requirements, design 
+requirements and implementation requirements as well as architectural 
+mechanisms at different levels of refinement. </p><h5 id="fig1">Figure 1: Relationship
+                    between requirements and mechanisms</h5><img alt="Relationship Between Requirements and Mechanism" src="Capturing%20Architectural%20Requirements_files/t_architecturalRequirements_fig1.html" width="445"><h3 id="N101AF">The Challenge of Gathering Architectural Requirements </h3><p>
+ Before we discuss a systematic approach to gathering architectural 
+requirements, it is worth noting why such an approach is needed. In 
+essence, this is because many of the FURPS+ requirements we mentioned 
+earlier are relevant in a system-wide context and help drive the design 
+of the foundations (i.e., the architecture) of the system we're 
+building. In fact, on some projects, architectural requirements can be 
+significantly more important than their domain-specific counterparts. If
+ you were designing a life-support machine, for example, then 
+availability ("up time") would be pretty high on your list. </p><p> So 
+why is it that architectural requirements are often overlooked? Because 
+they are difficult to gather -- and that's why being "systematic" about 
+how these requirements are gathered can make a real difference. </p><p> 
+Gathering architectural requirements means venturing into uncharted 
+territory (in contrast to gathering more domain-specific requirements) 
+for a number of reasons: </p><ul class="ibm-bullet-list"><li>In most 
+(although not all) systems, from an end-user perspective, 
+domain-specific requirements are more visible than their architectural 
+counterparts. Consequently, emphasis is placed on gathering these 
+domain-specific requirements because they are perceived as the most 
+valuable.</li><li>Stakeholders are not usually familiar with the 
+majority of architectural requirements. Although they are comfortable 
+with specifying domain-specific features such as "Order Processing" and 
+"Stock Control," they are less familiar with "Reliability" and 
+"Usability," and think of them as technical issues that lie outside 
+their area of concern.</li><li>Systematic techniques for gathering 
+architectural requirements are generally less well known than techniques
+ for gathering domain-specific requirements.</li></ul><p>Using a systematic approach can help overcome these difficulties, as we shall see below. </p><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-content" class="ibm-anchor-up-link">Back to top</a></p><h2 id="N101C4">An Approach for Gathering Architectural Requirements</h2><p>The approach to gathering architectural requirements we will explore is simple:</p><ol><li>Maintain
+ a complete list of architectural requirements (regardless of whether 
+all items are relevant to a particular project). See <a href="http://www.ibm.com/developerworks/rational/library/4708.html">Appendix B: Architectural Requirements</a> for a sample list. </li><li>For each architectural requirement, formulate one or more questions that can help in the specification process. Make sure <em>all the system's stakeholders</em> can understand these questions.</li><li>Assist stakeholders by showing them the potential impact of answering a question one way or the other.</li><li>Capture the responses from your stakeholders to each of the questions.</li><li>Assist
+ the architect by ensuring that the stakeholders Â— in addition to 
+answering these questions Â— assign a priority or weighting to each 
+architectural requirement. This weighting will allow the architect to 
+make tradeoffs between requirements.</li></ol><p> It is worth noting 
+that this approach is possible because, at a high level, the set of 
+architectural requirements that must be considered is finite. You can 
+also apply this approach to requirements gathering within particular 
+problem domains that also have finite, well-defined, sets of 
+considerations. For a financial system, for example, there would be an 
+imperative to pose certain finance-related questions. </p><a id="qa"></a><h3 id="N101E4">The Architectural Requirements Questionnaire</h3><p>
+ This approach is best represented in the form of a simple table 
+provided to stakeholders as an Architectural Requirements Questionnaire.
+ Table 3 shows a portion of such a questionnaire and includes example 
+answers. For a complete Architectural Requirements Questionnaire 
+template, see <a href="http://www.ibm.com/developerworks/rational/library/4710.html">Appendix C</a>. </p><h5 id="table3">Table 3: Portion of an architectural
+              requirements questionnaire</h5><table class="ibm-data-table" summary="Portion of an architectural               requirements questionnaire" cellpadding="0" cellspacing="0" border="0"><thead xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><th scope="col">Requirement</th><th scope="col">Questions</th><th scope="col">Impact</th><th scope="col">Answers</th><th scope="col">Priority</th></tr></thead><tbody xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><th class="dw-no-background" scope="row">Licensing</th><td>Will the system, or parts of the system, be licensed?<br><br>Are there any constraints on the mechanism used to provide licensing capability?</td><td>The
+ greater the sophistication of the licensing mechanism, the longer the 
+time to market, and the greater the long-term maintenance cost.</td><td>The
+ stock control module will be marketed as a separate component of the 
+system and will require licensing. The FlexLM tool is used throughout 
+our organization to provide licensing capability.</td><td>Medium</td></tr><tr><th class="dw-no-background" scope="row">Availability</th><td>Are there any requirements regarding system "up time"? This may be specified in terms of Mean Time Between Failures (MTBF).</td><td>The higher the availability, the longer the time to market.</td><td>Availability is a key product feature. The product must have an MTBF of 60 days.</td><td>High</td></tr><tr><th class="dw-no-background" scope="row">Platform support</th><td>What platforms must the system support?</td><td>Development for a single platform shortens the time to market. It also allows closer integration with platform features.<br><br>Development
+ for multiple platforms lengthens the time to market. Close integration 
+with platform features is lessened, increasing the maintenance of the 
+system.</td><td>The product will be released on the following UNIX platforms:<br><br>Sun Solaris<br>IBM AIX<br>HPUX</td><td>High</td></tr></tbody></table><p>
+ Note that this questionnaire is used in the Elicit Stakeholder Requests
+ activity in the Rational Unified Process (RUP). Once completed, the 
+questionnaire is then used in the definition of some of the most 
+important artifacts used in the development process, including the 
+Use-Case Model and Supplementary Specification (which together provide a
+ formal specification of system requirements). </p><p> Rational RequisitePro® can be of great help in relation to the questionnaire: </p><ul class="ibm-bullet-list"><li>It
+ allows you to create multiple "views" of the questionnaire. This is 
+particularly valuable if you are interviewing different stakeholders 
+because you can filter by role. If you are interviewing a marketing 
+person, for example, you might want his or her responses to a certain 
+subset of questions but not to complex technical issues. Rational 
+RequisitePro allows you to assign a "role" attribute to each question, 
+which makes information gathering more efficient. </li><li>It gives you 
+traceability between architectural stakeholder requests and both 
+use-case requirements and supplementary requirements. You can specify 
+this traceability through links, and RequisitePro provides traceabilty 
+matrices to help you visualize these links. </li></ul><h3 id="N1024D">Avoiding Common Pitfalls</h3><p>
+ When gathering any requirements Â— not just architectural requirements 
+Â— there are a number of potential pitfalls. This section discusses 
+these pitfalls and provides suggestions for avoiding them. </p><p><strong>The "Shopping Cart" Mentality.</strong>
+ The technique described in this article has been used on more than 
+twenty projects to date, and every single one of these projects has 
+suffered from stakeholders' false impression that specifying 
+requirements is like filling up a shopping cart. In the absence of any 
+other criteria, a requirements gathering effort can amount to a futile 
+exchange along the following lines: </p><table class="ibm-data-table" cellpadding="4" cellspacing="4" border="0"><thead xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><th valign="top">Analyst:</th><th>Does the product need to be localized?</th></tr></thead><tbody xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><td valign="top"><strong>Stakeholder:</strong></td><td>That sounds good. We should plan to address foreign markets.</td></tr><tr><td valign="top"><strong>Analyst:</strong></td><td>And what about security?</td></tr><tr><td valign="top"><strong>Stakeholder:</strong></td><td>Oh yes, the product should be secure.</td></tr><tr><td valign="top"><strong>Analyst:</strong></td><td>Tell me about your reliability expectations.</td></tr><tr><td valign="top"><strong>Stakeholder:</strong></td><td>Definitely twenty-four by seven Â— no down time. That's what we need to beat our competitors.</td></tr></tbody></table><p> And so on. If you could offer your stakeholders a solution that solved the worldwide shortage of dilithium crystals<a href="#footnotes"><sup>3</sup></a>,
+ they'd want it. But every desired requirement comes at a price; 
+stakeholders can't just put everything they want into a shopping cart at
+ no cost. Be careful not to fall into the trap of presenting them with 
+the equivalent of a shopping list from which they pick and choose. </p><p>
+ The trick is to ensure that your stakeholders understand the cost of 
+their purchases, which is why an impact statement is associated with 
+each question in the questionnaire. </p><p><strong>The "This Is Too Technical for Me" Attitude.</strong>
+ Some stakeholders may dismiss the Architectural Requirements 
+Questionnaire as a technical document whose content lies outside their 
+area of concern. Often, the reason for this perception is that the 
+questions don't discuss their familiar domain concepts, so they treat 
+the document as less important than techniques (such as use-case 
+modeling) for capturing more visible, domain-specific requirements. </p><p>
+ Once again, it's important to ensure that your stakeholders understand 
+the value of taking time to answer questions your questionnaire poses. 
+It's often easiest to demonstrate this value by giving examples of 
+problems that arise in the absence of a questionnaire! </p><p><strong>The "All Requirements Are Equal" Fallacy.</strong>
+ Another common pitfall stems from giving all requirements the same 
+priority. Without exception, projects that fall into this trap classify 
+all requirements as high priority. </p><p> Architectural requirements 
+must be prioritized to indicate to the architect Â— or anyone else Â— 
+which are the most important requirements for the finished system. No 
+design tradeoffs can be made if all requirements are assigned the same 
+priority. If you start to get bogged down when prioritizing 
+requirements, try considering them two at a time. The most important 
+requirements should naturally "bubble up" to the top of the list. </p><p><strong>The "Park It in the Lot" Problem.</strong>
+ In some organizations, stakeholders dutifully collect requirements 
+because an analyst told them to and prioritize them (again, because an 
+analyst told them to). And then, for some reason, these requirements are
+ then placed "on the shelf," never to be used again. It's critical to 
+ensure that your stakeholders understand the value of capturing 
+architectural requirements and that these requirements are applied 
+throughout the development of the system. </p><p><strong>The "Requirements T</strong><strong>hat Can't Be Measured" Syndrome.</strong>
+ This can be a pitfall for both domain-specific and architectural 
+requirements. It's important to ensure that all stated requirements are 
+both unambiguous and measurable. "The system will have a 
+state-of-the-art interface," for example, does not meet these criteria, 
+because the definition of state-of-the-art is highly subjective. </p><p><strong>The "Not Enough Time" Complaint.</strong>
+ Specifying architectural requirements is a complex task that can't be 
+done quickly. If stakeholders balk at scheduling adequate time for the 
+activity or grow impatient during the process, remind them how important
+ these requirements are in building a foundation for the system, and 
+don't allow them to short-circuit your efforts. </p><p><strong>The "Lack of Ownership" Problem.</strong>
+ It is critical for the system analyst and software architect to work 
+collaboratively to create the Architectural Requirements Questionnaire, 
+and for the analyst to fully understand the content. After all, the 
+analyst will be gathering the requirements. If he or she conveys the 
+impression that the questionnaire is too technical to comprehend and 
+cannot provide clarification when necessary, that will only reinforce 
+stakeholders' misperceptions that the questionnaire is of little use. </p><p><strong>The "All Stakeholders Are Alike" Misconception.</strong>
+ Many different stakeholders have input during the requirements 
+gathering process, and you need to address the right questions to the 
+right people. For example, product management is probably the group to 
+ask about specifying the ability to license elements of the system, but 
+requirements for system usability are best specified by end users. 
+Before you talk with stakeholders, take the time to identify which group
+ is responsible for answering which questions. </p><p><strong>The "Too General" Tendency.</strong>
+ The Architectural Requirements Questionnaire should be treated as an 
+elicitation technique similar to interviewing, brainstorming, and so on.
+ The only difference between this technique and others is that the 
+primary focus is on capturing architectural requirements for the system.
+ Architectural requirements are often specified at a very general level.
+ For example, a requirement might state that the response time of any 
+transaction is less than three seconds. It's likely, however, that 
+although response times for specific transactions must conform to this 
+particular requirement, some transactions will take significantly 
+longer. If you don't make requirements as specific as possible, then 
+elements of your system are likely to be over-engineered, to comply with
+ architectural requirements that may not apply. Once again, the RUP is 
+helpful here. It provides three possible locations for architectural 
+requirements, which reflect three
+                different levels of specificity, as shown in Table 4. </p><h5 id="table4">Table 4. Levels of Specificity and RUP Locations for Architectural Requirements</h5><table class="ibm-data-table" summary="Levels of Specificity and RUP Locations for Architectural Requirements" cellpadding="0" cellspacing="0" border="0"><thead xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><th scope="col">Relates to</th><th scope="col">Example</th><th scope="col">Location in a RUP artifact</th></tr></thead><tbody xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><tr><th class="dw-no-background" scope="row">A particular event
+                                  flow within a use case (most specific)</th><td>If,
+ in the basic flow, the plane undercarriage fails to engage, then an 
+alarm will be sent to the central monitoring station in less than one 
+second.</td><td>"Flow of events" section in a use-case specification.</td></tr><tr><th class="dw-no-background" scope="row">An entire use
+                                   case</th><td>Any order that is processed must scale to support more than 10,000 items. </td><td>"Special requirements" section in a use-case specification.</td></tr><tr><th class="dw-no-background" scope="row">The entire system
+                                   (most general)</th><td>Due to the nature of our target markets, the system must be deployed in English, French, Chinese, and Arabic. </td><td>Supplementary specification.</td></tr></tbody></table><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-content" class="ibm-anchor-up-link">Back to top</a></p><h2 id="N102EB">Where to Go from Here </h2><p>
+ As we've seen, capturing architecturally significant requirements is 
+difficult and fraught with pitfalls. But help is available. Use a tried 
+and true classification scheme for architectural requirements and an 
+elicitation technique to ensure that these requirements are not 
+overlooked. Use the appendices in this article, which contain a <a href="http://www.ibm.com/developerworks/rational/library/4710.html">Sample Architectural Requirements Questionnaire</a>, and summaries of <a href="http://www.ibm.com/developerworks/rational/library/4707.html">architectural analysis mechanisms</a>, and <a href="http://www.ibm.com/developerworks/rational/library/4708.html">architectural requirements</a>. </p><p>
+ You can also take advantage of the best practices and workflow 
+capabilities built into the Rational Unified Process and Rational 
+RequisitePro. These tools are based on the experiences of many software 
+professionals just like yourself who have been down the same challenging
+ path, so using them will get you off to a great start and sustain you 
+on the journey, too. </p><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-content" class="ibm-anchor-up-link">Back to top</a></p><h2 id="N10304">Acknowledgments</h2><p>
+ I'd like to thank a number of my colleagues at Rational for reviewing 
+the content of this article and providing valuable feedback, including 
+Dave Brown, Maria Ericsson, Kelli Houston, Volker Kopetzky, and Wojtek 
+Kozaczynski. </p><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-content" class="ibm-anchor-up-link">Back to top</a></p><h2 id="N1030C">Appendices</h2><p><a href="http://www.ibm.com/developerworks/rational/library/4707.html">Appendix A: Analysis Mechanisms</a></p><p><a href="http://www.ibm.com/developerworks/rational/library/4708.html">Appendix B: Architectural Requirements</a></p><a id="footnotes"></a><p><a href="http://www.ibm.com/developerworks/rational/library/4710.html">Appendix C: Sample Architectural Requirements Questionnaire</a></p><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-content" class="ibm-anchor-up-link">Back to top</a></p><h2 id="N10324">Notes</h2><p><strong><sup>1</sup></strong> Much of the advice in this article can be applied to requirements gathering in general.</p><p><strong><sup>2</sup></strong> As presented in Robert Grady, <em>Practical Software Metrics for Project Management and Process Improvement</em>. Prentice-Hall, 1992.</p><p><strong><sup>3</sup></strong>
+ As every Trekkie knows, dilithium can work in conjunction with 
+deuterium to power both warp drives and weaponry. Unfortunately, it is 
+native only to planets heretofore unvisited by Earthlings. </p><!--CMA ID: 87670--><!--Site ID: 1--><!--XSLT stylesheet used to transform this file:
+        dw-document-html-7.0.xsl-->
+
+
+</div>
+</div>
+<!-- 1_1_COLUMN_END -->
+
+<!-- SPLIT_COLUMNS_BEGIN -->
+<div class="ibm-columns">
+
+<!-- 6_4_COLUMN_BEGIN -->
+<div class="ibm-col-6-4">
+
+
+
+<!-- INLINE_COMMENTS_BEGIN -->
+<h2 id="icomments" class="ibm-alternate-rule ibm-no-print">Comments</h2>
+    
+<div class="ibm-no-print" id="dw-icomments-container">	
+	<div id="threadShow"></div>
+</div>
+<!-- Sign in OVERLAY STARTS HERE -->
+    
+<!-- Sign in OVERLAY STARTS HERE -->
+<div class="ibm-common-overlay" id="signin_overlay">
+<div class="ibm-head">
+<p><a class="ibm-common-overlay-close" href="#" onclick="dwsi.siInst.clearForm();">Close [x]</a></p>
+</div>
+<div class="ibm-body">
+<div class="ibm-main">
+ <div class="ibm-title">
+<h2>developerWorks: Sign in</h2>
+<div id="ibm-overlay-error-signin" class="no-display"></div>
+</div>
+<div class="ibm-container ibm-alternate ibm-buttons-last">
+<div class="ibm-container-body">
+<p class="ibm-overlay-intro">Required fields are indicated with an asterisk (<span class="ibm-required">*</span>).</p> 
+<form class="ibm-column-form" id="sFormId" action="" method="post" name="sForm" onsubmit="return false;">
+<p><label for="ibmid">IBM ID:<span class="ibm-required">*</span></label><span><input name="ibm-id" id="ibmid" size="25" class="required" onkeypress="dwsi.siInst.handleEP(event,this.form);" type="text"><br><a onclick="window.location='/developerworks/dwwi/DWAuthRouter?m=reg&amp;d='+encodeURIComponent(location.protocol + '//' + location.hostname + location.pathname + '#icomments'); return false;" href="#" class="ibm-forward-link">Need an IBM ID?</a> <br><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/dwwi/jsp/WSHelp.jsp?lang=en_US">Forgot your IBM ID?</a></span>   
+</p> 
+<p><label for="password">Password:<span class="ibm-required">*</span></label><span><input name="password" id="password" size="25" value="" class="required" onkeypress="dwsi.siInst.handleEP(event,this.form);" type="password"><br><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=forgot&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(dwsi.siInst.getAuthUrl())+'%3Fm%3Dloginpage%26lang%3Den_US%26d%3D'+encodeURIComponent(location.href);})();">Forgot your password?</a><br><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=chpw&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(location.href);})();">Change your password</a></span></p> 
+<p class="dw-perm-box">
+	<span><input id="perm" name="perm_name" type="checkbox"><label for="perm"> Keep me signed in.</label></span>
+</p>
+<p>By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+<div class="ibm-buttons-row">
+   <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="Submit" onclick="dwsi.siInst.signin();return false;" type="submit"><span class="ibm-sep">&nbsp;</span>
+<input value="Cancel" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="dwsi.siInst.clearForm();ibmweb.overlay.hide('signin_overlay');return false;" type="button"></p>
+</div>
+</form>
+<div class="ibm-overlay-rule"><hr></div>
+<p>The first time you sign into developerWorks, a profile is created for you. <strong>Select
+ information in your profile (name, country/region, and company) is 
+displayed to the public and will accompany any content you post.</strong> You may update your IBM account at any time.</p>
+<div><p class="dw-c-overlay-secure">All information submitted is secure.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Display name OVERLAY STARTS HERE -->
+<div class="ibm-common-overlay" id="displayname_overlay">
+<div class="ibm-head">
+<p><a class="ibm-common-overlay-close" href="#" onclick="dwsi.siInst.clearForm();">Close [x]</a></p>
+</div>
+<div class="ibm-body">
+<div class="ibm-main">
+<div class="ibm-title">
+<h2>Choose your display name</h2><br><br>
+<div id="ibm-overlay-error-dname" class="no-display"></div>
+</div>
+<div class="ibm-container ibm-alternate ibm-buttons-last">
+<div class="ibm-container-body">
+<p class="ibm-overlay-intro">The first time you sign in to 
+developerWorks, a profile is created for you, so you need to choose a 
+display name.  Your display name accompanies the content you post on 
+developerWorks.</p>
+<p><strong>Please choose a display name between 3-31 characters</strong>. Your display name must be unique in the developerWorks community and should not be your email address for privacy reasons.</p>
+<p class="ibm-overlay-intro">Required fields are indicated with an asterisk (<span class="ibm-required">*</span>).</p> 
+<form id="dFormId" method="post" action="" name="dForm" onsubmit="return false;" class="ibm-column-form">
+<p><label for="displayname">Display name:<span class="ibm-required">*</span></label><span><input name="displayname" id="displayname" size="25" onkeypress="dwsi.siInst.handleEP(event,this.form);" type="text"></span><span class="ibm-form-note">(Must be between 3 – 31 characters.)</span>
+</p>
+<p>By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+<div class="ibm-buttons-row">
+   <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="Submit" onclick="dwsi.siInst.signin();return false;" type="submit"><span class="ibm-sep">&nbsp;</span>
+<input value="Cancel" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="dwsi.siInst.clearForm();ibmweb.overlay.hide('displayname_overlay');return false;" type="button"></p>
+</div>
+</form>
+<div class="ibm-overlay-rule"><hr></div>
+<div><p class="dw-c-overlay-secure">All information submitted is secure.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+
+
+<!-- INLINE_COMMENTS_END -->
+
+</div>
+<!-- 6_4_COLUMN_END -->
+
+<!-- 6_2_COLUMN_BEGIN -->
+<div class="ibm-col-6-2">
+
+<!-- Next_Steps -->
+<!-- Dig_Deeper -->
+
+<!-- DIG_DEEPER_START -->
+<h2 class="ibm-rule">Dig deeper into Rational software on developerWorks</h2>
+<ul class="ibm-link-list">
+	<li class="ibm-first"><a href="http://www.ibm.com/developerworks/rational/" class="ibm-forward-link">Overview</a></li>
+	<li><a href="http://www.ibm.com/developerworks/rational/slmoverview.html" class="ibm-forward-link">Lifecycle management</a></li>
+	<li><a href="http://www.ibm.com/developerworks/rational/pasdoverview.html" class="ibm-forward-link">Product and systems development</a></li>
+	<li><a href="http://www.ibm.com/developerworks/rational/bsmoverview.html" class="ibm-forward-link">Business systems modernization</a></li>
+	<li><a href="http://www.ibm.com/developerworks/rational/library/" class="ibm-forward-link">Technical library (articles and more)</a></li>
+	<li><a href="https://www.ibm.com/developerworks/community/forums/html/category?id=33333333-0000-0000-0000-000000000024" class="ibm-forward-link">Forums</a></li>
+	<li><a href="http://www.ibm.com/developerworks/rational/community.html" class="ibm-forward-link">Communities</a></li>
+</ul>
+<!-- DIG_DEEPER_END -->
+<!-- Promotion_Module -->
+    
+<!-- PROMOTION_MODULE_START -->
+<div class="ibm-alternate-rule"><hr></div>
+<ul class="ibm-portrait-module-list">
+
+<li><a role="presentation" tabindex="-1" class="" href="https://www.ibmdw.net/bluemix/"><img src="Capturing%20Architectural%20Requirements_files/sm-f-bluemixdev60.png" alt="" height="60" width="60"></a>
+<h3><a class="ibm-feature-link" href="https://www.ibmdw.net/bluemix/">BlueMix Developers Community</a></h3>
+<p>Get samples, articles, product docs, and community resources to help build, deploy, and manage your cloud apps.</p>
+</li>  
+<!-- <li><img height="60" width="60" src="//www.ibm.com/developerworks/i/sm-f-dwnewsletters60.png" alt=""/>
+<h3><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/newsletter/index.html">developerWorks newsletters</a></h3>
+<p>Read and subscribe for the best and latest technical info to help you deal with your development challenges.</p></li> -->
+<li><a role="presentation" tabindex="-1" class="" href="http://www.ibm.com/developerworks/labs/?ca=dti-tiles-labs"><img src="Capturing%20Architectural%20Requirements_files/sm-f-dwlabs60.html" alt="" height="60" width="60"></a>
+<h3><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/labs/?ca=dti-tiles-labs">developerWorks Labs</a></h3>
+<p>Experiment with new directions in software development.</p></li>      
+<li><a role="presentation" tabindex="-1" class="" href="https://hub.jazz.net/?utm_source=developerWorks&amp;utm_medium=ad&amp;utm_campaign=dW+tiny+ad"><img src="Capturing%20Architectural%20Requirements_files/sm-f-jazzhub2.html" alt="" height="60" width="60"></a>
+<h3><a class="ibm-feature-link" href="https://hub.jazz.net/?utm_source=developerWorks&amp;utm_medium=ad&amp;utm_campaign=dW+tiny+ad">JazzHub</a></h3>
+<p>Software development in the cloud.  Register today to create a project.</p></li>
+<li><a role="presentation" tabindex="-1" class="" href="http://www.ibm.com/developerworks/downloads/?ca=dti-tiles-evaluate"><img src="Capturing%20Architectural%20Requirements_files/sm-f-evaluationsoftware60.html" alt="" height="60" width="60"></a>
+<h3><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/downloads/?ca=dti-tiles-evaluate">IBM evaluation software</a></h3>
+<p>Evaluate IBM software and solutions, and transform challenges into opportunities.</p></li>
+</ul>
+<!-- PROMOTION_MODULE_END -->
+</div>
+<!-- 6_2_COLUMN_END -->
+
+</div>
+<!-- SPLIT_COLUMNS_END -->
+
+<!-- BOTTOM_BACK_TO_TOP -->
+<div class="ibm-columns">
+<div class="ibm-col-1-1">
+	<div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-content" class="ibm-anchor-up-link">Back to top</a></p>
+</div>
+</div>
+
+<!-- Rating_Meta_BEGIN -->
+<!--Rating_Meta_BEGIN--><div class="metavalue">static.content.url=http://www.ibm.com/developerworks/js/artrating/</div><div class="metavalue">SITE_ID=1</div><div class="metavalue">Zone=Rational</div><div class="metavalue">ArticleID=87670</div><div class="metavalue">ArticleTitle=Capturing Architectural Requirements</div><div class="metavalue">publish-date=11152005</div><script language="javascript" type="text/javascript">document.write('<div class="metavalue">url='+location.href.replace(/</g,  '%3C')+'</div>');</script><div class="metavalue">url=http://webcache.googleusercontent.com/search?q=cache:62-x8ptbbnAJ:www.ibm.com/developerworks/rational/library/4706.html+&amp;cd=1&amp;hl=hu&amp;ct=clnk</div><!--Rating_Meta_END-->
+<!-- Rating_Meta_END -->
+
+</div>
+<!-- END_IBM_CONTENT_MAIN -->
+
+</div>
+<!-- END_IBM_CONTENT_BODY -->
+
+</div>
+<!-- END_IBM_CONTENT -->
+
+</div>
+<!-- END_IBM_PCON -->
+<!-- FOOTER_BEGIN -->
+<div id="ibm-footer"><!-- IBM footer container; disabled --></div>
+
+<div id="ibm-footer-module-dwwrapper" role="contentinfo" aria-label="developerWorks Footer">
+
+<div id="ibm-footer-module-dw">
+	<div class="dw-footer-columns">
+		<div class="dw-footer-col-5-1">
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/aboutdw/">About</a></li>
+				<li><a href="https://www.ibm.com/developerworks/feedback">Help</a></li>
+				<li><a href="http://www.ibm.com/developerworks/aboutdw/contacts.html">Contact us</a></li>
+				<li><a href="https://www.ibm.com/developerworks/ideas">Submit content</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-5-2">
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/feeds/">Feeds</a></li>
+				<li><a class="ibm-twitter-link" href="http://twitter.com/developerWorks" target="_blank">Follow</a></li>
+				<li><a class="ibm-facebook-link" href="http://www.facebook.com/developerworks" target="_blank">Like</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-5-3">
+			<ul>
+				<li><a href="https://www.ibm.com/developerworks/community/report/">Report abuse</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/terms/use/">Terms of use</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/terms/thirdparty/">Third party notice</a></li>
+				<li><a href="http://www.ibm.com/privacy/">IBM privacy</a></li>
+				<li><a href="http://www.ibm.com/accessibility/">IBM accessibility</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-5-4">
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/university/academicinitiative/">Faculty</a></li>
+				<li><a href="http://www.ibm.com/developerworks/university/students/">Students</a></li>
+				<li><a href="http://www.ibm.com/isv/">Business Partners</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-5-5">
+			<img src="Capturing%20Architectural%20Requirements_files/dwn-ibm-logo-v17.png" alt="IBM®" height="46" width="223">
+			<img class="dw-preload" src="Capturing%20Architectural%20Requirements_files/ibm_sprite_social_blue_ON.png" alt="" height="1" width="1">
+			<img class="dw-preload" src="Capturing%20Architectural%20Requirements_files/arrow-down-active.gif" alt="" height="1" width="1">			
+		</div>
+	</div>
+	<!-- Language selector no-script -->
+	<noscript>
+	<div id="dw-footer-selectlang">
+		<h2><a name="SELECTLANG">Select a language:</a></h2>
+		<ul>
+			<li><a href="http://www.ibm.com/developerworks/">English</a></li>
+			<li><a href="http://www.ibm.com/developerworks/cn/" lang="zh">中文</a></li>
+			<li><a href="http://www.ibm.com/developerworks/jp/" lang="ja">日本語</a></li>
+			<li><a href="http://www.ibm.com/developerworks/ru/" lang="ru">Русский</a></li>
+			<li><a href="http://www.ibm.com/developerworks/br/" lang="pt">Português (Brasil)</a></li>
+			<li><a href="http://www.ibm.com/developerworks/ssa/" lang="es">Español</a></li>
+			<li><a href="http://www.ibm.com/developerworks/vn/" lang="vi">Việt</a></li>
+		</ul>
+	</div>
+	</noscript>
+</div>
+
+</div><!-- FOOTER_END -->
+
+<!-- END_IBM-TOP -->
+</div>
+
+<!-- SCRIPTS_INCLUDE_BEGIN -->
+<script type="text/javascript" src="Capturing%20Architectural%20Requirements_files/dw-comments.html">//</script>
+<script type="text/javascript" language="JavaScript">
+		dojo.ready(function(){
+		rBHash = null;
+		rBHash = new Object();
+		rBHash['viperLang'] = 'en';
+		rBHash['urlLang'] = 'en';
+		
+		dwsi.siInst = new dwweb.dynnav.dwsi();
+		dwsi.siInst.initSI();		
+
+		// construct the comment widget
+		dwc && new dwc.comments('threadShow','95%',5,'nCmts','icomments');
+		});
+</script>
+
+<script type="text/javascript" src="Capturing%20Architectural%20Requirements_files/dw-event-tagging.html">//</script>
+<!-- BEGIN: Use this section to set page specific variables for the Unica Page Tag -->
+<script language="JavaScript">var NTPT_PGEXTRA="ibmSkillLevel=1&ibmAdoptPhase=667&ibmRole=31&ibmCmaId=87670&ibmContentAreas=rational";</script>
+<!--END --><!-- SCRIPTS_INCLUDE_END -->
+
+<div id="ibm-metrics">
+<script src="Capturing%20Architectural%20Requirements_files/stats.js" type="text/javascript">//</script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></body></html>

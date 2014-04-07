@@ -1,0 +1,98 @@
+\documentclass[a4paper, 10pt, oneside, draft]{article}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{usecases}
+
+\begin{document}
+
+%BEGIN:Input elem hozzáadása
+\begin{usecase}
+
+\addtitle{Használati eset:}{Input elem hozzáadása} 
+\addfield{Szint:}{Input}
+\addfield{Elsődleges aktor:}{Felhasználó}
+\additemizedfield{Szereplők és érdekeik:}{
+	\item Felhasználó: Egy input elemet hozzáadjon a felhasználó a feldolgozási sorhoz.
+}
+
+\additemizedfield{Elő feltételek:}{
+	\item A rendszer álljon készen az input beolvasására: létezzen input lista, és ne legyen folyamatban feldolgozás.
+} 
+
+
+\additemizedfield{Sikeres végrehajtás (utófeltételek):}{
+	\item Az input listához az új elem hozzáadásra került.
+	\item A rendszer kezdeményezi a kibővített inputlista megjelenítését
+}
+
+\addscenario{Fő (sikeres) szcenárió:}{
+	\item A felhasználó jelzi szándékát, hogy bővíteni kívánja az input listát egy új elemmel.
+	\item A felhasználó kiválasztja az új input elemnek szánt adatforrást.
+	\item A rendszer azonosítja az adatforrás formátumát.
+	\item A rendszer beolvassa az adatsort az adatforrásból.
+	\item A rendszer létrehozza az új input elemet és hozzáfűzi az inputlistához.
+}
+
+\addscenario{Alternatív szcenáriók:}{
+	\item[3.a] Nem sikerült hozzáférni az adatforráshoz: nincs jogosultság
+		\begin{enumerate}
+		\item[1.] A rendszer hibaüzenetet küld a felhasználónak, a sikertelen műveletről.
+		\end{enumerate}
+		
+	\item[3.b] Nem sikerült azonosítani az adatforrás formátumát
+		\begin{enumerate}
+		\item[1.] A rendszer hibaüzenetet küld a felhasználónak, a sikertelen műveletről.
+		\end{enumerate}
+		
+		
+	\item[3.c] Nem támogatott adatforrás formátum
+		\begin{enumerate}
+		\item[1.] A rendszer hibaüzenetet küld a felhasználónak, a sikertelen műveletről.
+		\end{enumerate}
+				
+}
+
+\end{usecase}
+
+%BEGIN: Input elem megjelenítése
+\begin{usecase}
+
+\addtitle{Használati eset:}{Input elem megjelenítése} 
+\addfield{Szint:}{Input}
+\addfield{Elsődleges aktor:}{Rendszer}
+\additemizedfield{Szereplők és érdekeik:}{
+	\item Rendszer: megjeleníti a 
+}
+
+\additemizedfield{Elő feltételek:}{
+	\item A BIMG legyen betöltve
+} 
+
+\additemizedfield{Sikeres végrehajtás (utófeltételek):}{
+	\item NINCS
+}
+
+\addscenario{Fő (sikeres) szcenárió:}{
+	\item The first action
+	\item The second action
+}
+
+\addscenario{Alternatív szcenáriók:}{
+	\item[2.a] Invalid login data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\item[2.] User returns to step 1
+		\end{enumerate}
+	\item[5.a] Invalid subsriber data:
+		\begin{enumerate}
+		\item[1.] System shows failure message
+		\item[2.] User returns to step 2 and corrects the errors
+		\end{enumerate}
+}
+
+\end{usecase}
+
+\end{document}
+

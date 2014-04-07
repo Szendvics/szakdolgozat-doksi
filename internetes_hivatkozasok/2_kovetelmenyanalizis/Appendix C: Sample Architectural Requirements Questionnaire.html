@@ -1,0 +1,1313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- base href="http://www.ibm.com/developerworks/rational/library/4710.html" --><script charset="UTF-8" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/usen-utf8.js" type="text/javascript" id="mhMenu"></script><script charset="UTF-8" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/Controller" type="text/javascript" id="wiBundle"></script></head><body id="ibm-com"><div style="background:#fff;border:1px solid #999;margin:-1px -1px 0;padding:0;"><div style="background:#ddd;border:1px solid #999;color:#000;font:13px arial,sans-serif;font-weight:normal;margin:12px;padding:8px;text-align:left">Ez a(z) <a href="http://www.ibm.com/developerworks/rational/library/4710.html" style="text-decoration:underline;color:#00c">http://www.ibm.com/developerworks/rational/library/4710.html</a>
+ Google által tárolt változata. Ez egy pillanatfelvétel, ahogyan az 
+oldal megjelent a következő időpontban: 2014. ápr. 1. 03:32:54 GMT. Az <a href="http://www.ibm.com/developerworks/rational/library/4710.html" style="text-decoration:underline;color:#00c">aktuális oldal</a> azóta meg is változhatott. <a href="http://support.google.com/websearch/bin/answer.py?hl=hu&amp;p=cached&amp;answer=1687222" style="text-decoration:underline;color:#00c">További információ</a><br>Tipp: ha szeretné gyorsabban megtalálni a keresett kifejezést ezen az oldalon, nyomja le a <b>Ctrl+F</b> vagy (Mac számítógépen) a <b>⌘-F</b> billentyűkombinációt, majd használja a keresősávot.<br><br><div style="float:right"><a href="http://webcache.googleusercontent.com/search?q=cache:Nwp6qkwDUwMJ:www.ibm.com/developerworks/rational/library/4710.html&amp;hl=hu&amp;strip=1" style="text-decoration:underline;color:#00c">Szöveges változat</a></div>
+<div>&nbsp;</div></div></div><div style="position:relative">
+
+
+	
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Appendix C: Sample Architectural Requirements Questionnaire</title>
+<meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+<link rel="schema.DC" href="http://purl.org/DC/elements/1.0/">
+<link rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico">
+<meta name="Owner" content="developerWorks Content/Raleigh/IBM">
+<meta name="DC.Language" scheme="rfc1766" content="en">
+<meta name="IBM.Country" content="ZZ">
+<meta name="Security" content="Public">
+<meta name="IBM.SpecialPurpose" content="SP001">
+<meta name="IBM.PageAttributes" content="sid=1003,1004">
+<meta name="Source" content="v16 Template Generator">
+<meta name="Robots" content="index,follow">
+<meta name="Abstract" content="from The Rational Edge: Appendix C for the article 'Capturing Architectural Requirements,' at http://www-128.ibm.com/developerworks/rational/library/4706.html">
+<meta name="Description" content="from The Rational Edge: Appendix C for the article 'Capturing Architectural Requirements,' at http://www-128.ibm.com/developerworks/rational/library/4706.html">
+<meta name="Keywords" content="software requirements, architecturally significant requirements, architecture, architectural requirement, FURPS, dddrca">
+<meta name="DC.Date" scheme="iso8601" content="2004-04-30">
+<meta name="DC.Type" scheme="IBM_ContentClassTaxonomy" content="CT316">
+<meta name="DC.Subject" scheme="IBM_SubjectTaxonomy" content="BA.007D">
+<meta scheme="IBM_WTMCategory" name="IBM.WTMCategory" content="SOFDCRATZZ">
+<meta name="DC.Rights" content="© Copyright&nbsp;IBM Corporation&nbsp;2004">
+<meta name="IBM.Effective" scheme="W3CDTF" content="2004-04-30">
+<meta name="title" content="Appendix C: Sample Architectural Requirements Questionnaire">
+
+<!-- HEADER_SCRIPTS_AND_CSS_INCLUDE -->
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/all.css" media="all" rel="stylesheet" title="www" type="text/css">
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/screen-uas.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/screen-fonts.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/handheld.css" media="handheld" rel="stylesheet" title="www" type="text/css">
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/print.css" media="print" rel="stylesheet" title="www" type="text/css">
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/overlay.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<!-- dW-specific CSS -->
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/dw-screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/dw-screen-comments-ratings-signin.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/jquery.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<!-- xM Masthead/Footer -->
+<link href="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/dw-mf2013-N.css" rel="stylesheet" title="www" type="text/css">
+<script src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/ibmcommon.js" type="text/javascript">//</script>
+<script src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/dynamicnav.js" type="text/javascript">//</script>
+<!-- dW functional JS -->
+<script language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/urltactic.js" type="text/javascript"></script>
+<!-- Rating_START -->
+<script language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/showrating.js" type="text/javascript"></script>
+<style type="text/css">
+.metavalue {
+  display: none;
+}
+</style>
+<!-- Rating_END --><!-- RESERVED_HEADER_INCLUDE -->
+<script language="javascript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/ajax1.js" type="text/javascript"></script>
+<script language="javascript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/search_counter-maverick.js" type="text/javascript"></script>
+<script language="javascript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/request_referer_capture-maverick.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+ <!--
+ setDefaultQuery('');
+ //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+ <!--
+ function openNewWindow(url,tar,arg){window.open(url,tar,arg);}
+ //-->
+</script>
+<!-- Include file support -->
+<script language="JavaScript" type="text/javascript">
+(function($) {
+	jQuery.extend({
+		getInc: function(u,d){
+			if(u==null)return;
+			jQuery.ajax({
+	    		type: "GET",
+			url: u,
+			dataType: "text",
+	        	success: function(t) {
+				jQuery(d).html(t);
+				ibmCommon.initShowHide(jQuery(d).children()[0]);			
+			},
+			async: true
+			});
+		}
+	});
+})(jQuery);
+</script>
+
+
+
+<div id="ibm-top" class="ibm-landing-page">
+
+<!-- MASTHEAD_BEGIN -->
+<!-- MASTHEAD_BEGIN -->
+<div class="ibm-access"><a href="#ibm-content">Skip to main content</a></div>
+<div id="ibm-masthead-dw">
+  
+    <!-- TOP ROW -->    
+    <div id="dw-masthead-top-row">
+        <ul id="ibm-mast-options-dw">
+			<li id="dw-mast-top-4">
+				<a href="http://www.ibm.com/developerworks/"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/dwn-dw-badge.png" alt="dW" aria-label="dW" height="22" width="43"></a>
+			</li>
+		    <li id="dw-mast-top-0" class="navtab">
+				<a class="" href="http://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=loginpage&amp;lang=en&amp;d=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3ANwp6qkwDUwMJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4710.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk" title="">Sign in (or register)</a>
+			</li>
+		    <li id="dw-mast-top-1" class="navtab">
+				<a href="#SELECTLANG">English</a>
+			</li>
+			<li id="dw-mast-top-2" class="navtab dw-mf-hide">
+				<a href="#">[userid]</a>
+			</li>
+			<li id="dw-mast-top-3" class="navtab">
+				<a href="#">IBM</a>
+			</li>
+		</ul>
+	</div>
+    
+    <!-- TOP ROW SLIDER -->
+    <div id="ibm-my-menu-dw">    
+        <div class="ibm-ribbon-pane-dw">
+            <div class="ibm-ribbon-section-dw">
+                <!-- Sign-in -->
+				<div class="dw-mast-columns">                
+					<div class="dw-mast-col-1-1">
+						<div id="dw-mast-sso">
+							<div id="signin_error_mf" class="no-display"></div>
+							<div id="dw-mast-sso-form">
+								<form id="sForm_mf" action="" method="post" name="sForm_name_mf" onsubmit="return false;">
+									<div id="dw-mast-sso-id" class="dw-mast-sso-id-en">
+										<label for="ibmid_mf">IBM ID:</label>
+										<input class="" id="ibmid_mf" name="ibmid_name_mf" maxlength="100" onkeypress="handleEP(event,this.form,'mf');" type="text">
+									</div>
+									<div id="dw-mast-sso-pw" class="dw-mast-sso-pw-en">
+										<label for="pw_mf">Password:</label>
+										<input class="" id="pw_mf" value="" name="pw_name_mf" maxlength="100" onkeypress="handleEP(event,this.form,'mf');" type="password">
+									</div>
+									<div id="dw-mast-sso-target" class="dw-mast-sso-target-en">
+										<p class="dw-mf-perm-box">
+											<input id="perm_mf" name="perm_name_mf" type="checkbox"><label for="perm_mf"> Keep me signed in.</label>
+										</p>
+									</div>					
+									<div id="dw-mast-sso-terms">
+										<p class="dw-mast-sso-terms-en">By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+									</div>
+									<div>
+										<input class="dw-mf-submit-btn" name="ibm_submit_name_mf" value="Submit" onclick="signin('mf');return false;" type="submit">
+									</div>
+								</form>
+							</div>
+							<div id="dw-mast-sso-update">
+								<div id="dw-mast-sso-update-id">
+									<ul>
+										<li><a class="ibm-forward-link" href="#" onclick="(function () {window.location='/developerworks/dwwi/DWAuthRouter?m=reg&amp;lang=en&amp;d='+encodeURIComponent(location.href);})();">Need an IBM ID?</a></li>
+										<li><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/dwwi/jsp/WSHelp.jsp?lang=en_US">Forgot your IBM ID?</a></li>
+									</ul>
+								</div>
+								<div id="dw-mast-sso-update-pw">
+									<ul class="dw-mf-pwupdate">
+										<li><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=forgot&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(getAuthUrl())+'%3Fm%3Dloginpage%26lang%3Den_US%26d%3D'+encodeURIComponent(location.href);})();">Forgot your password?</a></li>
+										<li><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=chpw&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(location.href);})();">Change your password</a></li>
+									</ul>
+								</div>
+							</div>
+							<div id="dw-mast-sso-text">
+						<p>The first time you sign into developerWorks, a profile is created for you.  <strong>Select
+ information in your profile (name, country/region, and company) is 
+displayed to the public and will accompany any content you post</strong>.  You may update your IBM account at any time.</p>
+								<p class="dw-mf-secure">All information submitted is secure.</p>
+							</div>
+							<div class="dw-mast-close">
+								<ul>
+									<li><div class="dw-mast-close-sign"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+								</ul>
+							</div>							
+						</div>                    
+						<div id="dw-mast-dname" class="dw-mf-hide">
+							<p>The first time you sign in to developerWorks, a profile is 
+created for you, so you need to choose a display name.  Your display 
+name accompanies the content you post on developerworks.</p><p><strong>Please choose a display name between 3-31 characters</strong>.  Your display name must be unique in the developerWorks community and should not be your email address for privacy reasons.</p>
+							<div id="signin_dname_error_mf" class="no-display"></div>
+							<div id="dw-mast-dname-form">
+								<form id="dForm_mf" action="" method="post" name="dForm_name_mf" onsubmit="return false;">
+									<div id="dw-mast-dname-mf">
+										<label for="dname_mf">Display name:</label>
+										<input id="dname_mf" name="dname_name_mf" maxlength="31" size="25" onkeypress="handleEP(event,this.form,'mf');" type="text">
+									</div>
+									<div id="dw-mast-dname-terms">
+										<p>By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+									</div>
+									<div>
+										<input class="dw-mf-submit-btn" name="dname_submit_name_mf" value="Submit" onclick="signin('mf');return false;" type="submit">
+									</div>
+								</form>								
+							</div>
+							<div id="dw-mast-dname-secure">
+								<p class="dw-mf-secure">All information submitted is secure.</p>
+							</div>
+							<div class="dw-mast-close">
+								<ul>
+									<li><div class="dw-mast-close-sign"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+								</ul>
+							</div>							
+						</div>
+						<div id="dw-mast-auth" class="dw-mf-hide">
+							<div>
+								<h2>developerWorks Community:</h2>
+								<ul>
+									<li><a id="dw-mast-top-0-0" href="http://www.ibm.com/developerworks/community/homepage/web/updates/?lang=en">My home</a></li>
+									<li><a href="http://www.ibm.com/developerworks/community/profiles/html/myProfileView.do?lang=en">My profile</a></li>
+									<li><a href="http://www.ibm.com/developerworks/community/groups/service/html/mycommunities?lang=en">My communities</a></li>
+									<li><a href="http://www.ibm.com/developerworks/community/news">Settings</a></li>
+								</ul>     
+							</div>
+							<div class="dw-mast-more">
+								<ul class="ibm-link-list">
+									<li><a class="dw-more-link" href="#" onclick="signOut(); return false;"><strong>Sign out</strong></a></li>
+								</ul>
+							</div>		
+							<div class="dw-mast-close">
+								<ul>
+									<li><div class="dw-mast-close-sign"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+								</ul>
+							</div>							
+						</div>						
+					</div>                   
+                </div>
+                <!-- Language selector --> 
+				<div class="dw-mast-columns">
+					<div class="dw-mast-col-2-1">
+						<h2>Select a language:</h2>
+						<ul>
+							<li><a id="dw-mast-top-1-0" href="http://www.ibm.com/developerworks/">English</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/">中文</a></li>
+							<li><a href="http://www.ibm.com/developerworks/jp/">日本語</a></li>
+							<li><a href="http://www.ibm.com/developerworks/ru/">Русский</a></li>
+						</ul>
+					</div>
+					<div class="dw-mast-col-2-2">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/br/">Português (Brasil)</a></li>
+							<li><a href="http://www.ibm.com/developerworks/ssa/">Español</a></li>
+							<li><a href="http://www.ibm.com/developerworks/vn/">Việt</a></li>
+						</ul>
+					</div>
+					<div class="dw-mast-close">
+						<ul>
+							<li><div class="dw-mast-close-lang"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+						</ul>
+                    </div>
+                </div>                
+                <div class="dw-mast-columns"><!-- Authenticated --></div>
+                <!-- IBM -->
+				<div class="dw-mast-columns">
+					<div class="dw-mast-col-2-1">
+						<ul>
+							<li><a id="dw-mast-top-3-0" href="http://www.ibm.com/">IBM home</a></li>
+							<li><a href="http://www.ibm.com/solutions/">Industries &amp; solutions</a></li>
+							<li><a href="http://www.ibm.com/technologyservices/">Services</a></li>
+							<li><a href="http://www.ibm.com/products/">Products</a></li>
+							<li><a href="http://www.ibm.com/support/">Support &amp; downloads</a></li>
+						</ul>
+					</div>
+					<div class="dw-mast-col-2-2 dw-mast-ibm">
+						<ul>
+							<li><a href="http://www.ibm.com/support/publications/us/library/index.shtml">Product information</a></li>
+							<li><a href="http://www.ibm.com/redbooks/">Redbooks</a></li>
+							<li><a href="http://www.ibm.com/software/">Software</a></li>
+							<li><a href="http://www.ibm.com/software/sw-services/">Software services</a></li>
+						</ul>
+					</div>
+					<div class="dw-mast-close">
+						<ul>
+							<li><div class="dw-mast-close-ibm"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+						</ul>
+                    </div>
+				</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div id="ibm-universal-nav-dw">
+        <ul id="ibm-unav-links-dw">
+            <li id="ibm-unav-home-dwlogo">
+				<a href="http://www.ibm.com/developerworks/"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/dwn-dw-wordmark.png" alt="developerWorks®" height="28" width="225"></a>
+            </li>
+        </ul>
+        <ul id="ibm-menu-links-dw">
+            <li id="dw-mast-nav-0"><a href="http://www.ibm.com/developerworks/topics/">Technical topics</a></li>
+            <li id="dw-mast-nav-1"><a href="http://www.ibm.com/developerworks/downloads/">Evaluation software</a></li>
+            <li id="dw-mast-nav-2"><a href="http://www.ibm.com/developerworks/community/index.html">Community</a></li>
+            <li id="dw-mast-nav-3"><a href="http://www.ibm.com/developerworks/events/">Events</a></li>
+        </ul>
+			<form id="ibm-search-form-dw" action="//www.ibm.com/search/csass/search/" method="get" name="form1">
+				<p>
+				<label for="q"><span class="ibm-access">Search developerWorks</span></label>
+				<input id="q" name="q" value="Search developerWorks" maxlength="100" type="text">
+				<input name="sn" value="dw" type="hidden">
+				<input name="lang" value="en" type="hidden">
+				<input name="cc" value="US" type="hidden">
+				<input name="en" value="utf" type="hidden">
+				<input name="hpp" value="20" type="hidden">
+				<input name="dws" value="dw" type="hidden">
+				<input id="ibm-search-dw" class="ibm-btn-search-dw" value="Search" type="submit">
+				</p>
+			</form>
+    </div>
+    
+    <!-- BOTTOM ROW SLIDER -->
+    <div id="ibm-common-menu-dw">
+        <div class="ibm-ribbon-pane-dw dw-ribbon-pane-en">
+            <div class="ibm-ribbon-section-dw">
+				<!-- Technical topics category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-5-1">
+						<h2><a id="dw-mast-nav-0-0" href="http://www.ibm.com/developerworks/topics/">Technical topics</a></h2>
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/aix/">AIX and UNIX</a></li>
+							<li><a href="http://www.ibm.com/developerworks/bigdata/">Big data</a></li>
+							<li><a href="http://www.ibm.com/developerworks/analytics/">Business analytics</a></li>
+							<li><a href="http://www.ibm.com/developerworks/bpm/">Business process management</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cloud/">Cloud computing</a></li>
+						</ul>     
+                    </div>
+					<div class="dw-mast-col-5-2">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/commerce/">Commerce</a></li>
+							<li><a href="http://www.ibm.com/developerworks/devops/">DevOps</a></li>
+							<li><a href="http://www.ibm.com/developerworks/ibmi/">IBM i</a></li>    
+							<li><a href="http://www.ibm.com/developerworks/data/">Information management</a></li>
+							<li><a href="http://www.ibm.com/developerworks/java/">Java technology</a></li>
+						</ul>
+                    </div>
+					<div class="dw-mast-col-5-3">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/linux/">Linux</a></li>
+							<li><a href="http://www.ibm.com/developerworks/lotus/">Lotus (collaboration)</a></li>
+							<li><a href="http://www.ibm.com/developerworks/mobile/">Mobile development</a></li>
+							<li><a href="http://www.ibm.com/developerworks/opensource/">Open source</a></li>
+							<li><a href="http://www.ibm.com/developerworks/rational/">Rational</a></li>
+						</ul>     
+                    </div>
+                    <div class="dw-mast-col-5-4">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/security/">Security</a></li>
+							<li><a href="http://www.ibm.com/developerworks/servicemanagement/">Tivoli (service management)</a></li>
+							<li><a href="http://www.ibm.com/developerworks/web/">Web development</a></li>
+							<li><a href="http://www.ibm.com/developerworks/websphere/">WebSphere</a></li>
+						</ul> 
+                    </div>
+                    <div class="dw-mast-col-5-5">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/library/"><strong>Technical library</strong></a></li>
+							<li><a href="http://www.ibm.com/developerworks/products/"><strong>Products A to Z</strong></a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><div class="dw-mast-close-tech"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+						</ul>
+                    </div>
+				</div>
+				<!-- Evaluation software category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-2-1">	
+						<h2><a id="dw-mast-nav-1-0" href="http://www.ibm.com/developerworks/downloads/">Evaluation software</a></h2>
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/downloads/#bd">Big data</a></li>
+							<li><a href="http://www.ibm.com/developerworks/downloads/#ba">Business analytics</a></li>
+							<li><a href="http://www.ibm.com/developerworks/downloads/#data">Information management</a></li>
+							<li><a href="http://www.ibm.com/developerworks/downloads/#lotus">Lotus (collaboration)</a></li>
+							<li><a href="http://www.ibm.com/developerworks/downloads/#rational">Rational</a></li>
+						</ul>            
+                    </div>
+					<div class="dw-mast-col-2-2">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/downloads/#security">Security</a></li>
+							<li><a href="http://www.ibm.com/developerworks/downloads/#tivoli">Tivoli (service management)</a></li>
+							<li><a href="http://www.ibm.com/developerworks/downloads/#websphere">WebSphere</a></li>
+							<li><a href="http://www.ibm.com/developerworks/downloads/#more">More IBM products (Mobile, PureSystems...)</a></li>
+						</ul>            
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><div class="dw-mast-close-eval-en"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+						</ul>
+                    </div>
+				</div>
+				<!-- Community category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-3-1">
+						<h2><a id="dw-mast-nav-2-0" href="http://www.ibm.com/developerworks/community/index.html">Community</a></h2>
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/community/homepage/?lang=en">My home</a></li>
+							<li><a href="http://www.ibm.com/developerworks/community/profiles/?lang=en">Profiles</a></li>
+							<li><a href="http://www.ibm.com/developerworks/community/groups/?lang=en">Communities</a></li>
+						</ul>     
+                    </div>
+					<div class="dw-mast-col-3-2">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/community/blogs/?lang=en">Blogs</a></li>
+							<li><a href="http://www.ibm.com/developerworks/community/forums/?lang=en">Forums</a></li>
+							<li><a href="http://www.ibm.com/developerworks/community/wikis?lang=en">Wikis</a></li>
+						</ul>
+                    </div>
+					<div class="dw-mast-col-3-3 dw-mast-col-3-3-en">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/community/activities/?lang=en">Activities</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/podcasts/?lang=en">Podcasts</a></li>    
+							<li><a href="http://www.ibm.com/developerworks/champion/">IBM Champion program</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><div class="dw-mast-close-comm"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+						</ul>
+                    </div>
+				</div>
+				<!-- Events category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-1-1">
+						<h2><a id="dw-mast-nav-3-0" href="http://www.ibm.com/developerworks/events/">Events</a></h2>
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/find/webcasts/">Webcasts</a></li>
+							<li><a href="http://www.ibm.com/developerworks/find/events/">Find events (webcasts, conferences...)</a></li>
+						</ul>            
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><div class="dw-mast-close-event"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+						</ul>
+                    </div>
+				</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div id="fdiv" class="ibm-access"></div>
+<!-- MASTHEAD_END --><!-- MASTHEAD_END -->
+
+<div id="ibm-pcon">
+
+<!-- CONTENT_BEGIN -->
+<div id="ibm-content">
+
+<!-- Navigation_Trail_BEGIN -->
+<!-- &nbsp; -->
+      <div id="ibm-content-head"><ul id="ibm-navigation-trail"><li class="ibm-first"><a href="http://www.ibm.com/developerworks/">developerWorks</a></li><li><a href="http://www.ibm.com/developerworks/rational/">Rational</a></li><li><a href="http://www.ibm.com/developerworks/views/rational/library.jsp">Technical library</a></li></ul></div>
+<!-- Navigation_Trail_END -->
+
+<!-- dW_Summary Area_START -->
+<div id="dw-summary-article">
+
+<div class="dw-content-head">
+<h1>Appendix C: Sample Architectural Requirements Questionnaire</h1><p>
+</p></div>
+
+<div class="ibm-container-body ibm-two-column">
+
+<div class="ibm-column ibm-first">
+<div class="author"><a class="dwauthor" rel="#authortip1" href="#author1">Peter Eeles</a>, Senior IT Architect, IBM, Software Group</div><div style="display: none;" id="authortip1" class="dwauthor-onload-state ibm-no-print"><div class="position"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/eeles.html" alt="Author Photo" height="80" width="64"></div><p>Peter
+ Eeles has over 15 years experience developing software solutions, and 
+has spent the majority of this time architecting and implementing 
+large-scale distributed systems, culminating in the writing of his first
+ book entitled <i>Building Business Objects</i> (John Wiley and Sons).  
+Peter works as a Process Consultant for IBM Rational (UK), and is the 
+Rational Architecture Practice representative for Northern Europe. In 
+his spare time, Peter enjoys bike racing and playing jazz guitar, 
+although not at the same time.</p>
+			</div>
+<p></p>
+<p><strong>Summary:</strong>&nbsp; from The Rational Edge: Appendix C 
+for the article "Capturing Architectural Requirements," at 
+http://www-128.ibm.com/developerworks/rational/library/4706.html</p>
+
+</div>
+
+<div class="ibm-column ibm-second">
+<p class="leading"><b>Date:</b>&nbsp; 30 Apr  2004
+<br><b>Level: </b>&nbsp;Introductory
+
+
+
+
+
+
+
+
+
+<br>
+<br><strong>Activity:</strong>&nbsp; 16951 views
+<br><strong>Comments:</strong> &nbsp; <span id="nCmts"><img alt="" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/circle-preloader.gif" height="12" width="50"><img alt="" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" height="14" width="1"></span>
+<!-- Rating_Area_Begin -->
+</p><div id="art-rating-summary"><a class="dw-view-comment" href="#iratings">Rate this article</a></div>
+<!-- Rating_Area_End -->
+<p></p>
+</div>
+
+</div>
+</div>
+<!-- dW_Summary_Area_END -->
+
+<!-- CONTENT_BODY -->
+<div id="ibm-content-body">
+
+<!-- MAIN_COLUMN_BEGIN -->
+<div id="ibm-content-main">
+
+<!-- Related_Searches_Area -->
+<!-- Related_Searches_Area_Begin -->
+<script type="text/javascript" language="javascript">
+	     capture_referrer();
+</script>
+
+<div id="dw-related-searches-article" style="display:none">
+<div class="ibm-container ibm-alternate-two">
+<div class="ibm-container-body">
+
+<!--  START : HTML FOR ARTICLE SEARCH -->
+  <div id="article_results" style="display:block"></div>
+<!--  END : HTML FOR ARTICLE SEARCH -->
+
+</div>
+</div>
+</div>
+<!-- Related_Searches_Area_End -->
+<!-- MAIN_COLUMN_CONTAINER_BEGIN -->
+<div class="ibm-container">
+
+<!-- MAIN_COLUMN_CONTENT_BEGIN -->
+<p>From "<a href="http://www.ibm.com/developerworks/rational/library/4706.html">Capturing Architectural Requirements</a>" </p>
+			<p>
+					This section contains a sample Architectural Requirements Questionnaire. The examples shown here exclude the <a href="http://www.ibm.com/developerworks/rational/library/4706.html#qa">answer and priority columns</a>, which are discussed in the main body of my article.
+				</p>
+			<p>
+					This questionnaire also groups together related items that were 
+previously categorized in separate sections. Consider all aspects of 
+auditing, for example. Auditing manifests itself as a functionality 
+requirement (Is audit capability required?), supportability requirement 
+(What level of auditing is needed?) and design requirement (Are there 
+any design constraints on the mechanism used to provide audit 
+capability?). Such requirements tend to be related to particular 
+analysis mechanisms and are therefore grouped together in the "Analysis 
+Mechanisms" section.
+				</p>
+			<br><a name="N10060"><b>Analysis Mechanisms</b></a><br>
+			<table class="ibm-data-table" cellpadding="1" cellspacing="0" border="0"><tbody><tr><td>
+						<table class="ibm-data-table" cellpadding="3" cellspacing="1" border="1"><tbody><tr><td bgcolor="#ffcc99">
+									<b>Requirement</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Questions</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Impact</b>
+								</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Auditing</b>
+									</p>
+									<p>Functionality</p>
+									<p>Supportability</p>
+									<p>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Is audit capability required?</p>
+									<p>What level of auditing is needed?</p>
+									<p>Are there any constraints on the mechanism used to provide audit capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the audit mechanism, the longer the time to market, 
+and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Authentication</b>
+									</p>
+									<p>Functionality</p>
+									<p>
+										<br>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Is there any requirement for authentication?</p>
+									<p>Are there any constraints on the mechanism used to provide authentication capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the authentication mechanism, the longer the time to 
+market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Communication</b>
+									</p>
+									<p>Functionality</p>
+									<p>
+										<br>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Will inter-process communication be required?</p>
+									<p>Are there any constraints on the mechanism used to provide communication capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the communication mechanism, the longer the time to 
+market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Error management</b>
+									</p>
+									<p>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<br>Are there any constraints on the mechanism used to provide error management capability?</td><td bgcolor="#FFFFFF" valign="top">The
+ greater the sophistication of the error management mechanism, the 
+longer the time to market, and the greater the long-term maintenance 
+cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Event management</b>
+									</p>
+									<p>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<br>Are there any constraints on the mechanism used to provide event management capability?</td><td bgcolor="#FFFFFF" valign="top">The
+ greater the sophistication of the event management mechanism, the 
+longer the time to market, and the greater the long-term maintenance 
+cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Licensing</b>
+									</p>
+									<p>Functionality</p>
+									<p>
+										<br>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Will the system, or parts of the system, be licensed?</p>
+									<p>Are there any constraints on the mechanism used to provide licensing capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the licensing mechanism, the longer the time to 
+market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Localization</b>
+									</p>
+									<p>Functionality</p>
+									<p>
+										<br>Supportability</p>
+									<p>
+										<br>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Does the system need to support multiple human languages?</p>
+									<p>Which human languages need to be supported?</p>
+									<p>Are there any constraints on the mechanism used to provide localization capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater 
+                        the sophistication of the localization mechanism, the 
+                        longer the time to market, and the greater the long-term 
+                        maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Online help</b>
+									</p>
+									<p>Functionality</p>
+									<p>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Will online help be required?</p>
+									<p>Are there any constraints on the mechanism used to provide online help?	</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the online help mechanism, the longer the time to 
+market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Persistence</b>
+									</p>
+									<p>Functionality</p>
+									<p>;</p>
+									<p>;</p>
+									<p>;</p>
+									<p>Design requirement	</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Will data manipulated by the system be written to disk? Are 
+both shared persistent data and user-specific persistent data required? <br>Will shared persistent data need to be made available to a "traveling" user who is working offline?</p>
+									<p>Are there any constraints on the mechanism used to provide persistence?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the persistence mechanism, the longer the time to 
+market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Printing</b>
+									</p>
+									<p>Functionality</p>
+									<p>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Is printing capability required?</p>
+									<p>Are there any constraints on the mechanism used to provide printing capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the printing mechanism, the longer the time to market,
+ and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Reporting</b>
+									</p>
+									<p>Functionality</p>
+									<p>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Is reporting capability required?</p>
+									<p>Are there any constraints on the mechanism used to provide reporting capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the reporting mechanism, the longer the time to 
+market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Scheduling</b>
+									</p>
+									<p>Functionality</p>
+									<p>
+										<br>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Will certain system actions need to be scheduled?</p>
+									<p>Are there any constraints on the mechanism used to provide scheduling capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the scheduling mechanism, the longer the time to 
+market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Security</b>
+									</p>
+									<p>Functionality</p>
+									<p>
+										<br>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Will elements of the system need to be secure?</p>
+									<p>Are there any constraints on the mechanism used to provide security capability?	</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the security mechanism, the longer the time to market,
+ and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Transaction management</b>
+									</p>
+									<p>Functionality</p>
+									<p>
+										<br>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<br>
+									<p>Will transactional capability be required?</p>
+									<p>Are there any constraints on the mechanism used to provide transactional capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the transaction management mechanism, the longer the 
+time to market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<p>
+										<b>Workflow</b>
+									</p>
+									<p>Functionality</p>
+									<p>
+										<br>Design requirement</p>
+								</td><td bgcolor="#FFFFFF" valign="top">
+									<p>;</p>
+									<p>Will movement of organizational units of work be required?</p>
+									<p>Are there any constraints on the mechanism used to provide workflow capability?</p>
+								</td><td bgcolor="#FFFFFF" valign="top">The greater the 
+sophistication of the workflow mechanism, the longer the time to market,
+ and the greater the long-term maintenance cost.</td></tr></tbody></table>
+					</td></tr></tbody></table>
+			<p><a name="N102FC"><span class="smalltitle">Functionality </span></a></p>
+			<p>All functional requirements are addressed in the "Analysis Mechanisms" section above.</p>
+			<br><a name="N10308"><b>Usability</b></a><br>
+			<table class="ibm-data-table" cellpadding="1" cellspacing="0" border="0"><tbody><tr><td>
+						<table class="ibm-data-table" cellpadding="3" cellspacing="1" border="1"><tbody><tr><td bgcolor="#ffcc99">
+									<b>Requirement</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Questions</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Impact</b>
+								</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Accessibility</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any special requirements that relate to the ease with which the system can be exercised (including by novice users)?</td><td bgcolor="#FFFFFF" valign="top">The greater the accessibility, the longer the time to market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Aesthetics</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any special requirements regarding the "look and feel" of the system?</td><td bgcolor="#FFFFFF" valign="top">The greater the aesthetic appeal, the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Consistency</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any special 
+requirements regarding the consistency of the user interface, both 
+within the system and with other systems?</td><td bgcolor="#FFFFFF" valign="top">The greater the level of consistency, the longer the time to market.</td></tr></tbody></table>
+					</td></tr></tbody></table>
+			<br><a name="N1037E"><b>Reliability</b></a><br>
+			<table class="ibm-data-table" cellpadding="1" cellspacing="0" border="0"><tbody><tr><td>
+						<table class="ibm-data-table" cellpadding="3" cellspacing="1" border="1"><tbody><tr><td bgcolor="#ffcc99">
+									<b>Requirement</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Questions</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Impact</b>
+								</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Accuracy</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there particular constraints on the accuracy of any calculations to be performed by the system?</td><td bgcolor="#FFFFFF" valign="top">The greater the level of accuracy, the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Availability</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any requirements regarding system "up time"? This may be specified in terms of Mean Time Between Failures.</td><td bgcolor="#FFFFFF" valign="top">The higher the availability, the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Recoverability</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any special requirements regarding recovery from a system failure?</td><td bgcolor="#FFFFFF" valign="top">The greater the level of recoverability, the longer the time to market.</td></tr></tbody></table>
+					</td></tr></tbody></table>
+			<br><a name="N103F4"><b>Performance</b></a><br>
+			<table class="ibm-data-table" cellpadding="1" cellspacing="0" border="0"><tbody><tr><td>
+						<table class="ibm-data-table" cellpadding="3" cellspacing="1" border="1"><tbody><tr><td bgcolor="#ffcc99">
+									<b>Requirement</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Questions</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Impact</b>
+								</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Recovery time</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any requirements on the time the system takes to recover from a system failure?</td><td bgcolor="#FFFFFF" valign="top">The shorter the recovery time, the more sophisticated the recovery mechanism and the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Response time</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any constraints on the time the system takes to respond to particular events, such as user interaction?</td><td bgcolor="#FFFFFF" valign="top">The shorter the response time, the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Shutdown time</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any requirements on the time the system takes to shut down?</td><td bgcolor="#FFFFFF" valign="top">The shorter the shutdown time, the more sophisticated the shutdown mechanism and the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Start-up time</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any requirements on the time it takes the system to start up?</td><td bgcolor="#FFFFFF" valign="top">The shorter the start-up time, the more sophisticated the start-up mechanism and the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Throughput</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any special requirements regarding throughput of data supported by the system?	</td><td bgcolor="#FFFFFF" valign="top">The greater the throughput of data, the longer the time to market.</td></tr></tbody></table>
+					</td></tr></tbody></table>
+			<br><a name="N10494"><b>Supportability</b></a><br>
+			<table class="ibm-data-table" cellpadding="1" cellspacing="0" border="0"><tbody><tr><td>
+						<table class="ibm-data-table" cellpadding="3" cellspacing="1" border="1"><tbody><tr><td bgcolor="#ffcc99">
+									<b>Requirement</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Questions</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Impact</b>
+								</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Adaptability</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any special requirements regarding adaptation of the software (including upgrading)?</td><td bgcolor="#FFFFFF" valign="top">The greater the system's adaptability, the longer the time to market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Compatibility</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any 
+requirements regarding this system and its compatibility with previous 
+versions of this system or legacy systems providing the same capability?
+	</td><td bgcolor="#FFFFFF" valign="top">The greater the compatibility, the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Configurability</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Will the product be configured after it has been deployed? In what way will the system be configured? </td><td bgcolor="#FFFFFF" valign="top">The greater the configurability of the system, the longer the time to market, and the greater the long-term maintenance cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Installability</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any special requirements regarding system installation?</td><td bgcolor="#FFFFFF" valign="top">The greater the installability of the system, the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Maintainability</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any special requirements regarding system maintenance?</td><td bgcolor="#FFFFFF" valign="top">The
+ greater the maintainability of the system, the longer the time to 
+market. The trade-off is between time to market of the first release of 
+the system, and any subsequent releases.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Scalability</b>
+								</td><td bgcolor="#FFFFFF" valign="top">What volumes of users and data will the system support? This may be expressed as a profile over time.</td><td bgcolor="#FFFFFF" valign="top">The greater the scalability of the system, the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Testability</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any special 
+requirements regarding the testability of the system, such as testing 
+"hooks" that allow integration with a testing tool?</td><td bgcolor="#FFFFFF" valign="top">The greater the testability of the system, the longer the time to market.</td></tr></tbody></table>
+					</td></tr></tbody></table>
+			<p><a name="N1055D"><span class="smalltitle">Design Requirement</span></a></p>
+			<p>All design requirements are addressed in the "Analysis Mechanisms" section above.</p>
+			<br><a name="N10569"><b>Implementation Requirement</b></a><br>
+			<table class="ibm-data-table" cellpadding="1" cellspacing="0" border="0"><tbody><tr><td>
+						<table class="ibm-data-table" cellpadding="3" cellspacing="1" border="1"><tbody><tr><td bgcolor="#ffcc99">
+									<b>Requirement</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Questions</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Impact</b>
+								</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Third-party 
+                        components</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there 
+                        any constraints (including cost) on the use of third-party 
+                        components in the system?<br>
+									<br>
+                        How important is it for the system to be vendor independent, 
+                        in terms of the third-party components it uses?<br>
+									<br>
+                        Are there any approved relevant alliances with third- 
+                        party vendors? </td><td bgcolor="#FFFFFF" valign="top">The more 
+                        third-party components used, the shorter the time to market. 
+                        Also, the system is likely to be more maintainable because 
+                        these components are effectively subcontracted.<br>
+									<br>Existing alliances typically remove the need for contractual negotiations, thereby improving time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Implementation languages</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any constraints on the programming languages used to develop the system?</td><td bgcolor="#FFFFFF" valign="top">Specification
+ of particular programming languages must be reconciled with tool 
+support and available skills. Time to market is increased if either 
+tools or skills are unavailable.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Platform support</b>
+								</td><td bgcolor="#FFFFFF" valign="top">What platforms must the system support? Which operating system versions must be supported?<br>
+									<br>Is Web access required? If so, then which Web browsers and versions must be supported?<br>
+									<br>Will the system be ported to new platforms in the future (over and above those explicitly stated for the system)?	</td><td bgcolor="#FFFFFF" valign="top">Development for a single platform shortens the time to market. It also allows closer integration with platform features.<br>
+									<br>Development for multiple platforms lengthens the time to 
+market. Close integration with platform features is lessened, increasing
+ system maintenance. However, deployment on new platforms is quicker.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Resource limits</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any limits on the use of system resources, such as memory or hard disk space?</td><td bgcolor="#FFFFFF" valign="top">The more 
+                        constrained the available resources, the more efficient 
+                        resource use is required. This increases time to market 
+                        and lessens maintainability.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Standards compliance	</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any standards to which the system must conform? This may include coding standards or a user interface style guide.</td><td bgcolor="#FFFFFF" valign="top">Use of available standards can decrease time to market and improve consistency in a number of system areas.</td></tr></tbody></table>
+					</td></tr></tbody></table>
+			<br><a name="N10621"><b>Interface Requirement</b></a><br>
+			<table class="ibm-data-table" cellpadding="1" cellspacing="0" border="0"><tbody><tr><td>
+						<table class="ibm-data-table" cellpadding="3" cellspacing="1" border="1"><tbody><tr><td bgcolor="#ffcc99">
+									<b>Requirement</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Questions</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Impact</b>
+								</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>External systems</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any external systems with which this system must interface? Consider both provided and required interfaces.</td><td bgcolor="#FFFFFF" valign="top">The
+ greater the sophistication of the interface to external systems, the 
+longer the time to market, and the greater the long-term maintenance 
+cost.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Interface formats</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any 
+constraints on the nature of the interface between this system and any 
+external system, such as the format of data passed between these 
+systems, and any particular protocol used?	</td><td bgcolor="#FFFFFF" valign="top">The
+ greater the sophistication of the format of interfaces, the longer the 
+time to market, and the greater the long-term maintenance cost.</td></tr></tbody></table>
+					</td></tr></tbody></table>
+			<br><a name="N10682"><b>Physical Requirement</b></a><br>
+			<table class="ibm-data-table" cellpadding="1" cellspacing="0" border="0"><tbody><tr><td>
+						<table class="ibm-data-table" cellpadding="3" cellspacing="1" border="1"><tbody><tr><td bgcolor="#ffcc99">
+									<b>Requirement</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Questions</b>
+								</td><td bgcolor="#ffcc99">
+									<b>Impact</b>
+								</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Shape</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any constraints on the shape of the hardware used to house the resulting system?</td><td bgcolor="#FFFFFF" valign="top">Constraints
+ on the shape of the hardware may impose a specification of physical 
+devices required by the system, such as storage devices or printers. The
+ more constrained the hardware, the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Size</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any constraints on the size of the hardware used to house the resulting system?	</td><td bgcolor="#FFFFFF" valign="top">Constraints
+ on the size of the hardware may impose a specification of physical 
+devices required by the system, such as storage devices or printers. The
+ more constrained the hardware, the longer the time to market.</td></tr><tr><td bgcolor="#FFFFFF" valign="top">
+									<b>Weight</b>
+								</td><td bgcolor="#FFFFFF" valign="top">Are there any constraints on the weight of the hardware used to house the resulting system?</td><td bgcolor="#FFFFFF" valign="top">Constraints
+ on the weight of the hardware may impose a specification of physical 
+devices required by the system, such as storage devices or printers. The
+ more constrained the hardware, the longer the time to market.</td></tr></tbody></table>
+					</td></tr></tbody></table>
+		<!-- CMA ID: 87625 --> <!-- Site ID: 1 --><!--XSLT stylesheet used to transform this file: dw-document-html-6.0.xsl-->
+<br>
+
+<p><a name="author"><span class="atitle">About the author</span></a></p><div class="ibm-container ibm-portrait-module ibm-alternate-two"><div class="ibm-container-body"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/eeles.html" alt="Author Photo" height="80" width="64"><p><a name="author1"></a></p><p>Peter
+ Eeles has over 15 years experience developing software solutions, and 
+has spent the majority of this time architecting and implementing 
+large-scale distributed systems, culminating in the writing of his first
+ book entitled <i>Building Business Objects</i> (John Wiley and Sons).  
+Peter works as a Process Consultant for IBM Rational (UK), and is the 
+Rational Architecture Practice representative for Northern Europe. In 
+his spare time, Peter enjoys bike racing and playing jazz guitar, 
+although not at the same time.</p>
+			<p></p></div></div>
+<!-- MAIN_COLUMN_CONTENT_END -->
+
+<!-- OVERLAYS_START -->
+<!-- Report_Abuse_Start -->
+<div class="ibm-common-overlay ibm-no-print" id="reportabuseoverlay">
+   <div class="ibm-head"><p><a class="ibm-common-overlay-close" href="#">Close [x]</a></p></div>
+   <div class="ibm-body">
+      <div class="ibm-main">
+         <a class="ibm-access" name="reportabuseoverlay">Report abuse help</a>   
+         <div class="ibm-title"><h1>Report abuse</h1></div>
+         <div class="ibm-container ibm-alternate">
+            <p><strong>Thank you.</strong>  This entry has been flagged for moderator attention.</p>
+            <div class="ibm-overlay-rule"><hr></div>
+            <div class="ibm-buttons-row">
+               <input onclick="ibmCommon.Overlays.hide('reportabuseoverlay');return false;" class="ibm-btn-cancel-sec dw-btn-cancel-sec" name="ibm-cancel" value="Close" type="button">
+            </div>
+         </div>
+      </div> 
+   </div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Report_Abuse_Error_Start -->
+<div class="ibm-common-overlay ibm-no-print" id="reportabuseoverlayerror">
+   <div class="ibm-head"><p><a class="ibm-common-overlay-close" href="#">Close [x]</a></p></div>
+   <div class="ibm-body">
+      <div class="ibm-main">
+         <a class="ibm-access" name="reportabuseoverlayerror">Report abuse help</a>   
+         <div class="ibm-title"><h1>Report abuse</h1></div>
+         <div class="ibm-container ibm-alternate">
+            <p class="ibm-ind-error"><strong>Report abuse submission failed.  Please try again later.</strong></p>
+            <div class="ibm-overlay-rule"><hr></div>
+            <div class="ibm-buttons-row">
+               <input onclick="ibmCommon.Overlays.hide('reportabuseoverlayerror');return false;" class="ibm-btn-cancel-sec dw-btn-cancel-sec" name="ibm-cancel" value="Close" type="button">
+            </div>
+         </div>
+      </div> 
+   </div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Sign in OVERLAY STARTS HERE --> 
+<div class="ibm-common-overlay" id="signin_overlay">
+<div class="ibm-head">
+<p><a class="ibm-common-overlay-close" href="#" onclick="clearForm();">Close [x]</a></p>
+</div>
+<div class="ibm-body">
+<div class="ibm-main">
+<div class="ibm-title ibm-subtitle">
+<h1>developerWorks: Sign in</h1>
+<div id="ibm-overlay-error-signin" class="no-display"></div>
+</div>
+
+<div class="ibm-container ibm-alternate ibm-buttons-last">
+<div class="ibm-container-body">
+<form class="ibm-column-form" id="sFormId" action="" method="post" name="sForm" onsubmit="return false;">
+<p><label for="ibmid">IBM ID:</label><span><input name="ibm-id" id="ibmid" size="25" class="required" onkeypress="handleEP(event,this.form);" type="text"><br><a class="ibm-forward-link" href="#" onclick="(function () {window.location='/developerworks/dwwi/DWAuthRouter?m=reg&amp;d='+encodeURIComponent(location.href);})();">Need an IBM ID?</a><br><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/dwwi/jsp/WSHelp.jsp?lang=en_US">Forgot your IBM ID?</a>   
+</span></p> 
+<p><label for="password">Password:</label><span><input name="password" id="password" size="25" value="" class="required" onkeypress="handleEP(event,this.form);" type="password"><br><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=forgot&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(getAuthUrl())+'%3Fm%3Dloginpage%26lang%3Den_US%26d%3D'+encodeURIComponent(location.href);})();">Forgot your password?</a><br><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=chpw&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(location.href);})();">Change your password</a></span></p>
+ 
+<p class="dw-perm-box">
+	<span><input id="perm" name="perm_name" type="checkbox"><label for="perm"> Keep me signed in.</label></span>
+</p>
+<p>By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+<div class="ibm-buttons-row">
+   <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="Submit" onclick="signin();return false;" type="submit"><span class="ibm-sep">&nbsp;</span>
+<input value="Cancel" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="clearForm();ibmCommon.Overlays.hide('signin_overlay');return false;" type="button"></p>
+</div>
+</form>
+<div class="ibm-overlay-rule"><hr></div>
+<p>The first time you sign into developerWorks, a profile is created for you.  <strong>Select
+ information in your profile (name, country/region, and company) is 
+displayed to the public and will accompany any content you post</strong>.  You may update your IBM account at any time.</p>
+<div class="dw-overlay-legal"><p>All information submitted is secure.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Sign in OVERLAY ENDS HERE --> 
+ 
+
+<!-- Display name OVERLAY STARTS HERE --> 
+<div class="ibm-common-overlay" id="displayname_overlay">
+<div class="ibm-head">
+<p><a class="ibm-common-overlay-close" href="#" onclick="clearForm();">Close [x]</a></p>
+</div>
+<div class="ibm-body">
+<div class="ibm-main">
+<div class="ibm-title ibm-subtitle">
+<h1>Choose your display name</h1>
+<div id="ibm-overlay-error-dname" class="no-display"></div>
+</div>
+<div class="ibm-container ibm-alternate ibm-buttons-last">
+<div class="ibm-container-body">
+<p class="ibm-overlay-intro">The first time you sign in to 
+developerWorks, a profile is created for you, so you need to choose a 
+display name.  Your display name accompanies the content you post on 
+developerWorks.</p>
+<p><strong>Please choose a display name between 3-31 characters</strong>. Your display name must be unique in the developerWorks community and should not be your email address for privacy reasons.</p>
+<form id="dFormId" method="post" action="" name="dForm" onsubmit="return false;" class="ibm-column-form">
+<p><label for="displayname">Display name:</label><span><input name="displayname" id="displayname" size="25" onkeypress="handleEP(event,this.form);" type="text"></span><span class="ibm-form-note">(Must be between 3 – 31 characters.)</span>
+</p>
+<p>By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+<div class="ibm-buttons-row">
+   <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="Submit" onclick="signin();return false;" type="submit"><span class="ibm-sep">&nbsp;</span>
+<input value="Cancel" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="clearForm();ibmCommon.Overlays.hide('displayname_overlay');return false;" type="button"></p>
+</div>
+</form>
+<div class="ibm-overlay-rule"><hr></div>
+<div class="dw-overlay-legal"><p>All information submitted is secure.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Display name OVERLAY ENDS HERE -->
+<!-- OVERLAYS_END -->
+
+<!-- RATINGS START -->
+<p class="ibm-no-print"><span class="atitle"><a name="iratings">Rate this article</a></span></p>
+<input id="art-rating" name="ratinga" value="0" type="hidden"><div id="art-rating-module"><p id="submitErr" class="ibm-ind-error" style="display: none;"><strong>Error: Submission failed. Please try again.</strong></p><p><span id="ratingSectUI"></span></p><div class="ibm-container" id="ratingForm"><div class="ibm-container-body dw-container-ratings"><form class="dw-ratings-form" onsubmit="artRating.submitRating(); return false;"><input name="ratingstars" id="rat-1" value="1" type="radio"><label class="rating-label" id="star1" for="rat-1">1 star</label><img id="rat-1-img" alt="1 star" title="1 star" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/stars120x20-1w.jpg" class="rating-image"><span class="dw-rating-text">1 star</span><br><input name="ratingstars" id="rat-2" value="2" type="radio"><label class="rating-label" id="star2" for="rat-2">2 stars</label><img id="rat-2-img" alt="2 stars" title="2 stars" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/stars120x20-2w.jpg" class="rating-image2"><span class="dw-rating-text">2 stars</span><br><input name="ratingstars" id="rat-3" value="3" type="radio"><label class="rating-label" id="star3" for="rat-3">3 stars</label><img id="rat-3-img" alt="3 stars" title="3 stars" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/stars120x20-3w.jpg" class="rating-image2"><span class="dw-rating-text">3 stars</span><br><input name="ratingstars" id="rat-4" value="4" type="radio"><label class="rating-label" id="star4" for="rat-4">4 stars</label><img id="rat-4-img" alt="4 stars" title="4 stars" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/stars120x20-4w.jpg" class="rating-image2"><span class="dw-rating-text">4 stars</span><br><input name="ratingstars" id="rat-5" value="5" type="radio"><label class="rating-label" id="star5" for="rat-5">5 stars</label><img id="rat-5-img" alt="5 stars" title="5 stars" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/stars120x20-5w.jpg" class="rating-image2"><span class="dw-rating-text">5 stars</span><div class="ibm-buttons-row"><p class="ibm-first"><input value="Submit" name="ibm-submit" class="ibm-btn-arrow-pri dw-ratings-submit" type="submit"></p></div></form></div></div></div>
+<script language="JavaScript" type="text/javascript">
+// <![CDATA[
+   // widget div id and article id as args
+   window.artRating.init('art-rating-module','art-rating-summary');
+// ]]>
+</script>
+<!-- RATINGS END -->
+
+<!-- INLINE_COMMENTS_START -->
+<p class="ibm-no-print"><span class="atitle"><a name="icomments">Comments</a></span></p>
+<div id="threadShow"></div>
+<!-- INLINE_COMMENTS_END -->
+
+<p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-pcon">Back to top</a></p>
+
+<!-- Overlays -->
+
+</div>
+<!-- MAIN_COLUMN_CONTAINER_END -->
+
+<!-- Rating_Meta_BEGIN -->
+<!--Rating_Meta_BEGIN--><div class="metavalue">static.content.url=http://www.ibm.com/developerworks/js/artrating/</div><div class="metavalue">SITE_ID=1</div><div class="metavalue">Zone=Rational</div><div class="metavalue">ArticleID=87625</div><div class="metavalue">ArticleTitle=Appendix C: Sample Architectural Requirements Questionnaire</div><div class="metavalue">publish-date=04302004</div><div class="metavalue">author1-email=dwinfo@us.ibm.com</div><div class="metavalue">author1-email-cc=</div><script language="javascript" type="text/javascript">document.write('<div class="metavalue">url='+location.href.replace(/</g, '%3C')+'</div>');</script><div class="metavalue">url=http://webcache.googleusercontent.com/search?q=cache:Nwp6qkwDUwMJ:www.ibm.com/developerworks/rational/library/4710.html+&amp;cd=1&amp;hl=hu&amp;ct=clnk</div><!--Rating_Meta_END-->
+<!-- Rating_Meta_END -->
+
+</div>
+<!-- MAIN_COLUMN_END-->
+
+<!-- RIGHT_COLUMN_BEGIN -->
+<div id="ibm-content-sidebar">
+
+<!-- RIGHT_COLUMN_CONTENT_BEGIN --> 
+<div class="ibm-container"><h2>Table of contents</h2><div class="ibm-container-body"><img alt="" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c_002.gif" height="1" width="1"><ul class="ibm-bullet-list"><li><a class="ibm-feature-link" href="#author">About the author</a></li><li><a class="ibm-feature-link" href="#icomments">Comments</a></li></ul></div></div>
+
+
+<!-- Dig_Deeper -->
+<div class="ibm-container"><h2>Dig deeper into Rational on developerWorks</h2><div class="ibm-container-body"><ul class="ibm-link-list"><li class="ibm-first"><a href="http://www.ibm.com/developerworks/rational/" class="ibm-forward-link">Overview</a></li><li><a href="http://www.ibm.com/developerworks/rational/newto/" class="ibm-forward-link">New to Rational</a></li><li><a href="http://www.ibm.com/developerworks/rational/products/" class="ibm-forward-link">Products</a></li><li><a href="http://www.ibm.com/developerworks/rational/downloads/" class="ibm-forward-link">Downloads</a></li><li><a href="http://www.ibm.com/developerworks/rational/library/" class="ibm-forward-link">Technical library (articles, tutorials, and more)</a></li><li><a href="http://www.ibm.com/developerworks/rational/community/" class="ibm-forward-link">Community and forums</a></li><li><a href="http://www.ibm.com/developerworks/rational/find/events/" class="ibm-forward-link">Events</a></li></ul></div></div>
+<!-- High_Visibility_Offer -->
+<!--XSLT stylesheet used to transform this content: s-highvisibilityoffer.xsl--><div class="ibm-container"><h2>Click. Code. Connect.</h2><div class="ibm-container-body"><img alt="abstract image" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/hivis-jazzhub.html" border="0" height="70" width="188"><p>Develop software in the cloud at JazzHub.</p><div class="ibm-rule"><hr></div><p class="ibm-ind-link"><a href="https://hub.jazz.net/?ca=dw" class="ibm-forward-link">A complete, hosted development environment now available for public and private projects.</a></p></div></div>
+<!-- Special_Offers -->
+<div class="ibm-container"><h2>Special offers</h2><div class="ibm-container-body"><p class="dw-special-offers"><a href="http://www.ibm.com/developerworks/demos/"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/tile_v16_ondemanddemos.html" alt="On demand demos: An easy way to watch and learn" border="0" height="50" width="158"></a></p><p class="dw-special-offers"><a href="http://www.ibm.com/developerworks/aboutdw/dwa/?ca=dti-dwarp"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/tile_v16_dwaarp.html" alt="Get recognized! W Author Program" border="0" height="50" width="158"></a></p><p class="dw-special-offers"><a href="https://www.ibm.com/developerworks/cloud/index.html?ca=dti-cloudzone"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/tile_v16_cloudzoneA.html" alt="Cloud Computing resources for IT professionals" border="0" height="50" width="158"></a></p><div class="ibm-rule"><hr></div><p class="ibm-ind-link"><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/downloads/?ca=dti-tilemoreoffers">Trial software offers</a></p></div></div>
+<!-- RIGHT_COLUMN_CONTENT_END -->
+
+</div>
+<!-- RIGHT_COLUMN_END -->
+
+<!-- CONTENT_BODY_END -->
+</div>
+
+</div>
+<!-- CONTENT_END -->
+
+ <!-- END_IBM-PCON -->
+</div>
+
+<!-- FOOTER_BEGIN -->
+<div id="ibm-footer">
+<!-- IBM footer container; disabled -->
+</div>
+
+<div id="ibm-page-tools-dw">
+	<div id="dw-footer-top-row">
+		<ul id="dw-foot-options">
+			<li id="dw-print"><a class="ibm-print-link" href="#">Print this page</a></li>
+		</ul>
+		<ul id="ibm-foot-options-dw">
+			<li id="dw-foot-0"><a href="#">Share this page</a></li>
+			<li id="dw-foot-1"><a href="#">Follow developerWorks</a></li>
+		</ul>
+	</div>
+
+	<!-- TOP ROW SLIDER -->
+    <div id="dw-page-tools-menu">    
+        <div class="ibm-ribbon-pane-dw">
+            <div class="ibm-ribbon-section-dw">
+				<!-- Share this page -->			
+                <div class="dw-footer-columns">
+                    <div class="dw-footer-col-3-1">
+                        <h2>Share this page:</h2>                       
+						<ul class="ibm-link-list">
+							<li><a id="dw-foot-0-0" class="ibm-facebook-link" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3ANwp6qkwDUwMJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4710.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk&amp;t=Appendix%20C%3A%20Sample%20Architectural%20Requirements%20Questionnaire">Facebook</a></li>
+							<li><a class="ibm-linkedin-link" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3ANwp6qkwDUwMJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4710.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk&amp;title=Appendix%20C%3A%20Sample%20Architectural%20Requirements%20Questionnaire">LinkedIn</a></li>
+							<li><a class="ibm-twitter-link" href="http://twitter.com/home?status=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3ANwp6qkwDUwMJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4710.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk%20-%20Appendix%20C%3A%20Sample%20Architectural%20Requirements%20Questionnaire">Twitter</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-col-3-2">
+						<ul class="ibm-link-list">
+							<li><a class="ibm-delicious-link" href="http://delicious.com/post?url=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3ANwp6qkwDUwMJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4710.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk&amp;title=Appendix%20C%3A%20Sample%20Architectural%20Requirements%20Questionnaire">Delicious</a></li>
+							<li><a class="ibm-digg-link" href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3ANwp6qkwDUwMJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4710.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk&amp;title=Appendix%20C%3A%20Sample%20Architectural%20Requirements%20Questionnaire">Digg</a></li>
+							<li><a class="ibm-stumbleupon" href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3ANwp6qkwDUwMJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4710.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk&amp;title=Appendix%20C%3A%20Sample%20Architectural%20Requirements%20Questionnaire">StumbleUpon</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-col-3-3">
+						<ul class="ibm-link-list">
+							<li><a class="ibm-email-link" href="#">Email this page</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-close">
+						<ul>
+							<li><div class="dw-footer-close-share"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+						</ul>
+                    </div>
+                </div>
+                <!-- Follow developerWorks -->
+                <div class="dw-footer-columns">
+                    <div class="dw-footer-col-1-1">
+                        <h2>Follow developerWorks:</h2>
+						<ul class="ibm-link-list">
+							<li><a id="dw-foot-1-0" class="ibm-facebook-link" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3ANwp6qkwDUwMJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4710.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk&amp;t=Appendix%20C%3A%20Sample%20Architectural%20Requirements%20Questionnaire">Facebook</a></li>
+							<li><a class="ibm-twitter-link" href="http://twitter.com/home?status=http%3A%2F%2Fwebcache.googleusercontent.com%2Fsearch%3Fq%3Dcache%3ANwp6qkwDUwMJ%3Awww.ibm.com%2Fdeveloperworks%2Frational%2Flibrary%2F4710.html%2B%26cd%3D1%26hl%3Dhu%26ct%3Dclnk%20-%20Appendix%20C%3A%20Sample%20Architectural%20Requirements%20Questionnaire">Twitter</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-close">
+						<ul>
+							<li><div class="dw-footer-close-follow"><a href="#"><img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/c.gif" alt="Close [x]" border="0" height="10" width="20"></a></div></li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ibm-footer-module-dw">
+	<div class="dw-footer-columns">
+		<div class="dw-footer-col-6-1">
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/aboutdw/">About</a></li>
+				<li><a href="https://www.ibm.com/developerworks/feedback">Help</a></li>
+				<li><a href="http://www.ibm.com/developerworks/aboutdw/contacts.html">Contact us</a></li>
+				<li><a href="https://www.ibm.com/developerworks/ideas">Submit content</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-2">
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/feeds/">Feeds</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-3">
+			<ul>
+				<li><a href="https://www.ibm.com/developerworks/community/report/">Report abuse</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/terms/use/">Terms of use</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/terms/thirdparty/">Third party notice</a></li>
+				<li><a href="http://www.ibm.com/privacy/">IBM privacy</a></li>
+				<li><a href="http://www.ibm.com/accessibility/">IBM accessibility</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-4">
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/university/academicinitiative/">Faculty</a></li>
+				<li><a href="http://www.ibm.com/developerworks/university/students/">Students</a></li>
+				<li><a href="http://www.ibm.com/isv/">Business Partners</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-5">
+		</div>
+		<div class="dw-footer-col-6-6">
+			<img src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/dwn-ibm-logo-v16.png" alt="IBM®" height="46" width="100">
+			<img class="dw-preload" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/arrow-down-active.gif" alt="" height="1" width="1">
+		</div>
+	</div>
+	<!-- Language selector no-script -->
+	<noscript>
+	<div id="dw-footer-selectlang">
+		<h2><a name="SELECTLANG">Select a language:</a></h2>
+		<ul>
+			<li><a href="http://www.ibm.com/developerworks/">English</a></li>
+			<li><a href="http://www.ibm.com/developerworks/cn/">中文</a></li>
+			<li><a href="http://www.ibm.com/developerworks/jp/">日本語</a></li>
+			<li><a href="http://www.ibm.com/developerworks/ru/">Русский</a></li>
+			<li><a href="http://www.ibm.com/developerworks/br/">Português (Brasil)</a></li>
+			<li><a href="http://www.ibm.com/developerworks/ssa/">Español</a></li>
+			<li><a href="http://www.ibm.com/developerworks/vn/">Việt</a></li>
+		</ul>
+	</div>
+	</noscript>
+</div><!-- FOOTER_END -->
+
+ <!-- END_IBM-TOP -->
+<div id="ibm-overlay-top"></div></div>
+ 
+ <!-- SCRIPTS_INCLUDE_BEGIN -->
+<!-- JQuery start -->
+<script type="text/javascript" language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/jquery_004.js"></script>
+<script type="text/javascript" language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/jquery_002.js"></script>
+<!-- xM Masthead/Footer -->
+<script type="text/javascript" language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/jquery_003.js">//</script>
+<script type="text/javascript" language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/jquery.js">//</script>
+<script type="text/javascript" language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/dw_v16.js">//</script>
+<script type="text/javascript" language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/flash-detect.js">//</script>
+<script type="text/javascript" language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/dwsi.js">//</script>
+<script type="text/javascript" language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/showcomments.html">//</script>
+<script language="JavaScript" type="text/javascript">
+// <![CDATA[
+ jQuery('threadShow').showComments('95%',5,'nCmts','icomments');
+// ]]>
+</script>
+
+<script type="text/javascript" language="JavaScript">
+	jQuery.noConflict();     
+	// Put all your code in your document ready area
+	jQuery(document).ready(function(jQuery) {
+	// Do jQuery stuff using jQuery 
+	jQuery('a.dwauthor').cluetip({
+		local: true,
+		showTitle: false,
+		positionBy: 'bottomTop',
+		sticky: true,	
+		mouseOutClose: true,
+		closeText: '<img src="//dw1.s81c.com/developerworks/js/jquery/cluetip98/i/x.gif" alt="Close" />',
+		arrows: false,
+		dropShadow: true,
+		cluetipClass: 'dwbasic'
+		});
+
+		rBHash = {};
+		rBHash['viperLang'] = 'en';
+		rBHash['urlLang'] = 'en';
+
+		// si
+		initSI();
+	});
+ </script>
+ <!-- JQuery end -->
+ <!-- Overlay js -->
+<script language="JavaScript" src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/overlay.js" type="text/javascript"></script><!-- BEGIN: Use this section to set page specific variables for the Unica Page Tag -->
+<script language="JavaScript">var NTPT_PGEXTRA="ibmSkillLevel=1&ibmAdoptPhase=-&ibmRole=-&ibmCmaId=87625&ibmContentAreas=rational";</script>
+<!--END --><!-- SCRIPTS_INCLUDE_END -->
+
+<div id="ibm-metrics">
+<script src="Appendix%20C:%20Sample%20Architectural%20Requirements%20Questionnaire_files/stats.js" type="text/javascript">//</script>
+</div>
+
+
+</div><div style="position: absolute; z-index: 95; display: none;" id="cluetip-waitimage"></div><div style="z-index: 96; display: none; position: absolute;" id="cluetip"><div style="z-index: 95; opacity: 0.1; top: 1px; left: 1px; position: absolute; background-color: rgb(0, 0, 0);"></div><div style="z-index: 94; opacity: 0.1; top: 2px; left: 2px; position: absolute; background-color: rgb(0, 0, 0);"></div><div style="z-index: 93; opacity: 0.1; top: 3px; left: 3px; position: absolute; background-color: rgb(0, 0, 0);"></div><div style="z-index: 92; opacity: 0.1; top: 4px; left: 4px; position: absolute; background-color: rgb(0, 0, 0);"></div><div style="z-index: 91; opacity: 0.1; top: 5px; left: 5px; position: absolute; background-color: rgb(0, 0, 0);"></div><div style="z-index: 90; opacity: 0.1; top: 6px; left: 6px; position: absolute; background-color: rgb(0, 0, 0);"></div><div style="position: relative; z-index: 97;" id="cluetip-outer"><div id="cluetip-title"></div><div id="cluetip-inner"></div></div><div id="cluetip-extra"></div><div style="z-index: 97;" id="cluetip-arrows" class="cluetip-arrows"></div></div></body></html>

@@ -13,6 +13,11 @@
 \usepackage{pdflscape}
 \usepackage{formai_kovetelmenyek}
 
+\usepackage{array} % for defining a new column type
+\usepackage{varwidth} %for the varwidth minipage environment
+
+\usepackage{usecases} %usecasehez
+
 \hypersetup{
     pdfauthor={Varga Marcell},
     pdftitle={Képfeldolgozást támogató keretrendszer és modulok készítése}
@@ -43,6 +48,8 @@
 \AtBeginDocument{\addtocontents{tod}{\protect\thispagestyle{empty}}}
 
 \begin{document}
+\newcolumntype{M}{>{\begin{varwidth}{4cm}}l<{\end{varwidth}}} %M is for Maximal column
+
 \setcounter{chapter}{1}
 
 \pagestyle{empty}
@@ -232,7 +239,7 @@ Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb 
 	
 
 \subsection{Összefoglalás}
-A részletes összehasonlítás a \ref{table:diff_soft}. táblázatból olvasható ki a \pageref{table:diff_soft} oldalon.\\
+A részletes összehasonlítás a \ref{table:diff_soft}. táblázatból olvasható ki a \pageref{table:diff_soft}. oldalon.\\
 Az adatsorokból megállapíthatjuk, hogy a fejleszteni kívánt szoftverünkkel szemben több fontos követelmény és megállaptás is felírható:
 \begin{itemize}
 	\itemsep0em
@@ -241,11 +248,12 @@ Az adatsorokból megállapíthatjuk, hogy a fejleszteni kívánt szoftverünkkel
 	\item A célcsoport kiválasztása alapvetően meghatározza a beépített funktciókat és a felhasználói interfészt. Ha több nézetet tervezünk a programba a célközönséget szélesíthetjük.
 	\item Szerepeljenek automatizálási lehetőségek. Senki nem fog egyesével nem hogy 50.000 de még 500 képet sem feldolgozni.
 	\item A szoftvert gyakorlatilag bármilyen bemeneti formátum kezelésére fel kell készíteni.
-	\item Már gyárilag nagy mennyiségű képjavító, feldolgozó, szerkesztő, elemző és analizásló funkcionalitással érkezzen a szoftver.
+	\item Már gyárilag nagy mennyiségű képjavító, feldolgozó, szerkesztő, elemző és analizáló funkcionalitással érkezzen a szoftver.
 
 \end{itemize}
 
-A részletes követelmény tervezés a következő fejezet témája lesz.
+Összegezve láthatjuk, hogy eléggé könnyen lehet már előkészített rendszereket választani a szoftverpiac palettájáról. Ilyenkor jogosan felmerül a kérdés, hogy ez a projekt miben ad többet, mint a jelenlegi lehetőségek? \\
+Célom, hogy egy egyszerű felhasználó számára is könnyen kezelhető nyitott bővíthető rendszer hozzak létre, ahol többszintű képfeldolgozást is egyszerűen végezhetjük. Egy blokkos jellegű grafikus felületet készíteni (mint pl.: Labview blockdiagrammjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint}).
 
 \section{Rendszertervek}
 A rendszer tervezését több fő folyamatra osztottam:
@@ -253,16 +261,59 @@ A rendszer tervezését több fő folyamatra osztottam:
 	\itemsep0em
 	\item Követelményrendszer felírása (funkcionális és nem funkcionális követelmények)
 	\item Megfelelő technológiák kiválasztása követelményrendszer és egyéb szempontok alapján
-	\item a
+	\item Alap rendszerarchitektúra elkészítése (modulok megtervezése)
+	\item Felület tervek
 \end{enumerate}
 
+\subsection{Szószedet}
+A tervezési munka során természetesen szükségessé vált több különböző objektum, folyamat deffiniálása és elenevezése.
+A szószedet \ref{table:szoszedet}. táblázatban található a \pageref{table:diff_soft}. oldalon.
+
 \subsection{Követelmény analízis}
+A követelmény analízist a RUP (Rational Unified Process) metodika FURPS+ rendszere alapján végeztem.\\Így minden olyan tulajdonság és jellemző feltüntetésre került amely szükséges, hogy a szoftver megoldja az adott problémát. \cite{website:soft_req_def} Ezek a követelmények jellemzőjüket tekíntve lehetnek funkcionális követelmények, és nem funkcionális követelmények.
+
 \subsubsection{Funkcionális követelmények}
+Funkcionális követelményeknek tekíntünk minden olyan követelményt, amely a fő termékünkbe valamilyen képességet biztosít. pl.: Adott objektum megjelenítése \cite{website:soft_func_req_ibm}
+
+A \ref{fig:bimg_usecase_schema}. ábrán megfigyelhető a sematikus usecase diagrammja. (A teljes diagramm a \ref{fig:bimg_usecase_schema_part_1}. ábrán és a \ref{fig:bimg_usecase_schema_part_2}. ábrán tekínthető meg a \pageref{fig:bimg_usecase_schema_part_1}. oldalon.
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{schematic_usecase.png}
+  \caption{A BIMG sematikus usecase diagrammja}
+  \label{fig:bimg_usecase_schema}
+\end{figure}
+
+Az egy logikai csoportba tartozó funkciókat csoportokba szerveztem. Így a következő csoportok kerültek felírásra:
+\begin{itemize}
+	\itemsep0em
+	\item Input kezelés: itt történik az input hozzáadása, törlése, szerkesztése, az input elemek sorrendjének megváltoztatása, továbbá a bemeneti elemek megjelenítése.
+	\item Plugin kezelés: itt történik a pluginek a rendszerbe töltése, ki/be kapcsolása, és tartlamuk böngészése is.
+	\item Process Chain kezelés: a feldolgozás szíve, ez a modul veszi át az input listát, és végzi a feldolgozást
+	\item IMP Node kezelés: Itt történik a Process Chain elemeinek a deffiniálása és az elemek közötti relációknak a beállítása.
+\end{itemize}
+Ezek a logikai csoportok reprezentálnak egyben egy modult is a rendszerben.
+\todo{USECASE}
+A teljes usecase kifejtve a mellékletben olvasható.
 
 \subsubsection{Nem funkcionális követelmények}
 
 
-\subsection{Választott technológia}
+\subsection{Választott technológiák}
+A megfelelő technológiák kiválasztása során több tényező is befolyásolta a döntésemet. Ezekeből két nagy csoportot írtam fel: követelményrendszerből illetve szubjektív nézőpontból kiemelt fontosságú tényezők. A követelményrendszerből adódóakat a korábbi két alpontban bőségesen részleteztem, ezért a következőkben csak a szubjektív pontokat vázolnám fel.
+\begin{itemize}
+	\itemsep0em
+	\item Egyszerű és gyors, minőségi fejlesztés
+	\item Könnyű dokumentálhatóság
+	\item Legyen korábbi munkáimból rutinom az adott technológiák alkalmazásában
+	\item Képfeldolgozási függvénykönyvtárakkal legyenek jól ellátottak a kiválasztott technológiák (nem szeretném újra feltalálni a kereket)
+
+\end{itemize}
+A fenti szempontokból a következő fegyvertár került összeállításra:\\ A program alap szerkezete Qt-val, a képfeldolgozásért felelős komponensek OpenCv-vel kerültek megvalósításra. A verziókövetést Git-el végeztem, a dokumentáció és dolgozat elkészítéséhez pedig Latex-et, Gummi-t, és Yed-et használtam.
+\subsubsection{Qt}
+Egyike a legmeghatározóbb multiplatform c++-ra épülő alkalmazás keretrendszerenek. \cite{website:qt_about} Korábban már több másik projektben is sikeresen dolgoztam vele. A részletes dokumentáció és aktív felhasználói/fejlesztői bázis sokat segített a fejlesztésben. \cite{website:qt_dochome} \cite{website:qt_docforum}\cite{website:qt_docmaillist} Licencelése kedvező, elérhető OpenSource és Enterprise verziója is. Olyan nagy cégek is használják mint a BlackBerry, Michelin vagy a Panasonics.\cite{website:qt_in_use}  Jelen dolgozat tárgyát képező alkalmazás az 5.1.1es (GCC 4.6.3 32bit) verzióval készült.
+
+\subsubsection{OpenCV}	
+Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi tanulást megvalósító függvénykönyvtár. Natív c++-ban implementált és erősen támaszkodik azt stl tárolókra. Egy vékony wrapper elkészítésével könnyen összekapcsolható Qt-val. Funkcionalitásával széleskörű feladatok megoldására kivállóan alkalmas és dokumentációja is megfelelő. Jelen program a 2.4.6.1-os verzióval került implementálásra.
+
 
 \subsection{Architektúra}
 
@@ -283,25 +334,75 @@ A rendszer tervezését több fő folyamatra osztottam:
         BioTechniques 43:S25-S30 (July 2007)
 
     \bibitem{website:imbatch}
-        http://www.highmotionsoftware.com/products/imbatch
+        http://www.highmotionsoftware.com/products/imbatch\\
         {\em ImBatch - Batch Image Processing Software}
 
     \bibitem{website:originlab}
-		http://www.originlab.com/index.aspx?go=Products/Origin/DataAnalysis/ImageProcessing
+		http://www.originlab.com/index.aspx?go=Products/Origin/DataAnalysis/ImageProcessing\\
         {\em OriginLab - Image Processing}
         
         
     \bibitem{website:originlab_about}
-        http://www.originlab.com/index.aspx?go=COMPANY/AboutUs
+        http://www.originlab.com/index.aspx?go=COMPANY/AboutUs\\
         {\em OriginLab - About Us}
 
     \bibitem{website:originlab_usd}
-		http://www.originlab.hu/Originv9\_USD\_NEW\_20121022\_WEB.pdf
+		http://www.originlab.hu/Originv9\_USD\_NEW\_20121022\_WEB.pdf\\
         {\em OriginLab - Licences}
         
 	\bibitem{website:ibm_capture_req}
-        http://www.ibm.com/developerworks/rational/library/4706.html
+        http://www.ibm.com/developerworks/rational/library/4706.html\\
         {\em IBM - Capturing Architectural Requirements}  
+
+
+	\bibitem{website:ni_blocks}
+		http://zone.ni.com/reference/en-XX/help/371361J-01/lvconcepts/blockdiagram/\\
+        {\em NI - LabVIEW 2012 Help - Block Diagram}  
+
+	\bibitem{website:udk_blueprint}
+		https://docs.unrealengine.com/latest/INT/Engine/Blueprints/Editor/index.html\\
+        {\em UDK4 - Blueprint Editor Reference}  
+
+
+	\bibitem{website:qt_about}
+		http://qt.digia.com/About-Us/
+        {\em QT - About } 
+ 
+	\bibitem{website:qt_dochome}
+        http://qt-project.org/doc/
+        {\em QT - Doc} 
+         
+  	\bibitem{website:qt_docforum}
+        http://qt-project.org/forums
+        {\em QT - Forums}        
+
+  	\bibitem{website:qt_docmaillist}
+          http://lists.qt-project.org/mailman/listinfo 
+        {\em QT - MailingLists}        
+
+
+	\bibitem{website:qt_in_use}
+        http://qt.digia.com/Qt-in-Use/
+        {\em QT Digia - In Use}  
+        
+        
+	\bibitem{website:opencv_about}
+        http://opencv.org/about.html
+        {\em OpenCV - About}  
+        
+        
+	\bibitem{website:soft_req_def}
+        http://www.math.unipd.it/~tullio/IS-1/2007/Approfondimenti/SWEBOK.pdf\\
+        {\em Guide to the Software Engineering Body of Knowledge, Chapter 2 - SOFTWARE R EQUIREMENTS}
+        
+        
+	\bibitem{website:soft_func_req_ibm}
+		http://www.ibm.com/developerworks/rational/library/4706.html\#N10098 \\
+        {\em IBM - Capturing Architectural Requirements, Functional Requirements }
+        
+
+        
+
 
 
 \end{thebibliography}
@@ -338,6 +439,54 @@ A rendszer tervezését több fő folyamatra osztottam:
 
 \end{table} 
 \end{landscape}
+
+
+\begin{table}[h]
+\subsection{Szószedet táblázat}
+%\begin{tabular}{@{}rl@{}}
+\begin{tabular}{p{3cm}|p{10cm}}
+
+\toprule
+\multicolumn{1}{c}{\textbf{Elnevezés}} & \multicolumn{1}{c}{\textbf{Deffiníció}} \\ \midrule
+\textbf{Bimg} & A főprogramnak az elnevezése (képzése a Batch Image szavakból történt szóösszerántással). \\
+\hline
+\textbf{Modul} & BIMG-n belüli logikai egység. \\
+\hline
+\textbf{Plugin} & BIMG dinamikus kiterjesztése, az IMP blockok lelőhelye \\
+\hline
+\textbf{IMP Block} & Image Process Block, képfeldolgozási alapegységnek tekínthetjük, egy IMP általában egy jól körülhatárol művelet elvégzésére alkalmas \\
+\hline
+\textbf{IMP Parameter} & Megkülönböztetünk: bemeneti paramétereket (pl.: IMP bemeneti kép), kimeneti paramétereket (pl.: IMP eredménykép) és konfigurációs paramétereket (pl.: konstans, mátrix). \\
+\hline
+\textbf{IMP Connection} & Kettő darab azonos típusú IMP Parameter között kapcsolat hozható létre. Ezt a kapcsolatot nevezzük IMP Connection-nek. Kapcsolat csak kimeneti és bemeneti paraméterek között jöhet létre. Az irány kötelezően: Ki-Be. \\
+\hline
+\textbf{IMP Node} & Egy IMP Blockot tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Block fölé. \\
+\hline
+\textbf{IMP Connector} & Egy IMP Parameter-t tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Parameter fölé. \\
+\hline
+\textbf{IMP Connector Connection} & Egy IMP Connection-t tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Connection fölé. \\
+\hline
+\textbf{BimgImage} & Be- és kimeneti adatsort tartalmaz. (Ez a legtöbb esetben kép.) \\
+\hline
+\textbf{Process Chain} & IMP Node-okat tartalmaz, innen indul a feldolgozás \\
+
+\hline
+\end{tabular}
+\caption{Szószedet}
+\label{table:szoszedet}
+\end{table}
+
+\subsection{Teljes usecase}
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{usecase_part_1.png}
+  \caption{A BIMG teljes usecase diagrammja (1. rész) }
+  \label{fig:bimg_usecase_schema_part_1}
+\end{figure}
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{usecase_part_2.png}
+  \caption{A BIMG teljes usecase diagrammja (2. rész) }
+  \label{fig:bimg_usecase_schema_part_2}
+\end{figure}
 
 \subsection{CD melléklet}
 A szakdolgozat CD mellékletének könyvtárszerkezete:
