@@ -1,6 +1,6 @@
 version=0.6.0
 typesetter=pdflatex
 steps=texpdf
-root=/home/maerlyn/work/szakdolgozat-doksi/szakdolgozat.tex
+root=/home/szendvics/szakdoli/szakdolgozat-doksi/szakdolgozat.tex
 
-file=/home/maerlyn/work/szakdolgozat-doksi/formai_kovetelmenyek.sty
+file=/home/szendvics/szakdoli/szakdolgozat-doksi/formai_kovetelmenyek.sty
