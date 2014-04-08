@@ -13,6 +13,9 @@
 \usepackage{pdflscape}
 \usepackage{formai_kovetelmenyek}
 
+
+\usepackage[T1]{fontenc}
+
 \usepackage{array} % for defining a new column type
 \usepackage{varwidth} %for the varwidth minipage environment
 
@@ -78,7 +81,7 @@
     \vspace*{2cm}\\
     {\LARGE \bf SZAKDOLGOZAT}
     \vspace{3cm}\\
-    {\LARGE\bf Képfeldolgozást támogató keretrendszer és modulok készítése}
+    {\LARGE\bf Képfeldolgozást támogató keretrendszer és modulok készítése \todo{Félkövér formázások}}
     \vspace{3cm}\\
     {\large Varga Marcell}
     \vspace{6cm}
@@ -184,31 +187,46 @@ The topic of this thesis is to ...
 
 \section{A feladat összefoglalása}
 
-Témám egy olyan képfeldolgozást támogató keretrendszer tervezése és fejlesztése, amely alkalmas képek egyedi vizsgálatára és kötegelt feldolgozásra. A feldolgozást végző algoritmusok a dinamikusan betölthető modulokban foglalnak helyet.
+Témám egy olyan képfeldolgozást támogató keretrendszer tervezése és fejlesztése, amely alkalmas képek egyedi vizsgálatára és kötegelt feldolgozására. A feldolgozást végző algoritmusok a dinamikusan betölthető modulokban foglalnak helyet. A rendszer fő haszonélvezője a Pannon Egyetem Képfeldolgozás Kutatólaboratóriuma lesz, de célom, hogy kellően általános rendszer jöjjön létre, amelyet bárki könnyen és egyszerűen használhat, illetve bővítheti saját modulokkal.
 
-A rendszer fő haszonélvezője a Pannon Egyetem Képfeldolgozás Kutatólaboratóriuma lesz, de célom, hogy kellően általános rendszer jöjjön létre amelyet bárki könnyen és egyszerűen használhat, illetve bővítheti saját modulokkal.
+\subsection{Első lépés}
+A legtöbb munka során előnyös, ha projekt lényegét megragadva röviden össze-foglaljuk a főlefutási eset sikeres teljesülését. Erre jó példa a rövid (brief\cite{book:usecase_book_brief}) formátumú usecase.
+\\\emph{''A felhasználó összeállítja a bemeneti képek, adatforrások listáját. Ezek után meghatározza a feldolgozás lépéseit. Végül megjelöli a kimeneti formát, majd elindítja a feldolgozást. A program egyesével beolvassa a feldolgozni kívánt képeket, majd az adott képen végrehajtja sorrendhelyesen a kijelölt feladatokat, végül a választott kimeneti formába menti ki az eredményképeket.''}
+
+
+\begin{figure}[h]
+	\begin{center}
+	  \includegraphics[width=0.650\textwidth]{read-dir-processing_IMP.jpg}
+    \end{center}
+	  \caption{A rendszer vázlatos működése}
+	  \label{fig:bimg_usecase_brief}
+\end{figure}
+
+
+Az  \ref{fig:bimg_usecase_brief}. ábrán láthatjuk a rendszer vázlatos működését, egy kezdeti terven. Jelen esetben egy könyvtárban található összes digitális képet kívánjuk feldolgozni. A beolvasás után a nyers képet\footnote{Nyersképnek nevezünk minden olyan bemeneti képet, amelyen nem hajtottunk végre semmiféle változtatást.} átadjuk a feldolgozást végző logikának (Process Chain), ahol jelen példában 3 darab elemi művelet történik (IMP01-03). Fontos megjegyezni, hogy a feldolgozás pipelining \cite{book:pipelining_def} jelleget követ, tehát apró elemi lépések sorozata, amelyek kötött sorrendben végzik a feldolgozást. Természetesen a feldolgozás menete nem csak lineáris jellegű lehet hanem pl.: fa jellegű. (Ilyen műveleti módra jó példa különböző grafikus engineknél a fények számítása pl.: \cite{website:valve_shading_tree}. ) A feldolgozás utolsó lépése befejését követően, a végső eredménykép jelen esetben exportálásra kerül egy a bementi könyvtárral nem megegyező könyvtárba.
 
 \section{Hasonló célú rendszerek}
-Munkám első részeként megvizsgáltam, hogy milyen hasonló célú szoftverek, illetve szoftver csomagok találhatóak a piacon. Erre azért volt szükség, hogy pontosabb képet kapjak a jelenleg fellelhető megoldásokról, és munkám során az így tapasztalt pozitív és negatív tapasztalatokat felhasználva jó minőségű szoftvert fejleszthessek.\\
-Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb olvashatóak. Az összehasonlítás során a személyes benyomáson túl, külsős véleményeket is megtekíntettem (legyen az a kiadó cégnek az ajánlása, vagy független publikáció, újságcikk).
+Következő lépésként megvizsgáltam, hogy milyen hasonló célú szoftverek, illetve szoftver csomagok találhatóak a piacon. Erre azért volt szükség, hogy pontosabb képet kapjak a jelenleg fellelhető megoldásokról, és munkám során az így tapasztalt pozitív és negatív tapasztalatokat felhasználva jó minőségű szoftvert fejleszthessek.
+
+Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb olvashatóak. Az vizsgálat során a személyes benyomáson túl, egyéni véleményeket is figyelembe vettem (pl.: kiadó cégnek vagy alapítványak az ajánlása, vagy független publikáció, újságcikk).
 \subsection{Összehasonlítási szempontok}
 
 \subsubsection{Általános tulajdonságok:}
-\begin{description}
+\begin{itemize}
 	\itemsep0em
-	\item Platform: Milyen környezetben és operációs rendszeren használható? Milyen program nyelvvel fejlesztették?
-	\item Licence: Milyen licenc alatt került publikálásra?
-	\item Cél csoport: A szoftver kinek az igényeinek teljesítésére törekszik?
-	\item Támogató: Van hivatalos támogatottságga? (cég, alapítvány)
-	\item Felhasználói közösség: Fórum, levelező listák?
-	\item Plugin rendszer: Plugin betöltésre van lehetőségünk? Saját plugin?
-	\item Kötegelt feldolgozási lehetőség: Feldolgozhatunk egyszerre nagy mennyiségű képet?
-	\item Automatizálási lehetőségek: Automatizálhatjuk a feldolgozást? pl.: makrók
-	\item Fejlesztői eszközök: Rendelkezik hivatalos fejlesztői eszközökkel?
+	\item Platform: Milyen környezetben és operációs rendszeren használható? Milyen program nyelvvel fejlesztették? \\Hordozhatósági szempontonból került be a listára. Oka, hogy sokkal könnyebb egy olyan rendszert használni, amely több környezetben is elboldogul.
+	\item Licence: Milyen licenc alatt került publikálásra?\\Elsősorban pénzügyi és kód újrahasznosíthatóság miatt érdekes.
+	\item Cél csoport: A szoftver kinek az igényeinek teljesítésére törekszik?\\Legtöbb esetben a célcsoport már alapvetően meghatározza, hogy a szoftverbe milyen funkcionalitásokat építünk be, illetve, hogy ezekhez milyen interfészt biztosítunk a jövőbeni felhasználók számára.
+	\item Támogató: Van hivatalos támogatottságga? (cég, alapítvány)\\Az esetek jelentős részében megfigyelhető, hogy egy szoftver, szoftvercsomag akkor válik igazán jól támogatottá, ha fejlesztői közösségen kívül egy nagyobb szervezet is gondozásába veszi.
+	\item Felhasználói közösség: Fórum, levelező listák?\\Bármilyen előre nem látható hiba történhet: Ami elromolhat az el is romlik! A fenti csatornákon segítséget kérve nagy eséllyel kaphatunk választ kérdésünkre, és megoldást problémáinkra.
+	\item Plugin rendszer: Plugin betöltésre van lehetőségünk? Saját plugin?\\A képfeldolgozás egy eléggé sokrétű szerteágazó lehetőségeket, funkcionalitásokat magában foglaló szakterület. Így az csak utópisztikus álom, hogy egyszer valaki implementálja az összes funkcionalitást és onnantól kezdve mindenki boldogan használja azokat az idő végezetéig\dots Ezért ha a program dinamikusan bővíthető (akár a felhasználó által készített bővítményekkel), jelentős előnyt jelent a többi monolitikus rendszerrel szemben.
+	\item Kötegelt feldolgozási lehetőség: Feldolgozhatunk egyszerre nagy mennyiségű képet?\\Senki nem fog egyesével feldolgozni nem, hogy 50.000 darab képet de még 500-at sem\dots
+	\item Automatizálási lehetőségek: Automatizálhatjuk a feldolgozást?\\Ha lehetőségünk van a meglévő egyszerű feldolgozási lépéseket testreszabni, esetleg összekombinálni akkor az szintén egy jelentős előny lehet.
+	\item Fejlesztői eszközök: Rendelkezik hivatalos fejlesztői eszközökkel?\\Köztudott, hogy amelyik szoftverhez kiadásra kerülnek különböző fejlesztői eszközök, és segédanyagok ahhoz lényegesen egyszerűbb saját modulokat implementálni.
 	\item Támogatott bemeneti formátumok köre
-	\item Megjelenítési, vizualizációs lehetőségek listája
+	\item Megjelenítési, vizualizációs lehetőségek listája, módjai\\Hasznos ha több féle interfészt biztosítunk az adott információ megjelenítéshez: más logikai kontextusban helyezve új megfigyeléseket is tehet a felhasználónk.
 
-\end{description}
+\end{itemize}
 
 
 \subsubsection{Képfeldolgozási képességek}
@@ -228,10 +246,10 @@ Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb 
     \item \emph{ImageJ}\cite{website:imagej}\\
     Képfeldolgozást és analizálást végző rendszer, amely a National Institutes of Health fejlesztése.
 	A program első indulásakor látható, hogy itt egy professzionális orvostechnológiai eszközről van szó.
-	Támogatottsága jelentős mind közösségi, mind bővíthetőségi szempontból. Fegyvertárában olyan eszközöket is felvonultat mint Z és T funkciók.\cite{article:imagej_article}\\A Z funkciók segítségével pl.: MRI-vel készített sorozatos metszeti képeket kezelhetünk könnyedén, lehetőségeinket tovább növeli, hogy térbeli szervezés mellett még időbeli struktúra felépítésére és kezelésére is lehetőséget ad a program (T funkciók).
+	Támogatottsága jelentős mind közösségi, mind bővíthetőségi szempontból. Fegyvertárában olyan eszközöket is felvonultat mint Z és T funkciók.\cite{article:imagej_article}\\A Z funkciók segítségével pl.: MRI-vel készített sorozatos metszeti képeket kezelhetünk könnyedén, lehetőségeinket tovább növeli, hogy a térbeli szervezés mellett még időbeli struktúra felépítésére és kezelésére is lehetőséget ad a program (T funkciók).
     
     \item \emph{ImBatch}\cite{website:imbatch}\\
-    Képfeldolgozást végző rendszer. Célcsoportja a egyértelműen egy félprofesszionális felhasználói szint. Tehát itt eleve nem is várunk professzionális analitikai funkciókat. Cserébe kapunk egy szép, letisztult, egyszerű grafikus felhasználói felületet, és egy pár használatot segítő funkciót: pl.: Windows helyérzékeny menü intergrációt.
+    Képfeldolgozást végző rendszer. Célcsoportja egyértelműen egy félprofesszionális felhasználói szint. Tehát itt eleve nem is várunk professzionális analitikai funkciókat. Cserébe kapunk egy szép, letisztult, egyszerű grafikus felhasználói felületet, és egy pár használatot segítő kényelmi funkciót: pl.: Windows helyérzékeny menü intergrációt.
     
     \item \emph{OriginLab - Image Processing}\cite{website:originlab}\\
 	Az OriginLab szoftver csomag része, amely első sorban tudományos és ipari célközöséget szolgál ki. \cite{website:originlab_about} A korábban tárgyalt rendszerekkel ellentétben ez a szoftver fizetős (21 napos teszt verzió igényelhető). Ára hozza az iparban szokásos szoftver árakat \cite{website:originlab_usd}, amely személyes felhasználásra kissé borsos, azonban funkcionalitása kárpótolja a felhasználót. Rentgeteg elemzési lehetőség mellett még OriginC-ben saját algoritmusainkat is megvalósíthatunk, a LabView támogatás már majdnem, hogy csak hab a tortán.\\
@@ -239,35 +257,87 @@ Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb 
 	
 
 \subsection{Összefoglalás}
-A részletes összehasonlítás a \ref{table:diff_soft}. táblázatból olvasható ki a \pageref{table:diff_soft}. oldalon.\\
-Az adatsorokból megállapíthatjuk, hogy a fejleszteni kívánt szoftverünkkel szemben több fontos követelmény és megállaptás is felírható:
+\subsubsection{Tapasztalatok}
+A részletes összehasonlítás az \ref{table:diff_soft}. táblázatból olvasható ki a \pageref{table:diff_soft}. oldalon.\\
+Az adatsorokból elemzése közben, több fontos követelmény, fejlesztési irányvonal körvonalazódott:
 \begin{itemize}
 	\itemsep0em
 	\item Hordozható legyen több platformra. Hiszen egy laboratóriumban több féle architektúra elő fordul. (Ideális esetben tehát a szoftverünk legyen crossplatform.)
-	\item Nyitott legyen a további fejlesztésekre. Hiszen az csak utópisztikus álom, hogy egyszer valaki elkészíti az funkciót és onnantól mindenki boldogan használja őket a világ végezetéig... Röviden a felhasználónak adjuk meg a lehetőséget, hogy testre szabja a szoftverünket, vagy dinamikusan külön modulokkal, pluginekkel bővíthesse azt.
-	\item A célcsoport kiválasztása alapvetően meghatározza a beépített funktciókat és a felhasználói interfészt. Ha több nézetet tervezünk a programba a célközönséget szélesíthetjük.
-	\item Szerepeljenek automatizálási lehetőségek. Senki nem fog egyesével nem hogy 50.000 de még 500 képet sem feldolgozni.
-	\item A szoftvert gyakorlatilag bármilyen bemeneti formátum kezelésére fel kell készíteni.
+	\item Nyitott legyen a további fejlesztésekre. A felhasználónak adjuk meg a lehetőséget, hogy testre szabhassa a szoftverünket, vagy akár önmaga is fejlesztővé válhasson, így bővíthesse a pluginek körét, vagy javítsa a fő programot.
+
+	\item Szerepeljenek automatizálási lehetőségek. Írhassunk makrókat, vagy vizuális módon szerkeszthessünk algoritmusokat.
+	\item A rendszer ajánlott a célcsoport, munkája közben gyakorta előforduló bemeneti formátum kezelésére fel kell készíteni.
 	\item Már gyárilag nagy mennyiségű képjavító, feldolgozó, szerkesztő, elemző és analizáló funkcionalitással érkezzen a szoftver.
 
 \end{itemize}
 
-Összegezve láthatjuk, hogy eléggé könnyen lehet már előkészített rendszereket választani a szoftverpiac palettájáról. Ilyenkor jogosan felmerül a kérdés, hogy ez a projekt miben ad többet, mint a jelenlegi lehetőségek? \\
-Célom, hogy egy egyszerű felhasználó számára is könnyen kezelhető nyitott bővíthető rendszer hozzak létre, ahol többszintű képfeldolgozást is egyszerűen végezhetjük. Egy blokkos jellegű grafikus felületet készíteni (mint pl.: Labview blockdiagrammjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint}).
+\subsubsection{Célok}
+Összegezve láthatjuk, hogy eléggé könnyen lehet már előkészített rendszereket választani a szoftverpiac palettájáról. Ilyenkor jogosan felmerül a kérdés, hogy ez a projekt miben ad többet, mint a jelenlegi lehetőségek? 
+\begin{itemize}
+\item Célom, hogy egy egyszerű felhasználó számára is könnyen kezelhető nyitott bővíthető rendszer hozzak létre, ahol többszintű képfeldolgozást is egyszerűen végezhetjük.
+
+\item A programba új funkciók integrálása ne ütközzön problémákba, és az ilyen módon implementált funkcióknak a főprogramtól függetlenül is terjesztőknek kell lenniük. Ez természetesen maga után vonzza, hogy szükséges kezelni a későbbi továbbfejlesztések esetén elképzelhető plugin kompatibilitási problémákat.
+
+\item A nagy mennyiségű kisméretű funkció egy idő után sajnos kezelhetetlennek bizonyul, ezért azokat funkcionalitásuk alapján csoportosítani kell. 
+
+\item Legyen lehetőség több különböző szerkezetű grafikus felhasználói felület használatára. Előzetes tervekben egy blokkos-kapcsolat alapú grafikus felület szerepel. Ez a módszer több különböző technológia területen sikeresen vizsgázott pl.: Labview blockdiagrammjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint} (amely az UDK3 Kismetjének egy tovább fejlesztett változata).
+\end{itemize}
 
 \section{Rendszertervek}
-A rendszer tervezését több fő folyamatra osztottam:
-\begin{enumerate}
-	\itemsep0em
-	\item Követelményrendszer felírása (funkcionális és nem funkcionális követelmények)
-	\item Megfelelő technológiák kiválasztása követelményrendszer és egyéb szempontok alapján
-	\item Alap rendszerarchitektúra elkészítése (modulok megtervezése)
-	\item Felület tervek
-\end{enumerate}
+A következőkben röviden összefoglalom a szakdolgozat tárgyát képező szoftver terveinek elő- és elkészítésének menetét. A korábbi fejezet végén vázolni kezdtem a programmal szembeni elvárásokat, javasalatokat, ez gyakorlatilag a követelményrendszer felírásának a kezdeti lépése volt. Természetesen a jelenlegi követelményrendszer kialakítását még megelőzte több beszélgetés, konzultáció is.\\
+A megbeszélések során több logikailag összetartozó objektum, folyamat került felírásra. Ezek rendre nevet kaptak a kommunikáció hatékonyságának növelése érdekében. A legfontosabb elenevezéseket a \ref{table:szoszedet} táblázat prezentálja.\\ A továbbiakban ezeket az elnevezéseket használom az adott objektumokra.
 
+\begin{table}[h]
 \subsection{Szószedet}
-A tervezési munka során természetesen szükségessé vált több különböző objektum, folyamat deffiniálása és elenevezése.
-A szószedet \ref{table:szoszedet}. táblázatban található a \pageref{table:diff_soft}. oldalon.
+%\begin{tabular}{@{}rl@{}}
+\begin{tabular}{p{3cm}|p{10cm}}
+
+\toprule
+\multicolumn{1}{c}{\textbf{Elnevezés}} & \multicolumn{1}{c}{\textbf{Deffiníció}} \\ \midrule
+\textbf{Bimg} & A főprogramnak az elnevezése (képzése a Batch Image szavakból történt szóösszerántással). \\
+\hline
+\textbf{Modul} & BIMG-n belüli logikai egység. \\
+\hline
+\textbf{Plugin} & BIMG dinamikus kiterjesztése, az IMP blockok lelőhelye \\
+\hline
+\textbf{IMP Block} & Image Process Block, képfeldolgozási alapegységnek tekínthetjük, egy IMP általában egy jól körülhatárol művelet elvégzésére alkalmas \\
+\hline
+\textbf{IMP Parameter} & Megkülönböztetünk: bemeneti paramétereket (pl.: IMP bemeneti kép), kimeneti paramétereket (pl.: IMP eredménykép) és konfigurációs paramétereket (pl.: konstans, mátrix). \\
+\hline
+\textbf{IMP Connection} & Kettő darab azonos típusú IMP Parameter között kapcsolat hozható létre. Ezt a kapcsolatot nevezzük IMP Connection-nek. Kapcsolat csak kimeneti és bemeneti paraméterek között jöhet létre. Az irány kötelezően: Ki-Be. \\
+\hline
+\textbf{IMP Node} & Egy IMP Blockot tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Block fölé. \\
+\hline
+\textbf{IMP Connector} & Egy IMP Parameter-t tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Parameter fölé. \\
+\hline
+\textbf{IMP Connector Connection} & Egy IMP Connection-t tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Connection fölé. \\
+\hline
+\textbf{BimgImage} & Be- és kimeneti adatsort reprezentál. \\
+\hline
+\textbf{Process Chain} & IMP-ket tartalmaz, itt történik az IMP-k meghívása feldolgozáskor \\
+
+\hline
+\end{tabular}
+\caption{Szószedet}
+\label{table:szoszedet}
+\end{table}
+
+
+
+\subsection{Modulok}
+Funkcionalitási szempontok alapján több modul deffiniálása történt meg. A következőkben ezeket a modulokat vázolom. Részletesebb leírás a usecasedigrammról olvasható le. (Illetve a mellékletben csatolt usecase-ben.)
+\todo{usecase}
+
+\subsubsection{Input - Bemenet}
+Itt történik a bemeneti adatsorok összeválogatása, és rendezése.\\
+''A felhasználó saját igényei szerint összeállíthat egy bemeneti listát, amely a feldolgozni kívánt képeket, adatsorokat tartalmazza. A listát bővítheti egy vagy több elemmel, továbbá megadhat pl.: mappát, amiben az összes megfelelő formátumú elemet hozzáfűzzi rendszer a bemeneti listához. Amelyik elem már szerepel a listán az nem kerül újra hozzáfűzésre a listához. A felhasználónak lehetősége van továbbá egyszere egy elem kiválasztására, ezt az elemet eltávolíthatja a listáról és módosíthatja a listában betöltött helyét. A felhasználónak lehetősége van kiüríteni az egész listát, továbbá el is mentheti a lista tartalmát egy a rendszeren kívüli erőforrásra, amelynek segítségével később a lista újra betölthető lesz. Betöltéskor a nem elérhető elemeket a rendszer eltávolítja a listáról.''
+\missingfigure[figwidth=\textwidth]{INPUT USECASE ELEMENTS}
+\subsubsection{Plugin - Bővítmények}
+
+\subsubsection{Process Chain - Feldolgozás}
+
+\subsubsection{IMP - }
+
 
 \subsection{Követelmény analízis}
 A követelmény analízist a RUP (Rational Unified Process) metodika FURPS+ rendszere alapján végeztem.\\Így minden olyan tulajdonság és jellemző feltüntetésre került amely szükséges, hogy a szoftver megoldja az adott problémát. \cite{website:soft_req_def} Ezek a követelmények jellemzőjüket tekíntve lehetnek funkcionális követelmények, és nem funkcionális követelmények.
@@ -281,15 +351,18 @@ A \ref{fig:bimg_usecase_schema}. ábrán megfigyelhető a sematikus usecase diag
   \caption{A BIMG sematikus usecase diagrammja}
   \label{fig:bimg_usecase_schema}
 \end{figure}
-
+	\todo{Törölni!}
 Az egy logikai csoportba tartozó funkciókat csoportokba szerveztem. Így a következő csoportok kerültek felírásra:
+
 \begin{itemize}
 	\itemsep0em
-	\item Input kezelés: itt történik az input hozzáadása, törlése, szerkesztése, az input elemek sorrendjének megváltoztatása, továbbá a bemeneti elemek megjelenítése.
-	\item Plugin kezelés: itt történik a pluginek a rendszerbe töltése, ki/be kapcsolása, és tartlamuk böngészése is.
+	\item Input kezelés: itt történik az input hozzáadása, törlése, szerkesztése, az input elemek sorrendjének megváltoztatása, továbbá a bemeneti elemek megjelenítése.\todo{Törölni!}
+
+	\item Plugin kezelés: itt történik a pluginek a rendszerbe töltése, ki/be kapcsolása, és tartlamuk böngészése is.\todo{Törölni!}
 	\item Process Chain kezelés: a feldolgozás szíve, ez a modul veszi át az input listát, és végzi a feldolgozást
-	\item IMP Node kezelés: Itt történik a Process Chain elemeinek a deffiniálása és az elemek közötti relációknak a beállítása.
+	\item IMP Node kezelés: Itt történik a Process Chain elemeinek a deffiniálása és az elemek közötti relációknak a beállítása.\todo{Törölni!}
 \end{itemize}
+
 Ezek a logikai csoportok reprezentálnak egyben egy modult is a rendszerben.
 \todo{USECASE}
 A teljes usecase kifejtve a mellékletben olvasható.
@@ -324,6 +397,21 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
 %\bibliography{irodalomjegyzek}
 
 \begin{thebibliography}{99}
+
+    \bibitem{book:usecase_book_brief}
+		Craig Larman (2004). 
+        {\em Applying UML and Patterns, Prentice Hall, 3 edition 6.7 (66)\\}
+
+    \bibitem{book:pipelining_def}
+		Jack J. Dongarra (1995). 
+        {\em Numerical Linear Algebra on High-Performance Computers (3)\\}
+        
+ 	\bibitem{website:valve_shading_tree}
+		http://www.valvesoftware.com/publications/2006/\\SIGGRAPH06\_Course\_ShadingInValvesSourceEngine\_Slides.pdf
+        {\em Valve, Jason Mitchell (2007), Shading in Valve’s Source Engine  (37) \\}     
+        
+        
+
     \bibitem{website:imagej}
         http://imagej.nih.gov/ij/
         {\em ImageJ - Image Process and Analysis in Java}
@@ -441,40 +529,7 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
 \end{landscape}
 
 
-\begin{table}[h]
-\subsection{Szószedet táblázat}
-%\begin{tabular}{@{}rl@{}}
-\begin{tabular}{p{3cm}|p{10cm}}
 
-\toprule
-\multicolumn{1}{c}{\textbf{Elnevezés}} & \multicolumn{1}{c}{\textbf{Deffiníció}} \\ \midrule
-\textbf{Bimg} & A főprogramnak az elnevezése (képzése a Batch Image szavakból történt szóösszerántással). \\
-\hline
-\textbf{Modul} & BIMG-n belüli logikai egység. \\
-\hline
-\textbf{Plugin} & BIMG dinamikus kiterjesztése, az IMP blockok lelőhelye \\
-\hline
-\textbf{IMP Block} & Image Process Block, képfeldolgozási alapegységnek tekínthetjük, egy IMP általában egy jól körülhatárol művelet elvégzésére alkalmas \\
-\hline
-\textbf{IMP Parameter} & Megkülönböztetünk: bemeneti paramétereket (pl.: IMP bemeneti kép), kimeneti paramétereket (pl.: IMP eredménykép) és konfigurációs paramétereket (pl.: konstans, mátrix). \\
-\hline
-\textbf{IMP Connection} & Kettő darab azonos típusú IMP Parameter között kapcsolat hozható létre. Ezt a kapcsolatot nevezzük IMP Connection-nek. Kapcsolat csak kimeneti és bemeneti paraméterek között jöhet létre. Az irány kötelezően: Ki-Be. \\
-\hline
-\textbf{IMP Node} & Egy IMP Blockot tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Block fölé. \\
-\hline
-\textbf{IMP Connector} & Egy IMP Parameter-t tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Parameter fölé. \\
-\hline
-\textbf{IMP Connector Connection} & Egy IMP Connection-t tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Connection fölé. \\
-\hline
-\textbf{BimgImage} & Be- és kimeneti adatsort tartalmaz. (Ez a legtöbb esetben kép.) \\
-\hline
-\textbf{Process Chain} & IMP Node-okat tartalmaz, innen indul a feldolgozás \\
-
-\hline
-\end{tabular}
-\caption{Szószedet}
-\label{table:szoszedet}
-\end{table}
 
 \subsection{Teljes usecase}
 \begin{figure}[h]
