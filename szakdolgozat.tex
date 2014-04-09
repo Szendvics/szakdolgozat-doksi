@@ -14,7 +14,6 @@
 \usepackage{formai_kovetelmenyek}
 
 
-\usepackage[T1]{fontenc}
 
 \usepackage{array} % for defining a new column type
 \usepackage{varwidth} %for the varwidth minipage environment
@@ -45,7 +44,6 @@
 \clubpenalty=400
 
 \graphicspath{{./kepek/}}
-
 \setcounter{secnumdepth}{3} %szamozza a subsubsection-oket is
 \AtBeginDocument{\addtocontents{toc}{\protect\pagestyle{empty}}} %ezzel erem el, hogy a tartalomjegyzek ne kapjon oldalszamot
 \AtBeginDocument{\addtocontents{tod}{\protect\thispagestyle{empty}}}
@@ -174,6 +172,7 @@ The topic of this thesis is to ...
 
 \renewcommand{\thefigure}{\arabic{figure}}
 
+
 \setcounter{tocdepth}{3} %subsubsection-ok is latszodjanak
 \thispagestyle{empty}
 \tableofcontents
@@ -214,14 +213,14 @@ Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb 
 \subsubsection{Általános tulajdonságok:}
 \begin{itemize}
 	\itemsep0em
-	\item Platform: Milyen környezetben és operációs rendszeren használható? Milyen program nyelvvel fejlesztették? \\Hordozhatósági szempontonból került be a listára. Oka, hogy sokkal könnyebb egy olyan rendszert használni, amely több környezetben is elboldogul.
+	\item Platform: Milyen környezetben és operációs rendszeren használható? Milyen program nyelvvel fejlesztették? \\Hordozhatósági szempontonból került be a listára. Oka, hogy sokkal könnyebb egy olyan rendszert használni, amely több környezetben is működőképes.
 	\item Licence: Milyen licenc alatt került publikálásra?\\Elsősorban pénzügyi és kód újrahasznosíthatóság miatt érdekes.
 	\item Cél csoport: A szoftver kinek az igényeinek teljesítésére törekszik?\\Legtöbb esetben a célcsoport már alapvetően meghatározza, hogy a szoftverbe milyen funkcionalitásokat építünk be, illetve, hogy ezekhez milyen interfészt biztosítunk a jövőbeni felhasználók számára.
 	\item Támogató: Van hivatalos támogatottságga? (cég, alapítvány)\\Az esetek jelentős részében megfigyelhető, hogy egy szoftver, szoftvercsomag akkor válik igazán jól támogatottá, ha fejlesztői közösségen kívül egy nagyobb szervezet is gondozásába veszi.
 	\item Felhasználói közösség: Fórum, levelező listák?\\Bármilyen előre nem látható hiba történhet: Ami elromolhat az el is romlik! A fenti csatornákon segítséget kérve nagy eséllyel kaphatunk választ kérdésünkre, és megoldást problémáinkra.
 	\item Plugin rendszer: Plugin betöltésre van lehetőségünk? Saját plugin?\\A képfeldolgozás egy eléggé sokrétű szerteágazó lehetőségeket, funkcionalitásokat magában foglaló szakterület. Így az csak utópisztikus álom, hogy egyszer valaki implementálja az összes funkcionalitást és onnantól kezdve mindenki boldogan használja azokat az idő végezetéig\dots Ezért ha a program dinamikusan bővíthető (akár a felhasználó által készített bővítményekkel), jelentős előnyt jelent a többi monolitikus rendszerrel szemben.
-	\item Kötegelt feldolgozási lehetőség: Feldolgozhatunk egyszerre nagy mennyiségű képet?\\Senki nem fog egyesével feldolgozni nem, hogy 50.000 darab képet de még 500-at sem\dots
-	\item Automatizálási lehetőségek: Automatizálhatjuk a feldolgozást?\\Ha lehetőségünk van a meglévő egyszerű feldolgozási lépéseket testreszabni, esetleg összekombinálni akkor az szintén egy jelentős előny lehet.
+	\item Kötegelt feldolgozási lehetőség: Feldolgozhatunk egyszerre nagy mennyiségű képet?\\Senki sem fog egyesével feldolgozni nemhogy 50.000 darab képet, de még 500-at sem\dots
+	\item Automatizálási lehetőségek: Automatizálhatjuk a feldolgozást?\\Ha lehetőségünk van a meglévő egyszerű feldolgozási lépéseket testreszabni, esetleg összekombinálni akkor az szintén egy jelentős előny lehet, más ilyen lehetőségekkel nem rendelkező szoftverekkel szemben.
 	\item Fejlesztői eszközök: Rendelkezik hivatalos fejlesztői eszközökkel?\\Köztudott, hogy amelyik szoftverhez kiadásra kerülnek különböző fejlesztői eszközök, és segédanyagok ahhoz lényegesen egyszerűbb saját modulokat implementálni.
 	\item Támogatott bemeneti formátumok köre
 	\item Megjelenítési, vizualizációs lehetőségek listája, módjai\\Hasznos ha több féle interfészt biztosítunk az adott információ megjelenítéshez: más logikai kontextusban helyezve új megfigyeléseket is tehet a felhasználónk.
@@ -246,7 +245,7 @@ Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb 
     \item \emph{ImageJ}\cite{website:imagej}\\
     Képfeldolgozást és analizálást végző rendszer, amely a National Institutes of Health fejlesztése.
 	A program első indulásakor látható, hogy itt egy professzionális orvostechnológiai eszközről van szó.
-	Támogatottsága jelentős mind közösségi, mind bővíthetőségi szempontból. Fegyvertárában olyan eszközöket is felvonultat mint Z és T funkciók.\cite{article:imagej_article}\\A Z funkciók segítségével pl.: MRI-vel készített sorozatos metszeti képeket kezelhetünk könnyedén, lehetőségeinket tovább növeli, hogy a térbeli szervezés mellett még időbeli struktúra felépítésére és kezelésére is lehetőséget ad a program (T funkciók).
+	Támogatottsága jelentős mind közösségi, mind bővíthetőségi szempontból. Eszközkészletének palettája széleskörű, külön kiemelném Z és T funkciókat.\cite{article:imagej_article}\\A Z funkciók segítségével pl.: MRI-vel készített sorozatos metszeti képeket kezelhetünk könnyedén, lehetőségeinket tovább növeli, hogy a térbeli szervezés mellett még időbeli struktúra felépítésére és kezelésére is lehetőséget ad a program (T funkciók).
     
     \item \emph{ImBatch}\cite{website:imbatch}\\
     Képfeldolgozást végző rendszer. Célcsoportja egyértelműen egy félprofesszionális felhasználói szint. Tehát itt eleve nem is várunk professzionális analitikai funkciókat. Cserébe kapunk egy szép, letisztult, egyszerű grafikus felhasználói felületet, és egy pár használatot segítő kényelmi funkciót: pl.: Windows helyérzékeny menü intergrációt.
@@ -259,14 +258,14 @@ Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb 
 \subsection{Összefoglalás}
 \subsubsection{Tapasztalatok}
 A részletes összehasonlítás az \ref{table:diff_soft}. táblázatból olvasható ki a \pageref{table:diff_soft}. oldalon.\\
-Az adatsorokból elemzése közben, több fontos követelmény, fejlesztési irányvonal körvonalazódott:
+Az adatsorok elemzése közben, több fontos követelmény, fejlesztési irányvonal körvonalazódott:
 \begin{itemize}
 	\itemsep0em
 	\item Hordozható legyen több platformra. Hiszen egy laboratóriumban több féle architektúra elő fordul. (Ideális esetben tehát a szoftverünk legyen crossplatform.)
-	\item Nyitott legyen a további fejlesztésekre. A felhasználónak adjuk meg a lehetőséget, hogy testre szabhassa a szoftverünket, vagy akár önmaga is fejlesztővé válhasson, így bővíthesse a pluginek körét, vagy javítsa a fő programot.
+	\item Nyitott legyen a további fejlesztésekre. A felhasználónak adjuk meg a lehetőséget, hogy testre szabhassa a szoftverünket, vagy akár önmaga is fejlesztővé válhasson, így bővíthesse a pluginek körét, vagy javíthassa a fő programot.
 
 	\item Szerepeljenek automatizálási lehetőségek. Írhassunk makrókat, vagy vizuális módon szerkeszthessünk algoritmusokat.
-	\item A rendszer ajánlott a célcsoport, munkája közben gyakorta előforduló bemeneti formátum kezelésére fel kell készíteni.
+	\item A rendszert ajánlott az adott részterületen leggyakrabban előforduló, és legnépszerűbb bemeneti formátumokra felkészíteni.
 	\item Már gyárilag nagy mennyiségű képjavító, feldolgozó, szerkesztő, elemző és analizáló funkcionalitással érkezzen a szoftver.
 
 \end{itemize}
@@ -278,14 +277,14 @@ Az adatsorokból elemzése közben, több fontos követelmény, fejlesztési ir�
 
 \item A programba új funkciók integrálása ne ütközzön problémákba, és az ilyen módon implementált funkcióknak a főprogramtól függetlenül is terjesztőknek kell lenniük. Ez természetesen maga után vonzza, hogy szükséges kezelni a későbbi továbbfejlesztések esetén elképzelhető plugin kompatibilitási problémákat.
 
-\item A nagy mennyiségű kisméretű funkció egy idő után sajnos kezelhetetlennek bizonyul, ezért azokat funkcionalitásuk alapján csoportosítani kell. 
+\item A nagy mennyiségű kisméretű funkció egy idő után sajnos kezelhetetlennek bizonyulhatnak, ezért azokat funkcionalitásuk alapján csoportosítani kell. 
 
-\item Legyen lehetőség több különböző szerkezetű grafikus felhasználói felület használatára. Előzetes tervekben egy blokkos-kapcsolat alapú grafikus felület szerepel. Ez a módszer több különböző technológia területen sikeresen vizsgázott pl.: Labview blockdiagrammjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint} (amely az UDK3 Kismetjének egy tovább fejlesztett változata).
+\item Legyen lehetőség több különböző szerkezetű grafikus felhasználói felület használatára. Előzetes tervekben egy blokkos-kapcsolat alapú grafikus felület szerepel. Ez a módszer több különböző technológiai területen sikeresen vizsgázott pl.: Labview blockdiagrammjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint} (amely az UDK3 Kismetjének egy tovább fejlesztett változata).
 \end{itemize}
 
-\section{Rendszertervek}
+\section{Előzetes Rendszertervek}
 A következőkben röviden összefoglalom a szakdolgozat tárgyát képező szoftver terveinek elő- és elkészítésének menetét. A korábbi fejezet végén vázolni kezdtem a programmal szembeni elvárásokat, javasalatokat, ez gyakorlatilag a követelményrendszer felírásának a kezdeti lépése volt. Természetesen a jelenlegi követelményrendszer kialakítását még megelőzte több beszélgetés, konzultáció is.\\
-A megbeszélések során több logikailag összetartozó objektum, folyamat került felírásra. Ezek rendre nevet kaptak a kommunikáció hatékonyságának növelése érdekében. A legfontosabb elenevezéseket a \ref{table:szoszedet} táblázat prezentálja.\\ A továbbiakban ezeket az elnevezéseket használom az adott objektumokra.
+A megbeszélések során több logikailag összetartozó objektum, folyamat került felírásra. Ezek rendre nevet kaptak a kommunikáció hatékonyságának növelése érdekében. A legfontosabb elenevezéseket a \ref{table:szoszedet} táblázat prezentálja.
 
 \begin{table}[h]
 \subsection{Szószedet}
@@ -321,7 +320,7 @@ A megbeszélések során több logikailag összetartozó objektum, folyamat ker�
 \caption{Szószedet}
 \label{table:szoszedet}
 \end{table}
-
+ A továbbiakban ezeket az elnevezéseket használom az adott objektumokra.
 
 
 \subsection{Modulok}
@@ -334,9 +333,14 @@ Itt történik a bemeneti adatsorok összeválogatása, és rendezése.\\
 \missingfigure[figwidth=\textwidth]{INPUT USECASE ELEMENTS}
 \subsubsection{Plugin - Bővítmények}
 
-\subsubsection{Process Chain - Feldolgozás}
+\subsubsection{Process Chain (Model) - Feldolgozás}
 
-\subsubsection{IMP - }
+\subsubsection{Process Chain (View) - Feldolgozás}
+
+\subsubsection{IMP (Model) - Funkciók}
+
+
+\subsubsection{IMP (View) - Funkciók}
 
 
 \subsection{Követelmény analízis}
@@ -368,7 +372,13 @@ Ezek a logikai csoportok reprezentálnak egyben egy modult is a rendszerben.
 A teljes usecase kifejtve a mellékletben olvasható.
 
 \subsubsection{Nem funkcionális követelmények}
-
+Működési követelmények\\
+Megbízhatósági követelmények\\
+Teljesítménnyel kapcsolatos elvárások\\
+Támogatással kapcsolatos elvárások \\
+Implementációs megkötések\\
+Felhasználó intefésszel kapcsolatos elvárások\\
+Deploy és licencelés követelmények
 
 \subsection{Választott technológiák}
 A megfelelő technológiák kiválasztása során több tényező is befolyásolta a döntésemet. Ezekeből két nagy csoportot írtam fel: követelményrendszerből illetve szubjektív nézőpontból kiemelt fontosságú tényezők. A követelményrendszerből adódóakat a korábbi két alpontban bőségesen részleteztem, ezért a következőkben csak a szubjektív pontokat vázolnám fel.
@@ -380,7 +390,7 @@ A megfelelő technológiák kiválasztása során több tényező is befolyásol
 	\item Képfeldolgozási függvénykönyvtárakkal legyenek jól ellátottak a kiválasztott technológiák (nem szeretném újra feltalálni a kereket)
 
 \end{itemize}
-A fenti szempontokból a következő fegyvertár került összeállításra:\\ A program alap szerkezete Qt-val, a képfeldolgozásért felelős komponensek OpenCv-vel kerültek megvalósításra. A verziókövetést Git-el végeztem, a dokumentáció és dolgozat elkészítéséhez pedig Latex-et, Gummi-t, és Yed-et használtam.
+A fenti szempontokból a következő fegyvertár került összeállításra:\\ A program alap szerkezete Qt-val, a képfeldolgozásért felelős komponensek OpenCv-vel kerültek megvalósításra. A verziókövetést Git-el végeztem, a dokumentáció és dolgozat elkészítéséhez pedig Latex-et, Gummi-t, Doxygen-t, és Yed-et használtam.
 \subsubsection{Qt}
 Egyike a legmeghatározóbb multiplatform c++-ra épülő alkalmazás keretrendszerenek. \cite{website:qt_about} Korábban már több másik projektben is sikeresen dolgoztam vele. A részletes dokumentáció és aktív felhasználói/fejlesztői bázis sokat segített a fejlesztésben. \cite{website:qt_dochome} \cite{website:qt_docforum}\cite{website:qt_docmaillist} Licencelése kedvező, elérhető OpenSource és Enterprise verziója is. Olyan nagy cégek is használják mint a BlackBerry, Michelin vagy a Panasonics.\cite{website:qt_in_use}  Jelen dolgozat tárgyát képező alkalmazás az 5.1.1es (GCC 4.6.3 32bit) verzióval készült.
 
@@ -388,10 +398,41 @@ Egyike a legmeghatározóbb multiplatform c++-ra épülő alkalmazás keretrends
 Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi tanulást megvalósító függvénykönyvtár. Natív c++-ban implementált és erősen támaszkodik azt stl tárolókra. Egy vékony wrapper elkészítésével könnyen összekapcsolható Qt-val. Funkcionalitásával széleskörű feladatok megoldására kivállóan alkalmas és dokumentációja is megfelelő. Jelen program a 2.4.6.1-os verzióval került implementálásra.
 
 
-\subsection{Architektúra}
+\section{Architektúrális tervek}
+.
+
+\subsection{Domain model}
+
+\subsection{Előzetes struktúrák és objektumok}
+
+\subsubsection{Az alkalmazás alap logikája}
+\subsubsection{Feldolgozást végző egységek}
+\subsubsection{Input útja a rendszerben - Main flow}
+\subsubsection{Pluginek betöltése}
+\subsubsection{Plugin Container}
+\subsubsection{Pluginek frissítése, hozzáadása}
+\subsubsection{IMP működés ellenőrzése}
+\subsubsection{IMPk hibás működésének kezelése}
+\subsubsection{Step-by-step működésről és realtime debug}
+\subsubsection{A teljes kép}
 
 \subsection{Felület terv}
+\subsubsection{Használhatósági és ergonomikus szempontok}
+\subsubsection{Előzetes tervek (egyszerű feldolgozáshoz)}
+\subsubsection{Előzetes tervek (komplex feldolgozáshoz)}
 
+
+\subsection{Design model}
+
+
+\section{Fejlesztési napló}
+.
+\section{A Fejlesztés részletei}
+.
+\section{Az elkészült munka értékelése}
+.
+\section{Továbbfejlesztési lehetőségek}
+.
 %\renewcommand{\bibname}{Irodalomjegyzék}
 %\bibliographystyle{pemik}
 %\bibliography{irodalomjegyzek}
@@ -542,6 +583,9 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
   \caption{A BIMG teljes usecase diagrammja (2. rész) }
   \label{fig:bimg_usecase_schema_part_2}
 \end{figure}
+
+
+\subsection{Felhasználói útmutató}
 
 \subsection{CD melléklet}
 A szakdolgozat CD mellékletének könyvtárszerkezete:
