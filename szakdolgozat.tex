@@ -12,7 +12,7 @@
 \usepackage{booktabs}
 \usepackage{pdflscape}
 \usepackage{formai_kovetelmenyek}
-
+\usepackage{pdfpages}
 
 
 \usepackage{array} % for defining a new column type
@@ -188,11 +188,12 @@ The topic of this thesis is to ...
 
 Témám egy olyan képfeldolgozást támogató keretrendszer tervezése és fejlesztése, amely alkalmas képek egyedi vizsgálatára és kötegelt feldolgozására. A feldolgozást végző algoritmusok a dinamikusan betölthető modulokban foglalnak helyet. A rendszer fő haszonélvezője a Pannon Egyetem Képfeldolgozás Kutatólaboratóriuma lesz, de célom, hogy kellően általános rendszer jöjjön létre, amelyet bárki könnyen és egyszerűen használhat, illetve bővítheti saját modulokkal.
 
-\subsection{Első lépés}
-A legtöbb munka során előnyös, ha projekt lényegét megragadva röviden össze-foglaljuk a főlefutási eset sikeres teljesülését. Erre jó példa a rövid (brief\cite{book:usecase_book_brief}) formátumú usecase.
-\\\emph{''A felhasználó összeállítja a bemeneti képek, adatforrások listáját. Ezek után meghatározza a feldolgozás lépéseit. Végül megjelöli a kimeneti formát, majd elindítja a feldolgozást. A program egyesével beolvassa a feldolgozni kívánt képeket, majd az adott képen végrehajtja sorrendhelyesen a kijelölt feladatokat, végül a választott kimeneti formába menti ki az eredményképeket.''}
+\subsection{Első lépések}
+\subsubsection{Briefing}
+A legtöbb munka során előnyös, ha projekt lényegét megragadva röviden össze-foglaljuk a legfontosabb lefutási eset sikeres teljesülését. Erre jó eszköz a rövid (brief\cite{book:usecase_book_brief}) formátumú usecase.
+\\\emph{''A felhasználó összeállítja a bemeneti képek, adatforrások listáját. Ezek után meghatározza a feldolgozás lépéseit. Végül megjelöli a kimeneti formát, majd elindítja a feldolgozást. A program egyesével létrehozza a nyers képeket\footnote{Nyersképnek nevezünk minden olyan bemeneti képet, amelyen nem hajtottunk végre semmiféle változtatást.}, majd az adott nyers képen végrehajtja sorrendhelyesen a kijelölt feladatokat, végül a választott kimeneti formába menti ki az eredményképeket\footnote{Átmeneti eredmény képnek nevezzük minden olyan képet, amelyen már végrehajtottunk végbe ment feldolgozás, de nem még nem az összes. Eredmény képnek pedig az olyan képeket nevezzük, amelyeken már lezajlott a feldolgozás}.''}
 
-
+\subsubsection{Egy rövid példa}
 \begin{figure}[h]
 	\begin{center}
 	  \includegraphics[width=0.650\textwidth]{read-dir-processing_IMP.jpg}
@@ -202,26 +203,28 @@ A legtöbb munka során előnyös, ha projekt lényegét megragadva röviden ös
 \end{figure}
 
 
-Az  \ref{fig:bimg_usecase_brief}. ábrán láthatjuk a rendszer vázlatos működését, egy kezdeti terven. Jelen esetben egy könyvtárban található összes digitális képet kívánjuk feldolgozni. A beolvasás után a nyers képet\footnote{Nyersképnek nevezünk minden olyan bemeneti képet, amelyen nem hajtottunk végre semmiféle változtatást.} átadjuk a feldolgozást végző logikának (Process Chain), ahol jelen példában 3 darab elemi művelet történik (IMP01-03). Fontos megjegyezni, hogy a feldolgozás pipelining \cite{book:pipelining_def} jelleget követ, tehát apró elemi lépések sorozata, amelyek kötött sorrendben végzik a feldolgozást. Természetesen a feldolgozás menete nem csak lineáris jellegű lehet hanem pl.: fa jellegű. (Ilyen műveleti módra jó példa különböző grafikus engineknél a fények számítása pl.: \cite{website:valve_shading_tree}. ) A feldolgozás utolsó lépése befejését követően, a végső eredménykép jelen esetben exportálásra kerül egy a bementi könyvtárral nem megegyező könyvtárba.
+Az  \ref{fig:bimg_usecase_brief}. ábrán láthatjuk a rendszer vázlatos működését. Jelen példában egy könyvtárban található összes digitális képet kívánjuk feldolgozni. A beolvasás után a nyers képet átadjuk a feldolgozást végző logikának (Process Chain), ahol jelen példában 3 darab elemi művelet történik (IMP01-03). A feldolgozás utolsó lépése után, a végső eredménykép (jelen esetben) exportálásra kerül, egy a bementi könyvtárral nem megegyező könyvtárba.
+
+Fontos megjegyezni, hogy a feldolgozás pipelining \cite{book:pipelining_def} jelleget követ, tehát apró elemi lépések sorozata, amelyek kötött sorrendben végzik feladataikat. A műveletekből egy irányított gráf írható fel. Ahol a csúcspontok a műveleti egységek, az irányított élek pedig az adatok áramlása. (Ilyen műveleti módra jó példa különböző grafikus engineknél a fények számítása pl.: \cite{website:valve_shading_tree}. )
 
 \section{Hasonló célú rendszerek}
-Következő lépésként megvizsgáltam, hogy milyen hasonló célú szoftverek, illetve szoftver csomagok találhatóak a piacon. Erre azért volt szükség, hogy pontosabb képet kapjak a jelenleg fellelhető megoldásokról, és munkám során az így tapasztalt pozitív és negatív tapasztalatokat felhasználva jó minőségű szoftvert fejleszthessek.
+Következő lépésként megvizsgáltam, hogy milyen hasonló célú szoftverek, illetve szoftvercsomagok találhatóak meg a piacon. Erre azért volt szükség, hogy pontosabb képet kapjak a jelenleg fellelhető megoldásokról, és munkám során az így szerzett pozitív és negatív tapasztalatokat eredményesen hasznosíthassam.
 
 Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb olvashatóak. Az vizsgálat során a személyes benyomáson túl, egyéni véleményeket is figyelembe vettem (pl.: kiadó cégnek vagy alapítványak az ajánlása, vagy független publikáció, újságcikk).
 \subsection{Összehasonlítási szempontok}
 
-\subsubsection{Általános tulajdonságok:}
+\subsubsection{Általános tulajdonságok}
 \begin{itemize}
 	\itemsep0em
-	\item Platform: Milyen környezetben és operációs rendszeren használható? Milyen program nyelvvel fejlesztették? \\Hordozhatósági szempontonból került be a listára. Oka, hogy sokkal könnyebb egy olyan rendszert használni, amely több környezetben is működőképes.
-	\item Licence: Milyen licenc alatt került publikálásra?\\Elsősorban pénzügyi és kód újrahasznosíthatóság miatt érdekes.
-	\item Cél csoport: A szoftver kinek az igényeinek teljesítésére törekszik?\\Legtöbb esetben a célcsoport már alapvetően meghatározza, hogy a szoftverbe milyen funkcionalitásokat építünk be, illetve, hogy ezekhez milyen interfészt biztosítunk a jövőbeni felhasználók számára.
-	\item Támogató: Van hivatalos támogatottságga? (cég, alapítvány)\\Az esetek jelentős részében megfigyelhető, hogy egy szoftver, szoftvercsomag akkor válik igazán jól támogatottá, ha fejlesztői közösségen kívül egy nagyobb szervezet is gondozásába veszi.
+	\item Platform: Milyen környezetben és operációs rendszeren használható? Milyen eszközökkel fejlesztették? \\Hordozhatósági szempontonból került be a listára.
+	\item Licence: Milyen licenc alatt került publikálásra?\\Elsősorban pénzügyi és kód újrahasznosíthatósági jellemzők miatt érdekes.
+	\item Cél csoport: A szoftver kinek az igényeinek a kielégítésére törekszik?\\Legtöbb esetben a célcsoport már alapvetően meghatározza, hogy a szoftverbe milyen funkcionalitásokat építünk be, illetve, hogy ezekhez milyen interfészt biztosítunk a jövőbeni felhasználóink részére.
+	\item Támogató: Van hivatalos támogatása? (cég, alapítvány)\\Az esetek jelentős részében megfigyelhető, hogy egy szoftver, szoftvercsomag akkor válik igazán jól támogatottá, ha fejlesztői közösségen kívül egy nagyobb szervezet is gondozásába veszi.
 	\item Felhasználói közösség: Fórum, levelező listák?\\Bármilyen előre nem látható hiba történhet: Ami elromolhat az el is romlik! A fenti csatornákon segítséget kérve nagy eséllyel kaphatunk választ kérdésünkre, és megoldást problémáinkra.
 	\item Plugin rendszer: Plugin betöltésre van lehetőségünk? Saját plugin?\\A képfeldolgozás egy eléggé sokrétű szerteágazó lehetőségeket, funkcionalitásokat magában foglaló szakterület. Így az csak utópisztikus álom, hogy egyszer valaki implementálja az összes funkcionalitást és onnantól kezdve mindenki boldogan használja azokat az idő végezetéig\dots Ezért ha a program dinamikusan bővíthető (akár a felhasználó által készített bővítményekkel), jelentős előnyt jelent a többi monolitikus rendszerrel szemben.
-	\item Kötegelt feldolgozási lehetőség: Feldolgozhatunk egyszerre nagy mennyiségű képet?\\Senki sem fog egyesével feldolgozni nemhogy 50.000 darab képet, de még 500-at sem\dots
+	\item Kötegelt feldolgozási lehetőség: Feldolgozhatunk egyszerre nagy mennyiségű képet?
 	\item Automatizálási lehetőségek: Automatizálhatjuk a feldolgozást?\\Ha lehetőségünk van a meglévő egyszerű feldolgozási lépéseket testreszabni, esetleg összekombinálni akkor az szintén egy jelentős előny lehet, más ilyen lehetőségekkel nem rendelkező szoftverekkel szemben.
-	\item Fejlesztői eszközök: Rendelkezik hivatalos fejlesztői eszközökkel?\\Köztudott, hogy amelyik szoftverhez kiadásra kerülnek különböző fejlesztői eszközök, és segédanyagok ahhoz lényegesen egyszerűbb saját modulokat implementálni.
+	\item Fejlesztői eszközök: Rendelkezik hivatalos fejlesztői eszközökkel?
 	\item Támogatott bemeneti formátumok köre
 	\item Megjelenítési, vizualizációs lehetőségek listája, módjai\\Hasznos ha több féle interfészt biztosítunk az adott információ megjelenítéshez: más logikai kontextusban helyezve új megfigyeléseket is tehet a felhasználónk.
 
@@ -258,6 +261,7 @@ Különböző összehasonlítási szempontokat állítottam fel, melyek lentebb 
 \subsection{Összefoglalás}
 \subsubsection{Tapasztalatok}
 A részletes összehasonlítás az \ref{table:diff_soft}. táblázatból olvasható ki a \pageref{table:diff_soft}. oldalon.\\
+
 Az adatsorok elemzése közben, több fontos követelmény, fejlesztési irányvonal körvonalazódott:
 \begin{itemize}
 	\itemsep0em
@@ -265,24 +269,56 @@ Az adatsorok elemzése közben, több fontos követelmény, fejlesztési irányv
 	\item Nyitott legyen a további fejlesztésekre. A felhasználónak adjuk meg a lehetőséget, hogy testre szabhassa a szoftverünket, vagy akár önmaga is fejlesztővé válhasson, így bővíthesse a pluginek körét, vagy javíthassa a fő programot.
 
 	\item Szerepeljenek automatizálási lehetőségek. Írhassunk makrókat, vagy vizuális módon szerkeszthessünk algoritmusokat.
-	\item A rendszert ajánlott az adott részterületen leggyakrabban előforduló, és legnépszerűbb bemeneti formátumokra felkészíteni.
+	\item A rendszert ajánlott az adott részterületen leggyakrabban előforduló, és legnépszerűbb ki- és  bemeneti adatformátumokra felkészíteni.
 	\item Már gyárilag nagy mennyiségű képjavító, feldolgozó, szerkesztő, elemző és analizáló funkcionalitással érkezzen a szoftver.
 
 \end{itemize}
 
+
 \subsubsection{Célok}
 Összegezve láthatjuk, hogy eléggé könnyen lehet már előkészített rendszereket választani a szoftverpiac palettájáról. Ilyenkor jogosan felmerül a kérdés, hogy ez a projekt miben ad többet, mint a jelenlegi lehetőségek? 
 \begin{itemize}
-\item Célom, hogy egy egyszerű felhasználó számára is könnyen kezelhető nyitott bővíthető rendszer hozzak létre, ahol többszintű képfeldolgozást is egyszerűen végezhetjük.
 
-\item A programba új funkciók integrálása ne ütközzön problémákba, és az ilyen módon implementált funkcióknak a főprogramtól függetlenül is terjesztőknek kell lenniük. Ez természetesen maga után vonzza, hogy szükséges kezelni a későbbi továbbfejlesztések esetén elképzelhető plugin kompatibilitási problémákat.
+\item Célom, hogy a programba új funkciók integrálása ne ütközzön problémákba, és az ilyen módon implementált funkcióknak a főprogramtól függetlenül is terjesztőknek kell lenniük. Ez természetesen maga után vonzza, hogy a plugin és főprogram közötti interfésznek kellően kompaktnak és univerzálisnak kell lennie, hogy több verzióváltás alatt is változatlan lehessen.
 
-\item A nagy mennyiségű kisméretű funkció egy idő után sajnos kezelhetetlennek bizonyulhatnak, ezért azokat funkcionalitásuk alapján csoportosítani kell. 
+\item A sok kis méretű funkció egy idő után kezelhetetlenné válik, ezért legyen lehetőség kategorizálásra.
 
-\item Legyen lehetőség több különböző szerkezetű grafikus felhasználói felület használatára. Előzetes tervekben egy blokkos-kapcsolat alapú grafikus felület szerepel. Ez a módszer több különböző technológiai területen sikeresen vizsgázott pl.: Labview blockdiagrammjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint} (amely az UDK3 Kismetjének egy tovább fejlesztett változata).
+\item Legyen lehetőség átlátható szerkezetű grafikus felhasználói felület használatára. Erre kifejezetten alkalmas a blokkos kapcsolat alapú vizuális szerkesztő. Ez a módszer több különböző technológiai területen sikeresen vizsgázott pl.: Labview blockdiagrammjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint} (amely az UDK3 Kismetjének egy tovább fejlesztett változata).
 \end{itemize}
 
-\section{Előzetes Rendszertervek}
+\todo{ Licencelési infók }
+\begin{landscape}
+\begin{table}[h]
+\subsection{Hasonló célú rendszerek összehasonlítása táblázat}
+
+\begin{tabular}{@{}rccc@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{}} & \textbf{ImageJ} & \textbf{ImBatch} & \textbf{OriginLab} \\ \midrule
+\textbf{Platform} & Multi (Java) & Win (C\#) & Win (C/C++) \\
+\textbf{Licence} & Public Domain & @TODO  & @TODO \\
+\textbf{Cél csoport} & professzionális (orvosi) & félprofesszionális (általános) & professzionális (tudományos, ipari) \\
+\textbf{Támogató} & National Institutes of Health & High Motion Software & OriginLab \\
+\textbf{Felhasználói közösség} & \begin{tabular}[c]{@{}c@{}}wiki, leírások,\\ fejlesztői dokumtáció,\\ levlista, fórum\end{tabular} & \begin{tabular}[c]{@{}c@{}}gyik, leírások,\\ oktató videók\end{tabular} & \begin{tabular}[c]{@{}c@{}}gyik, wiki, leírások,\\ fejlesztői dokumentáció,\\ fórum\end{tabular} \\
+\textbf{Plugin rendszer} & igen & igen & igen \\
+\textbf{Kötegelt feldolgozás} & igen (Z-T funkciók) & igen (akár helyérzékeny menü) & igen \\
+\textbf{Automatizálás} & makrók & részben & originC \\
+\textbf{Fejlesztői eszközök} & igen & igen & igen \\
+\textbf{Bemeneti formátumok} & széleskörű (orvosi irány) & széleskörű (általános irány) & széleskörű (ipari irány) \\
+\textbf{Megjelenítés, GUI} & komplex & egyszerű letisztult & komplex \\
+\textbf{Képjavító eljárások} & igen & igen & igen \\
+\textbf{Geometriai műveletek} & igen & igen & igen \\
+\textbf{Analizálás} & igen & nem & igen \\
+\textbf{Szerkesztési műveletek} & igen & igen & igen \\
+\textbf{Színterek közötti konverzió} & igen & igen & igen \\ \bottomrule
+\end{tabular}
+\caption{Hasonló célú rendszerek összehasonlítása}
+\label{table:diff_soft}
+
+\end{table} 
+\end{landscape}
+
+
+\section{Rendszertervek}
 A következőkben röviden összefoglalom a szakdolgozat tárgyát képező szoftver terveinek elő- és elkészítésének menetét. A korábbi fejezet végén vázolni kezdtem a programmal szembeni elvárásokat, javasalatokat, ez gyakorlatilag a követelményrendszer felírásának a kezdeti lépése volt. Természetesen a jelenlegi követelményrendszer kialakítását még megelőzte több beszélgetés, konzultáció is.\\
 A megbeszélések során több logikailag összetartozó objektum, folyamat került felírásra. Ezek rendre nevet kaptak a kommunikáció hatékonyságának növelése érdekében. A legfontosabb elenevezéseket a \ref{table:szoszedet} táblázat prezentálja.
 
@@ -297,23 +333,17 @@ A megbeszélések során több logikailag összetartozó objektum, folyamat ker�
 \hline
 \textbf{Modul} & BIMG-n belüli logikai egység. \\
 \hline
-\textbf{Plugin} & BIMG dinamikus kiterjesztése, az IMP blockok lelőhelye \\
+\textbf{Plugin} & BIMG dinamikus kiterjesztése, az IMP Nodek lelőhelye \\
 \hline
-\textbf{IMP Block} & Image Process Block, képfeldolgozási alapegységnek tekínthetjük, egy IMP általában egy jól körülhatárol művelet elvégzésére alkalmas \\
+\textbf{IMP vagy Node} & Image Process Node, képfeldolgozási alapegységnek tekínthetjük, egy IMP általában egy jól körülhatárol művelet elvégzésére alkalmas. Három típusa van: adat (DataNode), indikátor (IndicatorNode), és feldolgozó (ProcessNode) \\
 \hline
-\textbf{IMP Parameter} & Megkülönböztetünk: bemeneti paramétereket (pl.: IMP bemeneti kép), kimeneti paramétereket (pl.: IMP eredménykép) és konfigurációs paramétereket (pl.: konstans, mátrix). \\
+\textbf{Slot} & IMP Node be- és kimeneti interfészei. Egy slot egy paramétert kezel és tárol. \\
 \hline
-\textbf{IMP Connection} & Kettő darab azonos típusú IMP Parameter között kapcsolat hozható létre. Ezt a kapcsolatot nevezzük IMP Connection-nek. Kapcsolat csak kimeneti és bemeneti paraméterek között jöhet létre. Az irány kötelezően: Ki-Be. \\
+\textbf{Parameter} & Tetszőleges típusú adat. (pl.: szám, szöveg, kép) \\
 \hline
-\textbf{IMP Node} & Egy IMP Blockot tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Block fölé. \\
+\textbf{Slot Connection} & Kettő darab azonos típusú paraméter tartalmazó slot között kapcsolat hozható létre. Ezt a kapcsolatot nevezzük Node Slot Connectionnak, vagy IMP Connection-nak. Kapcsolat csak kimeneti és bemeneti slotok között jöhet létre. Az irány kötelezően: Ki-Be. \\
 \hline
-\textbf{IMP Connector} & Egy IMP Parameter-t tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Parameter fölé. \\
-\hline
-\textbf{IMP Connector Connection} & Egy IMP Connection-t tartalmaz. Feladata, hogy megfelelő interfészt biztosítson az IMP Connection fölé. \\
-\hline
-\textbf{BimgImage} & Be- és kimeneti adatsort reprezentál. \\
-\hline
-\textbf{Process Chain} & IMP-ket tartalmaz, itt történik az IMP-k meghívása feldolgozáskor \\
+\textbf{Process Chain} & Node-kat tartalmaz, és vezérli a feldolgozást. \\
 
 \hline
 \end{tabular}
@@ -323,79 +353,106 @@ A megbeszélések során több logikailag összetartozó objektum, folyamat ker�
  A továbbiakban ezeket az elnevezéseket használom az adott objektumokra.
 
 
-\subsection{Modulok}
-Funkcionalitási szempontok alapján több modul deffiniálása történt meg. A következőkben ezeket a modulokat vázolom. Részletesebb leírás a usecasedigrammról olvasható le. (Illetve a mellékletben csatolt usecase-ben.)
-\todo{usecase}
-
-\subsubsection{Input - Bemenet}
-Itt történik a bemeneti adatsorok összeválogatása, és rendezése.\\
-''A felhasználó saját igényei szerint összeállíthat egy bemeneti listát, amely a feldolgozni kívánt képeket, adatsorokat tartalmazza. A listát bővítheti egy vagy több elemmel, továbbá megadhat pl.: mappát, amiben az összes megfelelő formátumú elemet hozzáfűzzi rendszer a bemeneti listához. Amelyik elem már szerepel a listán az nem kerül újra hozzáfűzésre a listához. A felhasználónak lehetősége van továbbá egyszere egy elem kiválasztására, ezt az elemet eltávolíthatja a listáról és módosíthatja a listában betöltött helyét. A felhasználónak lehetősége van kiüríteni az egész listát, továbbá el is mentheti a lista tartalmát egy a rendszeren kívüli erőforrásra, amelynek segítségével később a lista újra betölthető lesz. Betöltéskor a nem elérhető elemeket a rendszer eltávolítja a listáról.''
-\missingfigure[figwidth=\textwidth]{INPUT USECASE ELEMENTS}
-\subsubsection{Plugin - Bővítmények}
-
-\subsubsection{Process Chain (Model) - Feldolgozás}
-
-\subsubsection{Process Chain (View) - Feldolgozás}
-
-\subsubsection{IMP (Model) - Funkciók}
-
-
-\subsubsection{IMP (View) - Funkciók}
 
 
 \subsection{Követelmény analízis}
-A követelmény analízist a RUP (Rational Unified Process) metodika FURPS+ rendszere alapján végeztem.\\Így minden olyan tulajdonság és jellemző feltüntetésre került amely szükséges, hogy a szoftver megoldja az adott problémát. \cite{website:soft_req_def} Ezek a követelmények jellemzőjüket tekíntve lehetnek funkcionális követelmények, és nem funkcionális követelmények.
+A követelmény analízist a RUP (Rational Unified Process) metodika FURPS+ rendszerének útmutatása alapján végeztem. \\Célom az volt hogy a legtöbb tulajdonság és jellemző feltüntetésre kerüljön amely szükséges, hogy a szoftver megoldja az adott problémát. \cite{website:soft_req_def} Ezek a követelmények jellemzőjüket tekintve lehetnek funkcionális követelmények, és nem funkcionális követelmények.
 
 \subsubsection{Funkcionális követelmények}
-Funkcionális követelményeknek tekíntünk minden olyan követelményt, amely a fő termékünkbe valamilyen képességet biztosít. pl.: Adott objektum megjelenítése \cite{website:soft_func_req_ibm}
-
-A \ref{fig:bimg_usecase_schema}. ábrán megfigyelhető a sematikus usecase diagrammja. (A teljes diagramm a \ref{fig:bimg_usecase_schema_part_1}. ábrán és a \ref{fig:bimg_usecase_schema_part_2}. ábrán tekínthető meg a \pageref{fig:bimg_usecase_schema_part_1}. oldalon.
+Funkcionális követelményeknek tekintünk minden olyan követelményt, amely a fő termékünkbe valamilyen képességet biztosít. \cite{website:soft_func_req_ibm} Azaz ide tartozik minden felhasználói, cél feladat és aktivitás. Erre egy kiválló eszköz a usecase, melyet legegyszerűbben a usecasediagramm segítségével tekínthetünk át.
+\\
+A \ref{fig:bimg_usecase_schema}. ábrán megfigyelhető a BIMG sematikus usecase diagrammja\footnote{Megjegyzés: a vázlatos ábárzolás és a könnyebb szemléltetés miatt a felhasználó csak a funkcionalitások csoportjaival és nem a külön-külön a funkcionalitásokkal került összekötésre.}.
 \begin{figure}[h]
   \includegraphics[width=\textwidth]{schematic_usecase.png}
-  \caption{A BIMG sematikus usecase diagrammja}
+  \caption{A BIMG sematikus usecase diagrammja }
   \label{fig:bimg_usecase_schema}
 \end{figure}
-	\todo{Törölni!}
-Az egy logikai csoportba tartozó funkciókat csoportokba szerveztem. Így a következő csoportok kerültek felírásra:
 
+Az ábráról is egyértelműen leolvashatóak rendszert képző legfontosabb logikai egységek:
 \begin{itemize}
 	\itemsep0em
-	\item Input kezelés: itt történik az input hozzáadása, törlése, szerkesztése, az input elemek sorrendjének megváltoztatása, továbbá a bemeneti elemek megjelenítése.\todo{Törölni!}
-
-	\item Plugin kezelés: itt történik a pluginek a rendszerbe töltése, ki/be kapcsolása, és tartlamuk böngészése is.\todo{Törölni!}
-	\item Process Chain kezelés: a feldolgozás szíve, ez a modul veszi át az input listát, és végzi a feldolgozást
-	\item IMP Node kezelés: Itt történik a Process Chain elemeinek a deffiniálása és az elemek közötti relációknak a beállítása.\todo{Törölni!}
+	\item Input kezelés: a funkcionalitásokból láthatjuk, hogy egy bemeneti elemekből azaz nyers képekből álló struktúrát tudunk managelni.
+	\item Plugin kezelés: itt töldőnek be a feldolgozó egységek és az ezekhez tartozó esetleges, speciális adattagok is. Fontos megjegyezni, hogy szükség van az adattagok közötti konverziós lehetőségek deffiniálására is, hiszen így lesznek képesek a különböző fejlesztésű node-k egymással hatékonyan kommunikálni és együttműködni.
+	\item Node kezelés: a pluginekből beolvasott node-k kezelése törénik ezen a szinten.
+	\item Process Chain kezelés: Ezen a szinten találjuk meg azokat a funkciókat, amelyek a felhasználó számára lehetőséget adnak a feldolgozási folyamat deffiniálásra, szerkesztésére és tesztelésére.
+	\item Feldolgozás: Ezen a szinten történik a feldolgozás összehangolása és az eredmények vizualizálása.
 \end{itemize}
-
-Ezek a logikai csoportok reprezentálnak egyben egy modult is a rendszerben.
-\todo{USECASE}
-A teljes usecase kifejtve a mellékletben olvasható.
+A teljes diagramm a \ref{fig:bimg_usecase_schema_full}. ábrán tekínthető meg a \pageref{fig:bimg_usecase_schema_full}. oldalon. A kifejtett usecase vázlata a \pageref{fig:bimg_usecase_schema_full} oldaltól kezdődik.
 
 \subsubsection{Nem funkcionális követelmények}
-Működési követelmények\\
-Megbízhatósági követelmények\\
-Teljesítménnyel kapcsolatos elvárások\\
-Támogatással kapcsolatos elvárások \\
-Implementációs megkötések\\
-Felhasználó intefésszel kapcsolatos elvárások\\
-Deploy és licencelés követelmények
+A nem funkcionális követelmények halmazába tartozik minden, olyan követelmény, amely valamilyen korlátot, megszorítást vagy minőség irányú feltételt deffiniál. \cite{publication:soft_nonfunc_req} Természetesen ide a futás idejű követelményeken túl (mint pl.: megbízhatóság, teljesítmény, hibakezelés), ideértjük a fejlesztési követelményeket is (pl.: modularitás, bővíthetőség, kód újrafelhasználás stb). Először összegyűjtöttem a legfontosabb nem funkcionális követelményeket, majd ezeket osztályoztam, hogy az (F)URPS+ metodika melyik osztályába tartoznak. Ehhez jó kiindulási pont volt a témakiírás és a konzultációs beszélgetések.
+
+\begin{table}[h]
+%\begin{tabular}{@{}rl@{}}
+\begin{tabular}{p{3cm}|p{10cm}}
+
+\toprule
+\multicolumn{1}{c}{\textbf{Típus}} & \multicolumn{1}{c}{\textbf{Követelmény}} \\ \midrule
+\textbf{Modularitás és bővíthetőség} & A paraméterezhető képfeldolgozási algoritmusokat dinamikusan betölthető modulok biztosítsák a rendszer számára.\\
+\hline
+\textbf{Használhatóság} & A könnyen kezelhető grafikus felhasználói felületen legyen mód többlépcsős feldolgozásra. \\
+\hline
+\textbf{Támogatás} & Amennyiben a felszhasználói felület használata nem teljesen triviális, készüljön hozzá kezelési leírás. \\
+\hline
+\textbf{Teljesítmény és megbízhatóság} & A rendszer legyen képes nagy mennyiségű bemenet feldolgozására. \\
+\hline
+\textbf{Megbízhatóság} & Egy esetleges hibás működésű modul ne okozzon rendszer szintű problémát. \\
+\hline
+\textbf{Implementáció} & A fejlesztés lehetőleg modern, ingyenes, nyíltforrású technológiákkal történjen. \\ 
+\hline
+\textbf{Interfész} & Több ki és bemeneti formátum támogatása. \\
+\hline
+\end{tabular}
+\caption{A legfontosabb nem funkcionális követelmények}
+\label{table:nonfunct_req_table}
+\end{table}
+
+\subsection{A feladat modellezése - Domain model}
+A követelmény analízist a megoldandó feladat részletes elemzése és modellezése követte. Erre az egyik legszélesebb körben használt eszköz a domain model. Előnye, hogy kevés objektummal egyszerűen, és érthetően tudjuk ábrázolni a megoldani kívánt problémakört és feladatokat.\cite{book:usecase_book_brief}
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=1.2\textwidth]{domain_real_gray.png}
+  \caption{A probléma ábrázolása domain modellen. }
+
+  \label{fig:bimg_domain_realworld_img}
+\end{figure}
+\end{center}
+A problémát bemutató domain modell a \ref{fig:bimg_domain_realworld_img}. ábrán látható. Itt szeretném megjegyezni, hogy ez a model nem az egész rendszer ábrázolja. Itt csak alaprendszerek vázlatos bemutatására szorítkozom: Node-Slot-Parameter, Process Chain, Input, Plugin, Node Management. A teljes modell a \ref{fig:bimg_domain_img}. ábrán az \pageref{fig:bimg_domain_img}. oldalon látható. A többi alrendszerről pedig a későbbiekben lesz szó, hiszen azok, már jelentős mértékben függenek a választott technológiáktól, és nem képzik szerves részét az alap logikának.
+
+\subsubsection{Az alap rendszer}
+A BIMG alapját a Node-Slot-Parameter rendszer képezi. Paraméter lehet bármilyen tetszőleges adat (szám, szöveg, kép, vektor, mátrix stb).\\ Minden slotnak kötelezően két paraméterrel kell rendelkeznie, amíg az első az alapértelmezett értéket, addig a második az éppen aktuális értéket reprezentálja. A két érték típusa mindig azonos. Így látható, hogy a slotok csoportosíthatóak  tárolt adattípus szempontjából, azonban ezen túlmenően működési irány alapján is rendszerezhetőek. Az irány azt reprezentálja, hogy az adott slot az őt tartalmazó node-ban milyen irányú kommunikációt képes végezni.
+\begin{itemize}
+	\itemsep0em
+	\item InputSlot: Bemeneti kommunikációt végez, így bemeneti adatot reprezentál a node szempontjából. Alapértelmezetten blokkolja a node végrehajtását.
+	\item OutputSlot: A node szempontjából kimeneti adatot reprezentál, hiszen kimeneti kommunikációt végez. A node végrehajtását nem blokkolja.
+\end{itemize}
+Összegezve beszélhetünk akár pl.: bemeneti számot, kimeneti képet stb kezelő slotokról. Egy slot csak egy nodehoz tartozhat, de egy node több slotot is foglalhat magában.
+Három féle node létezik a rendszerben:
+\begin{itemize}
+	\itemsep0em
+	\item DataNode: Csak Output slottal rendelkezik, tehát a teljes feldolgozás szempontjából egyértelműen csak bemeneti adatforrásnak tekínthető. Mivel nincsen bemeneti slotja azonnal végrehajtható. Alapvető funkciója: adatot juttat be a ProcessChainbe.
+	\item IndicatorNode: csak Input slottal rendelkezik, tehát a teljes feldolgozás szempontjából csak kimeneneti adatforrásként kezelhető. Alapvető funkciója: adatot juttat ki a ProcessChainból.
+	\item ProcessNode: Input- és OutputSlotokkal is rendelkezik. Az egyetlen node típus, amely igazi feldolgozási logikával rendelkezik (tehát nem csak megjelenít, vagy vissza adértékeket hanem azokkal tényleges műveletet is végez). Végrehajtása az InputSlotok miatt alap esetben blokkolt. Alapvető funkciója: feldolgozás.
+
+\end{itemize}
+A nodek között slotok segítségével kapcsolat építhető fel. Bővebben: \todo{ "Node kapcsolat info" } A nodeknak a végrehajtását a ProcessChain ütemezi és irányítja. Az éppen feldolgozásra szánt kép az InputListről érkezik, amelyet a ProcessChain átvesz. Az InputListben több elem is található, mindegyik egy nyers eredményképet reprezentál.\\
+A nodek plugienkben kerülnek a rendszerbe. A plugineket a pluginmanager tölti be induláskor automatikusan, majd validálás után a plugin nyers tartalmát tovább adja a NodeManagernek. A NodeManger az átvett nyers plugin tartalmat, amely, különböző BIMG által használt objektumok listái, feldolgozza, és regisztrálja az adott node típust. Amennyiben a felhasználó a ProcessChaint egy új noddal szeretné bővíteni, a ProcessChain kérést intéz a NodeManagerhez, ami ha a kért node típus érvényes és regisztrált elkészít egy példányt, és visszadja a ProcessChain számára.
 
 \subsection{Választott technológiák}
-A megfelelő technológiák kiválasztása során több tényező is befolyásolta a döntésemet. Ezekeből két nagy csoportot írtam fel: követelményrendszerből illetve szubjektív nézőpontból kiemelt fontosságú tényezők. A követelményrendszerből adódóakat a korábbi két alpontban bőségesen részleteztem, ezért a következőkben csak a szubjektív pontokat vázolnám fel.
+A feladat modellezése után döntést kellett hoznom, hogy milyen technológiákkal kívánom megvalósítani a tervezett rendszert. Több tényező is befolyásolta a döntésemet. Ezekeből két nagy csoportot írtam fel: a feladatból illetve szubjektív nézőpontból kiemelt fontosságú szempontok. A feladatból, és követelményrendszerből adódóakat a korábbi fejezetekben már részleteztem, ezért a következőkben csak a szubjektív pontokat vázolnám fel.
 \begin{itemize}
 	\itemsep0em
 	\item Egyszerű és gyors, minőségi fejlesztés
 	\item Könnyű dokumentálhatóság
 	\item Legyen korábbi munkáimból rutinom az adott technológiák alkalmazásában
 	\item Képfeldolgozási függvénykönyvtárakkal legyenek jól ellátottak a kiválasztott technológiák (nem szeretném újra feltalálni a kereket)
-
 \end{itemize}
-A fenti szempontokból a következő fegyvertár került összeállításra:\\ A program alap szerkezete Qt-val, a képfeldolgozásért felelős komponensek OpenCv-vel kerültek megvalósításra. A verziókövetést Git-el végeztem, a dokumentáció és dolgozat elkészítéséhez pedig Latex-et, Gummi-t, Doxygen-t, és Yed-et használtam.
+A program alap szerkezete Qt-val, a képfeldolgozásért felelős komponensek OpenCV-vel történő implementálása mellett döntöttem. A verziókövetést Git-el végeztem, a dokumentáció és dolgozat elkészítéséhez pedig Latex-et, Gummi-t, Doxygen-t, és Yed-et használtam.
 \subsubsection{Qt}
-Egyike a legmeghatározóbb multiplatform c++-ra épülő alkalmazás keretrendszerenek. \cite{website:qt_about} Korábban már több másik projektben is sikeresen dolgoztam vele. A részletes dokumentáció és aktív felhasználói/fejlesztői bázis sokat segített a fejlesztésben. \cite{website:qt_dochome} \cite{website:qt_docforum}\cite{website:qt_docmaillist} Licencelése kedvező, elérhető OpenSource és Enterprise verziója is. Olyan nagy cégek is használják mint a BlackBerry, Michelin vagy a Panasonics.\cite{website:qt_in_use}  Jelen dolgozat tárgyát képező alkalmazás az 5.1.1es (GCC 4.6.3 32bit) verzióval készült.
+Egyike a legmeghatározóbb\cite{website:qt_1_million} multiplatform c++-ra épülő alkalmazás keretrendszerenek. \cite{website:qt_about} Korábban már több másik projektben is sikeresen dolgoztam vele. A részletes dokumentáció és aktív felhasználói/fejlesztői bázis sokat segített a fejlesztésben. \cite{website:qt_dochome} \cite{website:qt_docforum}\cite{website:qt_docmaillist} Licencelése kedvező, elérhető OpenSource és Enterprise verziója is. Olyan nagy cégek is használják mint a BlackBerry, Michelin vagy a Panasonics.\cite{website:qt_in_use} \\ A fejlesztés korai fázisa az 5.1es verzióval történt, azonban az új 5.2es verzió jelentős újításokat hozott (főként a meta-type rendszer terén történő változások hatottal a projektre), ezért átálltam az 5.2.1-es verzióra.
 
 \subsubsection{OpenCV}	
-Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi tanulást megvalósító függvénykönyvtár. Natív c++-ban implementált és erősen támaszkodik azt stl tárolókra. Egy vékony wrapper elkészítésével könnyen összekapcsolható Qt-val. Funkcionalitásával széleskörű feladatok megoldására kivállóan alkalmas és dokumentációja is megfelelő. Jelen program a 2.4.6.1-os verzióval került implementálásra.
+Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi tanulást megvalósító függvénykönyvtár.\cite{website:opencv_about} Natív c++-ban implementált és erősen támaszkodik azt stl tárolókra. Sajnos gyárilag csak c/c++ és phyton-al tud hatékonyan együttműködni. Szerencsére egy vékony wrapper elkészítésével könnyen összekapcsolható Qt-val is. Funkcionalitásával széleskörű feladatok megoldására kivállóan alkalmas, technológiai lehetőségek arzenálját vonultatja fel pl.: Cuda, OpenCl. Multipaltform, még okostelefonra is elérhető a portja (Android 2010, iOS 2012). Dokumentációja is megfelelő. Jelen programban a 2.4.8-as verzióval dolgoztam.
 
 
 \section{Architektúrális tervek}
@@ -441,7 +498,7 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
 
     \bibitem{book:usecase_book_brief}
 		Craig Larman (2004). 
-        {\em Applying UML and Patterns, Prentice Hall, 3 edition 6.7 (66)\\}
+        {\em Applying UML and Patterns, Prentice Hall, 3 edition 6.7 (66)(127)\\}
 
     \bibitem{book:pipelining_def}
 		Jack J. Dongarra (1995). 
@@ -520,6 +577,10 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
         {\em OpenCV - About}  
         
         
+	\bibitem{website:qt_1_million}
+		http://blog.qt.digia.com/blog/2014/04/16/qt-5-2-over-1-million-downloads/
+        {\em QT Digia - Over 1 million}  
+        
 	\bibitem{website:soft_req_def}
         http://www.math.unipd.it/~tullio/IS-1/2007/Approfondimenti/SWEBOK.pdf\\
         {\em Guide to the Software Engineering Body of Knowledge, Chapter 2 - SOFTWARE R EQUIREMENTS}
@@ -529,8 +590,16 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
 		http://www.ibm.com/developerworks/rational/library/4706.html\#N10098 \\
         {\em IBM - Capturing Architectural Requirements, Functional Requirements }
         
-
+    \bibitem{publication:soft_nonfunc_req}
+		Ruth Malan and Dana Bredemeyer
+		http://www.bredemeyer.com/pdf\_files/NonFunctReq.PDF \\
+        {\em Architecture Resources For Enterprise Advantage (2)\\}
         
+
+	\bibitem{website:opencv_about}
+        http://opencv.org/about.html
+        {\em OpenCV - About}  
+
 
 
 
@@ -572,18 +641,19 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
 
 
 
-\subsection{Teljes usecase}
-\begin{figure}[h]
-  \includegraphics[width=\textwidth]{usecase_part_1.png}
-  \caption{A BIMG teljes usecase diagrammja (1. rész) }
-  \label{fig:bimg_usecase_schema_part_1}
-\end{figure}
-\begin{figure}[h]
-  \includegraphics[width=\textwidth]{usecase_part_2.png}
-  \caption{A BIMG teljes usecase diagrammja (2. rész) }
-  \label{fig:bimg_usecase_schema_part_2}
-\end{figure}
+\subsection{Teljes usecase vázlat}
+\label{fig:bimg_usecase_schema_full}
+\includepdf[pages={1-14}]{BIMG-usecase.pdf}
 
+\begin{landscape}
+\begin{figure}[h]
+  \subsection{Domain model}
+  \includegraphics[width=26cm,height=30cm,keepaspectratio]{domain_gray.png}
+  \caption{A domain model állapota az utolsó fejlesztési iteráció végén }
+
+  \label{fig:bimg_domain_img}
+\end{figure}
+\end{landscape}
 
 \subsection{Felhasználói útmutató}
 

@@ -2,18 +2,22 @@
 \usepackage{sectsty}
 \usepackage{listings}
 
-\usepackage{arial} %arial font
+%\usepackage{arial} %arial font
 \usepackage{times} %times new roman font
 \usepackage{courier}
 \usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
-
+\usepackage{helvet} %arial font
 
 \frenchspacing
 %\doublespace
 \setstretch{1.45} %ez tesztnyomtatasok alapjan kicsi diffel a writer masfeles sortavjaval egyezik
 
-\renewcommand{\sfdefault}{arial}
-\renewcommand{\rmdefault}{times}
+
+%
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\familydefault}{\rmdefault}
+%\renewcommand{\sfdefault}{helvet}
+%\renewcommand{\rmdefault}{times}
 \allsectionsfont{\sffamily\large} %14pt
 \subsectionfont{\sffamily\normalsize} %12pt
 \subsubsectionfont{\sffamily\normalsize} %12pt
