@@ -13,7 +13,8 @@
 \usepackage{pdflscape}
 \usepackage{formai_kovetelmenyek}
 \usepackage{pdfpages}
-
+\usepackage{fixltx2e}
+\usepackage{tikz}
 
 \usepackage{array} % for defining a new column type
 \usepackage{varwidth} %for the varwidth minipage environment
@@ -407,8 +408,8 @@ A nem funkcionális követelmények halmazába tartozik minden, olyan követelm�
 \label{table:nonfunct_req_table}
 \end{table}
 
-\subsection{A feladat modellezése - Domain model}
-A követelmény analízist a megoldandó feladat részletes elemzése és modellezése követte. Erre az egyik legszélesebb körben használt eszköz a domain model. Előnye, hogy kevés objektummal egyszerűen, és érthetően tudjuk ábrázolni a megoldani kívánt problémakört és feladatokat.\cite{book:usecase_book_brief}
+\subsection{A feladat modellezése - Domain modell}
+A követelmény analízist a megoldandó feladat részletes elemzése és modellezése követte. Erre az egyik legszélesebb körben használt eszköz a domain modell. Előnye, hogy kevés objektummal egyszerűen, és érthetően tudjuk ábrázolni a megoldani kívánt problémakört és feladatokat.\cite{book:usecase_book_brief}
 \begin{center}
 \begin{figure}[h]
   \includegraphics[width=1.2\textwidth]{domain_real_gray.png}
@@ -417,9 +418,9 @@ A követelmény analízist a megoldandó feladat részletes elemzése és modell
   \label{fig:bimg_domain_realworld_img}
 \end{figure}
 \end{center}
-A problémát bemutató domain modell a \ref{fig:bimg_domain_realworld_img}. ábrán látható. Itt szeretném megjegyezni, hogy ez a model nem az egész rendszer ábrázolja. Itt csak alaprendszerek vázlatos bemutatására szorítkozom: Node-Slot-Parameter, Process Chain, Input, Plugin, Node Management. A teljes modell a \ref{fig:bimg_domain_img}. ábrán az \pageref{fig:bimg_domain_img}. oldalon látható. A többi alrendszerről pedig a későbbiekben lesz szó, hiszen azok, már jelentős mértékben függenek a választott technológiáktól, és nem képzik szerves részét az alap logikának.
+A problémát bemutató domain modell a \ref{fig:bimg_domain_realworld_img}. ábrán látható. Itt szeretném megjegyezni, hogy ez a modell nem az egész rendszer ábrázolja. Itt csak alaprendszerek vázlatos bemutatására szorítkozom: Node-Slot-Parameter, Process Chain, Input, Plugin, Node Management. A teljes modell a \ref{fig:bimg_domain_img}. ábrán az \pageref{fig:bimg_domain_img}. oldalon látható. A többi alrendszerről pedig a későbbiekben lesz szó, hiszen azok, már jelentős mértékben függenek a választott technológiáktól, és nem képzik szerves részét az alap logikának.
 
-\subsubsection{Az alap rendszer}
+\subsubsection{Az alap rendszer - modell}
 A BIMG alapját a Node-Slot-Parameter rendszer képezi. Paraméter lehet bármilyen tetszőleges adat (szám, szöveg, kép, vektor, mátrix stb).\\ Minden slotnak kötelezően két paraméterrel kell rendelkeznie, amíg az első az alapértelmezett értéket, addig a második az éppen aktuális értéket reprezentálja. A két érték típusa mindig azonos. Így látható, hogy a slotok csoportosíthatóak  tárolt adattípus szempontjából, azonban ezen túlmenően működési irány alapján is rendszerezhetőek. Az irány azt reprezentálja, hogy az adott slot az őt tartalmazó node-ban milyen irányú kommunikációt képes végezni.
 \begin{itemize}
 	\itemsep0em
@@ -449,16 +450,209 @@ A feladat modellezése után döntést kellett hoznom, hogy milyen technológiá
 \end{itemize}
 A program alap szerkezete Qt-val, a képfeldolgozásért felelős komponensek OpenCV-vel történő implementálása mellett döntöttem. A verziókövetést Git-el végeztem, a dokumentáció és dolgozat elkészítéséhez pedig Latex-et, Gummi-t, Doxygen-t, és Yed-et használtam.
 \subsubsection{Qt}
-Egyike a legmeghatározóbb\cite{website:qt_1_million} multiplatform c++-ra épülő alkalmazás keretrendszerenek. \cite{website:qt_about} Korábban már több másik projektben is sikeresen dolgoztam vele. A részletes dokumentáció és aktív felhasználói/fejlesztői bázis sokat segített a fejlesztésben. \cite{website:qt_dochome} \cite{website:qt_docforum}\cite{website:qt_docmaillist} Licencelése kedvező, elérhető OpenSource és Enterprise verziója is. Olyan nagy cégek is használják mint a BlackBerry, Michelin vagy a Panasonics.\cite{website:qt_in_use} \\ A fejlesztés korai fázisa az 5.1es verzióval történt, azonban az új 5.2es verzió jelentős újításokat hozott (főként a meta-type rendszer terén történő változások hatottal a projektre), ezért átálltam az 5.2.1-es verzióra.
+Egyike a legmeghatározóbb\cite{website:qt_1_million} multiplatform c++-ra épülő alkalmazás keretrendszerenek. \cite{website:qt_about} Korábban már több másik projektben is sikeresen dolgoztam vele. A részletes dokumentáció és aktív felhasználói/fejlesztői bázis sokat segített a fejlesztésben. \cite{website:qt_dochome} \cite{website:qt_docforum}\cite{website:qt_docmaillist} Licencelése kedvező, elérhető OpenSource és Enterprise verziója is. Olyan nagy cégek is használják mint a BlackBerry, Michelin vagy a Panasonics.\cite{website:qt_in_use} \\ A fejlesztés korai fázisa az 5.1es verzióval történt, azonban az új 5.2es verzió jelentős újításokat hozott (főként a meta-type rendszer szempontjából), ezért átálltam az 5.2.1-es verzióra.
+
 
 \subsubsection{OpenCV}	
 Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi tanulást megvalósító függvénykönyvtár.\cite{website:opencv_about} Natív c++-ban implementált és erősen támaszkodik azt stl tárolókra. Sajnos gyárilag csak c/c++ és phyton-al tud hatékonyan együttműködni. Szerencsére egy vékony wrapper elkészítésével könnyen összekapcsolható Qt-val is. Funkcionalitásával széleskörű feladatok megoldására kivállóan alkalmas, technológiai lehetőségek arzenálját vonultatja fel pl.: Cuda, OpenCl. Multipaltform, még okostelefonra is elérhető a portja (Android 2010, iOS 2012). Dokumentációja is megfelelő. Jelen programban a 2.4.8-as verzióval dolgoztam.
 
 
 \section{Architektúrális tervek}
-.
+A modellre építve a választott technológiák segítségével az első iterációban kidolgoztam a node-slot-parameter alrendszert.
+\subsection{Az alaprendszer - architektúra}
+\subsubsection{Parameters}
+Az első tervek alapján elkészült proof of concept templates slotokra épült, ahol a template paraméterként átadott objektum volt a slotnak a paramétere. Azonban sajnos hamar be kellett látnom, hogy ez a templates implementáció nem rendelkezik elég flexibilitással ahhoz, hogy hatékonyan teljesítse a feladatokat. A legnagyobb problémát az jelentette, hogy ha egyedi plugineket és nodekat készítünk akkor a rendszernek kell tudnia kezelni az esetleges új adattípusokat is. Az adattípusok kezelése alatt nem csak az adott típusú slotok létrehozása és managelése értendő, hanem a típusok közötti megfeleltetések, konverziók is. Tehát programnak valós időben kell ezeket az adattípusokat összegyűjteni, tárolni és rendszerezni.
 
-\subsection{Domain model}
+Erre tökéletesen alkalmas a Qtnek a Meta-Type rendszere. Bármilyen tetszőleges osztályt metatípusként deklarálhatunk, így lehetőségünk van az adott objektumokat QVariantban eltárolni. \cite{website:qt_metatype_1} Mivel a metatípus azonosítók kiosztása, és feloldása valósidőben történik, így megoldható a pluginekben található osztály deffiníciók a főprogramban történő használata.\\
+A QVariant alapvető adattípusok számára biztosít konverziós lehetőséget. Az 5.2-es verziótól már arra is van lehetőségünk, hogy mi deffiniáljunk különböző metatípusok közötti konverziós műveleteket. \\ Az alábbi lehetőségeket összegezve egyértelmű volt a döntés, hogy a slot paraméterek a qt metatype rendszerre épülve kerülnek megvalósításra. (Az adattípusok betöltését és konverziók regisztrálását a pluginek működéséről szóló részben fejtem ki.)
+
+\subsubsection{Slots}
+A korábban említett templates architektúra elhagyása lehetővé tette, hogy a nodek slotjai is QObject alapokra épüljenek. Tehát a kommunikációjuk és így az adat továbbítás a nodek között a qt Signal/Slot mechanizmusára épülhessen.
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=1.1\textwidth]{slot_diag.png}
+  \caption{A node slotok osztálydiagrammja }
+
+  \label{fig:bimg_slot_diag}
+\end{figure}
+\end{center}
+A \ref{fig:bimg_slot_diag}. ábrán látható a slotok jelenlegi osztálydiagrammja. A funkcionalitások szervezésekor (hogy mi kerüljön a BaseSlot osztályba és mi a gyermek slot osztályokba), a logika az volt, hogy a BaseSlot gyakorlatilag csak és kizárólag az aktuális és az alapértelmezett paraméterek kezelését valósítsa meg, míg az input és output slot pedig a paraméterek főlé biztosít egy réteget ami kezeli a slot kapcsolódásokat, és állapotokat. Ennek a döntésnek az oka annyi, hogy két fő szabályt osztály architekturális szinten kívántam megkötni:
+\begin{itemize}
+	\itemsep0em
+	\item Egy input slothoz csak egy output slot kapcsolódhat.
+	\item Egy output slot több input slotba is szolgáltathat adatot.
+\end{itemize}
+Tehát nem a doConnect() és a doDisconnect() függvények működése határozza meg a kapcsolódási mechanizmust, hanem az adott slot típus ne is tudjon más számú és típusú kapcsolatot létesíteni. Tény, hogy ez eléggé erős megkötés, de a feldolgozás és nodek kiterjesztési sorrendje nagyon erőteljesen támaszkodik erre a két szabályra, így vált indokolttá ennek a döntésnek a meghozatala.
+
+A kapcsolat mindig az inputslot irányából jön létre. Tehát amikor az outputslotnál kezdeményezzük a kapcsolat létrehozását az átadja a működést az cél inputslotnak. Ennek egyik oka a fent említett megszorítások: azaz inputslot felől szigorúbb a kapcsolat létrehozása, a másik oka, hogy így a kapcsolatot kezelő kódot csak egy helyen kell karbantartani és a későbbi esetleges fejlesztések nem okozhatnak inkonzisztensz kapcsolódási állapotot.
+
+A slotok közötti adatáramlás iránya outputslot - inputslot irányú. Az adatok átadása az outputslot által emitált announceReady(QVariant) signállal kezdődik, és az inputslot handleAnnounceExecDone(QVariant) függvényének meghívásával zárul. A két slot közötti kapcsolat a Qt signal-slot mechanikájával történik. Ez a működés megfigyelhető a \ref{fig:bimg_dataflow}. ábrán.
+
+\subsubsection{Nodes}
+Már a slotok osztálydiagrammján is látható, hogy az alaposztály egy NameDescInterface osztálynak is a gyermekosztálya. Ez a kis interfész jellegű osztály általános adattagokat (és getter és setter függvényeket) biztosít bármely gyermek osztályának. Itt jellemzően a felhasználó munkáját könnyítő információk kerülnek tárolásra: az objektum olvasható neve, rövid leírása, és súgó szöveg.
+
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=1.1\textwidth]{node_class_diag.png}
+  \caption{A node slotok osztálydiagrammja }
+
+  \label{fig:bimg_slot_diag}
+\end{figure}
+\end{center}
+
+Bár az osztály diagrammon nem látható egyértelműen, de a slotok BaseNode szinten tárolódnak. Mivel minden slot és node kötelezően QObject ezért kivállóan használhatóak a gyermek szülő funkciók. Ezek QObject szinten vannak implementálva. Használatuk jelentős előnyökkel jár pl.: a node átveszi a slot feletti irányítást: tehát amikor megszűnik a node automatikusan felszabadításra kerül az összes slot. A slot felszabadításakor emitálásra kerül egy destroyed(QObject*) signal, amely az adott slot doDisconnect(QObject*) slotjával van összekötve. Ezzel a struktúrával elértem, hogy egy node törlésekor a gyermek slotjainak az összes kapcsolata automatikusan felbontásra kerüljön. Ennek előnye, hogy nem maradhatnak érvénytelen kapcsolatok a rendszerben, amelyek már nem létező slotra mutatnak.
+
+ A BaseNode osztály a slotok tárolásán és alacsony szintű kezelésén túl, deffiniál egy sor virtuális függvényt, melyekkel a magasabb szintű node kezelő és feldolgozó mechanizmusok (ProcessChain) számára biztosít interfészt. Az alapvető működésük, és a slotokkal történő interakciójuk megfigyelhető a \ref{fig:bimg_dataflow}. ábrán. Ezek közül a legfontosabb függvények működése:
+\begin{itemize}
+	\itemsep0em
+	\item start(): Ez minden node belépési pontja a ProcessChain ezt a függvényt hívja meg végrehajtáskor, ha a node készen áll a végrehajtásra akkor lefut a benne található logika. A futás eredményét (sikeres vagy sikertelen) visszatérési értéke és az emitált signalok mutatják.
+	\item reset(): Alapállapotba állítja vissza a nodet. Erre akkor van szükség amikor a ProcessChain egy új bemeneti adatot szeretne feldolgozni. Ilyenkor a node és az összes slotja felveszi az alapértelmezett állapotot.
+	\item isReady(): Ellenőrzi a node inputslotjainak az állapotát, ha mindegyik slot készen áll a végrehajtásra (tehát már mindegyik input slot kapott bemeneti adatot), akkor igaz értéket ad vissza: tehát a node végrehajtható.
+	\item handleSlotReadyAnnouncement(): Amikor bármelyik input slot ready állapotba vált akkor, ellenőrzi a teljes node állapotát (isReady()) ha végrehajtásra kész, akkor meghívja announceNodeReady(BaseNode*) függvényt
+	\item announceNodeReady(BaseNode*): Jelzi a ProcessChain számára ha végrehajtásra kész állapotba került a node.
+	\item doAnnounceExecDone() és doAnnouceExecFault(): a node végrehajtásának eredményét jelentik be.
+	
+	\item doExec(): Itt található a node feldolgozó logikája. Amennyiben valaki új nodet fejleszt ezt a függvényt kell felül deffiniálnia. 
+\end{itemize}
+Mivel a BaseNode osztály tervezésekor az volt a cél, hogy slot típustól függetlenül működjön ezért két segéd osztályt kellett deffiniálni. Ezek az OutputInterface és az InputInterface. Feladatuk egyszerű: egy szűlőként kapott QObject-ből visszadják az összes számukra kezelhető slot típust. Továbbá interfészt biztosítanak, hogy új slotokat adjunk a nodehoz és a régieket eltávolítsuk. Ha az adott interface osztályból örököltetünk akkor megkapjuk a lehetőséget, hogy az adott slot típusokkal dolgozzunk. Amennyiben a későbbiekben egy másik típusú slotot szeretnék elhelyezni a rendszerben pl.: ami csak konfigurációs segéd adatokat biztosít a node számára, akkor értelemszerűen készíteni kell egy interface osztályt, amiből ha örököltetünk már is rendelkezésre állnak az új típusú slotok.\\
+Az osztálydiagrammon látható örököltetésekből egyértelműen kiderül, hogy melyik node típus milyen slotokkal képes dolgozni. A DataNode csak outputot, az IndicatorNode csak inputot, a ProcessNode pedig mind a kettőt képes használni. A módszer előnye, hogy így kis apró szerepkörökből hamar össze lehet állítani a node működési területét, majd a BaseNode virtuális függvényei kifejtésével meghatározható a pontos működés.
+
+\begin{landscape}
+\subsubsection{Node-Slot adatáramlás}
+Lenti ábrán megfigyelhető a nodek végrehajtási mechanizmusa során keletkezett, információk tovaterjedése a kapcsolódott nodekkal, továbbá a legalapvetőbb ProcessChain és node interakciók. (Működésükről bővebben a Nodes, és Slots alfejezetkben lehet olvasni.)
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=23cm,height=30cm,keepaspectratio]{node-data.png}
+  \caption{A Node-Slot adatáramlás }
+
+  \label{fig:bimg_dataflow}
+\end{figure}
+\end{center}
+\end{landscape}
+
+\subsubsection{ProcessChain}
+A korábbi pontokból látható, hogy a Node-Slot-Parameter alrendszerrel gyakorlatilag tetszőleges feldolgozási sor összeállítása lehetséges. Ez a feldolgozási sor tekínthető egy irányított gráfnak. Így az alábbi megfeleltetések jönnek létre:
+\begin{itemize}
+	\itemsep0em
+	\item csúcsok: a feldolgozási sor nodejai,
+	\item élek: nodek slotjai közötti kapcsolatok,
+	\item élek íránya: a slotok kapcsolati irányának felel meg. (Outputslotból mutat inputslot felé.)
+\end{itemize}
+Az alábbi logika mentén tovább haladva a feldolgozási sort, tehát ahogy a nodeknak az egymás után történő sorrendhelyes végrehajtását tekínthetjük a gráf egy bejárásnak.\\
+A gráf bejárására lehetőségünk van egy állapotgépet felírni. Az állapotgép jellemzői:
+\begin{itemize}
+	\itemsep0em
+	\item Három darab memória területe van. L\textsubscript{0}, L\textsubscript{1} és L\textsubscript{2} 			\begin{itemize}
+			\itemsep0em
+			\item A memória területek között a nodekat átmozgatjuk, nem másoljuk: tehát egy node mindig csak egy területen szerepelhet
+			\item L\textsubscript{0} induláskor minden node itt található
+			\item L\textsubscript{1}-ben tárolunk minden ready állapotú nodet (amelyek készen állnak a végrehajtásra)
+			\item L\textsubscript{2}-ba kerülnek a már kiterjesztett nodek (itt jelenik meg a kiterjesztési sor)
+		\end{itemize}
+		
+	\item Az állapotgép minden állapotában vagy egy művelet történik, a művelet eredménye lehet sikeres (1), és sikertelen (0), egy állapotból továbbléphetünk annak eredményétől függetlenül is. Tehát az abc: \{0,1,e\}
+	\item Az állapotgép három esetben állhat meg:
+			\begin{itemize}
+			\itemsep0em
+			\item Az összes node kiterjesztése sikeres volt: ez esetben a művelet egyértelműen sikeres volt.
+			\item Nincsen további kiterjesztésre kész node. Ez esetben ha az L\textsubscript{0}-án nem maradt egy darab IndicatorNode sem, akkor a feldolgozást sikeres. (Hiszen előfordulhatnak izolált csúcsok a gráfban.) Azonban ha található a még nem kiterjesztett nodek között (L\textsubscript{0}) indicator node a feldolgozás sikertelen volt.
+			\item Ha valamelyik node kiterjesztése sikertelen volt. (A kiterjesztés közben hibalépett fel. Ezt többnyire a node nem megfelelően elkészített doExec() metódusában bekövetkezett hibát jelent.)
+
+		\end{itemize}
+
+\end{itemize}
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (5.5,-13.5) circle (3);
+\draw (5.5,-13.5) node {$S_0$};
+\draw [black] (23.5,-13.5) circle (3);
+\draw (23.5,-13.5) node {$S_1$};
+\draw [black] (23.5,-24.8) circle (3);
+\draw (23.5,-24.8) node {$S_2$};
+\draw [black] (37.8,-48.7) circle (3);
+\draw (37.8,-48.7) node {$F_1$};
+\draw [black] (37.8,-48.7) circle (2.4);
+\draw [black] (53.4,-24.8) circle (3);
+\draw (53.4,-24.8) node {$F_0$};
+\draw [black] (53.4,-24.8) circle (2.4);
+\draw [black] (23.5,-37.2) circle (3);
+\draw (23.5,-37.2) node {$S_3$};
+\draw [black] (37.8,-24.8) circle (3);
+\draw (37.8,-24.8) node {$S_5$};
+\draw [black] (37.8,-37.2) circle (3);
+\draw (37.8,-37.2) node {$S_6$};
+\draw [black] (11.5,-24.8) circle (3);
+\draw (11.5,-24.8) node {$S_4$};
+\draw [black] (-0.9,-13.5) -- (2.5,-13.5);
+\fill [black] (2.5,-13.5) -- (1.7,-13) -- (1.7,-14);
+\draw [black] (8.5,-13.5) -- (20.5,-13.5);
+\fill [black] (20.5,-13.5) -- (19.7,-13) -- (19.7,-14);
+\draw (14.5,-14) node [below] {$e$};
+\draw [black] (23.5,-16.5) -- (23.5,-21.8);
+\fill [black] (23.5,-21.8) -- (24,-21) -- (23,-21);
+\draw (23,-19.15) node [left] {$e$};
+\draw [black] (23.5,-27.8) -- (23.5,-34.2);
+\fill [black] (23.5,-34.2) -- (24,-33.4) -- (23,-33.4);
+\draw (23,-31) node [left] {$1$};
+\draw [black] (25.84,-39.08) -- (35.46,-46.82);
+\fill [black] (35.46,-46.82) -- (35.15,-45.93) -- (34.53,-46.71);
+\draw (29.59,-43.44) node [below] {$0$};
+\draw [black] (26.5,-24.8) -- (34.8,-24.8);
+\fill [black] (34.8,-24.8) -- (34,-24.3) -- (34,-25.3);
+\draw (30.65,-25.3) node [below] {$0$};
+\draw [black] (40.8,-24.8) -- (50.4,-24.8);
+\fill [black] (50.4,-24.8) -- (49.6,-24.3) -- (49.6,-25.3);
+\draw (45.6,-25.3) node [below] {$0$};
+\draw [black] (37.8,-27.8) -- (37.8,-34.2);
+\fill [black] (37.8,-34.2) -- (38.3,-33.4) -- (37.3,-33.4);
+\draw (37.3,-31) node [left] {$1$};
+\draw [black] (40.15,-35.33) -- (51.05,-26.67);
+\fill [black] (51.05,-26.67) -- (50.11,-26.77) -- (50.74,-27.56);
+\draw (46.66,-31.49) node [below] {$0$};
+\draw [black] (37.8,-40.2) -- (37.8,-45.7);
+\fill [black] (37.8,-45.7) -- (38.3,-44.9) -- (37.3,-44.9);
+\draw (37.3,-42.95) node [left] {$1$};
+\draw [black] (21.41,-35.04) -- (13.59,-26.96);
+\fill [black] (13.59,-26.96) -- (13.78,-27.88) -- (14.5,-27.18);
+\draw (18.03,-29.53) node [right] {$1$};
+\draw [black] (13.68,-22.74) -- (21.32,-15.56);
+\fill [black] (21.32,-15.56) -- (20.39,-15.74) -- (21.08,-16.47);
+\draw (18.57,-19.63) node [below] {$e$};
+\end{tikzpicture}
+\end{center}
+
+\begin{table}[h]
+%\begin{tabular}{@{}rl@{}}
+\begin{tabular}{p{1cm}|p{12cm}}
+
+\toprule
+\multicolumn{1}{c|}{\textbf{Állapot}} & \multicolumn{1}{|c}{\textbf{Művelet}} \\ \midrule
+\multicolumn{1}{c|}{\textbf{S\textsubscript{0}}}  & Kezdő állapot. \\
+\hline
+\multicolumn{1}{c|}{\textbf{S\textsubscript{1}}}  &  L\textsubscript{0}-án található összes ready állapotú átmásolásra kerül L\textsubscript{1}-re.\\
+\hline
+\multicolumn{1}{c|}{\textbf{S\textsubscript{2}}}  & Található elem L\textsubscript{1}-en? \\
+\hline
+\multicolumn{1}{c|}{\textbf{S\textsubscript{3}}}  & L\textsubscript{1} első eleme kiterjesztésre kerül. Sikeres volt?  \\
+\hline
+\multicolumn{1}{c|}{\textbf{S\textsubscript{4}}}  & A sikeresen kiterjesztett eleme L\textsubscript{1}-ről átmozgatásra kerül L\textsubscript{2}-re.  \\
+\hline
+\multicolumn{1}{c|}{\textbf{S\textsubscript{5}}}  & Található node L\textsubscript{0}-án? \\
+\hline
+\multicolumn{1}{c|}{\textbf{S\textsubscript{6}}} & Az L\textsubscript{0}-ás nodek között található IndicatorNode? \\
+\hline
+\multicolumn{1}{c|}{\textbf{F\textsubscript{0}}} &  A feldolgozás végetért! Eredmény: SIKERES FELDOLGOZÁS!\\
+\hline
+\multicolumn{1}{c|}{\textbf{F\textsubscript{1}}} & A feldolgozás végetért! Eredmény: SIKERTELEN FELDOLGOZÁS! \\
+\hline
+\end{tabular}
+\caption{Az állapotgép állapotainak értelmezése }
+\label{table:nonfunct_req_table}
+\end{table}
+
+Látható, hogy mennyire előnyös ez az állapotgépes feldolgozás, hiszen nem kell a gráfban kört keresni illetve egyéb más módon elemezni azt. Adott pár jól deffiniált művelet és szabály ami alapján egyértelműen végrehajtható a felhasználó által felépített feldolgozási sor. Az adatok áramlása és a nodek ready állapotba kerülése pedig alacsonyabb szinten teljes mértékben rendezésre kerül és a node-k elfedik azt a ProcessChain elől.
+\subsection{Domain modell}
 
 \subsection{Előzetes struktúrák és objektumok}
 
@@ -479,7 +673,7 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
 \subsubsection{Előzetes tervek (komplex feldolgozáshoz)}
 
 
-\subsection{Design model}
+\subsection{Design modell}
 
 
 \section{Fejlesztési napló}
@@ -600,43 +794,19 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
         http://opencv.org/about.html
         {\em OpenCV - About}  
 
+	\bibitem{website:qt_metatype_1}
+		http://qt-project.org/doc/qt-5/qmetatype.html\#Q\_DECLARE\_METATYPE
+        {\em Qt - Q\_DECLARE\_METATYPE}  
 
+	\bibitem{website:qt_variant}
+		http://qt-project.org/doc/qt-5/qvariant.html\#canConvert
+        {\em Qt - QVariant konverziók}  
 
 
 \end{thebibliography}
 
 
 \section{Mellékletek}
-\todo{ Licencelési infók }
-\begin{landscape}
-\begin{table}[h]
-\subsection{Hasonló célú rendszerek összehasonlítása táblázat}
-
-\begin{tabular}{@{}rccc@{}}
-\toprule
-\multicolumn{1}{c}{\textbf{}} & \textbf{ImageJ} & \textbf{ImBatch} & \textbf{OriginLab} \\ \midrule
-\textbf{Platform} & Multi (Java) & Win (C\#) & Win (C/C++) \\
-\textbf{Licence} & Public Domain & @TODO  & @TODO \\
-\textbf{Cél csoport} & professzionális (orvosi) & félprofesszionális (általános) & professzionális (tudományos, ipari) \\
-\textbf{Támogató} & National Institutes of Health & High Motion Software & OriginLab \\
-\textbf{Felhasználói közösség} & \begin{tabular}[c]{@{}c@{}}wiki, leírások,\\ fejlesztői dokumtáció,\\ levlista, fórum\end{tabular} & \begin{tabular}[c]{@{}c@{}}gyik, leírások,\\ oktató videók\end{tabular} & \begin{tabular}[c]{@{}c@{}}gyik, wiki, leírások,\\ fejlesztői dokumentáció,\\ fórum\end{tabular} \\
-\textbf{Plugin rendszer} & igen & igen & igen \\
-\textbf{Kötegelt feldolgozás} & igen (Z-T funkciók) & igen (akár helyérzékeny menü) & igen \\
-\textbf{Automatizálás} & makrók & részben & originC \\
-\textbf{Fejlesztői eszközök} & igen & igen & igen \\
-\textbf{Bemeneti formátumok} & széleskörű (orvosi irány) & széleskörű (általános irány) & széleskörű (ipari irány) \\
-\textbf{Megjelenítés, GUI} & komplex & egyszerű letisztult & komplex \\
-\textbf{Képjavító eljárások} & igen & igen & igen \\
-\textbf{Geometriai műveletek} & igen & igen & igen \\
-\textbf{Analizálás} & igen & nem & igen \\
-\textbf{Szerkesztési műveletek} & igen & igen & igen \\
-\textbf{Színterek közötti konverzió} & igen & igen & igen \\ \bottomrule
-\end{tabular}
-\caption{Hasonló célú rendszerek összehasonlítása}
-\label{table:diff_soft}
-
-\end{table} 
-\end{landscape}
 
 
 
@@ -647,9 +817,9 @@ Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi
 
 \begin{landscape}
 \begin{figure}[h]
-  \subsection{Domain model}
+  \subsection{Domain modell}
   \includegraphics[width=26cm,height=30cm,keepaspectratio]{domain_gray.png}
-  \caption{A domain model állapota az utolsó fejlesztési iteráció végén }
+  \caption{A domain modell állapota az utolsó fejlesztési iteráció végén }
 
   \label{fig:bimg_domain_img}
 \end{figure}
