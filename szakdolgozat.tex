@@ -15,6 +15,7 @@
 \usepackage{pdfpages}
 \usepackage{fixltx2e}
 \usepackage{tikz}
+\usepackage{floatrow}
 
 \usepackage{array} % for defining a new column type
 \usepackage{varwidth} %for the varwidth minipage environment
@@ -88,7 +89,7 @@
     \vspace*{2cm}\\
     {\LARGE \bf SZAKDOLGOZAT}
     \vspace{3cm}\\
-    {\LARGE\bf Képfeldolgozást támogató keretrendszer és modulok készítése \todo{Félkövér formázások}}
+    {\LARGE\bf Képfeldolgozást támogató keretrendszer és modulok készítése }
     \vspace{3cm}\\
     {\large Varga Marcell}
     \vspace{6cm}
@@ -141,14 +142,13 @@ Kijelentem, hogy a szakdolgozat védésre bocsátását engedélyezem.\\
 \section*{Köszönetnyilvánítás}
 \end{center}
 
-Köszönet!
-%Köszönöm a családomnak a sok türelmet és segítséget, amit kaptam, nélkülük ez a szakdolgozat nem készült volna el.
+Köszönöm a családomnak a sok türelmet és segítséget, amit kaptam, nélkülük ez a szakdolgozat nem készült volna el.
 \\
 \\
-%Köszönöm témavezetőmnek, Lipovits Ágnes az elmúlt egy év során adott iránymutatását.
+Köszönöm témavezetőmnek, Lipovits Ágnesnek az elmúlt egy év során adott iránymutatását.
 \\
 \\
-%Végül, de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bíztatást.
+Végül, de nem utolsó sorban, szeretném megköszönni a szaktársaimnak a bíztatást.
 
 \newpage
 
@@ -156,7 +156,11 @@ Köszönet!
 \section*{\textbf{\Large \MakeUppercase{Tartalmi összefoglaló}}}
 \end{center}
 
-E szakdolgozat témája ...
+E szakdolgozat témája egy olyan képfeldolgozást segítő szoftver, amelynek segítségével könnyen egyszerű vizuális eszközökkel többlépcsős feldolgozási műveleteket végezhetünk, akár nagy mennyiségű bemeneti adaton is.
+
+A fejlesztést C++ban Qt-val és OpenCV segítségével végeztem. Ezzel biztosítva azt, hogy az alkalmazás a dinamikusan betölthető moduljai tartalmazzák a képfeldolgozást végző logikai blokkokat.
+
+
 
 \vspace{2cm}
 
@@ -177,7 +181,7 @@ The topic of this thesis is to ...
 \newpage
 %--------------%------------------------------------------------------------------
 \pagenumbering{gobble} %ne legyen oldalszamozas a tartalomjegyzek oldalon
-\listoftodos
+%\listoftodos
 
 \renewcommand{\thefigure}{\arabic{figure}}
 
@@ -205,7 +209,7 @@ A legtöbb munka során előnyös, ha projekt lényegét megragadva röviden ös
 \subsubsection{Egy rövid példa}
 \begin{figure}[h]
 	\begin{center}
-	  \includegraphics[width=0.650\textwidth]{read-dir-processing_IMP.jpg}
+	  \includegraphics[width=0.8\textwidth]{read-dir-processing_IMP.jpg}
     \end{center}
 	  \caption{A rendszer vázlatos működése}
 	  \label{fig:bimg_usecase_brief}
@@ -295,7 +299,7 @@ Az adatsorok elemzése közben, több fontos követelmény, fejlesztési irányv
 \item Legyen lehetőség átlátható szerkezetű grafikus felhasználói felület használatára. Erre kifejezetten alkalmas a blokkos kapcsolat alapú vizuális szerkesztő. Ez a módszer több különböző technológiai területen sikeresen vizsgázott pl.: Labview blockdiagramjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint} (amely az UDK3 Kismetjének egy tovább fejlesztett változata).
 \end{itemize}
 
-\todo{ Licencelési infók }
+
 \begin{landscape}
 \begin{table}[h]
 \subsection{Hasonló célú rendszerek összehasonlítása táblázat}
@@ -304,7 +308,7 @@ Az adatsorok elemzése közben, több fontos követelmény, fejlesztési irányv
 \toprule
 \multicolumn{1}{c}{\textbf{}} & \textbf{ImageJ} & \textbf{ImBatch} & \textbf{OriginLab} \\ \midrule
 \textbf{Platform} & Multi (Java) & Win (C\#) & Win (C/C++) \\
-\textbf{Licence} & Public Domain & @TODO  & @TODO \\
+\textbf{Licence} & Public Domain &   &  Fizetős Jogvédett \\
 \textbf{Cél csoport} & professzionális (orvosi) & félprofesszionális (általános) & professzionális (tudományos, ipari) \\
 \textbf{Támogató} & National Institutes of Health & High Motion Software & OriginLab \\
 \textbf{Felhasználói közösség} & \begin{tabular}[c]{@{}c@{}}wiki, leírások,\\ fejlesztői dokumtáció,\\ levlista, fórum\end{tabular} & \begin{tabular}[c]{@{}c@{}}gyik, leírások,\\ oktató videók\end{tabular} & \begin{tabular}[c]{@{}c@{}}gyik, wiki, leírások,\\ fejlesztői dokumentáció,\\ fórum\end{tabular} \\
@@ -377,6 +381,8 @@ A \ref{fig:bimg_usecase_schema}. ábrán megfigyelhető a BIMG sematikus usecase
   \label{fig:bimg_usecase_schema}
 \end{figure}
 
+
+
 Az ábráról is egyértelműen leolvashatóak rendszert képző legfontosabb logikai egységek:
 \begin{itemize}
 	\itemsep0em
@@ -386,7 +392,9 @@ Az ábráról is egyértelműen leolvashatóak rendszert képző legfontosabb lo
 	\item Process Chain kezelés: Ezen a szinten találjuk meg azokat a funkciókat, amelyek a felhasználó számára lehetőséget adnak a feldolgozási folyamat deffiniálásra, szerkesztésére és tesztelésére.
 	\item Feldolgozás: Ezen a szinten történik a feldolgozás összehangolása és az eredmények vizualizálása.
 \end{itemize}
-A teljes diagramm a \ref{fig:bimg_usecase_schema_full}. ábrán tekinthető meg a \pageref{fig:bimg_usecase_schema_full}. oldalon. A kifejtett usecase vázlata a \pageref{fig:bimg_usecase_schema_full} oldaltól kezdődik.
+A teljes diagramm a \ref{fig:bimg_usecase_full}. ábrán tekinthető meg a. A kifejtett usecase a mellékletben csatolva olvasható: \emph{BIMG-usecase.pdf}
+
+
 
 \subsubsection{Nem funkcionális követelmények}
 A nem funkcionális követelmények halmazába tartozik minden, olyan követelmény, amely valamilyen korlátot, megszorítást vagy minőség irányú feltételt deffiniál. \cite{publication:soft_nonfunc_req} Természetesen ide a futás idejű követelményeken túl (mint pl.: megbízhatóság, teljesítmény, hibakezelés), ideértjük a fejlesztési követelményeket is (pl.: modularitás, bővíthetőség, kód újrafelhasználás stb). Először összegyűjtöttem a legfontosabb nem funkcionális követelményeket, majd ezeket osztályoztam, hogy az (F)URPS+ metodika melyik osztályába tartoznak. Ehhez jó kiindulási pont volt a témakiírás és a konzultációs beszélgetések.
@@ -420,7 +428,7 @@ A nem funkcionális követelmények halmazába tartozik minden, olyan követelm�
 A követelmény analízist a megoldandó feladat részletes elemzése és modellezése követte. Erre az egyik legszélesebb körben használt eszköz a domain modell. Előnye, hogy kevés objektummal egyszerűen, és érthetően tudjuk ábrázolni a megoldani kívánt problémakört és feladatokat.\cite{book:usecase_book_brief}
 \begin{center}
 \begin{figure}[h]
-  \includegraphics[width=1.2\textwidth]{domain_real_gray.png}
+  \includegraphics[width=1.1\textwidth]{domain_real_gray.png}
   \caption{A probléma ábrázolása domain modellen. }
 
   \label{fig:bimg_domain_realworld_img}
@@ -444,8 +452,18 @@ Három féle node létezik a rendszerben:
 	\item ProcessNode: Input- és OutputSlotokkal is rendelkezik. Az egyetlen node típus, amely igazi feldolgozási logikával rendelkezik (tehát nem csak megjelenít, vagy vissza adértékeket hanem azokkal tényleges műveletet is végez). Végrehajtása az InputSlotok miatt alap esetben blokkolt. Alapvető funkciója: feldolgozás.
 
 \end{itemize}
-A nodek között slotok segítségével kapcsolat építhető fel. Bővebben: \todo{ "Node kapcsolat info" } A nodeknak a végrehajtását a ProcessChain ütemezi és irányítja. Az éppen feldolgozásra szánt kép az InputListről érkezik, amelyet a ProcessChain átvesz. Az InputListben több elem is található, mindegyik egy nyers eredményképet reprezentál.\\
+A nodek között slotok segítségével kapcsolat építhető fel. A nodeknak a végrehajtását a ProcessChain ütemezi és irányítja. Az éppen feldolgozásra szánt kép az InputListről érkezik, amelyet a ProcessChain átvesz. Az InputListben több elem is található, mindegyik egy nyers eredményképet reprezentál.\\
 A nodek plugienkben kerülnek a rendszerbe. A plugineket a pluginmanager tölti be induláskor automatikusan, majd validálás után a plugin nyers tartalmát tovább adja a NodeManagernek. A NodeManger az átvett nyers plugin tartalmat, amely, különböző BIMG által használt objektumok listái, feldolgozza, és regisztrálja az adott node típust. Amennyiben a felhasználó a ProcessChaint egy új noddal szeretné bővíteni, a ProcessChain kérést intéz a NodeManagerhez, ami ha a kért node típus érvényes és regisztrált elkészít egy példányt, és visszadja a ProcessChain számára.
+
+\begin{landscape}
+\begin{figure}[h]
+  \subsection{Domain modell}
+  \includegraphics[width=26cm,height=30cm,keepaspectratio]{domain_gray.png}
+  \caption{A domain modell állapota az utolsó fejlesztési iteráció végén }
+
+  \label{fig:bimg_domain_img}
+\end{figure}
+\end{landscape}
 
 \subsection{Választott technológiák}
 A feladat modellezése után döntést kellett hoznom, hogy milyen technológiákkal kívánom megvalósítani a tervezett rendszert. Több tényező is befolyásolta a döntésemet. Ezekeből két nagy csoportot írtam fel: a feladatból illetve szubjektív nézőpontból kiemelt fontosságú szempontok. A feladatból, és követelményrendszerből adódóakat a korábbi fejezetekben már részleteztem, ezért a következőkben csak a szubjektív pontokat vázolnám fel.
@@ -465,7 +483,7 @@ Egyike a legmeghatározóbb\cite{website:qt_1_million} multiplatform c++-ra ép�
 Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi tanulást megvalósító függvénykönyvtár.\cite{website:opencv_about} Natív c++-ban implementált és erősen támaszkodik azt stl tárolókra. Sajnos gyárilag csak c/c++ és phyton-al tud hatékonyan együttműködni. Szerencsére egy vékony wrapper elkészítésével könnyen összekapcsolható Qt-val is. Funkcionalitásával széleskörű feladatok megoldására kivállóan alkalmas, technológiai lehetőségek arzenálját vonultatja fel pl.: Cuda, OpenCl. Multipaltform, még okostelefonra is elérhető a portja (Android 2010, iOS 2012). Dokumentációja is megfelelő. Jelen programban a 2.4.8-as verzióval dolgoztam.
 
 
-\section{Architekturális tervek}
+\section{Architekturális tervek és megvalósítás}
 A modellre építve a választott technológiák segítségével az első iterációban kidolgoztam a node-slot-parameter alrendszert.
 \subsection{Az alaprendszer - architektúra}
 \subsubsection{Parameters}
@@ -717,10 +735,10 @@ Ahogy fentebb említettem, több objektum metatípus leírója utazik a pluginne
 \subsubsection{NodeManager}
 \begin{center}
 \begin{figure}[h]
-  \includegraphics[width=0.8\textwidth]{nodeman_diag.png}
+  \includegraphics[width=1\textwidth]{nodeman_diag.png}
   \caption{A nodemanager osztálydiagramja }
 
-  \label{fig:bimg_slot_diag}
+  \label{fig:bimg_node_man}
 \end{figure}
 \end{center}
 A NodeManager eléggé fontos architekturális szerepet tölt be a BIMG rendszerben. Ez az osztály tekinthető a pluginek és a BIMG közötti határvonalnak. Itt történik (a korábban már részletezett módon) a pluginok tartalmának beolvasása és ellenőrzése. Továbbá itt van lehetőségünk új példányokat igényelni ezekből az objektumokból, paraméterként átadott metatype id segítségével. A NodeManager csak azokból az objektumokból készít új példányt, amelyek regisztrálva vannak nála. Ennek előnye, hogy ilyen módon letilthatóvá válnak bizonyos pluginek vagy pluginrészek használata.
@@ -778,23 +796,41 @@ void plugin_alpha::registerMetaTypeConversions(){
 \end{enumerate}
 
 
-
-
-
 \subsection{InputList}
 Az InputList az egyik legvékonyabb architekturális elem a BIMGben. Feladata roppantul egyszerű: lehetőséget ad a felhasználó számára, hogy összeállítson egy bemeneti listát, amelynek elemeit átathatja a ProcessChain számára feldolgozásra. Lehetőségünk van egyszerre egy vagy több elemet a listhoz hozzáadni, vagy eltávolítani róla. Továbbá előnézeti lehetőséget biztosít a felhasználó számára aki így feldoglozásra küldés előtt megvizsgálhatja a nyers képet. Architekturális szempontból a currentPicSelectionChanged (QString) signaljának van a legnagyobb jelentősége, amely a ProcessChain számára küldi meg az éppen aktuális bemenet elérését.
+
+\subsubsection{Input műveletek}
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=0.5\textwidth]{user/fileeditor.png}
+  \caption{Input műveleti ablakban elérhető lehetőségek. 1: Egy vagy több kép hozzáadása az input listához. 2: Aktuális kép törlése az input listáról. 3: Aktuális inputlista mentése. 4: Korábban mentett inputlista betöltése. 5: Aktuális input lista vizsgálati helye. 6: Inputok gyors előnézeti területe. 7: Gyors előnézeti mód ki/be kapcsolása. 8: Gyors előnézeti mód méretének változtatása  }
+
+  \label{fig:bimg_filelistdialog}
+\end{figure}
+\end{center}
 
 \subsection{GUI}
 Az eddig tárgyalt modulok (az InputList kivételével) és alrendszerek nem rendelkeztek se grafikus sem más féle felhasználói felülettel. Ezeknek a moduloknak a megfelelő interfészei használatával készítettem a grafikus felhasználói felületet. A GUI munkálatok kettő fontos részből álltak, az első részben a Qt által biztosított osztályokat bővítettem ki a projekt szempontjából szükséges funkcionalitásokkal. A másodikban ezekre támaszkodva készítettem saját fejlesztésű GUI elemeket, hiszen nem volt megfelelő gyári GUI elem ami képes lett volna megjeleníteni a DataNode, ProcessNode vagy IndicatorNode objektumokat.
 
 \subsubsection{Scene\&View - guiview lib}
 Architekturális szempontból a GUI peremén (a userhez a legközelebb), helyezkenek el a QGraphicsView és QGraphicsSenere gyermekosztályai.\\
+
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=1\textwidth]{toolbar.png}
+  \caption{A Base view tool barja. 1: Nagytás, 2: Kicsinyítés, 3: Méretezés értékhez, 4: Méretezés értékhez, 5. Forgatás jobbra, 6. Forgatás balra, 7: Forgatás adott értékhez, 8: Forgatás adott értékhez, 9: Interakciós mód, 10: Nézeti ablak beállításainak nullázása, 11: AAA engedélyezése/tiltása, 12: Simított bitkép tranzformációk tiltása/engedélyezése , 13: OpenGL renderelés engedélyezése/tiltása, 14: Nézeti ablak jelenlegi tartalmának mentése }
+
+  \label{fig:bimg_viewgui_toolbar}
+\end{figure}
+\end{center}
+
+
 A BaseView osztály egy Toolbarral osztállyal párhuzamosan fejlesztve készült el. Segítségükkel a felhasználó alap interakciókra képes: zoomolni, forgatni a megjelenített grafikát a képen, adott objektumokat kijelölni és mozgatni, különböző renderelési opciók ki és be kapcsolni, és az éppen aktuális megjelenítési állapotokról készült képet elmenteni. A BaseScene kapja el a Drag\&Drop és egyéb eseményeket, erre az osztályra építve készült el a NodeEditorScene. (További részletek a \ref{fig:bimg_viewgui}. ábráról olvashatóak le.)
 Ezeknek a kis osztályoknak a tervezésénél és implementációjánál kifejezetten arra törekedtem, hogy ne kerüljön ide a BIMGhez köthető funkcionalitás, adattag stb, így jelenleg egy külön statikus libként van a BIMGbe bele forgatva guiview néven.
 \begin{center}
 \begin{figure}[h]
-  \includegraphics[width=0.9\textwidth]{viewgui_dia.png}
-  \caption{A ViewGui libnek az osztálydiagramja }
+  \includegraphics[width=1\textwidth]{viewgui_dia.png}
+  \caption{A ViewGui libnek az osztálydiagramja}
 
   \label{fig:bimg_viewgui}
 \end{figure}
@@ -804,7 +840,7 @@ Ezeknek a kis osztályoknak a tervezésénél és implementációjánál kifejez
 A NodePalette biztosítja a felhasználó számára, hogy a BIMG rendszerben található nodekat használhassa, illetve bővebb információt szerezzen róluk. A nodek a könnyebb rendszerezhetőség érdekében füleken jelennek meg. A csoportosítás alapja a BaseNode::category (QString) változónak a tartalma, amelyet az adott node konstruktorában adhat meg a fejlesztő. (Ugyan ezen a módon deffiniálható a node, neve, leírása, súgó szövege és mini-iconja.). A Nodehoz tartozó súgás jelenleg egy jobb kattintással hozható elő, új node létrehozás rendkívül egyszerű: hiszen elég az NodePalettán található elemet a közismert fogd és vidd módszerrel a NodeEditor felületére mozgatni.
 \begin{center}
 \begin{figure}[h]
-  \includegraphics[width=0.8\textwidth]{nodepalette.png}
+  \includegraphics[width=1\textwidth]{nodepalette.png}
   \caption{A NodePalette osztálydiagramja, és működés közbeni képernyő fotója }
 
   \label{fig:bimg_nodepalette}
@@ -850,8 +886,8 @@ A NodeWidget tartalmának elrendezése és kirajzolása egy GridLayout segítsé
 
 \begin{center}
 \begin{figure}[h]
-  \includegraphics[width=0.7\textwidth]{node_editor.png}
-  \caption{Egy image DataNode}
+  \includegraphics[width=0.7\textwidth]{datanode_full.png}
+  \caption{Egy image DataNode. 1: A Node neve. 2: A DataNode output slot szerkesztésének helye (jobb klikkel további funkciók érhetőek el.). 3. Node isReady staus indicator. 4. Klónozás 5. Törlés. 6. Frissítés 7. Node státusz állapota. 8. Kisméretű előnézeti kép.}
 
   \label{fig:bimg_node_editor}
 \end{figure}
@@ -904,13 +940,13 @@ A SlotWidgetBasePart kezelése egyszerű: a bitosított editor felületen szerke
 
 \begin{center}
 \begin{figure}[h]
-  \includegraphics[width=0.5\textwidth]{connection.png}
-  \caption{Két slot közötti kapcsolat létrehozatalának pillanata. Fontos megjegyzés: Látható, hogy az output slot zöld tehát készen áll a végrehajtásra, még az inputslot piros tehát még nem érkezett rá adat.}
+  \includegraphics[width=0.7\textwidth]{connection.png}
+  \caption{Slotok összekapcsolása}
 
   \label{fig:bimg_just connection}
 \end{figure}
 \end{center}
-
+Két slot közötti kapcsolat létrehozatalának pillanata. Fontos megjegyzés: Látható, hogy az output slot zöld tehát készen áll a végrehajtásra, még az inputslot piros tehát még nem érkezett rá adat.
 
 
 \section{A Fejlesztés részletei}
@@ -937,12 +973,13 @@ A fejlesztés során iteratív fejlesztési módot követtem. Az alapvető jelle
 \item GUI csiszolása, tesztek, bugfixek
 \item Bugfix + alpha plugin fejlesztése
 \item Deploy rendszerek előkészítése (dupla hosszúságú lett végül)
+\item Bugfix, elmaradt apró funkciók pótlása
 \item Deploy + Dokumentáció igazítása (papír alapú dokumentációk digitalizálása)
 
 \end{enumerate}
 
 \subsubsection{Névterek és libek}
-A legfontosabb modulokat, alrendszereket külön lib-be és névterekbe csomagoltam. A következő két táblázat ezeket mutatja be a legfontosabb szervező logikákkal együtt.
+A legfontosabb modulokat, alrendszereket külön lib-be és névterekbe csomagoltam. A következő két táblázat ezeket mutatja be a legfontosabb szervező logikákkal együtt. \\ A namespaceket a \ref{table:bimg_namespace} táblázat tartalmazza. A libeket a \ref{table:bimg_libs} táblázat tartalmazza. 
 \begin{table}[h]
 %\begin{tabular}{@{}rl@{}}
 \begin{tabular}{p{1cm}|p{12cm}}
@@ -981,7 +1018,7 @@ A legfontosabb modulokat, alrendszereket külön lib-be és névterekbe csomagol
 
 \end{tabular}
 \caption{A BIMG rendszert felépítő libek listája }
-\label{table:bimg_namespace}
+\label{table:bimg_libs}
 \end{table}
 \subsubsection{Nehézségek}
 A projekt tervezése, implementálás során több nehézség is adódott. Az egyik jelentősebb a Node-Slot-Parameter rendszer kidolgozása körül volt a Slotok kapcsolatainak kezelése kapcsán. (Hogyan és mikor legyenek lebontva a kapcsolatok, hogy ne fordulhasson elő inkonzisztens állapot. A másik probléma a tárol adatok konverziójával volt, hogy milyen módon lehetséges egy tetszőleges új saját típusra konvertáló függvényt regisztrálni a metatype rendszerbe. Mind a kettő problémát sikeresen megoldottam és a dolgozat korábbi fejezeteiben mindegyiket bemutattam.
@@ -1018,7 +1055,9 @@ Ebben a tesztesetben a korai fejlesztésú Node-Slot-Parameter rendszert tesztel
 
 \subsection{Az elkészült munka értékelése}
 
+Munkám során megterveztem és kifejlesztettem egy képfeldolgozást támogató keretrendszert, amely alkalmas képek egyedi vizsgálatára és kötegelt feldolgozására. A rendszer képes különböző (fájl)formátumokban és módokon vizualizálni az eredményképeket. A paraméterezhető képfeldolgozási algoritmusokat dinamikusan betöltődő modulok biztosítják, és egy egyszerű kompakt könnyen kezelhető grafikus felületen lehetőség van többlépcsős feldolgozás megvalósítására is. A rendszer ingyenes modern és nyíltforráskódú technológiák felhasználására épült.
 
+A program még kűzd kisebb hibákkal, hiányosságokkal, gyermekbetegségekkel azonban az alap feladatai ellátásra alkalmas. 
 
 \subsection{További fejlesztési lehetőségek}
 A következő pár pontban röviden bemutatom, hogy az adott modulok milyen további fejlesztési lehetőségeket foglalnak magukban.
@@ -1027,15 +1066,53 @@ Egy bizonyos plugin szám felett elkerülhetet lesz a pluginek teljeskörű mana
 \subsubsection{GUI}
 A NodeWidgetek kompaktabbá tétele sokat segíthetne, a nagyobb feldolgozási láncok megalkotása során. (több nodet lehet látni egyszerűbb a komplexebb ProcessChainek kialakítása)
 \subsubsection{Optimalizálási lehetőségek}
-A ProcessChain feldolgozás párhuzamosítása. A FileInput kezelő bélyegképes előnézeti funkciójának többszálúsítása.
+\begin{itemize}
+	\itemsep0em
+	\item A ProcessChain feldolgozás párhuzamosítása.
+	\item  A FileInput kezelő bélyegképes előnézeti funkciójának többszálúsítása.
+\end{itemize}
+
 
 \subsection{Használati útmutató}
+Mivel korábban részletesen bemutattam a szoftver terveit, fejlesztését és működését, itt csak a legfontosabb hivatkozásokat gyűjtöm össze.
+\begin{itemize}
+	\itemsep0em
+	\item \textbf{Input kezelés:}  InputList
+	\item \textbf{Node Palette használata:}  NodePalette/NodePaletteForm
+	\item \textbf{Node Editor használata:} ProcessChain, Scene\&View - guiview lib, NodeWidget, NodeWidgetBasePart, SlotWidgetBasePart
+\end{itemize}
 
 \subsection{Fejlesztői útmutató}
-
+A BIMG vagy valamely plugin fejlesztéséhez elsődlegesen ez a dolgozat szolgál információforrásul. A forráskódok Doxygenes kommenteléssel készültek ezért, abból generálható részletes dokumentáció. Egy előkészített DoxyGen konfigurációs fájl és egy legenerált teljes dokumentáció is megtalálható a mellékletben. A forráskódok könyvtárában: \emph{Doxyfile} néven.
 \subsection{Telepítési útmutató}
+A BIMG esetében két féle telepítés mód járható.
+\subsubsection{Forráskódból}
+\begin{enumerate}
+\itemsep0em
+\item Ez esetben a program forráskódjára lesz szükség (amely a mellékletben megtalálható).
+\item Telepített Qt 5.2.1es verzióra vagy újabbra.
+\item Telepített 2.4.8as OpenCVre és forráskódjaira.
+\item Nyissuk meg a bimg.pro fájlt QtCreatorban. Ellenőrizzük a subprojektekben a libeknek és includoknak az elérési útvonalát.
+\item Fordítsuk le a szoftvert, és már használhatjuk is.
+\end{enumerate}
 
-.
+\subsubsection{Binárisból}
+A mellékleten több bináris deploy is megtalálható összezippelve. Elnevezésük a következő képpen alakul: bimg\_dátun\_deploy\_PLATFORM.zip
+Cél paltformok:
+\begin{itemize}
+	\itemsep0em
+	\item Linux Mint Maya (Qt 5.2.1, OpenCV 2.4.8 32bit)
+	\item Windows 7 (Qt 5.2.1, OpenCV 2.4.8 64bit)
+\end{itemize}
+Amint megtaláltuk a számunkra megfelelő zip fájlt tömörítsük ki egy testszőleges könyvtárba. Más dolgunk nincsen az archívumban megtalálható az összes szükséges függvénykönyvtár és konfigurációs fájl, amely a BIMG futtatásához szükséges.
+
+\begin{figure}[h]
+  \includegraphics[width=1\textwidth]{usecase_full.png}
+  \caption{A BIMG sematikus usecase diagramja }
+  \label{fig:bimg_usecase_full}
+\end{figure}
+
+
 %\renewcommand{\bibname}{Irodalomjegyzék}
 %\bibliographystyle{pemik}
 %\bibliography{irodalomjegyzek}
@@ -1097,34 +1174,34 @@ A ProcessChain feldolgozás párhuzamosítása. A FileInput kezelő bélyegképe
 
 
 	\bibitem{website:qt_about}
-		http://qt.digia.com/About-Us/
+		http://qt.digia.com/About-Us/\\
         {\em QT - About } 
  
 	\bibitem{website:qt_dochome}
-        http://qt-project.org/doc/
+        http://qt-project.org/doc/\\
         {\em QT - Doc} 
          
   	\bibitem{website:qt_docforum}
-        http://qt-project.org/forums
+        http://qt-project.org/forums\\
         {\em QT - Forums}        
 
   	\bibitem{website:qt_docmaillist}
-          http://lists.qt-project.org/mailman/listinfo 
+          http://lists.qt-project.org/mailman/listinfo \\
         {\em QT - MailingLists}        
 
 
 	\bibitem{website:qt_in_use}
-        http://qt.digia.com/Qt-in-Use/
+        http://qt.digia.com/Qt-in-Use/\\
         {\em QT Digia - In Use}  
         
         
 	\bibitem{website:opencv_about}
-        http://opencv.org/about.html
+        http://opencv.org/about.html\\
         {\em OpenCV - About}  
         
         
 	\bibitem{website:qt_1_million}
-		http://blog.qt.digia.com/blog/2014/04/16/qt-5-2-over-1-million-downloads/
+		http://blog.qt.digia.com/blog/2014/04/16/qt-5-2-over-1-million-downloads/\\
         {\em QT Digia - Over 1 million}  
         
 	\bibitem{website:soft_req_def}
@@ -1143,27 +1220,27 @@ A ProcessChain feldolgozás párhuzamosítása. A FileInput kezelő bélyegképe
         
 
 	\bibitem{website:opencv_about}
-        http://opencv.org/about.html
+        http://opencv.org/about.html\\
         {\em OpenCV - About}  
 
 	\bibitem{website:qt_metatype_1}
-		http://qt-project.org/doc/qt-5/qmetatype.html\#Q\_DECLARE\_METATYPE
+		http://qt-project.org/doc/qt-5/qmetatype.html\#Q\_DECLARE\_METATYPE\\
         {\em Qt - Q\_DECLARE\_METATYPE}  
 
 	\bibitem{website:qt_variant}
-		http://qt-project.org/doc/qt-5/qvariant.html\#canConvert
+		http://qt-project.org/doc/qt-5/qvariant.html\#canConvert\\
         {\em Qt - QVariant konverziók}  
 
 	\bibitem{website:qt_plugin}
-		http://qt-project.org/doc/qt-5/plugins-howto.html
+		http://qt-project.org/doc/qt-5/plugins-howto.html\\
         {\em Qt - Plugins}  
 
 	\bibitem{website:uuid_site}
-		http://www.ietf.org/rfc/rfc4122.txt
+		http://www.ietf.org/rfc/rfc4122.txt\\
         {\em Standards Track  - A UUID URN Namespace (RFC 4122) }  
         
 	\bibitem{website:qslog_site}
-		https://bitbucket.org/razvanpetru/qt-components/overview
+		https://bitbucket.org/razvanpetru/qt-components/overview\\
         {\em QsLogger Lib }  
 
 \end{thebibliography}
@@ -1172,21 +1249,6 @@ A ProcessChain feldolgozás párhuzamosítása. A FileInput kezelő bélyegképe
 \section{Mellékletek}
 
 
-
-
-\subsection{Teljes usecase vázlat}
-\label{fig:bimg_usecase_schema_full}
-\includepdf[pages={1-14}]{BIMG-usecase.pdf}
-
-\begin{landscape}
-\begin{figure}[h]
-  \subsection{Domain modell}
-  \includegraphics[width=26cm,height=30cm,keepaspectratio]{domain_gray.png}
-  \caption{A domain modell állapota az utolsó fejlesztési iteráció végén }
-
-  \label{fig:bimg_domain_img}
-\end{figure}
-\end{landscape}
 
 \subsection{Felhasználói útmutató}
 
