@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yFiles for Java 2.11-->
+  <key for="graphml" id="d0" yfiles.type="resources"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key attr.name="Description" attr.type="string" for="graph" id="d7"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d8"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d9"/>
+  <key for="edge" id="d10" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d7"/>
+    <node id="n0">
+      <data key="d4"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="327.52479999999997" width="347.8144000000001" x="765.1680000000342" y="159.17600000002128"/>
+          <y:Fill color="#F0F0F0" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="221.76904296875" x="63.022678515625046" y="3.0">ViewToolbar : public QWidget<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel/>
+            <y:MethodLabel>-&lt;&lt;slot&gt;&gt;void on_zoomIn_button_clicked()
+-&lt;&lt;slot&gt;&gt;void on_zoomOut_button_clicked()
+-&lt;&lt;slot&gt;&gt;void on_zoom_slider_valueChanged(int value)
+
+-&lt;&lt;slot&gt;&gt;void on_rotateCC_button_clicked()
+-&lt;&lt;slot&gt;&gt;void on_rotateCCW_button_clicked()
+-&lt;&lt;slot&gt;&gt;void on_rotate_slider_valueChanged(int value)
+
+-&lt;&lt;slot&gt;&gt;void on_dragSelect_button_toggled(bool checked)
+-&lt;&lt;slot&gt;&gt;void on_resetView_button_clicked()
+
+-&lt;&lt;slot&gt;&gt;void on_antiAlaising_button_toggled(bool checked)
+-&lt;&lt;slot&gt;&gt;void on_smoothPixmap_button_toggled(bool checked)
+-&lt;&lt;slot&gt;&gt;void on_opengl_button_toggled(bool checked)
+
+-&lt;&lt;slot&gt;&gt;void on_print_button_clicked()</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n1">
+      <data key="d4"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="450.0495999999999" width="337.8144000000001" x="418.33600000006845" y="159.17600000002128"/>
+          <y:Fill color="#F0F0F0" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="248.5498046875" x="44.632297656250046" y="3.0">BaseView : public QGraphicsView<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel/>
+            <y:MethodLabel>+int getCurrentZoomLvl()const
++int getCurrentRotation()const
+
+
++&lt;&lt;signal&gt;&gt;void selectModeChanged(bool current)
++&lt;&lt;signal&gt;&gt;void dragModeChanged(bool current)
++&lt;&lt;signal&gt;&gt;void zoomChanged(int current)
++&lt;&lt;signal&gt;&gt;void rotationChanged(int current)
++&lt;&lt;signal&gt;&gt;void openGlChanged(bool curret)
++&lt;&lt;signal&gt;&gt;void antiAliasingChanged(bool current)
++&lt;&lt;signal&gt;&gt;void smoothPixmaModeChanged(bool current)
+
+#&lt;&lt;slot&gt;&gt;void setupMatrix()
+
++&lt;&lt;slot&gt;&gt;void showImg(const QImage in)
++&lt;&lt;slot&gt;&gt;void toggleSelectMode(bool state)
++&lt;&lt;slot&gt;&gt;void resetViewToDefault()
++&lt;&lt;slot&gt;&gt;void zoomIn(const int level)
++&lt;&lt;slot&gt;&gt;void zoomOut(const int level)
++&lt;&lt;slot&gt;&gt;void zoomTo(const int level)
++&lt;&lt;slot&gt;&gt;void rotateLeft(const int level)
++&lt;&lt;slot&gt;&gt;void rotateRight(const int level)
++&lt;&lt;slot&gt;&gt;void rotateTo(const int level)
++&lt;&lt;slot&gt;&gt;void toggleOpenGL(const bool state)
++&lt;&lt;slot&gt;&gt;void toggleAntiAliasing(const bool state)
++&lt;&lt;slot&gt;&gt;void toggleSmoothPixmapTransform(const bool state)
++&lt;&lt;slot&gt;&gt;void print(QPaintDevice* device = 0)
++&lt;&lt;slot&gt;&gt;void handleDragDropAnnouncement(QMap&lt;int,  QVariant&gt; roleDataMap)
++&lt;&lt;slot&gt;&gt;void handleSelectionChanged()</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n2">
+      <data key="d4"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="109.52479999999997" width="347.8144000000001" x="765.1680000000342" y="499.7008000000212"/>
+          <y:Fill color="#F0F0F0" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="265.77734375" x="41.018528125000046" y="3.0">BaseScene : public QGraphicsScene<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel/>
+            <y:MethodLabel>#void dragEnterEvent(QGraphicsSceneDragDropEvent *event)
+#void dragLeaveEvent(QGraphicsSceneDragDropEvent *event)
+#void dropEvent(QGraphicsSceneDragDropEvent *event)
+#void dragMoveEvent(QGraphicsSceneDragDropEvent * event)</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+  </graph>
+  <data key="d0">
+    <y:Resources/>
+  </data>
+</graphml>

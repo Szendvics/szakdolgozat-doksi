@@ -49,6 +49,14 @@
 \AtBeginDocument{\addtocontents{toc}{\protect\pagestyle{empty}}} %ezzel erem el, hogy a tartalomjegyzek ne kapjon oldalszamot
 \AtBeginDocument{\addtocontents{tod}{\protect\thispagestyle{empty}}}
 
+
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
+
+
 \begin{document}
 \newcolumntype{M}{>{\begin{varwidth}{4cm}}l<{\end{varwidth}}} %M is for Maximal column
 
@@ -284,7 +292,7 @@ Az adatsorok elemzése közben, több fontos követelmény, fejlesztési irányv
 
 \item A sok kis méretű funkció egy idő után kezelhetetlenné válik, ezért legyen lehetőség kategorizálásra.
 
-\item Legyen lehetőség átlátható szerkezetű grafikus felhasználói felület használatára. Erre kifejezetten alkalmas a blokkos kapcsolat alapú vizuális szerkesztő. Ez a módszer több különböző technológiai területen sikeresen vizsgázott pl.: Labview blockdiagrammjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint} (amely az UDK3 Kismetjének egy tovább fejlesztett változata).
+\item Legyen lehetőség átlátható szerkezetű grafikus felhasználói felület használatára. Erre kifejezetten alkalmas a blokkos kapcsolat alapú vizuális szerkesztő. Ez a módszer több különböző technológiai területen sikeresen vizsgázott pl.: Labview blockdiagramjai \cite{website:ni_blocks}, vagy UDK4 BluePrint Editorja\cite{website:udk_blueprint} (amely az UDK3 Kismetjének egy tovább fejlesztett változata).
 \end{itemize}
 
 \todo{ Licencelési infók }
@@ -362,10 +370,10 @@ A követelmény analízist a RUP (Rational Unified Process) metodika FURPS+ rend
 \subsubsection{Funkcionális követelmények}
 Funkcionális követelményeknek tekintünk minden olyan követelményt, amely a fő termékünkbe valamilyen képességet biztosít. \cite{website:soft_func_req_ibm} Azaz ide tartozik minden felhasználói, cél feladat és aktivitás. Erre egy kiválló eszköz a usecase, melyet legegyszerűbben a usecasediagramm segítségével tekínthetünk át.
 \\
-A \ref{fig:bimg_usecase_schema}. ábrán megfigyelhető a BIMG sematikus usecase diagrammja\footnote{Megjegyzés: a vázlatos ábárzolás és a könnyebb szemléltetés miatt a felhasználó csak a funkcionalitások csoportjaival és nem a külön-külön a funkcionalitásokkal került összekötésre.}.
+A \ref{fig:bimg_usecase_schema}. ábrán megfigyelhető a BIMG sematikus usecase diagramja\footnote{Megjegyzés: a vázlatos ábárzolás és a könnyebb szemléltetés miatt a felhasználó csak a funkcionalitások csoportjaival és nem a külön-külön a funkcionalitásokkal került összekötésre.}.
 \begin{figure}[h]
   \includegraphics[width=\textwidth]{schematic_usecase.png}
-  \caption{A BIMG sematikus usecase diagrammja }
+  \caption{A BIMG sematikus usecase diagramja }
   \label{fig:bimg_usecase_schema}
 \end{figure}
 
@@ -378,7 +386,7 @@ Az ábráról is egyértelműen leolvashatóak rendszert képző legfontosabb lo
 	\item Process Chain kezelés: Ezen a szinten találjuk meg azokat a funkciókat, amelyek a felhasználó számára lehetőséget adnak a feldolgozási folyamat deffiniálásra, szerkesztésére és tesztelésére.
 	\item Feldolgozás: Ezen a szinten történik a feldolgozás összehangolása és az eredmények vizualizálása.
 \end{itemize}
-A teljes diagramm a \ref{fig:bimg_usecase_schema_full}. ábrán tekínthető meg a \pageref{fig:bimg_usecase_schema_full}. oldalon. A kifejtett usecase vázlata a \pageref{fig:bimg_usecase_schema_full} oldaltól kezdődik.
+A teljes diagramm a \ref{fig:bimg_usecase_schema_full}. ábrán tekinthető meg a \pageref{fig:bimg_usecase_schema_full}. oldalon. A kifejtett usecase vázlata a \pageref{fig:bimg_usecase_schema_full} oldaltól kezdődik.
 
 \subsubsection{Nem funkcionális követelmények}
 A nem funkcionális követelmények halmazába tartozik minden, olyan követelmény, amely valamilyen korlátot, megszorítást vagy minőség irányú feltételt deffiniál. \cite{publication:soft_nonfunc_req} Természetesen ide a futás idejű követelményeken túl (mint pl.: megbízhatóság, teljesítmény, hibakezelés), ideértjük a fejlesztési követelményeket is (pl.: modularitás, bővíthetőség, kód újrafelhasználás stb). Először összegyűjtöttem a legfontosabb nem funkcionális követelményeket, majd ezeket osztályoztam, hogy az (F)URPS+ metodika melyik osztályába tartoznak. Ehhez jó kiindulási pont volt a témakiírás és a konzultációs beszélgetések.
@@ -431,7 +439,7 @@ A BIMG alapját a Node-Slot-Parameter rendszer képezi. Paraméter lehet bármil
 Három féle node létezik a rendszerben:
 \begin{itemize}
 	\itemsep0em
-	\item DataNode: Csak Output slottal rendelkezik, tehát a teljes feldolgozás szempontjából egyértelműen csak bemeneti adatforrásnak tekínthető. Mivel nincsen bemeneti slotja azonnal végrehajtható. Alapvető funkciója: adatot juttat be a ProcessChainbe.
+	\item DataNode: Csak Output slottal rendelkezik, tehát a teljes feldolgozás szempontjából egyértelműen csak bemeneti adatforrásnak tekinthető. Mivel nincsen bemeneti slotja azonnal végrehajtható. Alapvető funkciója: adatot juttat be a ProcessChainbe.
 	\item IndicatorNode: csak Input slottal rendelkezik, tehát a teljes feldolgozás szempontjából csak kimeneneti adatforrásként kezelhető. Alapvető funkciója: adatot juttat ki a ProcessChainból.
 	\item ProcessNode: Input- és OutputSlotokkal is rendelkezik. Az egyetlen node típus, amely igazi feldolgozási logikával rendelkezik (tehát nem csak megjelenít, vagy vissza adértékeket hanem azokkal tényleges műveletet is végez). Végrehajtása az InputSlotok miatt alap esetben blokkolt. Alapvető funkciója: feldolgozás.
 
@@ -457,7 +465,7 @@ Egyike a legmeghatározóbb\cite{website:qt_1_million} multiplatform c++-ra ép�
 Open Source Computer Vision Library, nyíltforrású képfeldolgozást és gépi tanulást megvalósító függvénykönyvtár.\cite{website:opencv_about} Natív c++-ban implementált és erősen támaszkodik azt stl tárolókra. Sajnos gyárilag csak c/c++ és phyton-al tud hatékonyan együttműködni. Szerencsére egy vékony wrapper elkészítésével könnyen összekapcsolható Qt-val is. Funkcionalitásával széleskörű feladatok megoldására kivállóan alkalmas, technológiai lehetőségek arzenálját vonultatja fel pl.: Cuda, OpenCl. Multipaltform, még okostelefonra is elérhető a portja (Android 2010, iOS 2012). Dokumentációja is megfelelő. Jelen programban a 2.4.8-as verzióval dolgoztam.
 
 
-\section{Architektúrális tervek}
+\section{Architekturális tervek}
 A modellre építve a választott technológiák segítségével az első iterációban kidolgoztam a node-slot-parameter alrendszert.
 \subsection{Az alaprendszer - architektúra}
 \subsubsection{Parameters}
@@ -471,12 +479,12 @@ A korábban említett templates architektúra elhagyása lehetővé tette, hogy 
 \begin{center}
 \begin{figure}[h]
   \includegraphics[width=1.1\textwidth]{slot_diag.png}
-  \caption{A node slotok osztálydiagrammja }
+  \caption{A node slotok osztálydiagramja }
 
   \label{fig:bimg_slot_diag}
 \end{figure}
 \end{center}
-A \ref{fig:bimg_slot_diag}. ábrán látható a slotok jelenlegi osztálydiagrammja. A funkcionalitások szervezésekor (hogy mi kerüljön a BaseSlot osztályba és mi a gyermek slot osztályokba), a logika az volt, hogy a BaseSlot gyakorlatilag csak és kizárólag az aktuális és az alapértelmezett paraméterek kezelését valósítsa meg, míg az input és output slot pedig a paraméterek főlé biztosít egy réteget ami kezeli a slot kapcsolódásokat, és állapotokat. Ennek a döntésnek az oka annyi, hogy két fő szabályt osztály architekturális szinten kívántam megkötni:
+A \ref{fig:bimg_slot_diag}. ábrán látható a slotok jelenlegi osztálydiagramja. A funkcionalitások szervezésekor (hogy mi kerüljön a BaseSlot osztályba és mi a gyermek slot osztályokba), a logika az volt, hogy a BaseSlot gyakorlatilag csak és kizárólag az aktuális és az alapértelmezett paraméterek kezelését valósítsa meg, míg az input és output slot pedig a paraméterek főlé biztosít egy réteget ami kezeli a slot kapcsolódásokat, és állapotokat. Ennek a döntésnek az oka annyi, hogy két fő szabályt osztály architekturális szinten kívántam megkötni:
 \begin{itemize}
 	\itemsep0em
 	\item Egy input slothoz csak egy output slot kapcsolódhat.
@@ -494,7 +502,7 @@ Már a slotok osztálydiagrammján is látható, hogy az alaposztály egy NameDe
 \begin{center}
 \begin{figure}[h]
   \includegraphics[width=1.1\textwidth]{node_class_diag.png}
-  \caption{A node slotok osztálydiagrammja }
+  \caption{A node slotok osztálydiagramja }
 
   \label{fig:bimg_slot_diag}
 \end{figure}
@@ -531,7 +539,7 @@ Lenti ábrán megfigyelhető a nodek végrehajtási mechanizmusa során keletkez
 \end{landscape}
 
 \subsubsection{ProcessChain}
-A korábbi pontokból látható, hogy a Node-Slot-Parameter alrendszerrel gyakorlatilag tetszőleges feldolgozási sor összeállítása lehetséges. Ez a feldolgozási sor tekínthető egy irányított gráfnak. Így az alábbi megfeleltetések jönnek létre:
+A korábbi pontokból látható, hogy a Node-Slot-Parameter alrendszerrel gyakorlatilag tetszőleges feldolgozási sor összeállítása lehetséges. Ez a feldolgozási sor tekinthető egy irányított gráfnak. Így az alábbi megfeleltetések jönnek létre:
 \begin{itemize}
 	\itemsep0em
 	\item csúcsok: a feldolgozási sor nodejai,
@@ -561,7 +569,11 @@ A gráf bejárására lehetőségünk van egy állapotgépet felírni. Az állap
 		\end{itemize}
 
 \end{itemize}
-\begin{center}
+\begin{center}\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
 \begin{tikzpicture}[scale=0.2]
 \tikzstyle{every node}+=[inner sep=0pt]
 \draw [black] (5.5,-13.5) circle (3);
@@ -652,37 +664,377 @@ A gráf bejárására lehetőségünk van egy állapotgépet felírni. Az állap
 \end{table}
 
 Látható, hogy mennyire előnyös ez az állapotgépes feldolgozás, hiszen nem kell a gráfban kört keresni illetve egyéb más módon elemezni azt. Adott pár jól deffiniált művelet és szabály ami alapján egyértelműen végrehajtható a felhasználó által felépített feldolgozási sor. Az adatok áramlása és a nodek ready állapotba kerülése pedig alacsonyabb szinten teljes mértékben rendezésre kerül és a node-k elfedik azt a ProcessChain elől.
-\subsection{Domain modell}
 
-\subsection{Előzetes struktúrák és objektumok}
+A korábbiakban bemutattam, hogy egy bemeneti elemre, hogyan működik a feldolgozás. Természetesen van lehetőség több elem egymás utáni feldolgozására is. Ennek feltétele, hogy miután egy adott bemeneti elem sikeresen feldolgozásra került exportáljuk az eredményt, majd alaphelyzetbe állítsuk a ProcessChaint és a benne található nodekat. A be és kimeneti adatokat az InputList biztosítja a ProcessChain számára. (Amelynek beállítása a populateNodesWithImage() függvényben történik.)\\
+Megjegyzés: ha valamelyik bemeneti elem feldolgozása sikertelen volt akkor a process chain ugyanúgy alapállapotba kerül vissza (a hibaüzenetek nyugtázást követően).
 
-\subsubsection{Az alkalmazás alap logikája}
-\subsubsection{Feldolgozást végző egységek}
-\subsubsection{Input útja a rendszerben - Main flow}
-\subsubsection{Pluginek betöltése}
-\subsubsection{Plugin Container}
-\subsubsection{Pluginek frissítése, hozzáadása}
-\subsubsection{IMP működés ellenőrzése}
-\subsubsection{IMPk hibás működésének kezelése}
-\subsubsection{Step-by-step működésről és realtime debug}
-\subsubsection{A teljes kép}
+Az alábbi osztálydiagrammon látható a ProcessChain legfontosabb adatagjai és függvényei.
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=1.0\textwidth]{process_chain_diag.png}
+  \caption{ProcessChain osztálydiagramja }
 
-\subsection{Felület terv}
-\subsubsection{Használhatósági és ergonomikus szempontok}
-\subsubsection{Előzetes tervek (egyszerű feldolgozáshoz)}
-\subsubsection{Előzetes tervek (komplex feldolgozáshoz)}
+  \label{fig:bimg_processchain_diag}
+\end{figure}
+\end{center}
+Megfigyelhető a nodek általános tárolója (nodes), és L\textsubscript{0} (mainProcessChain), L\textsubscript{1} (newReadyNodes) és L\textsubscript{2} (execOrder) nevű láncolt listák. (Az állapotok műveletei legnagyobb részt az execNextNode() függvényen belül találhatóak.)
+
+\subsection{Pluginek}
+Az alap Node-Slot-Parameter rendszer után a második legnagyobb modulnak a plugin rendszer tekinthető. Legfontosabb feladata, hogy a BIMGt plusz funkcionalitásokkal, adattípusokkal töltse fel. A tervezés és a fejlesztés kettő pont köré csoportosult:
+			\begin{itemize}
+			\itemsep0em
+			\item Egy jól deffiniált kompakt, de flexibilis interfészt kell kialakítani amely nagy verzió ugrások után is változatlan marad.
+			\item Nagy mennyiségű Data-, Process- és IndicatorNodet és ezekhez tartozó adattípusokat és konverziós megfeleltetéseket kell áthordozni a pluginból a főprogramba.
+		\end{itemize}
+
+\subsubsection{Pluginterface}
+Kiindulási alapnak a Qt által biztosított plugin rendszert használtam. A rendszer jól működő és bevált, hiszen a Qt is erősen építkezik erre a rendszerre\cite{website:qt_plugin}.  A BIMGben az alacsonyabb szintű plugin api-t használtam.
+
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=1\textwidth]{pluginterface_diag.png}
+  \caption{A pluginterface osztálydiagramja }
+
+  \label{fig:bimg_slot_diag}
+\end{figure}
+\end{center}
+Első lépésként deffiniáltam egy plugin interface osztályt, amely a Pluginterface nevet kapta. Azon túl, hogy a Q\_DECLARE\_INTERFACE() makró segítséggel egy interfészt deklarálása történik benne még három fő funkcionalitást különíthetünk el benne.
+			\begin{itemize}
+			\itemsep0em
+			\item Tartalmaz egy UUID\cite{website:uuid_site} adattagot. Amely egy 128 bites állandó és egyedi azonosítója a pluginnak. A jelenlegi architektúrában ez a változó nem használt, azonban a további fejlesztési lehetőségek részben található PluginContainer és PluginUpdater rendszerek megkövetelik használatát. Ugyan ez érvényes a NameDescInterface által biztosított adattagokra is.
+			\item Adott két előkészített tároló nodeIdList, és editorIdMap ahol különböző metatype-idk tárolására van lehetőség. (Konkrétan a Data-, Process- és IndicatorNodekhoz továbbá a SlotWidgetBasePartokhoz tartozó metatype-idkre.)
+			\item Egy előkészített függvény: registerMetaTypeConversions(), amelyben deffiniálhatjuk a különböző saját fejlesztésű adattagok közötti konverziós lehetőségeket. 
+		\end{itemize}
+
+\subsubsection{Plugin metaobjektumok és ellenőrzések}
+Ahogy fentebb említettem, több objektum metatípus leírója utazik a pluginnel. Gyakorlatilag ha valamelyik tárolóban eltárolunk metatype-id az betöltéskor beolvasásra kerül. Természetesen nem ellenőrzés nélkül, a minden plugin betöltéskor két szintű ellenőrzésen megy keresztül:
+\begin{itemize}
+	\itemsep0em
+	\item A PluginLoader ellenőrzi, hogy egy szabványos pluginről van-e szó. Tehát Pluginterface ős osztállyal és interfész deklarációval továbbá Q\_OBJECT makróval kell rendelkeznie (QObject osztályból örököltetni nem szükséges, hiszen a Pluginterface eleve a QObject osztály gyerekosztálya.) amint ez sikerel lezárul a PluginLoader osztály létrehoz egy QPluginLoader pointert, amelyet a pluginLoaded signállal megküld a NodeManager osztálynak.
+	\item A második szintű ellenőrzést a NodeManager::handlePluginLoaded(...) végzi. Végig iterál a beregisztrált azonosítókon. Tárolási helytől függően, vagy BaseNode, vagy SlotWidgetBasePart objektumot próbál készíteni a metatype rendszer segítségével. Amennyiben ezek valóban megfelelő típusú objektumoknak bizonyulnak beregisztrálja a saját tárolójába. A metatype-id konverziós definíciók regisztrálása is itt történik.
+\end{itemize}
+
+\subsubsection{NodeManager}
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=0.8\textwidth]{nodeman_diag.png}
+  \caption{A nodemanager osztálydiagramja }
+
+  \label{fig:bimg_slot_diag}
+\end{figure}
+\end{center}
+A NodeManager eléggé fontos architekturális szerepet tölt be a BIMG rendszerben. Ez az osztály tekinthető a pluginek és a BIMG közötti határvonalnak. Itt történik (a korábban már részletezett módon) a pluginok tartalmának beolvasása és ellenőrzése. Továbbá itt van lehetőségünk új példányokat igényelni ezekből az objektumokból, paraméterként átadott metatype id segítségével. A NodeManager csak azokból az objektumokból készít új példányt, amelyek regisztrálva vannak nála. Ennek előnye, hogy ilyen módon letilthatóvá válnak bizonyos pluginek vagy pluginrészek használata.
+
+Például a későbbiekben tárgyalt NodePalette, először kikéri a regisztrált és érvényes metatípus-idk listáját (getNodeMetaTypeIds()), majd a getNewInstacne(...) segítségével kér új példányokat az adott típusú objektumból.
 
 
-\subsection{Design modell}
+\subsubsection{Egy példa plugin}
+A plugin rendszer bemutatátás egy példával zárnám, ahol egy plugin létrehozásának menetét ismertetem:
+\begin{enumerate}
+\itemsep0em
+\item Hozzunk létre egy szabványos C++ dinamikusű függvénykönyvtárat, majd származtassuk le a Pluginterface ősosztályból, végül alkalmazzuk rajta a Qts interfész makrókat.
+\begin{lstlisting}
+//plugin_alpha.h
+class PLUGIN_ALPHASHARED_EXPORT plugin_alpha : public Pluginterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.examples.MyInterface")
+    Q_INTERFACES(IMP::Pluginterface)
+
+    //...
+};
+\end{lstlisting}
+\item Készítsük el a saját nodejainkat, és adattípus konverzióinkat. Nodek esetén használjuk ősosztálynak valamelyik node típust (DataNode, ProcessNode vagy IndicatorNode). A típus konverzióknak a forrás objektum típusból egy const refferenciát kell átvennie, és egy cél objektumot kell visszadnia
+\begin{lstlisting}
+//mat2image.h
+Q_DECLARE_METATYPE(cv::Mat)
+class Mat2Image{
+public:
+    static cv::Mat castImgToMat(const QImage& image);
+    static QImage castMatToImg(const cv::Mat& mat);
+\end{lstlisting}
+A fenti példában az OpenCV Mat objektum típuskonverziója történik meg QImage típusra és vissza. Megjegyzés: bármilyen külsős libbel végezzük a képfeldolgozást ajánlott a felhasznált adatformátumot ilyen módon regisztrálni.
+
+\item A plugin konstruktorában regisztráljuk a metatípusokat! Illetve deffiniáljuk felül a registerMetaTypeConversions függvényt.
+\begin{lstlisting}
+//plugin_alpha.cpp
+Q_DECLARE_METATYPE(RGBASplitter)
+Q_DECLARE_METATYPE(RGBAJoin)
+
+plugin_alpha::plugin_alpha():
+    Pluginterface(QUuid::createUuid(),"PLUGIN_ALPHA","CORE FEATURES")
+{
+    //data
+    this->nodeIdList<<qRegisterMetaType<DoubleDataNode>();
+    this->nodeIdList<<qRegisterMetaType<StringDataNode>();
+    //..
+}
+void plugin_alpha::registerMetaTypeConversions(){
+    QMetaType::registerConverter<cv::Mat,QImage>(Mat2Image::castMatToImg);
+    QMetaType::registerConverter<QImage,cv::Mat>(Mat2Image::castImgToMat);
+}
+
+\end{lstlisting}
+\end{enumerate}
 
 
-\section{Fejlesztési napló}
-.
+
+
+
+\subsection{InputList}
+Az InputList az egyik legvékonyabb architekturális elem a BIMGben. Feladata roppantul egyszerű: lehetőséget ad a felhasználó számára, hogy összeállítson egy bemeneti listát, amelynek elemeit átathatja a ProcessChain számára feldolgozásra. Lehetőségünk van egyszerre egy vagy több elemet a listhoz hozzáadni, vagy eltávolítani róla. Továbbá előnézeti lehetőséget biztosít a felhasználó számára aki így feldoglozásra küldés előtt megvizsgálhatja a nyers képet. Architekturális szempontból a currentPicSelectionChanged (QString) signaljának van a legnagyobb jelentősége, amely a ProcessChain számára küldi meg az éppen aktuális bemenet elérését.
+
+\subsection{GUI}
+Az eddig tárgyalt modulok (az InputList kivételével) és alrendszerek nem rendelkeztek se grafikus sem más féle felhasználói felülettel. Ezeknek a moduloknak a megfelelő interfészei használatával készítettem a grafikus felhasználói felületet. A GUI munkálatok kettő fontos részből álltak, az első részben a Qt által biztosított osztályokat bővítettem ki a projekt szempontjából szükséges funkcionalitásokkal. A másodikban ezekre támaszkodva készítettem saját fejlesztésű GUI elemeket, hiszen nem volt megfelelő gyári GUI elem ami képes lett volna megjeleníteni a DataNode, ProcessNode vagy IndicatorNode objektumokat.
+
+\subsubsection{Scene\&View - guiview lib}
+Architekturális szempontból a GUI peremén (a userhez a legközelebb), helyezkenek el a QGraphicsView és QGraphicsSenere gyermekosztályai.\\
+A BaseView osztály egy Toolbarral osztállyal párhuzamosan fejlesztve készült el. Segítségükkel a felhasználó alap interakciókra képes: zoomolni, forgatni a megjelenített grafikát a képen, adott objektumokat kijelölni és mozgatni, különböző renderelési opciók ki és be kapcsolni, és az éppen aktuális megjelenítési állapotokról készült képet elmenteni. A BaseScene kapja el a Drag\&Drop és egyéb eseményeket, erre az osztályra építve készült el a NodeEditorScene. (További részletek a \ref{fig:bimg_viewgui}. ábráról olvashatóak le.)
+Ezeknek a kis osztályoknak a tervezésénél és implementációjánál kifejezetten arra törekedtem, hogy ne kerüljön ide a BIMGhez köthető funkcionalitás, adattag stb, így jelenleg egy külön statikus libként van a BIMGbe bele forgatva guiview néven.
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=0.9\textwidth]{viewgui_dia.png}
+  \caption{A ViewGui libnek az osztálydiagramja }
+
+  \label{fig:bimg_viewgui}
+\end{figure}
+\end{center}
+
+\subsubsection{NodePalette/NodePaletteForm}
+A NodePalette biztosítja a felhasználó számára, hogy a BIMG rendszerben található nodekat használhassa, illetve bővebb információt szerezzen róluk. A nodek a könnyebb rendszerezhetőség érdekében füleken jelennek meg. A csoportosítás alapja a BaseNode::category (QString) változónak a tartalma, amelyet az adott node konstruktorában adhat meg a fejlesztő. (Ugyan ezen a módon deffiniálható a node, neve, leírása, súgó szövege és mini-iconja.). A Nodehoz tartozó súgás jelenleg egy jobb kattintással hozható elő, új node létrehozás rendkívül egyszerű: hiszen elég az NodePalettán található elemet a közismert fogd és vidd módszerrel a NodeEditor felületére mozgatni.
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=0.8\textwidth]{nodepalette.png}
+  \caption{A NodePalette osztálydiagramja, és működés közbeni képernyő fotója }
+
+  \label{fig:bimg_nodepalette}
+\end{figure}
+\end{center}
+
+Architektúrális szempontból a NodePalette (NodePaletteForm), gyakorlatilag a NodeManager részére képez egy viewet. Követlen értesítést kap (announceNewNodeID (int id), announceDeletedNodeID (int id) signáljai a NodeMangernek) a frissen regisztrált, és az éppen letiltott metatype-idkről. A handleAnnounceNewNodeID(int) és handleAnnounceDeletedNodeID(int) slotokkal kezeli ezeket az értesítéseket. Minden egyes metatype-idhez kér a palette egy demo node példányt a managertől. Ezek a nodek, csak arra szolgálnak, hogy a NodePalette információt tudjon szolgáltatni a felhasználó részére a noderől. (Tehát feldolgozási sorhoz nem lesznek hozzáadva stb.)
+
+\subsubsection{NodeEditor/NodeEditorScene}
+A megjelenítési műveletek eseménykezelő és elem mappoló színhelye. A ViewGUI::BaseScene osztálynak a gyermekosztálya. Fogadja a drag\&drop illetve egyéb más felhasználói interakciókat, minimális logikával rendelkezik: gyakorlatilag megszűri az eseményeket. Minden lehetséges BIMG szempontból érdekes eseményt továbbít a ProcessChainView, részére. pl.: Ha elfog egy drop műveletet akkor ellenőrzi, hogy az adott objektum MIME típusa érdekes lehet-e a BIMG számára.
+Jelenleg ilyen figyelt metatípusok a: "application/x-qabstractitemmodeldatalist" ha tartalmaz Node metatype-idt (ez a Qt::UserRole+7462-es role), a "application/x-bimgnodeconnector" amely akkor érvényes ha tartalmaz "sourceobj" Stringgel indexel adatot. Az első mimeadat a NodePaletteről történő fogd és vidd művelet eredménye a második két NodeWidgetSlotConnection közötti kapcsolat létesítési kísérlet eredménye.
+
+\subsubsection{ProcessChainView}
+Ha a Node-Slot-Parameter rendszer feldolgozó logikája a ProcessChain volt akkor várható, hogy a ProcessChainView is hasonló architekturális feladatokat tölt be (csak a view oldalon).
+Ez az állítás helytálló. A következő listában röviden összegzem a feladatokat, a lentebb található osztálydiagrammon pedig megtalálhatóak ezek a feladatokhoz megfeleltethető függvények és adattagok.
+\begin{itemize}
+	\itemsep0em
+	\item Itt tárolódik és konfigurálódik a NodeWidgeteket. (pl: itt kerül beállításra a NodeEditorScene elérése stb.)
+	\item Fogadásra és feldolgozásra kerülnek a NodeWidgetek különböző kérelmeit: klónozás, és törlés.
+	\item Fogadásra kerül a NodeEditorScenetől érkezett és előfeldolgozott eseményeket. Az események-NodeWidgetek kimappolása és ellenőrzése is itt történik pl. 2 Slot összekapcsolási kérelme esetén
+	\item Itt történik az információ csere a ProcessChainnel, a feldolgozás jelenlegi állapotáról, továbbá az új és törölt (illetve hozzáadni és törölni kívánt) nodekről.
+\end{itemize}
+
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=1\textwidth]{processcahinview.png}
+  \caption{A ProcessChainView osztálydiagramja}
+
+  \label{fig:bimg_processchainview}
+\end{figure}
+\end{center}
+
+\subsubsection{NodeWidget}
+A GUI fejlesztésben a NodeWidget alrendszer tervezése és implementálása jelenetette a legnagyobb kihívást. A NodeWidget a QGraphicsWidget osztályra lett felépítve. A widget több rész widgetre bontható fel:
+\begin{itemize}
+	\itemsep0em
+	\item NodeWidgetBasePartokra amelyek közvetlenül a BaseNode valamely elemét jelenítik meg
+	\item SlotWidgetBasePartokra amelyek közvetlenül egy darab slot megjelenítését és kezelését végzik
+\end{itemize}
+A NodeWidget azontúl, hogy levezényli a hozzárendelt BaseNode megjelenítését (az alap adatok vizualizálásán túl, az esetleges slotok megjelenítését és kezelését). Különböző kéréseket is küldhet a ProcessChainViewnek. Jelen implementáció alapján kettő kérés érkezhet egy NodeWidgettől: az egyik a clone, azaz hogy egy vele azonos típusú NodeWidget kerüljön fel a megjelenítőre (és Node letárolásra a ProcessChainben); a másik a delete, azaz törlés tehát amikor a NodeWidget sajátmaga eltávolítását kérvényezi a ProcessChainViewből és ProcessChainból.
+
+A NodeWidget tartalmának elrendezése és kirajzolása egy GridLayout segítségével került megvalósításra.
+
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=0.7\textwidth]{node_editor.png}
+  \caption{Egy image DataNode}
+
+  \label{fig:bimg_node_editor}
+\end{figure}
+\end{center}
+
+Ezen az ábrán egy Image típusú DataNodet láthatunk. Jelenleg a rendszer nem az InputList által átadott képet tartalmazza megában hanem a felhasználó által kiválasztotat. Továbbá látható, hogy a node isReady státusza true tehát azonnal végrehajtható (ez az alsó READY feliratból olvasható ki), és hogy az egy datab outputslotja is készen áll a végrehajtásra. Az input slotok mindig a node bal oldalán foglalnak helyet, még az output slotok a node jobb oldalán. Jelen esetben mint a 3 alapvető funkciógom elérhető, a clone, delete és update is.
+
+\subsubsection{NodeWidgetBasePart}
+Egy-egy alap NodeWidget elem megjelenítését és kezelését egy-egy NodeWidgetBasePart végzi. Osztálydiagramja lentebb látható. Két fontos adattagja van: first és second. Ahogy a diagrammon látható a first egy QWidget még a second egy QGraphicsWidget. NodeWidgetBasePart legfontosabb feladata, hogy eltároljon egy widgetet (ez lehet akár saját készítésű widget is). Majd az initFirst() függvénnyel inicializálja first nevű widgetet (töltse be a BaseNodeból a megfelelő adatokat), a művelet végén ezt a widgetet, pedig adja hozzá a scene pointer által mutatott QGraphicsScenehez. A GraphicsScenehez történő hozzáadás egy proxy osztályt ad vissza, amelynek memóriacímét letárolja a second pointerrel.
+A NodeWidgetBasePart a külvilág felé egy slotot biztosít: ez az update() slot, mellyel szinkronizálható a BaseNode és a first widget közötti adat tartalom. (A second widgetben automatikusan frissül a mutatott tartalom, hiszen az csak egy proxy osztály.)
+Példa NodeWidgetBasePart osztályokra:
+\begin{table}[h]
+%\begin{tabular}{@{}rl@{}}
+\begin{tabular}{p{5.5cm}|p{7.5cm}}
+
+\toprule
+\multicolumn{1}{c}{\textbf{Név}} & \multicolumn{1}{c}{\textbf{Feladat és eszköz}} \\ \midrule
+\textbf{NodeWidgetTitle} & Megjeleníti az aktuális BaseNode címét (Ez a cím a BaseNode nevéből kategóriájából és a ProcessViewen betöltött sorszámából adódik). (QLabel)\\
+\hline
+\textbf{NodeWidgetPreviewPixmap} & Előnézeti pixmap, DataNodek esetén a bemeneti kép jelenik meg itt, IndicatorNodek esetén az éppen kiszámolt kimeneti kép. (QPixmap és QLabel) \\
+\hline
+\textbf{NodeWidgetStatusLab} & A node isReady státusza jelenik meg itt. (QLabel) \\
+\hline
+\textbf{NodeWidgetCloneButton} & Egy nyomógomb aminek segítségével kérvényezheti a NodeWidget a ProcessChainView felé a klónozást. (QPushButton) \\
+\hline
+\textbf{NodeWidgetDeleteButton} & Egy nyomógomb aminek segítségével kérvényezheti a NodeWidget a ProcessChainView felé a saját maga eltávolítását. (QPushButton) \\
+\hline
+\textbf{NodeWidgetBaseUpdateButton} & Frissítés indul fut le a NodeWidgeten. (A felhasználó saját maga kezdeményezheti a NodeWidget manuális frissítését \\ 
+\hline
+
+\end{tabular}
+\caption{A NodeWidget részei}
+\label{table:nodewidgetparts}
+\end{table}
+
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=1.1\textwidth]{node_slot_widgetpart.png}
+  \caption{A NodeWidgetBasePart és a SlotWidgetBasePart osztályok diagramja}
+
+  \label{fig:bimg_widget_slot_view_diag}
+\end{figure}
+\end{center}
+
+\subsubsection{SlotWidgetBasePart}
+A SlotWidgetBasePart osztály működését tekíntve nagyon hasonló a NodeWidgetBaseParthoz. A különbség annyi, hogy ebben az esetben egy slot megjelenítéséről gondoskodunk, és abban az esetben ha az adott slot egy DataNode Outputslotja: akkor a slot által hordozott paramétert szerkeszthetővé tesszük. (Erre azért van szükség, hogy a ProcessChainbe más adat is kerülhessen ne csak az InputListről kapott kép.) Mivel új adattípusok is érkezhetnek a pluginekkel ezért a pluginekbe ilyen SlotWidgetBasePart osztályokat is csomagolhatunk. (Ahogy azt a Plugin rendszer bemutatása során leírtam.)
+
+A SlotWidgetBasePart kezelése egyszerű: a bitosított editor felületen szerkeszthetjük az adatot: pl.: szám esetén ez egy számbeviteli mező lesz, ahova bevihetjük a kért számot. Amint az editor elveszíti a fókuszt a benne lévő adat mentésre kerül. Azonban ha biztosra szeretnénk menni jobb kattintással az editorban kiválaszthatjuk a kívánt funkciókat.
+2 slotot úgy tudunk összekötni, hogy a kis slot állapotot jelző indikátor mezőt megfogjuk és fogd és vidd módszerrel egy másik slot indikátor mező fölött elengedjük. Ha jó slot összekötését kezdeményeztük, akkor a kapcsolat automatikusan létrejön a két node között.
+
+\begin{center}
+\begin{figure}[h]
+  \includegraphics[width=0.5\textwidth]{connection.png}
+  \caption{Két slot közötti kapcsolat létrehozatalának pillanata. Fontos megjegyzés: Látható, hogy az output slot zöld tehát készen áll a végrehajtásra, még az inputslot piros tehát még nem érkezett rá adat.}
+
+  \label{fig:bimg_just connection}
+\end{figure}
+\end{center}
+
+
+
 \section{A Fejlesztés részletei}
-.
-\section{Az elkészült munka értékelése}
-.
-\section{Továbbfejlesztési lehetőségek}
+\subsection{Fejlesztési napló}
+A fejlesztés során iteratív fejlesztési módot követtem. Az alapvető jellemző metodikám az volt, hogy kiválaszottam egy modult, aminek a legfontosabb funkcióit vázlatosan megterveztem. Ha az adott modul első iterációjáról volt szó akkor egy külön teszt projektben készítettem el az első verziót. (Így lehetőségem, volt az új funkciókat úgy tesztelni esetlegesen újra tervezni átvariálni, hogy közben a rendszer többi részével nem kellett hosszas munkaórákat töltenem, hogy képes legyen együttműködni az esetlegesen később teljesen megváltoztatott architektúrával.) Az fejlesztés során összegyűlt tapasztalatokat bugokat, esetleges új funkció kéréseket mindig a következő iterációban vettem csak figyelembe. Egy iteráció hossza 1-3 nap volt. A következő felsorolásban vázolom, hogy melyik modulok, alrendszerek fejlesztése tartozott egy iterációba.
+\subsubsection{Iterációk}
+
+\begin{enumerate}
+\itemsep0em
+\item Node-Slot-Parameter rendszer kezdetei tervei és Proof of Concept implementációja. (template)
+\item Input modul megtervezése és implementálása, Viewgui és settings libek elkészítése.
+\item Node-Slot-Parameter rendszer teljes revíziója és újratervezése. (metatype), Qt Pluginrendszerének vizsgálata, és állatorvosi lovának elkészítése, a későbbi tervezés megkönnyítéséhez.
+\item Process Chain tervezése és implementálása (körkereséssel és gráfelemzéssel), Node-Slot-Parameter rendszer tesztei és javítása, saját metatípussal rendelkező slotok tesztje.
+\item OpenCV - Qt wrapper megtervezése, implementálása és tesztje
+\item OpenCV - Qt wrapper revíziója
+\item Pluginrendszer megtervezése és első plugin elkészítése
+\item Teljes refaktor: Első mérföldkő működőképes Node-Slot-Parameter rendszer és Plugin rendszer, (OpenCV-Qt konverziók még mindig nem 100\%osak)
+\item Process Chain áttervezése és implemetálása
+\item NodePalette elkészítése és NodeEditor első verziója
+\item NodeEditor áttervezése és implementálása
+\item NodePartWidgetek és SlotPartWidgetek megtervezése és implementálása
+\item BaseScene és ProcessChainView szétválasztása
+\item Második mérföldkő: kezdetleges GUI működik
+\item GUI csiszolása, tesztek, bugfixek
+\item Bugfix + alpha plugin fejlesztése
+\item Deploy rendszerek előkészítése (dupla hosszúságú lett végül)
+\item Deploy + Dokumentáció igazítása (papír alapú dokumentációk digitalizálása)
+
+\end{enumerate}
+
+\subsubsection{Névterek és libek}
+A legfontosabb modulokat, alrendszereket külön lib-be és névterekbe csomagoltam. A következő két táblázat ezeket mutatja be a legfontosabb szervező logikákkal együtt.
+\begin{table}[h]
+%\begin{tabular}{@{}rl@{}}
+\begin{tabular}{p{1cm}|p{12cm}}
+
+\toprule
+\multicolumn{1}{c|}{\textbf{Névtér}} & \multicolumn{1}{|c}{\textbf{Leírás}} \\ \midrule
+\multicolumn{1}{c|}{\textbf{IMP}}  & Itt található minden, alapvető osztály, amelyek szorosan kapcsolódnak a Node-Slot-Parameter rendszerhez. Ebbe a névtérbe kerülnek a be a pluginekben fejlesztett Nodek is.\\
+\hline
+\multicolumn{1}{c|}{\textbf{VIEWGUI}}  &  A legalapvetőbb megjelenítési funkciókat magukba záró osztályok lelőhelye.\\
+\hline
+\multicolumn{1}{c|}{\textbf{BIMG}}  & A BIMG rendszer fő névtere, itt található minden amit az IMP felett van architektúrálisan: Plugin és Input kezelés, ProcessChain, NodePalette stb. \\
+\hline
+
+\end{tabular}
+\caption{A BIMG rendszerben található névterek és szerveződésüknek legfontosabb logikája }
+\label{table:bimg_namespace}
+\end{table}
+
+
+\begin{table}[h]
+%\begin{tabular}{@{}rl@{}}
+\begin{tabular}{p{1cm}|p{12cm}}
+
+\toprule
+\multicolumn{1}{c|}{\textbf{Név}} & \multicolumn{1}{|c}{\textbf{Funkció}} \\ \midrule
+\multicolumn{1}{c|}{\textbf{bimg\_imp}}  & Gyakorlatilag a teljes Node-Slot-Paramter rendszer és a minden szükséges architekturális és GUI elem alapját képező osztály megtalálható itt, ami ahhoz szükséges egy saját plugin fejlesztéséhez. (statikus linkelésű)\\
+\hline
+\multicolumn{1}{c|}{\textbf{guiview}}  &  Alapvető grafikus megjelenítők lelőhelye a QGraphicsScene és a QGraphicsView felett található osztályok, amelyek önállóan is hasznosíthatóak bármely GUI-s alkalmazáshoz. (statikus linkelésű)\\
+\hline
+\multicolumn{1}{c|}{\textbf{settings\_lib}}  & QSettings felett működő minilib. (Jelenleg még inkább snippset.) (statikus linkelésű)\\
+\hline
+\multicolumn{1}{c|}{\textbf{plugin\_alpha}}  & A BIMG magját képező nodek, feldolgozó egységet és a Qt-OpenCV konverziós megfeleltetések lelőhelye. (dinamikus linkelésű plugin)\\
+\hline
+\multicolumn{1}{c|}{\textbf{qslog\_lib}}  & Egy nagy kompakt Qt-s loggerlib\cite{website:qslog_site} amelyet razvanpetru publikált bsd licence alatt. (statikus linkelésű)\\
+\hline
+
+\end{tabular}
+\caption{A BIMG rendszert felépítő libek listája }
+\label{table:bimg_namespace}
+\end{table}
+\subsubsection{Nehézségek}
+A projekt tervezése, implementálás során több nehézség is adódott. Az egyik jelentősebb a Node-Slot-Parameter rendszer kidolgozása körül volt a Slotok kapcsolatainak kezelése kapcsán. (Hogyan és mikor legyenek lebontva a kapcsolatok, hogy ne fordulhasson elő inkonzisztens állapot. A másik probléma a tárol adatok konverziójával volt, hogy milyen módon lehetséges egy tetszőleges új saját típusra konvertáló függvényt regisztrálni a metatype rendszerbe. Mind a kettő problémát sikeresen megoldottam és a dolgozat korábbi fejezeteiben mindegyiket bemutattam.
+
+A pluginrendszer sok gondolkodást és tervezést okozott, hogy hogyan lehet elegánsra és biztonságora megtervezni, hogy egy hibásan megírt node, vagy plugin ne okozzon túl nagy problémát. Erre csak részleges megoldás született: a rendszer minden kivételt elkap és megpróbálja feldolgozni (egy hibaüzenettel megállítja a feldolgozást és közli, hogy honnan érkezett a hiba). Azonban ez csak az hibaesetek egy részére hozott megoldást pl.: ha a nodeban szegmentálási hibatörténik akkor azt ilyen módon nem lehetséges jól kezelni. A megoldásra terveket már készítettem, azonban a jelenlegi architektúra jelentős szintű utólagos megváltoztatását igényelte volna. Amire jelenelg sajnos nem volt lehetőségem. A terv lényege annyi, hogy a egy PluginContainer szolgáltatást hozunk létre a háttérben, amelyre a BIMG valamilyen módon felcsatlakozik, megadja a végre hajtani kívánt Node metatype-idjét és a bemeneti és kimeneti slotok adattípusát és jelenlegi állapotát, a service elvégzi a számításokat, majd visszatér az eredményekkel. A service mindig tárolja a legutolsó kérést ezért ha pl szegmentálási hibakeletkezik akkor képes az adott node tiltására. Amennyiben a pluginContainer adott időszakon belül nem küld választ a BIMG részére akkor a BIMG megállíthatja és újraindíthatja azt.
+
+\subsubsection{Tesztek}
+A fejlesztés során a különböző rendszerek, alrendszerek, modulok, osztályok és függvények folyamatosan tesztelve voltak. Ezek a tesztek jó része kézzel történt. Készült pár félautomata teszt eset is (ezek elsősorban a Node-Slot-Parameter rendszerhez készültek.
+
+Alább látható egy teszteset kimenetele:
+\begin{lstlisting}
+Starting /home/szendvics/szakdoli/src/bimg5/bimg/build-bimg_imp-Desktop_Qt_5_2_1_GCC_32bit_595617-Debug/bimg_imp...
+############################################
+#Base Node system test
+############################################
+DefaultData       1
+DefaultIndicator  0
+NewValue          11
+TargetResult      22
+############################################
+"#Init:                " PASSED!
+"#Connectors:          " PASSED!
+"#Setter&Conv:         " PASSED!
+"#Getter&Conv:         " PASSED!
+"#EXEC-DATA:           " PASSED!
+"#EXEC-CONTROL:        " PASSED!
+"#EXEC-VIEW:           " PASSED!
+"#ISREADY FULL RESULT: " PASSED!
+"#After Exec DataCheck:" PASSED!
+GENERAL STATE          : true   9 / 9
+############################################
+\end{lstlisting}
+Ebben a tesztesetben a korai fejlesztésú Node-Slot-Parameter rendszert teszteltem. Konkrétan két slot közötti információáramlás helyességét azonos és különböző (de konvertálható adattípusok esetén). Egy teszt több kisebb tesztesetből áll. Először a teszt fejléce kerül megjelenítésre: a teszt neve és használt bemeneti paraméterek és a várt kimeneneti paraméterek. Utána következnek a tesztesetek eredményei, majd egy összegzés, hogy hányból hány teszt sikerült. 
+
+\subsection{Az elkészült munka értékelése}
+
+
+
+\subsection{További fejlesztési lehetőségek}
+A következő pár pontban röviden bemutatom, hogy az adott modulok milyen további fejlesztési lehetőségeket foglalnak magukban.
+\subsubsection{Plugin rendszer}
+Egy bizonyos plugin szám felett elkerülhetet lesz a pluginek teljeskörű managelése. Ide értem, az aláírással és egyedi azonosítóval történő azonosításukat. Ennek legegyszerűbb oka az, hogy jól karban tartott pluginrendszernél is előfordulhatnak hibák, ilyenkor az adott plugint frissíteni kell. Erre célszerű egy automatikus frissítési modult elkészíteni. További ötletként felmerült egy központi plugin repository lehetősége is a jövőben, ahol a felhasználó szabadon összeválogathatja a számára szükséges plugineket.
+\subsubsection{GUI}
+A NodeWidgetek kompaktabbá tétele sokat segíthetne, a nagyobb feldolgozási láncok megalkotása során. (több nodet lehet látni egyszerűbb a komplexebb ProcessChainek kialakítása)
+\subsubsection{Optimalizálási lehetőségek}
+A ProcessChain feldolgozás párhuzamosítása. A FileInput kezelő bélyegképes előnézeti funkciójának többszálúsítása.
+
+\subsection{Használati útmutató}
+
+\subsection{Fejlesztői útmutató}
+
+\subsection{Telepítési útmutató}
+
 .
 %\renewcommand{\bibname}{Irodalomjegyzék}
 %\bibliographystyle{pemik}
@@ -802,6 +1154,17 @@ Látható, hogy mennyire előnyös ez az állapotgépes feldolgozás, hiszen nem
 		http://qt-project.org/doc/qt-5/qvariant.html\#canConvert
         {\em Qt - QVariant konverziók}  
 
+	\bibitem{website:qt_plugin}
+		http://qt-project.org/doc/qt-5/plugins-howto.html
+        {\em Qt - Plugins}  
+
+	\bibitem{website:uuid_site}
+		http://www.ietf.org/rfc/rfc4122.txt
+        {\em Standards Track  - A UUID URN Namespace (RFC 4122) }  
+        
+	\bibitem{website:qslog_site}
+		https://bitbucket.org/razvanpetru/qt-components/overview
+        {\em QsLogger Lib }  
 
 \end{thebibliography}
 

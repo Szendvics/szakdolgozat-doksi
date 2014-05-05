@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yFiles for Java 2.11-->
+  <key for="graphml" id="d0" yfiles.type="resources"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key attr.name="Description" attr.type="string" for="graph" id="d7"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d8"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d9"/>
+  <key for="edge" id="d10" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d7"/>
+    <node id="n0">
+      <data key="d4"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="382.52479999999997" width="490.8144000000001" x="624.7920000000086" y="306.5440000000053"/>
+          <y:Fill color="#F0F0F0" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="228.06591796875" x="131.37424101562505" y="3.0">NodeManager : public QObject<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel>-nodeMetaTypeIds:QLinkedList&lt;int&gt;
+-editorWidgetMetaTypeIds:QMap&lt;int,int&gt;</y:AttributeLabel>
+            <y:MethodLabel>+QLinkedList&lt;int&gt; getNodeMetaTypeIds()const
++QMap&lt;int,int&gt; getEditorWidgetMetaTypeIds()const
+
++BaseNode* getNewInstacne(const int id)
++SlotWidgetBasePart* getWidgetBySlot(BaseSlot* in, QGraphicsScene *scene)
+
++static bool isDataNode(BaseNode* in)
++static bool isProcessNode(BaseNode* in)
++static bool isIndicatorNode(BaseNode* in)
+
++static bool isImgDataNode(BaseNode* in)
++static bool isImgIndicatorNode(BaseNode* in)
+
++static bool isInputSlot(BaseSlot* in)
++static bool isOutputSlot(BaseSlot* in)
+
++static QString getNameFromPointer(void*in)
+
++&lt;&lt;signal&gt;&gt;void announceNewNodeID (int id)
++&lt;&lt;signal&gt;&gt;void announceDeletedNodeID (int id)
++&lt;&lt;slot&gt;&gt;void handlePluginLoaded(QPluginLoader* loader)
++&lt;&lt;slot&gt;&gt;void handlePluginUnloaded(QPluginLoader* loader)</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+  </graph>
+  <data key="d0">
+    <y:Resources/>
+  </data>
+</graphml>
